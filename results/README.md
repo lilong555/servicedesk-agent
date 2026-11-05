@@ -34,6 +34,8 @@
 
 原始记录保留运行时的目录引用，用于关联 Checkpoint、轨迹和源码指纹。公开副本位于 `results/runs/`；顶层汇总的输入路径相对于仓库根目录，`episodes_sha256` 可用于校验对应原始文件。
 
+留出 `freeze.json` 及其运行目录副本中的归档哈希对应 [冻结源码归档](runs/holdout-freeze-luna-20261105/source.tar.gz)。运行目录的 `source.tar.gz` 对应同目录 `config.json` 的 provenance。两个归档的实现文件指纹相同，归档元数据与随附 README 按各自捕获时点保留。
+
 每个配对开发批次的 A/B 使用相同源码快照指纹；各独立批次保留各自的指纹与配置。公开发布的文档与运行时快照分别保留，轨迹中的政策、Grader 结果、失败记录和模型用量保持原值。单价字段为空，费用使用 `null`。
 
 CRM 衍生任务内容与轨迹遵循 [第三方声明](../THIRD_PARTY_NOTICES.md) 中的来源和许可。
