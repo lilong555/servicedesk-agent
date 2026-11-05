@@ -1,0 +1,50 @@
+{
+  "initial_model_mode": "scripted",
+  "resume_model_mode": "scripted",
+  "ticket_url": "http://127.0.0.1:3080/issues/12",
+  "output": "/home/li/code/servicedesk-agent/artifacts/cancellation-revocation-20261105",
+  "checks": {
+    "separate_processes": true,
+    "same_native_checkpoint": true,
+    "initial_pending_tools": true,
+    "initial_scripted": true,
+    "zero_initial_mutations": true,
+    "zero_resume_mutations": true,
+    "complete_ticket_unchanged": true,
+    "old_call_superseded": true,
+    "latest_user_in_first_request": true,
+    "read_ticket_and_handoff": true,
+    "constraints_preserved": true,
+    "pending_preserved": true,
+    "receipts_preserved": true,
+    "resume_completed": true,
+    "live_usage_retained": true,
+    "source_matches": true
+  },
+  "passed": true,
+  "error_type": null,
+  "phase_usage": {
+    "initial": {
+      "role": "agent",
+      "calls": 1,
+      "failed_calls": 0,
+      "unknown_usage_calls": 1,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cost_usd": null
+    },
+    "resume": {
+      "role": "agent",
+      "calls": 4,
+      "failed_calls": 0,
+      "unknown_usage_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cost_usd": null
+    }
+  },
+  "external_model_requests": 0,
+  "resume_trace": "/home/li/code/servicedesk-agent/artifacts/cancellation-revocation-20261105/state/sessions/0e3bec868861f9154e5a31322cdffb27d40b86fd9de040c295f85209014c9bbe/trace-152a8b0e816844b8817c5b28804b327b.json"
+}

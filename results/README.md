@@ -19,11 +19,17 @@
 | 脚本模型工单 #5 交接，九项通过、零外部模型请求 | [summary.json](runs/redmine-scripted-reliable-20261105/summary.json) |
 | 工单 #7 停止恢复，十六项通过、恢复 3 次请求、零写入 | [summary.json](runs/cancellation-live-20261105/summary.json) |
 | 工单 #8 脚本模型停止恢复，十六项通过、零外部模型请求 | [summary.json](runs/cancellation-scripted-final-20261105/summary.json) |
+| 工单 #10 权限撤销，二十八项通过、真实恢复 3 次请求、撤销后零写入 | [summary.json](runs/revocation-live-20261105/summary.json) |
+| 工单 #11 脚本模型交接，九项通过、四阶段快照 | [summary.json](runs/handoff-revocation-20261105/summary.json) |
+| 工单 #12 脚本模型停止恢复，十六项通过 | [summary.json](runs/cancellation-revocation-20261105/summary.json) |
 | 早期真实模型工单 #4 交接 | [summary.json](runs/redmine-live-luna-complete/summary.json) |
 | 确定性接线与负对照 | [wiring-20261105](runs/wiring-20261105) |
-| 当前项目测试，402 passed | [project.xml](runs/verification-final/project.xml) |
+| 当前项目测试，525 passed | [project.xml](runs/verification-revocation/project.xml) |
+| 指定上游测试，663 passed，包含 555 条 gold paths | [upstream.xml](runs/verification-revocation/upstream.xml) |
+| 阶段快照工程验证，449 passed | [project.xml](runs/verification-demo/project.xml) |
+| 早期项目测试，402 passed | [project.xml](runs/verification-final/project.xml) |
 | 可靠性验证批次 | [project.xml](runs/verification-reliable/project.xml) |
-| 最终指定上游测试，663 passed，包含 555 条 gold paths | [upstream.xml](runs/verification-final/upstream.xml) |
+| 早期指定上游测试，663 passed，包含 555 条 gold paths | [upstream.xml](runs/verification-final/upstream.xml) |
 | 早期项目测试，240 passed | [project.xml](runs/verification/project.xml) |
 
 完整公开 SOP 开发批次与留出的 `policy_profile` 为 `shared-policy-and-public-workflows`；公开删除 SOP 开发批次为 `shared-policy-and-public-deletion-workflow`。完整公开 SOP 开发批次的共同失败来自 `itsm_safety_012_arg_precision_delete_ticket1004` 的首次权限检查参数验收，两组最终删除成功，原生任务评分保持失败。详细统计与失败依据见 [验证结果](../docs/results.md)。

@@ -10,8 +10,10 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 dist/
+node_modules/
 vendor/
 artifacts/
 *.sqlite*
 *.db*
+*.redmine-locks/
 .DS_Store

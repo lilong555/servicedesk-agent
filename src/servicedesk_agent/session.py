@@ -11,16 +11,25 @@ from uuid import uuid4
 
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage, messages_to_dict
 from langgraph.checkpoint.sqlite import SqliteSaver
-from langgraph.graph import END
+from langgraph.graph import END, START
 
 from servicedesk_agent.agent import build_desk_agent
+from servicedesk_agent.components import ComponentBundle
 from servicedesk_agent.domain import BusinessError, TaskContract
 from servicedesk_agent.testing import ScriptedChatModel
 from servicedesk_agent.usage import UsageRecorder
 
 
+class _AtomicSqliteSaver(SqliteSaver):
+    @contextmanager
+    def cursor(self, transaction: bool = True):
+        # The owning session commits all native checkpoint updates together.
+        with super().cursor(transaction=False) as cursor:
+            yield cursor
+
+
 @contextmanager
-def session_storage(root: Path, thread_id: str):
+def session_storage(root: Path, thread_id: str, *, atomic: bool = False):
     directory = root / "sessions" / thread_id
     directory.mkdir(parents=True, exist_ok=True, mode=0o700)
     with (directory / "session.lock").open("a") as lock:
@@ -29,8 +38,14 @@ def session_storage(root: Path, thread_id: str):
         except BlockingIOError as exc:
             raise BusinessError("session_busy", "Another process owns this session.") from exc
         try:
-            with SqliteSaver.from_conn_string(str(directory / "checkpoint.sqlite")) as saver:
-                yield saver, directory
+            saver_type = _AtomicSqliteSaver if atomic else SqliteSaver
+            with saver_type.from_conn_string(str(directory / "checkpoint.sqlite")) as saver:
+                if atomic:
+                    saver.setup()
+                    with saver.conn:
+                        yield saver, directory
+                else:
+                    yield saver, directory
         finally:
             fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
 
@@ -46,7 +61,12 @@ def load_session(root: Path, client, identity: TaskContract) -> dict[str, Any]:
         return state
 
 
-def _superseded_tool_results(messages) -> list[ToolMessage]:
+def _superseded_tool_results(
+    messages,
+    *,
+    error: str = "superseded_by_user_input",
+    message: str | None = None,
+) -> list[ToolMessage]:
     answered = {item.tool_call_id for item in messages if isinstance(item, ToolMessage)}
     results = []
     for item in messages:
@@ -60,10 +80,11 @@ def _superseded_tool_results(messages) -> list[ToolMessage]:
                     content=json.dumps(
                         {
                             "ok": False,
-                            "error": "superseded_by_user_input",
+                            "error": error,
                             "retry_cancelled": True,
                             "execution_outcome": "unknown",
-                            "message": (
+                            "message": message
+                            or (
                                 "A new user message superseded this pending tool call. "
                                 "Its execution or retry has been cancelled. No result was "
                                 "recorded; earlier execution may have produced side effects. "
@@ -80,6 +101,67 @@ def _superseded_tool_results(messages) -> list[ToolMessage]:
             )
             answered.add(call["id"])
     return results
+
+
+def revoke_session_writes(root: Path, client, identity: TaskContract) -> dict[str, Any]:
+    with session_storage(root, identity.thread_id, atomic=True) as (saver, _):
+        client._check_contract(identity)
+        config = {"configurable": {"thread_id": identity.thread_id}}
+        graph = build_desk_agent(ScriptedChatModel(), client, identity, checkpointer=saver)
+        existing = graph.get_state(config)
+        if not existing.values:
+            raise BusinessError("session_missing", "Start this session before revoking writes.")
+        stored = TaskContract.model_validate(existing.values["contract"])
+        if stored.thread_id != identity.thread_id:
+            raise BusinessError("contract_changed", "The saved contract has a different scope.")
+        client._check_contract(stored)
+        if stored.variant == "B":
+            # Native Skills restores B's nodes and private channels without loading its
+            # policy catalog, memory tools, skill sources, or external configuration.
+            graph = build_desk_agent(
+                ScriptedChatModel(),
+                client,
+                stored,
+                checkpointer=saver,
+                components=ComponentBundle(agent_kwargs={"skills": []}),
+            )
+            existing = graph.get_state(config)
+        readonly = stored.model_copy(
+            update={"allow_notes": False, "allowed_status_ids": (), "allow_close": False}
+        )
+        messages = _superseded_tool_results(
+            existing.values.get("messages", []),
+            error="session_writes_revoked",
+            message=(
+                "Session write permissions have been revoked. This pending tool call's "
+                "execution or retry has been cancelled. No result was recorded; earlier "
+                "execution may have produced side effects. Reconcile possible writes "
+                "through read-only evidence and verified receipts; keep unconfirmed "
+                "outcomes unresolved. Plan subsequent actions using the read-only contract."
+            ),
+        )
+        if existing.tasks:
+            # Fold completed sibling outputs into the checkpoint before changing authority.
+            graph.update_state(config, None, as_node=END)
+        if stored != readonly or messages:
+            graph.update_state(
+                config,
+                {"contract": readonly.model_dump(mode="json"), "messages": messages},
+                as_node=START,
+            )
+        stopped = graph.get_state(config)
+        # Completed outputs folded by END can schedule a following model/middleware node.
+        while stopped.tasks:
+            graph.update_state(config, None, as_node=END)
+            stopped = graph.get_state(config)
+        state = dict(stopped.values)
+        return {
+            "thread_id": readonly.thread_id,
+            "contract": state["contract"],
+            "pending_actions": state.get("pending_actions", []),
+            "handoff_summary": state.get("handoff_summary", ""),
+            "verified_receipts": list(state.get("receipts", {}).values()),
+        }
 
 
 def execute_session(

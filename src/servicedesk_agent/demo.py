@@ -4,9 +4,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import subprocess
 import sys
+import tempfile
+import time
 from contextlib import ExitStack
 from importlib.resources import files
 from pathlib import Path
@@ -16,17 +19,40 @@ import httpx
 
 from servicedesk_agent.components import build_components
 from servicedesk_agent.config import ModelSettings, RedmineSettings
-from servicedesk_agent.domain import TaskContract, utc_now
+from servicedesk_agent.domain import TaskContract, Ticket, utc_now
 from servicedesk_agent.knowledge import PolicyCatalog
 from servicedesk_agent.operations import redmine_store
+from servicedesk_agent.provenance import capture_source
 from servicedesk_agent.redmine import RedmineClient
 from servicedesk_agent.session import execute_session, load_session
 from servicedesk_agent.testing import ScriptedChatModel, tool_call
 
 
 def _json(path: Path, value) -> None:
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    path.chmod(0o600)
+    descriptor, temporary = tempfile.mkstemp(
+        dir=path.parent, prefix=f".{path.name}.", suffix=".tmp"
+    )
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8") as stream:
+            os.fchmod(stream.fileno(), 0o600)
+            json.dump(value, stream, ensure_ascii=False, indent=2)
+            stream.write("\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    finally:
+        Path(temporary).unlink(missing_ok=True)
+
+
+def validate_stage_delay(value: float) -> float:
+    if (
+        isinstance(value, bool)
+        or not isinstance(value, (int, float))
+        or not 0 <= value <= 30
+        or not math.isfinite(value)
+    ):
+        raise ValueError("stage_delay must be a finite number from 0 to 30 seconds.")
+    return float(value)
 
 
 def _note_from_observed_evidence(messages):
@@ -169,24 +195,67 @@ def _policy_observed(trace_path: str, source_uri: str, *, exclude_calls: set[str
     return False
 
 
-def run_demo(access_path: Path, output: Path, *, live: bool = False) -> dict:
-    if live:
-        ModelSettings.from_env().require_live()
+def run_demo(
+    access_path: Path, output: Path, *, live: bool = False, stage_delay: float = 0
+) -> dict:
+    stage_delay = validate_stage_delay(stage_delay)
+    model_settings = ModelSettings.from_env() if live else None
+    if model_settings is not None:
+        model_settings.require_live()
     access_path = access_path.resolve()
     access = json.loads(access_path.read_text())
+    settings = RedmineSettings(
+        url="http://127.0.0.1:3080",
+        api_key=access["agent_api_key"],
+        project_id=access["project_id"],
+    )
     output = output.resolve()
     output.mkdir(parents=True, exist_ok=False, mode=0o700)
     state = output / "state"
     state.mkdir(mode=0o700)
+    (output / "stages").mkdir(mode=0o700)
+    stages = {
+        name: str(output / "stages" / f"{name}.json")
+        for name in (
+            "01-created",
+            "02-initial-completed",
+            "03-external-changes",
+            "04-resume-completed",
+        )
+    }
+    _json(
+        output / "run.json",
+        {
+            "schema_version": 1,
+            "started_at": utc_now().isoformat(),
+            "live": live,
+            "model_mode": "live" if live else "scripted",
+            "model": model_settings.model_dump(mode="json", exclude={"api_key"})
+            if model_settings is not None
+            else "scripted-fixture",
+            "provenance": capture_source(output),
+            "demo": {
+                "stage_delay": stage_delay,
+                "service_url": settings.url,
+                "project_id": settings.project_id,
+                "first_owner_id": access["first_owner_id"],
+                "second_owner_id": access["second_owner_id"],
+            },
+            "stages": stages,
+        },
+    )
     versions = json.loads(files("servicedesk_agent").joinpath("assets/policies.json").read_text())
     versions[0]["valid_to"] = None
     _json(state / "policies.json", versions[:1])
-    with httpx.Client(
-        base_url="http://127.0.0.1:3080/",
-        headers={"X-Redmine-API-Key": access["admin_api_key"]},
-        timeout=15,
-        trust_env=False,
-    ) as admin:
+    with (
+        httpx.Client(
+            base_url="http://127.0.0.1:3080/",
+            headers={"X-Redmine-API-Key": access["admin_api_key"]},
+            timeout=15,
+            trust_env=False,
+        ) as admin,
+        RedmineClient(settings) as observer,
+    ):
         project_response = admin.get(f"projects/{access['project_id']}.json")
         project_response.raise_for_status()
         if project_response.json()["project"]["identifier"] != "servicedesk-demo":
@@ -204,6 +273,24 @@ def run_demo(access_path: Path, output: Path, *, live: bool = False) -> dict:
         )
         created.raise_for_status()
         ticket_id = created.json()["issue"]["id"]
+
+        def snapshot(
+            name: str, policy_version: int, *, expected_owner: int | None = None
+        ) -> Ticket:
+            ticket = observer.get_ticket(ticket_id)
+            _json(
+                Path(stages[name]),
+                {
+                    "schema_version": 1,
+                    "stage": name,
+                    "observed_at": ticket.evidence.observed_at.isoformat(),
+                    "ticket": ticket.model_dump(mode="json"),
+                    "policy_version": policy_version,
+                },
+            )
+            if expected_owner is not None and ticket.assigned_to_id != expected_owner:
+                raise AssertionError(f"The {name} ticket owner differs; inspect {stages[name]}.")
+            return ticket
 
         def phase(name):
             command = [
@@ -239,7 +326,13 @@ def run_demo(access_path: Path, output: Path, *, live: bool = False) -> dict:
             _json(output / f"{name}.json", data)
             return data
 
+        snapshot("01-created", 1, expected_owner=access["first_owner_id"])
+        if stage_delay:
+            time.sleep(stage_delay)
         initial = phase("initial")
+        snapshot("02-initial-completed", 1, expected_owner=access["first_owner_id"])
+        if stage_delay:
+            time.sleep(stage_delay)
         updated = admin.put(
             f"issues/{ticket_id}.json",
             json={
@@ -254,15 +347,12 @@ def run_demo(access_path: Path, output: Path, *, live: bool = False) -> dict:
         versions[0]["valid_to"] = publication_time
         versions[1]["valid_from"] = publication_time
         _json(state / "policies.json", versions)
+        snapshot("03-external-changes", 2, expected_owner=access["second_owner_id"])
+        if stage_delay:
+            time.sleep(stage_delay)
         resumed = phase("resume")
+        final_ticket = snapshot("04-resume-completed", 2)
 
-    settings = RedmineSettings(
-        url="http://127.0.0.1:3080",
-        api_key=access["agent_api_key"],
-        project_id=access["project_id"],
-    )
-    with RedmineClient(settings) as client:
-        final_ticket = client.get_ticket(ticket_id)
     original_ids = {item["operation_id"] for item in initial["verified_receipts"]}
     new_receipts = [
         item for item in resumed["verified_receipts"] if item["operation_id"] not in original_ids
@@ -301,7 +391,7 @@ def run_demo(access_path: Path, output: Path, *, live: bool = False) -> dict:
     }
     summary = {
         "kind": "live_model_and_real_redmine" if live else "scripted_framework_and_real_redmine",
-        "model": ModelSettings.from_env().name if live else "scripted-fixture",
+        "model": model_settings.name if model_settings is not None else "scripted-fixture",
         "external_model_requests": (
             initial["usage"]["calls"] + resumed["usage"]["calls"] if live else 0
         ),
@@ -314,6 +404,7 @@ def run_demo(access_path: Path, output: Path, *, live: bool = False) -> dict:
         "initial_trace": initial["trace_path"],
         "resumed_trace": resumed["trace_path"],
         "results_path": str(output),
+        "stages": stages,
     }
     _json(output / "summary.json", summary)
     if not summary["passed"]:

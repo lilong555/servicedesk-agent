@@ -1,0 +1,51 @@
+{
+  "kind": "scripted_framework_and_real_redmine",
+  "model": "scripted-fixture",
+  "external_model_requests": 0,
+  "phase_usage": {
+    "initial": {
+      "role": "agent",
+      "calls": 5,
+      "failed_calls": 0,
+      "unknown_usage_calls": 5,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cost_usd": null
+    },
+    "resume": {
+      "role": "agent",
+      "calls": 6,
+      "failed_calls": 0,
+      "unknown_usage_calls": 6,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cost_usd": null
+    }
+  },
+  "ticket_url": "http://localhost:3080/issues/11",
+  "current_owner": "Engineer Two",
+  "current_status": "New",
+  "checks": {
+    "separate_process_resume": true,
+    "same_native_checkpoint": true,
+    "current_owner_preserved": true,
+    "ticket_kept_open": true,
+    "keep_open_constraint_preserved": true,
+    "pending_action_preserved": true,
+    "two_verified_actions": true,
+    "current_policy_read_on_resume": true,
+    "current_policy_and_owner_in_new_note": true
+  },
+  "passed": true,
+  "initial_trace": "/home/li/code/servicedesk-agent/artifacts/handoff-revocation-20261105/state/sessions/9387794abfcc8e1696ffbb5a8895f0ab9cc93e9e19f97e1ee1a1b4c30d8ba24e/trace-9b2ea13871d94e4fbf301ad7075b4f23.json",
+  "resumed_trace": "/home/li/code/servicedesk-agent/artifacts/handoff-revocation-20261105/state/sessions/9387794abfcc8e1696ffbb5a8895f0ab9cc93e9e19f97e1ee1a1b4c30d8ba24e/trace-efd055b85e054aa0a06989877c7dac70.json",
+  "results_path": "/home/li/code/servicedesk-agent/artifacts/handoff-revocation-20261105",
+  "stages": {
+    "01-created": "/home/li/code/servicedesk-agent/artifacts/handoff-revocation-20261105/stages/01-created.json",
+    "02-initial-completed": "/home/li/code/servicedesk-agent/artifacts/handoff-revocation-20261105/stages/02-initial-completed.json",
+    "03-external-changes": "/home/li/code/servicedesk-agent/artifacts/handoff-revocation-20261105/stages/03-external-changes.json",
+    "04-resume-completed": "/home/li/code/servicedesk-agent/artifacts/handoff-revocation-20261105/stages/04-resume-completed.json"
+  }
+}

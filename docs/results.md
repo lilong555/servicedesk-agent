@@ -2,7 +2,7 @@
 
 验证日期：2026-11-05。模型：Azure CPA `gpt-6-luna`。
 
-**当前默认方案为 A。** 共同政策九题开发集 A/B 各 8/9，冻结十二题留出集 A/B 各 11/12；真实 Redmine 交接与停止恢复均通过验收。留出成功率持平时，A 的 Agent 调用和逻辑输入较少，组件配置较轻。B 保留为版本化政策与交接任务的可选配置，C 保持关闭。
+**当前默认方案为 A。** 共同政策九题开发集 A/B 各 8/9，冻结十二题留出集 A/B 各 11/12；真实 Redmine 交接、停止恢复与权限撤销均通过验收。留出成功率持平时，A 的 Agent 调用和逻辑输入较少，组件配置较轻。B 保留为版本化政策与交接任务的可选配置，C 保持关闭。
 
 ## 当前开发批次
 
@@ -103,6 +103,18 @@ e17889d1192a6ae170314ab9e3de51216471b6159ba47bce541355a074df20e5
 
 最终脚本模型复核在真实 Redmine 工单 #8 上十六项通过，外部模型请求与两个 Agent 阶段的写入尝试均为零，见 [summary.json](../results/runs/cancellation-scripted-final-20261105/summary.json)。
 
+## 权限撤销验收
+
+工单 **#10** 完成四个独立进程的验收，**28 项检查全部通过**。准备进程通过脚本模型添加一条真实备注，保存回执、约束与待办，触发原生压缩后留下两个排队写调用。随后三个进程依次撤销写权限、主动探测被撤销的备注与状态写入、使用真实模型只读恢复。
+
+撤销阶段模型请求为零，合同中的备注、状态、关闭权限原子清空；重复撤销保持同一 Checkpoint。两个排队调用均有取消结果，旧授权合同恢复被拒绝。探测阶段的两类工具调用均返回 `write_not_authorized`，撤销、探测和真实恢复阶段的 HTTP 写入尝试均为零。
+
+验收前后的完整工单一致，已确认回执、用户约束、待办、原生压缩文件和摘要状态保持完整。真实模型恢复使用 **3 次请求**，逻辑输入 **15,007 tokens**、缓存输入 **8,960 tokens**、输出 **176 tokens**；费用为 `null`。测试用例的准备、压缩与对抗探测采用脚本模型。
+
+证据：[summary.json](../results/runs/revocation-live-20261105/summary.json)、[撤销记录](../results/runs/revocation-live-20261105/revoke.json)、[工具拒绝轨迹](../results/runs/revocation-live-20261105/probe.json)、[真实恢复](../results/runs/revocation-live-20261105/live.json)、[源码指纹](../results/runs/revocation-live-20261105/source.json)、[工单前态](../results/runs/revocation-live-20261105/before.json)和[后态](../results/runs/revocation-live-20261105/after.json)。
+
+同一实现的真实 Redmine 脚本模型复核：工单 #11 交接九项通过，保存四个阶段快照；#12 停止恢复十六项通过。两项均为零外部模型请求，见 [交接](../results/runs/handoff-revocation-20261105/summary.json)与[停止恢复](../results/runs/cancellation-revocation-20261105/summary.json)。工程回归覆盖已只读合同的完成结果合入、B 组原生 Skills 排队状态、模型配置无效时的零模型撤销及事务失败回滚。
+
 ## 写入恢复验证
 
 生产 CLI 与 demo 使用 LangGraph `SqliteStore` 在 HTTP 提交前持久化操作意图。`operation_uncertain` 保留待核对状态，并在同会话内约束旧调用、新 tool call id 和新 payload；回读确认后清除 pending。回执校验覆盖 marker、正文哈希、作者、编辑者、journal ID，以及 journal `details` 中的真实 `status_id` 变更。
@@ -119,17 +131,17 @@ Agent 的只读 `reconcile_ticket_operations` 调用 `reconcile_operations(contr
 | --- | --- |
 | 三题真实模型校准 | A 3/3，B 3/3 |
 | 脚本模型 A/B 接线 | A 3/3，B 3/3，错误状态负对照被拒绝 |
-| 项目自动化测试 | 402 passed，终端报告 50.72 秒 |
+| 项目自动化测试 | 525 passed，终端报告 69.04 秒 |
 | CRM 官方 gold paths | 555/555 |
 | 指定 CRM 官方测试 | 663 passed |
 | 固定环境依赖检查 | 122 个已安装包通过 |
-| Ruff 检查与格式验证 | 通过，46 个文件 |
+| Ruff 检查与格式验证 | 通过，50 个文件 |
 | MCP stdio 与 MultiServerMCPClient | 真实协议及本地 Redmine 读取通过 |
 | GitHub Actions | Ubuntu 干净安装、项目与上游测试、真实 Redmine 交接及停止恢复全部通过 |
 
 校准汇总：[calibration.json](../results/calibration.json)。校准题包含在九题开发集中，独立任务数为九。
 
-当前项目测试记录：[verification-final/project.xml](../results/runs/verification-final/project.xml)。XML 的测试套件计时为 50.599 秒。最终上游记录：[verification-final/upstream.xml](../results/runs/verification-final/upstream.xml)。早期 240 项项目测试 XML 独立保留于 [verification/project.xml](../results/runs/verification/project.xml)。
+当前项目测试记录：[verification-revocation/project.xml](../results/runs/verification-revocation/project.xml)，上游记录：[verification-revocation/upstream.xml](../results/runs/verification-revocation/upstream.xml)。早期 402 项与 240 项记录分别保留于 [verification-final/project.xml](../results/runs/verification-final/project.xml)和 [verification/project.xml](../results/runs/verification/project.xml)。
 
 公开持续集成记录：[Verification](https://github.com/lilong555/servicedesk-agent/actions/runs/42008231584)，对应实现提交 `9b4bf5830093c3fafbc7d149c1ea71730eb72e00`。
 

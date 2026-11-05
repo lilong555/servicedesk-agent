@@ -17,13 +17,19 @@ from servicedesk_agent.config import ModelSettings, RedmineSettings, state_dir
 from servicedesk_agent.domain import BusinessError, TaskContract
 from servicedesk_agent.operations import redmine_store
 from servicedesk_agent.redmine import RedmineClient
-from servicedesk_agent.session import execute_session, load_session
+from servicedesk_agent.session import execute_session, load_session, revoke_session_writes
 
 
 def _ticket_args(parser, *, session=False):
     parser.add_argument("--ticket", type=int, required=True)
     if session:
         parser.add_argument("--session", required=True)
+
+
+def _demo_stage_delay(value: str) -> float:
+    from servicedesk_agent.demo import validate_stage_delay
+
+    return validate_stage_delay(float(value))
 
 
 def parser() -> argparse.ArgumentParser:
@@ -53,6 +59,10 @@ def parser() -> argparse.ArgumentParser:
     )
     status = commands.add_parser("status", help="Read the saved handoff without a model call.")
     _ticket_args(status, session=True)
+    revoke = commands.add_parser(
+        "revoke", help="Persistently revoke all session write grants without a model call."
+    )
+    _ticket_args(revoke, session=True)
     remember = commands.add_parser(
         "remember", help="Store a preference explicitly confirmed by you."
     )
@@ -62,6 +72,12 @@ def parser() -> argparse.ArgumentParser:
     demo.add_argument("--access", type=Path, default=Path(".runtime/redmine-access.json"))
     demo.add_argument("--output", type=Path)
     demo.add_argument("--live", action="store_true")
+    demo.add_argument(
+        "--stage-delay",
+        type=_demo_stage_delay,
+        default=0.0,
+        help="Pause at observation boundaries (0 to 30 seconds; default: 0).",
+    )
     commands.add_parser("mcp-serve", help="Expose read-only Redmine tools over MCP stdio.")
     bench = commands.add_parser("bench", help="CRM development, freezing and holdout evaluation.")
     bench_commands = bench.add_subparsers(dest="bench_command", required=True)
@@ -165,7 +181,7 @@ def dispatch(args):
         from servicedesk_agent.demo import run_demo
 
         output = args.output or Path("artifacts") / f"redmine-demo-{uuid4().hex[:8]}"
-        return run_demo(args.access, output, live=args.live)
+        return run_demo(args.access, output, live=args.live, stage_delay=args.stage_delay)
     if args.command == "bench":
         if args.bench_command == "freeze":
             from servicedesk_agent.protocol import freeze_evaluation
@@ -207,9 +223,9 @@ def dispatch(args):
             max_calls=getattr(args, "max_calls", 300),
             max_turns=getattr(args, "max_turns", 15),
         )
-    model_settings = ModelSettings.from_env()
     redmine_settings = RedmineSettings.from_env()
     if args.command == "doctor":
+        model_settings = ModelSettings.from_env()
         model_ready = True
         try:
             model_settings.require_live()
@@ -248,6 +264,10 @@ def dispatch(args):
         if args.command == "ticket":
             return client.get_ticket(args.ticket).model_dump(mode="json")
         identity = _identity(client, args)
+        if args.command == "revoke":
+            result = revoke_session_writes(root, client, identity)
+            result["verified_receipts"] = _receipt_summary(result["verified_receipts"])
+            return result
         if args.command == "remember":
             from langgraph.store.sqlite import SqliteStore
 
@@ -280,6 +300,7 @@ def dispatch(args):
                 "handoff_summary": state.get("handoff_summary", ""),
                 "verified_receipts": _receipt_summary(list(state.get("receipts", {}).values())),
             }
+        model_settings = ModelSettings.from_env()
         model = model_settings.build()
         stack.callback(model.root_client.close)
         bundle = _bundle(stack, contract, root)

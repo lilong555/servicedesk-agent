@@ -188,6 +188,110 @@ def test_status_missing_session_is_a_business_error(cli_desk, monkeypatch, isola
     isolated_cli.assert_not_called()
 
 
+def test_revoke_uses_atomic_session_api_without_model_calls(
+    cli_desk, contract, tmp_path, monkeypatch, isolated_cli
+):
+    backend, client, _ = cli_desk
+    readonly = contract.model_copy(
+        update={"allow_notes": False, "allow_close": False, "allowed_status_ids": ()}
+    )
+    receipt = {
+        "operation_id": "verified-operation",
+        "action": "add_note",
+        "journal_id": 12,
+        "observed_at": "2026-11-05T00:00:00Z",
+        "after": {
+            "evidence": {
+                "source_uri": "https://desk.test/issues/42",
+                "source_version": "verified-version",
+                "content": {"description": "Private ticket text"},
+            }
+        },
+    }
+    revoke = Mock(
+        return_value={
+            "thread_id": readonly.thread_id,
+            "contract": readonly.model_dump(mode="json"),
+            "pending_actions": ["Collect logs"],
+            "handoff_summary": "Await logs.",
+            "verified_receipts": [receipt],
+        }
+    )
+    monkeypatch.setattr(cli, "revoke_session_writes", revoke)
+    load = Mock(side_effect=AssertionError("Revocation must own the complete session transaction"))
+    monkeypatch.setattr(cli, "load_session", load)
+    result = cli.dispatch(
+        cli.parser().parse_args(["revoke", "--ticket", "42", "--session", contract.session_id])
+    )
+    assert revoke.call_count == 1
+    assert revoke.call_args.args[:2] == (tmp_path / "state", client)
+    assert revoke.call_args.args[2].thread_id == contract.thread_id
+    assert result["contract"] == readonly.model_dump(mode="json")
+    assert result["pending_actions"] == ["Collect logs"]
+    assert result["handoff_summary"] == "Await logs."
+    assert result["verified_receipts"] == [
+        {
+            "operation_id": "verified-operation",
+            "action": "add_note",
+            "journal_id": 12,
+            "observed_at": "2026-11-05T00:00:00Z",
+            "source_uri": "https://desk.test/issues/42",
+            "source_version": "verified-version",
+        }
+    ]
+    assert "Private ticket text" not in json.dumps(result)
+    load.assert_not_called()
+    isolated_cli.assert_not_called()
+    assert backend.writes == []
+
+
+@pytest.mark.parametrize("code", ["session_busy", "session_missing", "contract_changed"])
+def test_revoke_reports_session_errors_without_model_calls(
+    cli_desk, monkeypatch, isolated_cli, capsys, code
+):
+    monkeypatch.setattr(
+        cli, "revoke_session_writes", Mock(side_effect=BusinessError(code, "Session rejected."))
+    )
+    monkeypatch.setattr(
+        sys, "argv", ["desk-agent", "revoke", "--ticket", "42", "--session", "test"]
+    )
+    with pytest.raises(SystemExit) as raised:
+        cli.main()
+    output = capsys.readouterr()
+    assert raised.value.code == 2
+    assert output.out == ""
+    assert json.loads(output.err) == {
+        "ok": False,
+        "error": code,
+        "message": "Session rejected.",
+    }
+    isolated_cli.assert_not_called()
+
+
+@pytest.mark.parametrize(
+    "setting",
+    ["DESK_MODEL_MAX_TOKENS", "DESK_MODEL_TIMEOUT", "DESK_INPUT_USD_PER_MILLION"],
+)
+def test_revoke_persists_without_parsing_model_settings(
+    cli_desk, contract, tmp_path, monkeypatch, isolated_cli, setting
+):
+    _, client, _ = cli_desk
+    from servicedesk_agent.session import execute_session, load_session
+    from servicedesk_agent.testing import ScriptedChatModel
+
+    root = tmp_path / "state"
+    execute_session(root, client, contract, ScriptedChatModel(responses=["Saved."]), "Investigate.")
+    monkeypatch.setenv(setting, "invalid")
+    result = cli.dispatch(
+        cli.parser().parse_args(["revoke", "--ticket", "42", "--session", contract.session_id])
+    )
+    assert result["contract"]["allow_notes"] is False
+    assert result["contract"]["allow_close"] is False
+    assert result["contract"]["allowed_status_ids"] == []
+    assert load_session(root, client, contract)["contract"] == result["contract"]
+    isolated_cli.assert_not_called()
+
+
 @pytest.mark.parametrize("explicit_grants", [False, True])
 def test_start_requires_explicit_action_grants(cli_desk, monkeypatch, explicit_grants):
     backend, _, _ = cli_desk
@@ -251,7 +355,7 @@ def test_resume_uses_stored_authority_and_closes_model_on_failure(cli_desk, cont
     model.root_client.close.assert_called_once_with()
 
 
-@pytest.mark.parametrize("command", ["resume", "status"])
+@pytest.mark.parametrize("command", ["resume", "status", "revoke"])
 @pytest.mark.parametrize("grant", ["--allow-notes", "--allow-close", "--allow-status"])
 def test_existing_session_commands_reject_new_grant_flags(command, grant):
     with pytest.raises(SystemExit) as raised:
@@ -285,6 +389,54 @@ def test_main_redacts_credentials_from_invalid_service_url(monkeypatch, capsys):
     assert raised.value.code == 2
     assert "synthetic-url-password" not in output.out + output.err + str(raised.value)
     assert json.loads(output.err)["error"]
+
+
+@pytest.mark.parametrize("delay", [None, "0", "0.25", "30"])
+@pytest.mark.parametrize("live", [False, True])
+def test_demo_forwards_observation_settings(monkeypatch, isolated_cli, delay, live):
+    from servicedesk_agent import demo
+
+    run = Mock(return_value={"passed": True})
+    monkeypatch.setattr(demo, "run_demo", run)
+    arguments = ["demo", "--access", "access.json", "--output", "demo-output"]
+    if delay is not None:
+        arguments.extend(["--stage-delay", delay])
+    if live:
+        arguments.append("--live")
+    result = cli.dispatch(cli.parser().parse_args(arguments))
+    run.assert_called_once_with(
+        Path("access.json"),
+        Path("demo-output"),
+        live=live,
+        stage_delay=0.0 if delay is None else float(delay),
+    )
+    assert result is run.return_value
+    isolated_cli.assert_not_called()
+
+
+@pytest.mark.parametrize("delay", ["-1", "30.01", "nan", "inf", "-inf", "true", "false", "invalid"])
+def test_demo_rejects_invalid_delay_before_dispatch(monkeypatch, capsys, delay):
+    dispatch = Mock()
+    monkeypatch.setattr(cli, "dispatch", dispatch)
+    monkeypatch.setattr(sys, "argv", ["desk-agent", "demo", f"--stage-delay={delay}"])
+    with pytest.raises(SystemExit) as raised:
+        cli.main()
+    assert raised.value.code == 2
+    assert "--stage-delay" in capsys.readouterr().err
+    dispatch.assert_not_called()
+
+
+def test_demo_default_output_and_zero_delay(monkeypatch):
+    from servicedesk_agent import demo
+
+    run = Mock(return_value={"passed": True})
+    monkeypatch.setattr(demo, "run_demo", run)
+    cli.dispatch(cli.parser().parse_args(["demo"]))
+    args, kwargs = run.call_args
+    assert args[0] == Path(".runtime/redmine-access.json")
+    assert args[1].parent == Path("artifacts")
+    assert args[1].name.startswith("redmine-demo-")
+    assert kwargs == {"live": False, "stage_delay": 0.0}
 
 
 @pytest.fixture

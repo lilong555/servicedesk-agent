@@ -1,0 +1,75 @@
+{
+  "id": 10,
+  "project": {
+    "id": 1,
+    "name": "ServiceDesk Agent Demo"
+  },
+  "tracker": {
+    "id": 1,
+    "name": "Bug"
+  },
+  "status": {
+    "id": 1,
+    "name": "New",
+    "is_closed": false
+  },
+  "priority": {
+    "id": 2,
+    "name": "Normal"
+  },
+  "author": {
+    "id": 1,
+    "name": "Redmine Admin"
+  },
+  "subject": "Native revocation acceptance d5b8e803",
+  "description": "REVOCATION-RAW-EVIDENCE: preserve this dedicated ticket and its evidence.",
+  "start_date": "2026-11-05",
+  "due_date": null,
+  "done_ratio": 0,
+  "is_private": false,
+  "estimated_hours": null,
+  "total_estimated_hours": null,
+  "created_on": "2026-11-05T12:02:52Z",
+  "updated_on": "2026-11-05T12:02:52Z",
+  "closed_on": null,
+  "attachments": [],
+  "journals": [],
+  "watchers": [
+    {
+      "id": 1,
+      "name": "Redmine Admin"
+    }
+  ],
+  "allowed_statuses": [
+    {
+      "id": 1,
+      "name": "New",
+      "is_closed": false
+    },
+    {
+      "id": 2,
+      "name": "In Progress",
+      "is_closed": false
+    },
+    {
+      "id": 3,
+      "name": "Resolved",
+      "is_closed": false
+    },
+    {
+      "id": 4,
+      "name": "Feedback",
+      "is_closed": false
+    },
+    {
+      "id": 5,
+      "name": "Closed",
+      "is_closed": true
+    },
+    {
+      "id": 6,
+      "name": "Rejected",
+      "is_closed": true
+    }
+  ]
+}

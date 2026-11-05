@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "checks": {
+    "separate_processes": true,
+    "source_matches": true,
+    "phase_modes": true,
+    "no_worker_errors": true,
+    "nonempty_model_evidence": true,
+    "zero_model_revocation": true,
+    "one_verified_setup_write": true,
+    "zero_post_revocation_mutations": true,
+    "complete_ticket_unchanged": true,
+    "native_checkpoint_chain": true,
+    "initial_write_grants": true,
+    "queued_writes_present": true,
+    "old_calls_cancelled_and_paired": true,
+    "write_tools_denied": true,
+    "old_contract_rejected": true,
+    "provider_tool_pairing": true,
+    "idempotent_revocation": true,
+    "readonly_contract_and_constraints": true,
+    "pending_and_handoff_preserved": true,
+    "verified_receipts_preserved": true,
+    "observations_preserved_by_revocation": true,
+    "native_compaction_retained": true,
+    "read_ticket_and_handoff": true,
+    "latest_user_in_first_request": true,
+    "completed_without_queued_tasks": true,
+    "live_usage_retained": true,
+    "all_full_readbacks_unchanged": true,
+    "source_stable_at_finish": true
+  },
+  "output": "/home/li/code/servicedesk-agent/artifacts/revocation-live-20261105",
+  "external_model_requests": 3,
+  "error_type": null,
+  "ticket_url": "http://127.0.0.1:3080/issues/10",
+  "phase_usage": {
+    "initial": {
+      "role": "agent",
+      "calls": 6,
+      "failed_calls": 0,
+      "unknown_usage_calls": 6,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cost_usd": null
+    },
+    "revoke": {
+      "role": "agent",
+      "calls": 0,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cost_usd": null
+    },
+    "probe": {
+      "role": "agent",
+      "calls": 6,
+      "failed_calls": 0,
+      "unknown_usage_calls": 6,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cost_usd": null
+    },
+    "live": {
+      "role": "agent",
+      "calls": 3,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 15007,
+      "output_tokens": 176,
+      "cache_read_tokens": 8960,
+      "cost_usd": null
+    }
+  },
+  "traces": {
+    "probe": "/home/li/code/servicedesk-agent/artifacts/revocation-live-20261105/state/sessions/876a246c523a5bfb32d63c52bf4be23dc0949f09bb0055cb5a259daaf6363779/trace-cd8f5496c04c491e9e76da8edc3def7d.json",
+    "live": "/home/li/code/servicedesk-agent/artifacts/revocation-live-20261105/state/sessions/876a246c523a5bfb32d63c52bf4be23dc0949f09bb0055cb5a259daaf6363779/trace-abddd27d93a04b09b76a07f4e4164145.json"
+  }
+}
