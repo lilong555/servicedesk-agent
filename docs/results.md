@@ -137,13 +137,13 @@ Agent 的只读 `reconcile_ticket_operations` 调用 `reconcile_operations(contr
 | 固定环境依赖检查 | 122 个已安装包通过 |
 | Ruff 检查与格式验证 | 通过，50 个文件 |
 | MCP stdio 与 MultiServerMCPClient | 真实协议及本地 Redmine 读取通过 |
-| GitHub Actions | Ubuntu 干净安装、项目与上游测试、真实 Redmine 交接及停止恢复全部通过 |
+| GitHub Actions | Ubuntu 干净安装、项目与上游测试、真实 Redmine 交接、停止恢复及权限撤销全部通过 |
 
 校准汇总：[calibration.json](../results/calibration.json)。校准题包含在九题开发集中，独立任务数为九。
 
 当前项目测试记录：[verification-revocation/project.xml](../results/runs/verification-revocation/project.xml)，上游记录：[verification-revocation/upstream.xml](../results/runs/verification-revocation/upstream.xml)。早期 402 项与 240 项记录分别保留于 [verification-final/project.xml](../results/runs/verification-final/project.xml)和 [verification/project.xml](../results/runs/verification/project.xml)。
 
-公开持续集成记录：[Verification](https://github.com/lilong555/servicedesk-agent/actions/runs/42008231584)，对应实现提交 `9b4bf5830093c3fafbc7d149c1ea71730eb72e00`。
+公开持续集成记录：[Verification](https://github.com/lilong555/servicedesk-agent/actions/runs/42026011323)，对应实现提交 `8a2ab44ea8c59dcf14ea8cfbb7124377d9483f13`。
 
 官方测试范围为 `test_benchmark_gold_paths.py`、`test_grading.py`、`test_itsm_safety_contracts.py`、`test_strict_modes.py`、`test_forbidden_actions.py`、`test_tool_failure_grading.py`、`test_stateful_tools.py`。
 
