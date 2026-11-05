@@ -1,0 +1,41 @@
+{
+  "model_mode": "scripted",
+  "external_model_requests": 0,
+  "planned_episodes": 6,
+  "groups": {
+    "A": {
+      "started": 3,
+      "scored": 3,
+      "successes": 3,
+      "failures": 0,
+      "infrastructure_errors": 0,
+      "success_per_started": 1.0,
+      "success_per_scored": 1.0,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null
+    },
+    "B": {
+      "started": 3,
+      "scored": 3,
+      "successes": 3,
+      "failures": 0,
+      "infrastructure_errors": 0,
+      "success_per_started": 1.0,
+      "success_per_scored": 1.0,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null
+    }
+  },
+  "negative_control_rejected": true,
+  "results_path": "/home/li/code/servicedesk-agent/artifacts/wiring-20261105",
+  "B_vs_A": {
+    "wins": 0,
+    "losses": 0,
+    "ties": 3,
+    "unscored_pairs": 0
+  }
+}

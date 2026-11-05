@@ -1,0 +1,22 @@
+{
+  "model_mode": "live",
+  "external_model_requests": 20,
+  "planned_episodes": 9,
+  "groups": {
+    "A": {
+      "started": 9,
+      "scored": 1,
+      "successes": 1,
+      "failures": 0,
+      "infrastructure_errors": 8,
+      "success_per_started": 0.1111111111111111,
+      "success_per_scored": 1.0,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null
+    }
+  },
+  "negative_control_rejected": null,
+  "results_path": "/home/li/code/servicedesk-agent/artifacts/development-luna-A"
+}

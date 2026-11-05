@@ -1,0 +1,133 @@
+{
+  "task_id": "itsm_hours_012_add_comment_with_preexisting_notes",
+  "success": null,
+  "error_type": "OpenAIAPIError",
+  "tool_events": [
+    {
+      "turn": 0,
+      "name": "get_ticket",
+      "arguments": {
+        "ticket_id": "TCK-1002"
+      },
+      "call_id": "call_9I8Vi4wdfNcatqDx6FAzmTpn",
+      "result": "{\"ticket_id\": \"TCK-1002\", \"subject\": \"New hire laptop provisioning\", \"status\": \"In Progress\", \"priority\": \"Medium\", \"assigned_to\": \"agent.jsmith\", \"dependencies\": [\"TCK-1004\"], \"comments\": [\"Waiting on asset tag from procurement.\", \"Vendor confirmed asset tag will ship Friday.\"], \"escalated\": false}",
+      "ok": true,
+      "received_result": true
+    },
+    {
+      "turn": 0,
+      "name": "add_ticket_comment",
+      "arguments": {
+        "ticket_id": "TCK-1002",
+        "comment": "Will follow up once the desk opens in the morning."
+      },
+      "call_id": "call_So9VSXTEP604QiWaqjpxPDls",
+      "result": "{\"ticket_id\": \"TCK-1002\", \"subject\": \"New hire laptop provisioning\", \"status\": \"In Progress\", \"priority\": \"Medium\", \"assigned_to\": \"agent.jsmith\", \"dependencies\": [\"TCK-1004\"], \"comments\": [\"Waiting on asset tag from procurement.\", \"Vendor confirmed asset tag will ship Friday.\", \"Will follow up once the desk opens in the morning.\"], \"escalated\": false}",
+      "ok": true,
+      "received_result": true
+    }
+  ],
+  "final_state": {
+    "tickets": {
+      "TCK-1001": {
+        "ticket_id": "TCK-1001",
+        "subject": "VPN client fails to connect from home network",
+        "status": "Open",
+        "priority": "High",
+        "assigned_to": "agent.jsmith",
+        "dependencies": [],
+        "comments": [],
+        "escalated": false
+      },
+      "TCK-1002": {
+        "ticket_id": "TCK-1002",
+        "subject": "New hire laptop provisioning",
+        "status": "In Progress",
+        "priority": "Medium",
+        "assigned_to": "agent.jsmith",
+        "dependencies": [
+          "TCK-1004"
+        ],
+        "comments": [
+          "Waiting on asset tag from procurement.",
+          "Vendor confirmed asset tag will ship Friday.",
+          "Will follow up once the desk opens in the morning."
+        ],
+        "escalated": false
+      },
+      "TCK-1003": {
+        "ticket_id": "TCK-1003",
+        "subject": "Shared printer on 3rd floor offline",
+        "status": "Closed",
+        "priority": "Low",
+        "assigned_to": "admin.rlee",
+        "dependencies": [],
+        "comments": [
+          "Replaced network cable, printer back online."
+        ],
+        "escalated": false
+      },
+      "TCK-1004": {
+        "ticket_id": "TCK-1004",
+        "subject": "Procurement request for new-hire hardware",
+        "status": "Open",
+        "priority": "Medium",
+        "assigned_to": "",
+        "dependencies": [],
+        "comments": [],
+        "escalated": false
+      }
+    },
+    "users": {
+      "admin.rlee": {
+        "user_id": "admin.rlee",
+        "role": "admin",
+        "permissions": [
+          "view",
+          "edit",
+          "assign",
+          "delete",
+          "escalate"
+        ]
+      },
+      "agent.jsmith": {
+        "user_id": "agent.jsmith",
+        "role": "agent",
+        "permissions": [
+          "view",
+          "edit",
+          "assign",
+          "escalate"
+        ]
+      }
+    },
+    "session": {
+      "can_delete": false,
+      "delete_authorizations": {},
+      "dependency_checks": {}
+    }
+  },
+  "group": "A",
+  "agent_usage": {
+    "role": "agent",
+    "calls": 3,
+    "failed_calls": 0,
+    "unknown_usage_calls": 0,
+    "input_tokens": 7978,
+    "output_tokens": 87,
+    "cache_read_tokens": 4736,
+    "cost_usd": null
+  },
+  "user_usage": {
+    "role": "user_simulator",
+    "calls": 2,
+    "failed_calls": 1,
+    "unknown_usage_calls": 1,
+    "input_tokens": 882,
+    "output_tokens": 61,
+    "cache_read_tokens": 0,
+    "cost_usd": null
+  },
+  "agent_cost_usd": null,
+  "user_cost_usd": null
+}

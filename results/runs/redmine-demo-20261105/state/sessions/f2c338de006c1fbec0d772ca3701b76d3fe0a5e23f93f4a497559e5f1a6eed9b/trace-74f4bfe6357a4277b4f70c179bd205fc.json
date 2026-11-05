@@ -1,0 +1,234 @@
+{
+  "run_id": "74f4bfe6357a4277b4f70c179bd205fc",
+  "model_mode": "scripted",
+  "thread_id": "f2c338de006c1fbec0d772ca3701b76d3fe0a5e23f93f4a497559e5f1a6eed9b",
+  "error_type": null,
+  "usage": {
+    "role": "agent",
+    "calls": 5,
+    "failed_calls": 0,
+    "unknown_usage_calls": 5,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cache_read_tokens": 0,
+    "cost_usd": null
+  },
+  "model_calls": [
+    {
+      "run_id": "01a1aa7f-98ac-740a-b902-282a70600820",
+      "role": "agent",
+      "elapsed_seconds": 0.00013729700003750622,
+      "usage": null,
+      "error": null
+    },
+    {
+      "run_id": "01a1aa7f-98c3-7428-9c06-d6694f07872c",
+      "role": "agent",
+      "elapsed_seconds": 0.00010454299990669824,
+      "usage": null,
+      "error": null
+    },
+    {
+      "run_id": "01a1aa7f-99b0-756d-b982-61d20dafdbaf",
+      "role": "agent",
+      "elapsed_seconds": 0.0001844889993662946,
+      "usage": null,
+      "error": null
+    },
+    {
+      "run_id": "01a1aa7f-99f4-718e-8f3d-f5b9ae203cd0",
+      "role": "agent",
+      "elapsed_seconds": 9.439399946131743e-05,
+      "usage": null,
+      "error": null
+    },
+    {
+      "run_id": "01a1aa7f-99f8-71ca-adb9-42d388da7607",
+      "role": "agent",
+      "elapsed_seconds": 8.689900005265372e-05,
+      "usage": null,
+      "error": null
+    }
+  ],
+  "messages": [
+    {
+      "type": "human",
+      "data": {
+        "content": "Investigate and add notes; keep the ticket open.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": "8c7bbc6f-b9b7-4a43-9693-b987c5e23038"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1aa7f-98ac-740a-b902-282a70600820-0",
+        "tool_calls": [
+          {
+            "name": "read_ticket",
+            "args": {},
+            "id": "ticket-initial",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": null
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": true, \"ticket\": {\"id\": 2, \"project_id\": 1, \"subject\": \"VPN cross-session handoff 1aa6c114\", \"description\": \"Investigate, add notes, and keep this ticket open.\", \"status_id\": 1, \"status_name\": \"New\", \"is_closed\": false, \"assigned_to_id\": 6, \"assigned_to_name\": \"Engineer One\", \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 3, \"name\": \"Resolved\", \"is_closed\": false}, {\"id\": 4, \"name\": \"Feedback\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}, {\"id\": 6, \"name\": \"Rejected\", \"is_closed\": true}], \"relations\": [], \"journals\": [], \"evidence\": {\"source_uri\": \"http://127.0.0.1:3080/issues/2\", \"source_kind\": \"ticket\", \"entity_scope\": \"http://127.0.0.1:3080/projects/1\", \"source_version\": \"750e203e040f1ed4341ea949f766fc4a8d1766c1a6080a528889083cd2b4d4cb\", \"observed_at\": \"2026-11-05T06:57:31.327869Z\", \"valid_from\": null, \"valid_to\": null, \"status\": \"observed\", \"content\": {\"id\": 2, \"project\": {\"id\": 1, \"name\": \"ServiceDesk Agent Demo\"}, \"tracker\": {\"id\": 1, \"name\": \"Bug\"}, \"status\": {\"id\": 1, \"name\": \"New\", \"is_closed\": false}, \"priority\": {\"id\": 2, \"name\": \"Normal\"}, \"author\": {\"id\": 1, \"name\": \"Redmine Admin\"}, \"assigned_to\": {\"id\": 6, \"name\": \"Engineer One\"}, \"subject\": \"VPN cross-session handoff 1aa6c114\", \"description\": \"Investigate, add notes, and keep this ticket open.\", \"start_date\": \"2026-11-05\", \"due_date\": null, \"done_ratio\": 0, \"is_private\": false, \"estimated_hours\": null, \"total_estimated_hours\": null, \"created_on\": \"2026-11-05T06:57:30Z\", \"updated_on\": \"2026-11-05T06:57:30Z\", \"closed_on\": null, \"journals\": [], \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 3, \"name\": \"Resolved\", \"is_closed\": false}, {\"id\": 4, \"name\": \"Feedback\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}, {\"id\": 6, \"name\": \"Rejected\", \"is_closed\": true}]}}}}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_ticket",
+        "id": "34c4c694-cd46-4080-a6fb-a64bb35dd738",
+        "tool_call_id": "ticket-initial",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1aa7f-98c3-7428-9c06-d6694f07872c-0",
+        "tool_calls": [
+          {
+            "name": "read_policy",
+            "args": {
+              "policy_id": "vpn-investigation"
+            },
+            "id": "policy-initial",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": null
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"source_uri\": \"kb://demo-service-desk/vpn-investigation/1\", \"source_kind\": \"policy\", \"entity_scope\": \"demo-service-desk\", \"source_version\": \"1:6da9ec79a3bb47c7333a1decca68bc63f8d553b190b69f4a295caed701d5e718\", \"observed_at\": \"2026-11-05T06:57:31.333271Z\", \"valid_from\": \"2026-01-01T00:00:00Z\", \"valid_to\": null, \"status\": \"observed\", \"content\": \"Demonstration service procedure. For VPN connection failures, collect the client error and timestamp, add an investigation note, and ask Network Operations to review authentication failures. Keep the ticket open while waiting for the user's review.\"}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_policy",
+        "id": "ad77bcaa-58ee-4d42-95bb-c51979f07ef8",
+        "tool_call_id": "policy-initial",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1aa7f-99b0-756d-b982-61d20dafdbaf-0",
+        "tool_calls": [
+          {
+            "name": "add_ticket_note",
+            "args": {
+              "note": "VPN investigation: observed owner Engineer One; policy 1. Gateway log sample is still pending. Keep this ticket open for the requester.",
+              "expected_version": "750e203e040f1ed4341ea949f766fc4a8d1766c1a6080a528889083cd2b4d4cb"
+            },
+            "id": "note-da008c08fe834ea98f45492dac86aaec",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": null
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": true, \"receipt\": {\"operation_id\": \"a366201108ca45888c21e8c38078e25ab56ecfcb28de232c66ff321f4811fa22\", \"action\": \"add_note\", \"ticket_id\": 2, \"before_version\": \"750e203e040f1ed4341ea949f766fc4a8d1766c1a6080a528889083cd2b4d4cb\", \"after\": {\"id\": 2, \"project_id\": 1, \"subject\": \"VPN cross-session handoff 1aa6c114\", \"description\": \"Investigate, add notes, and keep this ticket open.\", \"status_id\": 1, \"status_name\": \"New\", \"is_closed\": false, \"assigned_to_id\": 6, \"assigned_to_name\": \"Engineer One\", \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 3, \"name\": \"Resolved\", \"is_closed\": false}, {\"id\": 4, \"name\": \"Feedback\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}, {\"id\": 6, \"name\": \"Rejected\", \"is_closed\": true}], \"relations\": [], \"journals\": [{\"id\": 2, \"user\": {\"id\": 5, \"name\": \"Desk Agent\"}, \"notes\": \"VPN investigation: observed owner Engineer One; policy 1. Gateway log sample is still pending. Keep this ticket open for the requester.\\n\\n[desk-action:a366201108ca45888c21e8c38078e25ab56ecfcb28de232c66ff321f4811fa22]\", \"created_on\": \"2026-11-05T06:57:31Z\", \"updated_on\": \"2026-11-05T06:57:31Z\", \"private_notes\": false, \"details\": []}], \"evidence\": {\"source_uri\": \"http://127.0.0.1:3080/issues/2\", \"source_kind\": \"ticket\", \"entity_scope\": \"http://127.0.0.1:3080/projects/1\", \"source_version\": \"059e06956ee9ff27d401ba5d6f1552f143697e7ef8f8ab4081b74bd935e8544d\", \"observed_at\": \"2026-11-05T06:57:31.633087Z\", \"valid_from\": null, \"valid_to\": null, \"status\": \"observed\", \"content\": {\"id\": 2, \"project\": {\"id\": 1, \"name\": \"ServiceDesk Agent Demo\"}, \"tracker\": {\"id\": 1, \"name\": \"Bug\"}, \"status\": {\"id\": 1, \"name\": \"New\", \"is_closed\": false}, \"priority\": {\"id\": 2, \"name\": \"Normal\"}, \"author\": {\"id\": 1, \"name\": \"Redmine Admin\"}, \"assigned_to\": {\"id\": 6, \"name\": \"Engineer One\"}, \"subject\": \"VPN cross-session handoff 1aa6c114\", \"description\": \"Investigate, add notes, and keep this ticket open.\", \"start_date\": \"2026-11-05\", \"due_date\": null, \"done_ratio\": 0, \"is_private\": false, \"estimated_hours\": null, \"total_estimated_hours\": null, \"created_on\": \"2026-11-05T06:57:30Z\", \"updated_on\": \"2026-11-05T06:57:31Z\", \"closed_on\": null, \"journals\": [{\"id\": 2, \"user\": {\"id\": 5, \"name\": \"Desk Agent\"}, \"notes\": \"VPN investigation: observed owner Engineer One; policy 1. Gateway log sample is still pending. Keep this ticket open for the requester.\\n\\n[desk-action:a366201108ca45888c21e8c38078e25ab56ecfcb28de232c66ff321f4811fa22]\", \"created_on\": \"2026-11-05T06:57:31Z\", \"updated_on\": \"2026-11-05T06:57:31Z\", \"private_notes\": false, \"details\": []}], \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 3, \"name\": \"Resolved\", \"is_closed\": false}, {\"id\": 4, \"name\": \"Feedback\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}, {\"id\": 6, \"name\": \"Rejected\", \"is_closed\": true}]}}}, \"journal_id\": 2, \"verified\": true, \"replayed\": false, \"observed_at\": \"2026-11-05T06:57:31.633124Z\"}}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "add_ticket_note",
+        "id": "a2c05b17-5af4-4562-8300-cc2aac859eaa",
+        "tool_call_id": "note-da008c08fe834ea98f45492dac86aaec",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1aa7f-99f4-718e-8f3d-f5b9ae203cd0-0",
+        "tool_calls": [
+          {
+            "name": "save_handoff",
+            "args": {
+              "pending_actions": [
+                "Obtain the gateway log sample.",
+                "Review the current owner and policy."
+              ],
+              "summary": "Investigation note verified; ticket open."
+            },
+            "id": "save-initial",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": null
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": true, \"pending_actions\": [\"Obtain the gateway log sample.\", \"Review the current owner and policy.\"], \"summary\": \"Investigation note verified; ticket open.\"}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "save_handoff",
+        "id": "0a9345d5-c2b4-4e25-a920-3bf3f098f6e1",
+        "tool_call_id": "save-initial",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "The investigation note is verified. The ticket remains open.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1aa7f-99f8-71ca-adb9-42d388da7607-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": null
+      }
+    }
+  ],
+  "receipt_ids": [
+    "a366201108ca45888c21e8c38078e25ab56ecfcb28de232c66ff321f4811fa22"
+  ]
+}

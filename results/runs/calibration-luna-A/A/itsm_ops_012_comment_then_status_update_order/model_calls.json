@@ -1,0 +1,9 @@
+[
+  {
+    "run_id": "01a1aa8a-61af-7764-b13f-b87009bc61e7",
+    "role": "user_simulator",
+    "elapsed_seconds": 0.001373141999465588,
+    "usage": null,
+    "error": "OpenAIConnectionError"
+  }
+]

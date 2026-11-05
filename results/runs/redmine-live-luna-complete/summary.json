@@ -1,0 +1,45 @@
+{
+  "kind": "live_model_and_real_redmine",
+  "model": "gpt-6-luna",
+  "external_model_requests": 16,
+  "phase_usage": {
+    "initial": {
+      "role": "agent",
+      "calls": 9,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 40091,
+      "output_tokens": 488,
+      "cache_read_tokens": 27648,
+      "cost_usd": null
+    },
+    "resume": {
+      "role": "agent",
+      "calls": 7,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 60538,
+      "output_tokens": 486,
+      "cache_read_tokens": 48768,
+      "cost_usd": null
+    }
+  },
+  "ticket_url": "http://localhost:3080/issues/4",
+  "current_owner": "Engineer Two",
+  "current_status": "New",
+  "checks": {
+    "separate_process_resume": true,
+    "same_native_checkpoint": true,
+    "current_owner_preserved": true,
+    "ticket_kept_open": true,
+    "keep_open_constraint_preserved": true,
+    "pending_action_preserved": true,
+    "two_verified_actions": true,
+    "current_policy_read_on_resume": true,
+    "current_policy_and_owner_in_new_note": true
+  },
+  "passed": true,
+  "initial_trace": "/home/li/code/servicedesk-agent/artifacts/redmine-live-luna-complete/state/sessions/0804d0fda135f11f7f496642b72a1e54498b48bf311e3b5b4aa89e5fc82721db/trace-45c35c0a61984a02abaad44d31adf942.json",
+  "resumed_trace": "/home/li/code/servicedesk-agent/artifacts/redmine-live-luna-complete/state/sessions/0804d0fda135f11f7f496642b72a1e54498b48bf311e3b5b4aa89e5fc82721db/trace-03e4cba4d9004a8a84667212a5244367.json",
+  "results_path": "/home/li/code/servicedesk-agent/artifacts/redmine-live-luna-complete"
+}

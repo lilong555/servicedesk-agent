@@ -1,0 +1,30 @@
+[
+  {
+    "run_id": "01a1aa7f-996a-7363-9018-7347134803ab",
+    "role": "agent",
+    "elapsed_seconds": 0.0006133030001365114,
+    "usage": null,
+    "error": null
+  },
+  {
+    "run_id": "01a1aa7f-9970-7450-83ab-83c2c1209133",
+    "role": "agent",
+    "elapsed_seconds": 0.0006999920005910099,
+    "usage": null,
+    "error": null
+  },
+  {
+    "run_id": "01a1aa7f-99a9-76db-b49a-d9f7616f4bfe",
+    "role": "agent",
+    "elapsed_seconds": 0.0006589710001208005,
+    "usage": null,
+    "error": null
+  },
+  {
+    "run_id": "01a1aa7f-99b0-745b-b773-a363823dea1f",
+    "role": "agent",
+    "elapsed_seconds": 0.0006066599999030586,
+    "usage": null,
+    "error": null
+  }
+]

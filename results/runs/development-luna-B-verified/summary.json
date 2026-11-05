@@ -1,0 +1,22 @@
+{
+  "model_mode": "live",
+  "external_model_requests": 78,
+  "planned_episodes": 9,
+  "groups": {
+    "B": {
+      "started": 9,
+      "scored": 9,
+      "successes": 7,
+      "failures": 2,
+      "infrastructure_errors": 0,
+      "success_per_started": 0.7777777777777778,
+      "success_per_scored": 0.7777777777777778,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null
+    }
+  },
+  "negative_control_rejected": null,
+  "results_path": "/home/li/code/servicedesk-agent/artifacts/development-luna-B-verified"
+}

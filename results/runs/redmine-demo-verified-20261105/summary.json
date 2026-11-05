@@ -1,0 +1,45 @@
+{
+  "kind": "scripted_framework_and_real_redmine",
+  "model": "scripted-fixture",
+  "external_model_requests": 0,
+  "phase_usage": {
+    "initial": {
+      "role": "agent",
+      "calls": 5,
+      "failed_calls": 0,
+      "unknown_usage_calls": 5,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cost_usd": null
+    },
+    "resume": {
+      "role": "agent",
+      "calls": 6,
+      "failed_calls": 0,
+      "unknown_usage_calls": 6,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cost_usd": null
+    }
+  },
+  "ticket_url": "http://localhost:3080/issues/3",
+  "current_owner": "Engineer Two",
+  "current_status": "New",
+  "checks": {
+    "separate_process_resume": true,
+    "same_native_checkpoint": true,
+    "current_owner_preserved": true,
+    "ticket_kept_open": true,
+    "keep_open_constraint_preserved": true,
+    "pending_action_preserved": true,
+    "two_verified_actions": true,
+    "current_policy_read_on_resume": true,
+    "current_policy_and_owner_in_new_note": true
+  },
+  "passed": true,
+  "initial_trace": "/home/li/code/servicedesk-agent/artifacts/redmine-demo-verified-20261105/state/sessions/8e5ae997f44ed00e98ed32865663874a67a696efd3a1c087ad19e1503d471554/trace-f062ae8c30524f419e7b70274c63597b.json",
+  "resumed_trace": "/home/li/code/servicedesk-agent/artifacts/redmine-demo-verified-20261105/state/sessions/8e5ae997f44ed00e98ed32865663874a67a696efd3a1c087ad19e1503d471554/trace-1cc099184b9a43d69dde78d1784e6a38.json",
+  "results_path": "/home/li/code/servicedesk-agent/artifacts/redmine-demo-verified-20261105"
+}

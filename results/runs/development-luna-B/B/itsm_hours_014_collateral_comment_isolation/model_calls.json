@@ -1,0 +1,45 @@
+[
+  {
+    "run_id": "01a1aa91-30e6-7540-a1e0-0e55ade5a3ab",
+    "role": "agent",
+    "elapsed_seconds": 3.2973863719998917,
+    "usage": {
+      "input_tokens": 3203,
+      "output_tokens": 33,
+      "total_tokens": 3236,
+      "input_token_details": {
+        "cache_read": 2176,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "run_id": "01a1aa91-3dcf-7793-824c-2504ba28e9b5",
+    "role": "agent",
+    "elapsed_seconds": 60.06383534299948,
+    "usage": null,
+    "error": "OpenAITimeoutError"
+  },
+  {
+    "run_id": "01a1aa91-23b4-77b4-b488-b19badf5ec97",
+    "role": "user_simulator",
+    "elapsed_seconds": 3.3393208050001704,
+    "usage": {
+      "input_tokens": 885,
+      "output_tokens": 46,
+      "total_tokens": 931,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  }
+]

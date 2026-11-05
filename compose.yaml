@@ -1,0 +1,17 @@
+name: servicedesk-agent
+services:
+  redmine:
+    image: redmine:6.1.6-alpine
+    container_name: servicedesk-agent-redmine
+    ports:
+      - "127.0.0.1:${DESK_REDMINE_PORT:-3080}:3000"
+    labels:
+      io.servicedesk-agent.demo: "true"
+    environment:
+      DESK_DEMO: "1"
+      REDMINE_DB_DATABASE: /usr/src/redmine/files/desk.sqlite3
+    volumes:
+      - redmine-data:/usr/src/redmine/files
+    restart: "no"
+volumes:
+  redmine-data:

@@ -1,0 +1,69 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "servicedesk-agent"
+version = "0.1.0"
+description = "A recoverable IT service desk agent built on DeepAgents."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "deepagents==0.7.32",
+  "langchain==1.4.9",
+  "langchain-core==1.7.6",
+  "langchain-openai==1.7.3",
+  "langgraph==1.2.20",
+  "langgraph-checkpoint-sqlite==3.1.3",
+  "openai==2.45.0",
+  "httpx>=0.28,<0.29",
+  "pydantic>=2.12,<3",
+  "python-dotenv>=1.1,<2",
+  "PyYAML>=6.0,<7",
+]
+
+[project.optional-dependencies]
+components = [
+  "langmem==0.0.30",
+  "haystack-ai==3.4.1",
+  "mcp==1.30.0",
+  "langchain-mcp-adapters==0.3.2",
+]
+benchmark = [
+  "crm-agent-bench==0.1.0",
+]
+
+[project.scripts]
+desk-agent = "servicedesk_agent.cli:main"
+
+[dependency-groups]
+dev = [
+  "pytest>=8.4,<10",
+  "pytest-timeout>=2.4,<3",
+  "pytest-asyncio>=1.3,<2",
+  "ruff>=0.14,<0.15",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/servicedesk_agent"]
+
+[tool.uv.sources]
+crm-agent-bench = { path = "vendor/crm-agent-bench", editable = true }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+timeout = 90
+asyncio_default_fixture_loop_scope = "function"
+markers = [
+  "redmine: requires the isolated local Redmine instance",
+  "benchmark: requires the pinned CRM-Agent-Bench source",
+  "live: requires an explicitly configured model endpoint",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

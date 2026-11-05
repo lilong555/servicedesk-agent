@@ -1,0 +1,29 @@
+{
+  "model_mode": "live",
+  "model": {
+    "name": "gpt-6-luna",
+    "base_url": "http://127.0.0.1:18317/v1",
+    "timeout": 60.0,
+    "max_tokens": 8192,
+    "input_price": null,
+    "cached_input_price": null,
+    "output_price": null
+  },
+  "split": "calibration",
+  "groups": [
+    "B"
+  ],
+  "tasks": [
+    "itsm_hours_005_add_comment_simple",
+    "itsm_ops_007_update_status_to_in_progress",
+    "itsm_ops_012_comment_then_status_update_order"
+  ],
+  "source_commit": "fc9575cf9bda085aa1f66d920fea944588005964",
+  "seed": 20261105,
+  "seed_scope": "task ordering and local RNG; provider sampling seed is not configured",
+  "max_calls": 300,
+  "max_turns": 15,
+  "user_simulator": "react",
+  "semantic_judge_calls": 0,
+  "native_summarization": true
+}

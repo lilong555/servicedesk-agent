@@ -1,0 +1,81 @@
+{
+  "model_mode": "live",
+  "model": {
+    "name": "gpt-6-luna",
+    "base_url": "http://127.0.0.1:18317/v1",
+    "timeout": 60.0,
+    "max_tokens": 8192,
+    "input_price": null,
+    "cached_input_price": null,
+    "output_price": null
+  },
+  "split": "development",
+  "groups": [
+    "B"
+  ],
+  "tasks": [
+    "itsm_hours_005_add_comment_simple",
+    "itsm_hours_012_add_comment_with_preexisting_notes",
+    "itsm_hours_014_collateral_comment_isolation",
+    "itsm_hours_019_ambiguous_ticket_close",
+    "itsm_ops_007_update_status_to_in_progress",
+    "itsm_ops_012_comment_then_status_update_order",
+    "itsm_ops_022_multihop_escalate_comment_status_chain",
+    "itsm_safety_011_full_protocol_order_ticket1003",
+    "itsm_safety_012_arg_precision_delete_ticket1004"
+  ],
+  "source_commit": "fc9575cf9bda085aa1f66d920fea944588005964",
+  "seed": 20261105,
+  "seed_scope": "task ordering and local RNG; provider sampling seed is not configured",
+  "max_calls": 300,
+  "max_turns": 15,
+  "user_simulator": "react",
+  "semantic_judge_calls": 0,
+  "native_summarization": true,
+  "provenance": {
+    "implementation_sha256": "5ccc206f862b38f88990660c303ed7926bc758bc85161f48f363ac6095ba16c9",
+    "files": {
+      ".env.example": "6671b45208403cf8f5d8ea0b9ba1c3bbb2fd3b4d525b336a165663bc658d63ff",
+      ".python-version": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d",
+      "pyproject.toml": "4affe4cd4c9fcbf7bdb5783b5a015205c2ba1e24972ed68341b3e3045e6ae7b3",
+      "src/servicedesk_agent/__init__.py": "e78258d43721f3274a3a7a4ce270242841db76edea94213b087418e5a8f571ab",
+      "src/servicedesk_agent/agent.py": "fa23a34efe37d3a562956ac4fdfd9b04a0c8562c2ebcfb80655f9693f80fc8bd",
+      "src/servicedesk_agent/assets/itsm_subset.json": "5a9735b1b6306cd59e6ceef0a76ccb0b11146280727ca9b595307cb50feffd07",
+      "src/servicedesk_agent/assets/policies.json": "ad3c1dd214290770336221a24d1ef4d68c9a421e520b33cdead4ebc8a17b8c95",
+      "src/servicedesk_agent/assets/skills/resume-ticket/SKILL.md": "ed7345024203b87b096aa6a01e62b47eb016f73e81b2463b32e0a3a96a550df6",
+      "src/servicedesk_agent/assets/skills/ticket-handling/SKILL.md": "80630194289ebe2622b9cac083e8b5c84ee32bd7c6f03ed57d4fc7a251f811d8",
+      "src/servicedesk_agent/benchmark.py": "4d7609b57bf11debc9d8b55607e8d7eb31ea88ac4825a47c435e1ccd3035f8d7",
+      "src/servicedesk_agent/cli.py": "c469a4657229bff233c5ae5bcbc953b3ab3687517cbe1e395841992c5f889e4d",
+      "src/servicedesk_agent/components.py": "a8d5a4e31acb93eb79c7499e58a6f2d2f6d209f3394c791d1b30594c6349e814",
+      "src/servicedesk_agent/config.py": "6db9066e128fa8393b7294bf6572adfab6dd84872d3190555a88a6d0f09a0001",
+      "src/servicedesk_agent/demo.py": "a955b4018a5853d86799d3a4d8880f64a431681b4bc87abe0744f1b8fdfabed3",
+      "src/servicedesk_agent/domain.py": "a42ee4051f03bb9ef267fe740ecc209e9086f0ec50b15c0f98efc56ca48cb40b",
+      "src/servicedesk_agent/evaluation.py": "8efdd388ab53110327d7720a5e164a7fcc13ad0379a565db25b3dfe631312051",
+      "src/servicedesk_agent/knowledge.py": "b2b0f70f2600746b1c820da9d82093d0b0072ea4428054b65ac76a660d6f91af",
+      "src/servicedesk_agent/mcp_server.py": "f140b61ed966e956bc58dd8b92e62f82c5d4772c9bb9e18605babaeceb81a128",
+      "src/servicedesk_agent/native.py": "f5076bb79f18e70799b4f140f50015cdef33f966251f3ba888979cf50843290e",
+      "src/servicedesk_agent/provenance.py": "e77f32fdf835633f7a157a4cee85a6c3104ad4c266905751fe28a268d16a41e4",
+      "src/servicedesk_agent/redmine.py": "de4d203689c62e750d8c74ae0b554b932ef964e9c2df528fdcbd466c7b1de5b5",
+      "src/servicedesk_agent/session.py": "ba035dc38935ce57cda6aba54cd4a631222d74799995dc7615cf774c1248587d",
+      "src/servicedesk_agent/testing.py": "1addf038f4116517f6a9ae4cfa326b16dbc83ac3113cc3a48a43b6c4e22ba029",
+      "src/servicedesk_agent/usage.py": "dae5bc711457fc450fe6cb0a160214fb190b082e473264b8bd5e6944a271c028",
+      "uv.lock": "c81eccc5031e6a579689caf83c0d285fe93e94d506d86c421ef37f532c1cd4d6"
+    },
+    "packages": {
+      "deepagents": "0.7.32",
+      "langchain": "1.4.9",
+      "langchain-core": "1.7.6",
+      "langgraph": "1.2.20",
+      "langgraph-checkpoint-sqlite": "3.1.3",
+      "langchain-openai": "1.7.3",
+      "openai": "2.45.0",
+      "langmem": "0.0.30",
+      "haystack-ai": "3.4.1",
+      "mcp": "1.30.0",
+      "langchain-mcp-adapters": "0.3.2",
+      "crm-agent-bench": "0.1.0"
+    },
+    "source_archive": "source.tar.gz",
+    "source_archive_sha256": "db353672066d7c2f6991479802b7d5a3405533c7c3ca250d501a7944f775c9d0"
+  }
+}

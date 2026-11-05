@@ -1,0 +1,20 @@
+[
+  {
+    "policy_id": "vpn-investigation",
+    "version": "1",
+    "source_uri": "kb://demo-service-desk/vpn-investigation/1",
+    "scope": "demo-service-desk",
+    "valid_from": "2026-01-01T00:00:00Z",
+    "valid_to": "2026-11-05T00:00:00Z",
+    "text": "Demonstration service procedure. For VPN connection failures, collect the client error and timestamp, add an investigation note, and ask Network Operations to review authentication failures. Keep the ticket open while waiting for the user's review."
+  },
+  {
+    "policy_id": "vpn-investigation",
+    "version": "2",
+    "source_uri": "kb://demo-service-desk/vpn-investigation/2",
+    "scope": "demo-service-desk",
+    "valid_from": "2026-11-05T00:00:00Z",
+    "valid_to": null,
+    "text": "Demonstration service procedure. For VPN connection failures, collect the client error and timestamp, check the current ticket owner, and add an investigation note. Ask Identity Operations to review authentication failures. Keep the ticket open while waiting for the user's review."
+  }
+]

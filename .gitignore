@@ -1,0 +1,17 @@
+.venv/
+.tools/
+.env
+.env.*
+!.env.example
+.runtime/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+vendor/
+artifacts/
+*.sqlite*
+*.db*
+.DS_Store

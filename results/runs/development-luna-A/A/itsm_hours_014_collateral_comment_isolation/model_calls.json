@@ -1,0 +1,63 @@
+[
+  {
+    "run_id": "01a1aa91-2cfa-7030-97d4-c530058b6f74",
+    "role": "agent",
+    "elapsed_seconds": 2.9368944799998644,
+    "usage": {
+      "input_tokens": 2534,
+      "output_tokens": 23,
+      "total_tokens": 2557,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "run_id": "01a1aa91-387a-71a0-9456-7a30761942b6",
+    "role": "agent",
+    "elapsed_seconds": 2.6670080569992933,
+    "usage": {
+      "input_tokens": 2628,
+      "output_tokens": 36,
+      "total_tokens": 2664,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "run_id": "01a1aa91-42ec-7066-b68b-133e3cbfb045",
+    "role": "agent",
+    "elapsed_seconds": 59.946682666000015,
+    "usage": null,
+    "error": "OpenAIConnectionError"
+  },
+  {
+    "run_id": "01a1aa91-1a35-70fd-82dc-20ba20e098b7",
+    "role": "user_simulator",
+    "elapsed_seconds": 4.768150910999793,
+    "usage": {
+      "input_tokens": 885,
+      "output_tokens": 46,
+      "total_tokens": 931,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  }
+]

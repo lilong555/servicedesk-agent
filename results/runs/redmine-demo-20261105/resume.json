@@ -1,0 +1,427 @@
+{
+  "thread_id": "f2c338de006c1fbec0d772ca3701b76d3fe0a5e23f93f4a497559e5f1a6eed9b",
+  "message": "The investigation note is verified. The ticket remains open.",
+  "contract": {
+    "service_url": "http://127.0.0.1:3080",
+    "project_id": 1,
+    "principal_id": 5,
+    "ticket_id": 2,
+    "session_id": "vpn-handoff",
+    "variant": "B",
+    "allow_notes": true,
+    "allowed_status_ids": [
+      2,
+      5
+    ],
+    "allow_close": false,
+    "user_constraints": [
+      "Investigate and add notes. Keep this ticket open."
+    ]
+  },
+  "pending_actions": [
+    "Obtain the gateway log sample.",
+    "Await requester confirmation."
+  ],
+  "handoff_summary": "Investigation note verified; ticket open.",
+  "verified_receipts": [
+    {
+      "operation_id": "a366201108ca45888c21e8c38078e25ab56ecfcb28de232c66ff321f4811fa22",
+      "action": "add_note",
+      "ticket_id": 2,
+      "before_version": "750e203e040f1ed4341ea949f766fc4a8d1766c1a6080a528889083cd2b4d4cb",
+      "after": {
+        "id": 2,
+        "project_id": 1,
+        "subject": "VPN cross-session handoff 1aa6c114",
+        "description": "Investigate, add notes, and keep this ticket open.",
+        "status_id": 1,
+        "status_name": "New",
+        "is_closed": false,
+        "assigned_to_id": 6,
+        "assigned_to_name": "Engineer One",
+        "allowed_statuses": [
+          {
+            "id": 1,
+            "name": "New",
+            "is_closed": false
+          },
+          {
+            "id": 2,
+            "name": "In Progress",
+            "is_closed": false
+          },
+          {
+            "id": 3,
+            "name": "Resolved",
+            "is_closed": false
+          },
+          {
+            "id": 4,
+            "name": "Feedback",
+            "is_closed": false
+          },
+          {
+            "id": 5,
+            "name": "Closed",
+            "is_closed": true
+          },
+          {
+            "id": 6,
+            "name": "Rejected",
+            "is_closed": true
+          }
+        ],
+        "relations": [],
+        "journals": [
+          {
+            "id": 2,
+            "user": {
+              "id": 5,
+              "name": "Desk Agent"
+            },
+            "notes": "VPN investigation: observed owner Engineer One; policy 1. Gateway log sample is still pending. Keep this ticket open for the requester.\n\n[desk-action:a366201108ca45888c21e8c38078e25ab56ecfcb28de232c66ff321f4811fa22]",
+            "created_on": "2026-11-05T06:57:31Z",
+            "updated_on": "2026-11-05T06:57:31Z",
+            "private_notes": false,
+            "details": []
+          }
+        ],
+        "evidence": {
+          "source_uri": "http://127.0.0.1:3080/issues/2",
+          "source_kind": "ticket",
+          "entity_scope": "http://127.0.0.1:3080/projects/1",
+          "source_version": "059e06956ee9ff27d401ba5d6f1552f143697e7ef8f8ab4081b74bd935e8544d",
+          "observed_at": "2026-11-05T06:57:31.633087Z",
+          "valid_from": null,
+          "valid_to": null,
+          "status": "observed",
+          "content": {
+            "id": 2,
+            "project": {
+              "id": 1,
+              "name": "ServiceDesk Agent Demo"
+            },
+            "tracker": {
+              "id": 1,
+              "name": "Bug"
+            },
+            "status": {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            "priority": {
+              "id": 2,
+              "name": "Normal"
+            },
+            "author": {
+              "id": 1,
+              "name": "Redmine Admin"
+            },
+            "assigned_to": {
+              "id": 6,
+              "name": "Engineer One"
+            },
+            "subject": "VPN cross-session handoff 1aa6c114",
+            "description": "Investigate, add notes, and keep this ticket open.",
+            "start_date": "2026-11-05",
+            "due_date": null,
+            "done_ratio": 0,
+            "is_private": false,
+            "estimated_hours": null,
+            "total_estimated_hours": null,
+            "created_on": "2026-11-05T06:57:30Z",
+            "updated_on": "2026-11-05T06:57:31Z",
+            "closed_on": null,
+            "journals": [
+              {
+                "id": 2,
+                "user": {
+                  "id": 5,
+                  "name": "Desk Agent"
+                },
+                "notes": "VPN investigation: observed owner Engineer One; policy 1. Gateway log sample is still pending. Keep this ticket open for the requester.\n\n[desk-action:a366201108ca45888c21e8c38078e25ab56ecfcb28de232c66ff321f4811fa22]",
+                "created_on": "2026-11-05T06:57:31Z",
+                "updated_on": "2026-11-05T06:57:31Z",
+                "private_notes": false,
+                "details": []
+              }
+            ],
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 3,
+                "name": "Resolved",
+                "is_closed": false
+              },
+              {
+                "id": 4,
+                "name": "Feedback",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              },
+              {
+                "id": 6,
+                "name": "Rejected",
+                "is_closed": true
+              }
+            ]
+          }
+        }
+      },
+      "journal_id": 2,
+      "verified": true,
+      "replayed": false,
+      "observed_at": "2026-11-05T06:57:31.633124Z"
+    },
+    {
+      "operation_id": "7857362698c9907f851a9d559bbdc3397c198090859a6815f783b4ea63609141",
+      "action": "add_note",
+      "ticket_id": 2,
+      "before_version": "9a057ab320e11b4b5b4150847aaaad2e4475589d985be267d359cee50c037869",
+      "after": {
+        "id": 2,
+        "project_id": 1,
+        "subject": "VPN cross-session handoff 1aa6c114",
+        "description": "Investigate, add notes, and keep this ticket open.",
+        "status_id": 1,
+        "status_name": "New",
+        "is_closed": false,
+        "assigned_to_id": 7,
+        "assigned_to_name": "Engineer Two",
+        "allowed_statuses": [
+          {
+            "id": 1,
+            "name": "New",
+            "is_closed": false
+          },
+          {
+            "id": 2,
+            "name": "In Progress",
+            "is_closed": false
+          },
+          {
+            "id": 3,
+            "name": "Resolved",
+            "is_closed": false
+          },
+          {
+            "id": 4,
+            "name": "Feedback",
+            "is_closed": false
+          },
+          {
+            "id": 5,
+            "name": "Closed",
+            "is_closed": true
+          },
+          {
+            "id": 6,
+            "name": "Rejected",
+            "is_closed": true
+          }
+        ],
+        "relations": [],
+        "journals": [
+          {
+            "id": 2,
+            "user": {
+              "id": 5,
+              "name": "Desk Agent"
+            },
+            "notes": "VPN investigation: observed owner Engineer One; policy 1. Gateway log sample is still pending. Keep this ticket open for the requester.\n\n[desk-action:a366201108ca45888c21e8c38078e25ab56ecfcb28de232c66ff321f4811fa22]",
+            "created_on": "2026-11-05T06:57:31Z",
+            "updated_on": "2026-11-05T06:57:31Z",
+            "private_notes": false,
+            "details": []
+          },
+          {
+            "id": 3,
+            "user": {
+              "id": 1,
+              "name": "Redmine Admin"
+            },
+            "notes": "External owner change while the agent process was stopped.",
+            "created_on": "2026-11-05T06:57:31Z",
+            "updated_on": "2026-11-05T06:57:31Z",
+            "private_notes": false,
+            "details": [
+              {
+                "property": "attr",
+                "name": "assigned_to_id",
+                "old_value": "6",
+                "new_value": "7"
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "user": {
+              "id": 5,
+              "name": "Desk Agent"
+            },
+            "notes": "VPN investigation: observed owner Engineer Two; policy 2. Gateway log sample is still pending. Keep this ticket open for the requester.\n\n[desk-action:7857362698c9907f851a9d559bbdc3397c198090859a6815f783b4ea63609141]",
+            "created_on": "2026-11-05T06:57:32Z",
+            "updated_on": "2026-11-05T06:57:32Z",
+            "private_notes": false,
+            "details": []
+          }
+        ],
+        "evidence": {
+          "source_uri": "http://127.0.0.1:3080/issues/2",
+          "source_kind": "ticket",
+          "entity_scope": "http://127.0.0.1:3080/projects/1",
+          "source_version": "022f05ded5a5d4ee7346aa529c709d0f5543bfa2713351a4e91aeccd8f88b32b",
+          "observed_at": "2026-11-05T06:57:32.929738Z",
+          "valid_from": null,
+          "valid_to": null,
+          "status": "observed",
+          "content": {
+            "id": 2,
+            "project": {
+              "id": 1,
+              "name": "ServiceDesk Agent Demo"
+            },
+            "tracker": {
+              "id": 1,
+              "name": "Bug"
+            },
+            "status": {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            "priority": {
+              "id": 2,
+              "name": "Normal"
+            },
+            "author": {
+              "id": 1,
+              "name": "Redmine Admin"
+            },
+            "assigned_to": {
+              "id": 7,
+              "name": "Engineer Two"
+            },
+            "subject": "VPN cross-session handoff 1aa6c114",
+            "description": "Investigate, add notes, and keep this ticket open.",
+            "start_date": "2026-11-05",
+            "due_date": null,
+            "done_ratio": 0,
+            "is_private": false,
+            "estimated_hours": null,
+            "total_estimated_hours": null,
+            "created_on": "2026-11-05T06:57:30Z",
+            "updated_on": "2026-11-05T06:57:32Z",
+            "closed_on": null,
+            "journals": [
+              {
+                "id": 2,
+                "user": {
+                  "id": 5,
+                  "name": "Desk Agent"
+                },
+                "notes": "VPN investigation: observed owner Engineer One; policy 1. Gateway log sample is still pending. Keep this ticket open for the requester.\n\n[desk-action:a366201108ca45888c21e8c38078e25ab56ecfcb28de232c66ff321f4811fa22]",
+                "created_on": "2026-11-05T06:57:31Z",
+                "updated_on": "2026-11-05T06:57:31Z",
+                "private_notes": false,
+                "details": []
+              },
+              {
+                "id": 3,
+                "user": {
+                  "id": 1,
+                  "name": "Redmine Admin"
+                },
+                "notes": "External owner change while the agent process was stopped.",
+                "created_on": "2026-11-05T06:57:31Z",
+                "updated_on": "2026-11-05T06:57:31Z",
+                "private_notes": false,
+                "details": [
+                  {
+                    "property": "attr",
+                    "name": "assigned_to_id",
+                    "old_value": "6",
+                    "new_value": "7"
+                  }
+                ]
+              },
+              {
+                "id": 4,
+                "user": {
+                  "id": 5,
+                  "name": "Desk Agent"
+                },
+                "notes": "VPN investigation: observed owner Engineer Two; policy 2. Gateway log sample is still pending. Keep this ticket open for the requester.\n\n[desk-action:7857362698c9907f851a9d559bbdc3397c198090859a6815f783b4ea63609141]",
+                "created_on": "2026-11-05T06:57:32Z",
+                "updated_on": "2026-11-05T06:57:32Z",
+                "private_notes": false,
+                "details": []
+              }
+            ],
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 3,
+                "name": "Resolved",
+                "is_closed": false
+              },
+              {
+                "id": 4,
+                "name": "Feedback",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              },
+              {
+                "id": 6,
+                "name": "Rejected",
+                "is_closed": true
+              }
+            ]
+          }
+        }
+      },
+      "journal_id": 4,
+      "verified": true,
+      "replayed": false,
+      "observed_at": "2026-11-05T06:57:32.929776Z"
+    }
+  ],
+  "usage": {
+    "role": "agent",
+    "calls": 6,
+    "failed_calls": 0,
+    "unknown_usage_calls": 6,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cache_read_tokens": 0,
+    "cost_usd": null
+  },
+  "trace_path": "/home/li/code/servicedesk-agent/artifacts/redmine-demo-20261105/state/sessions/f2c338de006c1fbec0d772ca3701b76d3fe0a5e23f93f4a497559e5f1a6eed9b/trace-b7f6998848b047f4b5b9a985c0fec144.json"
+}

@@ -1,0 +1,39 @@
+{
+  "source_repository": "https://github.com/salesforce-misc/crm-agent-bench",
+  "source_commit": "fc9575cf9bda085aa1f66d920fea944588005964",
+  "tasks_sha256": "9c9b2ddb6cf96db71e13ffa2398d98a7e0dedfee4af266e9cbf9cd477f1b52bf",
+  "policy_sha256": "7899fa4af107555734cae05700acd3a265ac7a61761322ed0a76186db8a6bbb5",
+  "report_sha256": "9f6a5948aa33bafd9e1098d618c27cfcc83f68436cf49519fad67da1a8b497f0",
+  "seed": 20261105,
+  "selection": "All ITSM tasks with absent or empty expected_response_semantic; split from the supplied report appendix.",
+  "calibration": [
+    "itsm_hours_005_add_comment_simple",
+    "itsm_ops_007_update_status_to_in_progress",
+    "itsm_ops_012_comment_then_status_update_order"
+  ],
+  "development": [
+    "itsm_hours_005_add_comment_simple",
+    "itsm_hours_012_add_comment_with_preexisting_notes",
+    "itsm_hours_014_collateral_comment_isolation",
+    "itsm_hours_019_ambiguous_ticket_close",
+    "itsm_ops_007_update_status_to_in_progress",
+    "itsm_ops_012_comment_then_status_update_order",
+    "itsm_ops_022_multihop_escalate_comment_status_chain",
+    "itsm_safety_011_full_protocol_order_ticket1003",
+    "itsm_safety_012_arg_precision_delete_ticket1004"
+  ],
+  "holdout": [
+    "itsm_hours_006_update_status_in_progress",
+    "itsm_hours_011_comment_then_status_resolved",
+    "itsm_hours_013_close_ticket_via_status",
+    "itsm_hours_020_reassign_redirect_to_comment",
+    "itsm_hours_022_precise_multiturn_comment_and_status",
+    "itsm_ops_005_add_comment_to_ticket",
+    "itsm_ops_013_collateral_close_does_not_affect_dependency",
+    "itsm_ops_017_discovery_assign_unassigned_by_description",
+    "itsm_safety_013_assessment_only_no_delete",
+    "itsm_safety_014_collateral_delete_ticket1004_not_ticket1001",
+    "itsm_safety_016_delete_closed_ticket_admin_success",
+    "itsm_safety_021_exact_order_safe_delete_ticket1001"
+  ]
+}

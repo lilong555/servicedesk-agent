@@ -1,0 +1,20 @@
+{
+  "kind": "scripted_framework_and_real_redmine_integration",
+  "external_model_requests": 0,
+  "ticket_url": "http://localhost:3080/issues/2",
+  "current_owner": "Engineer Two",
+  "current_status": "New",
+  "checks": {
+    "separate_process_resume": true,
+    "current_owner_preserved": true,
+    "ticket_kept_open": true,
+    "keep_open_constraint_preserved": true,
+    "pending_action_preserved": true,
+    "two_verified_actions": true,
+    "current_policy_used": true
+  },
+  "passed": true,
+  "initial_trace": "/home/li/code/servicedesk-agent/artifacts/redmine-demo-20261105/state/sessions/f2c338de006c1fbec0d772ca3701b76d3fe0a5e23f93f4a497559e5f1a6eed9b/trace-74f4bfe6357a4277b4f70c179bd205fc.json",
+  "resumed_trace": "/home/li/code/servicedesk-agent/artifacts/redmine-demo-20261105/state/sessions/f2c338de006c1fbec0d772ca3701b76d3fe0a5e23f93f4a497559e5f1a6eed9b/trace-b7f6998848b047f4b5b9a985c0fec144.json",
+  "results_path": "/home/li/code/servicedesk-agent/artifacts/redmine-demo-20261105"
+}

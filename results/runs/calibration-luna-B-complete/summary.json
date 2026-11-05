@@ -1,0 +1,22 @@
+{
+  "model_mode": "live",
+  "external_model_requests": 23,
+  "planned_episodes": 3,
+  "groups": {
+    "B": {
+      "started": 3,
+      "scored": 3,
+      "successes": 3,
+      "failures": 0,
+      "infrastructure_errors": 0,
+      "success_per_started": 1.0,
+      "success_per_scored": 1.0,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null
+    }
+  },
+  "negative_control_rejected": null,
+  "results_path": "/home/li/code/servicedesk-agent/artifacts/calibration-luna-B-complete"
+}

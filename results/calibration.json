@@ -1,0 +1,114 @@
+{
+  "model_mode": "live",
+  "model": {
+    "name": "gpt-6-luna",
+    "base_url": "http://127.0.0.1:18317/v1",
+    "timeout": 60.0,
+    "max_tokens": 8192,
+    "input_price": null,
+    "cached_input_price": null,
+    "output_price": null
+  },
+  "split": "calibration",
+  "source_commit": "fc9575cf9bda085aa1f66d920fea944588005964",
+  "implementation_sha256": null,
+  "planned_tasks": [
+    "itsm_hours_005_add_comment_simple",
+    "itsm_ops_007_update_status_to_in_progress",
+    "itsm_ops_012_comment_then_status_update_order"
+  ],
+  "inputs": [
+    {
+      "directory": "results/runs/calibration-luna-A-complete",
+      "episodes_sha256": "e264efc3a61232442841fa4f10b2ceea98cfb8f6e87987599589ec2311cb2789"
+    },
+    {
+      "directory": "results/runs/calibration-luna-B-complete",
+      "episodes_sha256": "8a3c2bdaf0ec0f6e44295d9c0442accb718f16cc27f80de10cd388755464ec22"
+    }
+  ],
+  "groups": {
+    "A": {
+      "started": 3,
+      "scored": 3,
+      "successes": 3,
+      "failures": 0,
+      "infrastructure_errors": 0,
+      "success_per_started": 1.0,
+      "success_per_scored": 1.0,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null,
+      "agent_usage": {
+        "calls": 12,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 32428,
+        "output_tokens": 297,
+        "cache_read_tokens": 17024
+      },
+      "user_usage": {
+        "calls": 7,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 6485,
+        "output_tokens": 274,
+        "cache_read_tokens": 0
+      },
+      "elapsed_seconds": 50.683620065999094,
+      "tool_calls": 8
+    },
+    "B": {
+      "started": 3,
+      "scored": 3,
+      "successes": 3,
+      "failures": 0,
+      "infrastructure_errors": 0,
+      "success_per_started": 1.0,
+      "success_per_scored": 1.0,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null,
+      "agent_usage": {
+        "calls": 16,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 57142,
+        "output_tokens": 442,
+        "cache_read_tokens": 34176
+      },
+      "user_usage": {
+        "calls": 7,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 6502,
+        "output_tokens": 290,
+        "cache_read_tokens": 0
+      },
+      "elapsed_seconds": 68.71489301200018,
+      "tool_calls": 12
+    }
+  },
+  "B_vs_A": {
+    "wins": 0,
+    "losses": 0,
+    "ties": 3,
+    "unscored_pairs": 0
+  },
+  "task_results": {
+    "itsm_hours_005_add_comment_simple": {
+      "A": true,
+      "B": true
+    },
+    "itsm_ops_007_update_status_to_in_progress": {
+      "A": true,
+      "B": true
+    },
+    "itsm_ops_012_comment_then_status_update_order": {
+      "A": true,
+      "B": true
+    }
+  }
+}

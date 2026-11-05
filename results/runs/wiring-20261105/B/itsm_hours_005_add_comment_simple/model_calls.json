@@ -1,0 +1,16 @@
+[
+  {
+    "run_id": "01a1aa7f-96a9-77c3-be0e-7e7e12bc5c3c",
+    "role": "agent",
+    "elapsed_seconds": 0.0006305070000962587,
+    "usage": null,
+    "error": null
+  },
+  {
+    "run_id": "01a1aa7f-96b1-72b5-8dec-d4840da285e9",
+    "role": "agent",
+    "elapsed_seconds": 0.0003840870003841701,
+    "usage": null,
+    "error": null
+  }
+]
