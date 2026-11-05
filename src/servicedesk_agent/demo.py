@@ -7,17 +7,18 @@ import json
 import os
 import subprocess
 import sys
+from contextlib import ExitStack
 from importlib.resources import files
 from pathlib import Path
 from uuid import uuid4
 
 import httpx
-from langgraph.store.sqlite import SqliteStore
 
 from servicedesk_agent.components import build_components
 from servicedesk_agent.config import ModelSettings, RedmineSettings
 from servicedesk_agent.domain import TaskContract, utc_now
 from servicedesk_agent.knowledge import PolicyCatalog
+from servicedesk_agent.operations import redmine_store
 from servicedesk_agent.redmine import RedmineClient
 from servicedesk_agent.session import execute_session, load_session
 from servicedesk_agent.testing import ScriptedChatModel, tool_call
@@ -70,7 +71,9 @@ def worker(
         api_key=access["agent_api_key"],
         project_id=access["project_id"],
     )
-    with RedmineClient(settings) as client:
+    with ExitStack() as stack:
+        store = stack.enter_context(redmine_store(directory))
+        client = stack.enter_context(RedmineClient(settings, store=store))
         identity = TaskContract(
             service_url=settings.url,
             project_id=settings.project_id,
@@ -112,41 +115,39 @@ def worker(
                 "The investigation note is verified. The ticket remains open.",
             ]
         )
-        with SqliteStore.from_conn_string(str(directory / "memory.sqlite")) as store:
-            store.setup()
-            bundle = build_components(
-                contract.scope,
-                store,
-                PolicyCatalog(directory / "policies.json", "demo-service-desk"),
+        bundle = build_components(
+            contract.scope,
+            store,
+            PolicyCatalog(directory / "policies.json", "demo-service-desk"),
+        )
+        model_settings = ModelSettings.from_env() if live else None
+        model = model_settings.build() if live else ScriptedChatModel(responses=responses)
+        message = (
+            "Investigate the VPN problem and add one investigation note. Use the current "
+            "vpn-investigation policy. In every investigation note include the current "
+            "owner's full name, the policy source_uri, and the team responsible for "
+            "reviewing authentication failures. Keep the ticket open. The gateway log "
+            "sample is still unavailable; save this unresolved action verbatim: "
+            "'Obtain the gateway log sample.'. Then pause for a later handoff."
+            if phase == "initial"
+            else "Continue the saved investigation and add an updated investigation note. "
+            "The gateway log sample is still unavailable."
+        )
+        try:
+            result = execute_session(
+                directory,
+                client,
+                contract,
+                model,
+                message,
+                resume=phase == "resume",
+                components=bundle,
+                model_settings=model_settings,
             )
-            model_settings = ModelSettings.from_env() if live else None
-            model = model_settings.build() if live else ScriptedChatModel(responses=responses)
-            message = (
-                "Investigate the VPN problem and add one investigation note. Use the current "
-                "vpn-investigation policy. In every investigation note include the current "
-                "owner's full name, the policy source_uri, and the team responsible for "
-                "reviewing authentication failures. Keep the ticket open. The gateway log "
-                "sample is still unavailable; save this unresolved action verbatim: "
-                "'Obtain the gateway log sample.'. Then pause for a later handoff."
-                if phase == "initial"
-                else "Continue the saved investigation and add an updated investigation note. "
-                "The gateway log sample is still unavailable."
-            )
-            try:
-                result = execute_session(
-                    directory,
-                    client,
-                    contract,
-                    model,
-                    message,
-                    resume=phase == "resume",
-                    components=bundle,
-                    model_settings=model_settings,
-                )
-            finally:
-                if live:
-                    model.root_client.close()
-            return {**result, "process_id": os.getpid()}
+        finally:
+            if live:
+                model.root_client.close()
+        return {**result, "process_id": os.getpid()}
 
 
 def _policy_observed(trace_path: str, source_uri: str, *, exclude_calls: set[str]) -> bool:

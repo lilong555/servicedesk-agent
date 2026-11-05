@@ -5,6 +5,7 @@ import json
 
 import httpx
 import pytest
+from langgraph.store.memory import InMemoryStore
 
 from servicedesk_agent.config import RedmineSettings
 from servicedesk_agent.domain import TaskContract
@@ -57,7 +58,17 @@ class RedmineFixture:
             data = json.loads(request.content)["issue"]
             self.writes.append(data)
             if self.apply_writes:
+                details = []
                 if "status_id" in data:
+                    if self.issue["status"]["id"] != data["status_id"]:
+                        details.append(
+                            {
+                                "property": "attr",
+                                "name": "status_id",
+                                "old_value": str(self.issue["status"]["id"]),
+                                "new_value": str(data["status_id"]),
+                            }
+                        )
                     self.issue["status"] = next(
                         item for item in self.statuses if item["id"] == data["status_id"]
                     )
@@ -66,6 +77,7 @@ class RedmineFixture:
                         "id": len(self.issue["journals"]) + 1,
                         "notes": data["notes"],
                         "user": {"id": self.principal_id},
+                        "details": details,
                     }
                 )
             if self.lose_ack:
@@ -78,7 +90,9 @@ class RedmineFixture:
 def desk():
     backend = RedmineFixture()
     settings = RedmineSettings(url="https://desk.test", api_key="test-key")
-    with RedmineClient(settings, transport=httpx.MockTransport(backend.handle)) as client:
+    with RedmineClient(
+        settings, store=InMemoryStore(), transport=httpx.MockTransport(backend.handle)
+    ) as client:
         yield backend, client
 
 

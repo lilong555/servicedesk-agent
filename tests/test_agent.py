@@ -6,11 +6,14 @@ import subprocess
 import sys
 from pathlib import Path
 
+import httpx
 import pytest
 
 from servicedesk_agent import session
 from servicedesk_agent.components import ComponentBundle
 from servicedesk_agent.domain import BusinessError
+from servicedesk_agent.operations import redmine_store
+from servicedesk_agent.redmine import RedmineClient
 from servicedesk_agent.session import execute_session, load_session, session_storage
 from servicedesk_agent.testing import ScriptedChatModel, tool_call
 
@@ -292,15 +295,13 @@ def test_interrupted_turn_resumes_without_repeating_the_committed_write(tmp_path
     assert trace["error_type"] == "ValueError"
     assert trace["receipt_ids"] == list(saved["receipts"])
     assert traces[0].stat().st_mode & 0o777 == 0o600
-    model = ScriptedChatModel(responses=["Finished interrupted turn.", "Continued."])
+    model = ScriptedChatModel(responses=["Continued."])
     result = execute_session(tmp_path, client, contract, model, "Continue", resume=True)
     assert len(result["verified_receipts"]) == 1
     assert len(backend.writes) == 1
     assert result["message"] == "Continued."
+    assert len(model.requests) == 1
     assert [message.text for message in model.requests[0] if message.type == "human"] == [
-        "Investigate"
-    ]
-    assert [message.text for message in model.requests[1] if message.type == "human"] == [
         "Investigate",
         "Continue",
     ]
@@ -344,10 +345,16 @@ def test_lost_read_back_recovers_receipt_in_a_new_process(tmp_path, desk, contra
     backend, client = desk
     version = client.get_ticket(42).evidence.source_version
     backend.read_back_fails = True
-    with pytest.raises(ValueError, match="exhausted"):
+    with (
+        redmine_store(tmp_path) as store,
+        RedmineClient(
+            client.settings, store=store, transport=httpx.MockTransport(backend.handle)
+        ) as persistent_client,
+        pytest.raises(ValueError, match="exhausted"),
+    ):
         execute_session(
             tmp_path,
-            client,
+            persistent_client,
             contract,
             ScriptedChatModel(responses=[tool_call("read_ticket", {}, "read-1"), note_after_read]),
             "Investigate",
@@ -360,6 +367,7 @@ from pathlib import Path
 import httpx
 from servicedesk_agent.config import RedmineSettings
 from servicedesk_agent.domain import TaskContract
+from servicedesk_agent.operations import redmine_store
 from servicedesk_agent.redmine import RedmineClient
 from servicedesk_agent.session import execute_session
 from servicedesk_agent.testing import ScriptedChatModel, tool_call
@@ -372,18 +380,23 @@ def handle(request):
     if request.url.path == "/issues/42.json":
         return httpx.Response(200, json={"issue": issue})
     return httpx.Response(404)
-model = ScriptedChatModel(responses=[
-    tool_call("add_ticket_note", {
+def reconcile_after_input(messages):
+    assert messages[-1].type == "human" and messages[-1].text == "Continue"
+    return tool_call("add_ticket_note", {
         "note": "Investigated VPN logs.",
         "expected_version": os.environ["TEST_VERSION"],
-    }, "retry-note"),
+    }, "retry-note")
+model = ScriptedChatModel(responses=[
+    reconcile_after_input,
     "Recovered interrupted turn.",
-    "Continued.",
 ])
-with RedmineClient(RedmineSettings(url="https://desk.test"),
-                   transport=httpx.MockTransport(handle)) as client:
+with redmine_store(Path(os.environ["TEST_ROOT"])) as store, RedmineClient(
+    RedmineSettings(url="https://desk.test"), store=store,
+    transport=httpx.MockTransport(handle),
+) as client:
     result = execute_session(Path(os.environ["TEST_ROOT"]), client, contract,
                              model, "Continue", resume=True)
+    assert len(model.requests) == 2
     assert result["contract"] == contract.model_dump(mode="json")
     assert len(result["verified_receipts"]) == 1
     assert result["verified_receipts"][0]["replayed"] is True

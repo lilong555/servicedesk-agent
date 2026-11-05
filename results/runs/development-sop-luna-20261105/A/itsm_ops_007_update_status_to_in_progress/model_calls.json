@@ -1,0 +1,92 @@
+[
+  {
+    "run_id": "01a1ab07-74f0-7125-8ef5-ee13b50ad761",
+    "role": "agent",
+    "elapsed_seconds": 3.949175240999921,
+    "usage": {
+      "input_tokens": 2869,
+      "output_tokens": 23,
+      "total_tokens": 2892,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "run_id": "01a1ab07-8465-77ad-8a5e-69e690dbb4c1",
+    "role": "agent",
+    "elapsed_seconds": 2.969627443999798,
+    "usage": {
+      "input_tokens": 2959,
+      "output_tokens": 29,
+      "total_tokens": 2988,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "run_id": "01a1ab07-9008-7074-9f51-c8369c087724",
+    "role": "agent",
+    "elapsed_seconds": 2.5768270910002684,
+    "usage": {
+      "input_tokens": 3057,
+      "output_tokens": 17,
+      "total_tokens": 3074,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "run_id": "01a1ab07-6425-7539-93c3-8f937a3a6f98",
+    "role": "user_simulator",
+    "elapsed_seconds": 3.2609770349999962,
+    "usage": {
+      "input_tokens": 885,
+      "output_tokens": 66,
+      "total_tokens": 951,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 11
+      }
+    },
+    "error": null
+  },
+  {
+    "run_id": "01a1ab07-9a27-70a5-96d0-6504b2ef8a56",
+    "role": "user_simulator",
+    "elapsed_seconds": 2.002597451999918,
+    "usage": {
+      "input_tokens": 938,
+      "output_tokens": 22,
+      "total_tokens": 960,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  }
+]

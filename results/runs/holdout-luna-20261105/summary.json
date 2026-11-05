@@ -1,0 +1,45 @@
+{
+  "model_mode": "live",
+  "external_model_requests": 168,
+  "planned_episodes": 24,
+  "started_episodes": 24,
+  "unstarted_episodes": 0,
+  "completed": true,
+  "groups": {
+    "A": {
+      "started": 12,
+      "scored": 12,
+      "successes": 11,
+      "failures": 1,
+      "infrastructure_errors": 0,
+      "success_per_started": 0.9166666666666666,
+      "success_per_scored": 0.9166666666666666,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null
+    },
+    "B": {
+      "started": 12,
+      "scored": 12,
+      "successes": 11,
+      "failures": 1,
+      "infrastructure_errors": 0,
+      "success_per_started": 0.9166666666666666,
+      "success_per_scored": 0.9166666666666666,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null
+    }
+  },
+  "negative_control_rejected": null,
+  "results_path": "/home/li/code/servicedesk-agent/artifacts/holdout-luna-20261105",
+  "B_vs_A": {
+    "wins": 0,
+    "losses": 0,
+    "ties": 12,
+    "unscored_pairs": 0
+  },
+  "freeze_id": "b51b5d7b0a13df4e9a5927673bbb92fd43fac0061bb5a5b9705213b209e9c46a"
+}

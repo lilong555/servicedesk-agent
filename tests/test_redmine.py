@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import httpx
 import pytest
+from langgraph.store.memory import InMemoryStore
 
 from servicedesk_agent.domain import BusinessError, fingerprint
 from servicedesk_agent.redmine import RedmineClient
@@ -113,7 +114,7 @@ def test_unverified_write_is_not_reported_as_complete(desk, contract, failure):
     setattr(backend, failure, failure == "read_back_fails")
     with pytest.raises(BusinessError) as raised:
         client.add_note(contract, "Note.", version)
-    assert raised.value.code == "write_outcome_unknown"
+    assert raised.value.code == "operation_uncertain"
     assert len(backend.writes) == 1
 
 
@@ -153,7 +154,9 @@ def test_ambiguous_acknowledgement_uses_one_write_and_read_back(desk, contract, 
             return httpx.Response(200, text="Acknowledgement lost at proxy")
         return response
 
-    with RedmineClient(original.settings, transport=httpx.MockTransport(handle)) as client:
+    with RedmineClient(
+        original.settings, store=InMemoryStore(), transport=httpx.MockTransport(handle)
+    ) as client:
         version = client.get_ticket(42).evidence.source_version
         value = "Investigation recorded." if action == "add_note" else 2
         receipt = getattr(client, action)(contract, value, version)
@@ -176,11 +179,13 @@ def test_invalid_read_back_remains_unknown_and_can_be_retried(desk, contract, bo
                 return httpx.Response(200, json=body)
         return backend.handle(request)
 
-    with RedmineClient(original.settings, transport=httpx.MockTransport(handle)) as client:
+    with RedmineClient(
+        original.settings, store=InMemoryStore(), transport=httpx.MockTransport(handle)
+    ) as client:
         version = client.get_ticket(42).evidence.source_version
         with pytest.raises(BusinessError) as raised:
             client.add_note(contract, "One persisted note.", version)
-        assert raised.value.code == "write_outcome_unknown"
+        assert raised.value.code == "operation_uncertain"
         invalid_read_back = False
         receipt = client.add_note(contract, "One persisted note.", version)
         assert receipt.verified and receipt.replayed
@@ -206,13 +211,13 @@ def test_replay_requires_the_original_principal_and_a_journal_id(desk, contract,
     backend.issue["journals"][0].update(metadata)
     with pytest.raises(BusinessError) as raised:
         client.add_note(contract, "Review completed.", version)
-    assert raised.value.code == "stale_observation"
+    assert raised.value.code == "action_evidence_changed"
     assert len(backend.writes) == 1
     current = client.get_ticket(42).evidence.source_version
-    receipt = client.add_note(contract, "Review completed.", current)
-    assert receipt.verified and not receipt.replayed
-    assert receipt.journal_id == 2
-    assert len(backend.writes) == 2
+    with pytest.raises(BusinessError) as raised:
+        client.add_note(contract, "Review completed.", current)
+    assert raised.value.code == "action_evidence_changed"
+    assert len(backend.writes) == 1
 
 
 @pytest.mark.parametrize("lose_ack", [False, True])
@@ -227,16 +232,18 @@ def test_read_back_from_another_author_does_not_verify_our_write(desk, contract,
                 raise httpx.ReadTimeout("Lost response", request=request)
         return response
 
-    with RedmineClient(original.settings, transport=httpx.MockTransport(handle)) as client:
+    with RedmineClient(
+        original.settings, store=InMemoryStore(), transport=httpx.MockTransport(handle)
+    ) as client:
         version = client.get_ticket(42).evidence.source_version
         with pytest.raises(BusinessError) as raised:
             client.add_note(contract, "One note.", version)
-        assert raised.value.code == "write_outcome_unknown"
+        assert raised.value.code == "operation_uncertain"
         assert len(backend.writes) == 1
 
 
 @pytest.mark.parametrize("lose_ack", [False, True])
-def test_status_receipt_requires_both_journal_and_target_state(desk, contract, lose_ack):
+def test_verified_status_transition_is_superseded_by_later_state(desk, contract, lose_ack):
     backend, original = desk
 
     def handle(request):
@@ -247,11 +254,13 @@ def test_status_receipt_requires_both_journal_and_target_state(desk, contract, l
                 raise httpx.ReadTimeout("Lost response", request=request)
         return response
 
-    with RedmineClient(original.settings, transport=httpx.MockTransport(handle)) as client:
+    with RedmineClient(
+        original.settings, store=InMemoryStore(), transport=httpx.MockTransport(handle)
+    ) as client:
         version = client.get_ticket(42).evidence.source_version
         with pytest.raises(BusinessError) as raised:
             client.set_status(contract, 2, version)
-        assert raised.value.code == "write_outcome_unknown"
+        assert raised.value.code == "action_superseded"
         assert raised.value.evidence.status_id == 1
         assert len(backend.writes) == 1
 
@@ -269,10 +278,10 @@ def test_marker_text_inside_someone_elses_note_is_not_a_receipt(desk, contract):
         }
     ]
     version = client.get_ticket(42).evidence.source_version
-    receipt = client.add_note(contract, "Reviewed.", version)
-    assert receipt.verified and not receipt.replayed
-    assert receipt.journal_id == 2
-    assert len(backend.writes) == 1
+    with pytest.raises(BusinessError) as raised:
+        client.add_note(contract, "Reviewed.", version)
+    assert raised.value.code == "operation_uncertain"
+    assert backend.writes == []
 
 
 def test_network_failure_without_commit_is_not_retried_automatically(desk, contract):
@@ -282,14 +291,15 @@ def test_network_failure_without_commit_is_not_retried_automatically(desk, contr
     backend.apply_writes = False
     with pytest.raises(BusinessError) as raised:
         client.add_note(contract, "One note.", version)
-    assert raised.value.code == "write_outcome_unknown"
+    assert raised.value.code == "operation_uncertain"
     assert len(backend.writes) == 1
     assert backend.issue["journals"] == []
     backend.apply_writes = True
-    receipt = client.add_note(contract, "One note.", version)
-    assert receipt.verified
-    assert len(backend.writes) == 2
-    assert len(backend.issue["journals"]) == 1
+    with pytest.raises(BusinessError) as raised:
+        client.add_note(contract, "One note.", version)
+    assert raised.value.code == "operation_uncertain"
+    assert len(backend.writes) == 1
+    assert backend.issue["journals"] == []
 
 
 @pytest.mark.parametrize("status", [401, 403, 409, 422])
@@ -301,7 +311,9 @@ def test_explicit_write_denial_produces_no_receipt(desk, contract, status):
             return httpx.Response(status)
         return backend.handle(request)
 
-    with RedmineClient(original.settings, transport=httpx.MockTransport(handle)) as client:
+    with RedmineClient(
+        original.settings, store=InMemoryStore(), transport=httpx.MockTransport(handle)
+    ) as client:
         version = client.get_ticket(42).evidence.source_version
         with pytest.raises(BusinessError) as raised:
             client.add_note(contract, "Rejected note.", version)
@@ -333,7 +345,9 @@ def test_narrow_write_preserves_owner_and_dependencies_changed_during_put(desk, 
             backend.issue["relations"] = relations
         return backend.handle(request)
 
-    with RedmineClient(original.settings, transport=httpx.MockTransport(handle)) as client:
+    with RedmineClient(
+        original.settings, store=InMemoryStore(), transport=httpx.MockTransport(handle)
+    ) as client:
         version = client.get_ticket(42).evidence.source_version
         value = "Recorded." if action == "add_note" else 2
         receipt = getattr(client, action)(contract, value, version)

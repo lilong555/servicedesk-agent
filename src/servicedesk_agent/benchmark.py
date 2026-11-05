@@ -4,22 +4,92 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
 from dataclasses import asdict
 from importlib.resources import files
+from importlib.util import find_spec
 from pathlib import Path
 from typing import Any
 
+import yaml
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 from langchain_core.tools import StructuredTool
 
 from servicedesk_agent.native import create_native_agent
 from servicedesk_agent.usage import UsageRecorder
 
+POLICY_PROFILE = "shared-policy-and-public-workflows"
+
 
 def subset_manifest() -> dict:
     return json.loads(
         files("servicedesk_agent").joinpath("assets/itsm_subset.json").read_text(encoding="utf-8")
     )
+
+
+def validate_source(source: Path) -> None:
+    manifest = subset_manifest()
+    actual = subprocess.run(
+        ["git", "-C", str(source), "rev-parse", "HEAD"],
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout.strip()
+    changes = subprocess.run(
+        ["git", "-C", str(source), "status", "--porcelain", "--untracked-files=no"],
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout.strip()
+    if actual != manifest["source_commit"] or changes:
+        raise ValueError("Use a clean CRM checkout at the frozen source commit.")
+    for relative, key in (
+        ("src/tasks/itsm.yaml", "tasks_sha256"),
+        ("src/tasks/policies/itsm_policy.md", "policy_sha256"),
+    ):
+        if hashlib.sha256((source / relative).read_bytes()).hexdigest() != manifest[key]:
+            raise ValueError("The CRM task or policy hash differs from the fixed manifest.")
+    spec = find_spec("harness")
+    if (
+        not spec
+        or not spec.origin
+        or not Path(spec.origin).resolve().is_relative_to(source.resolve())
+    ):
+        raise ValueError("Install the CRM harness from the same pinned checkout.")
+
+
+def load_business_policies(source: Path) -> list[dict[str, str]]:
+    commit = subset_manifest()["source_commit"]
+    base = f"https://github.com/salesforce-misc/crm-agent-bench/blob/{commit}/"
+    reference = yaml.safe_load((source / "src/agents/itsm.yaml").read_text())
+    documents = [
+        {
+            "policy_id": "itsm-operating-policy",
+            "version": commit,
+            "source_uri": base + "src/tasks/policies/itsm_policy.md",
+            "text": (source / "src/tasks/policies/itsm_policy.md").read_text(),
+        }
+    ]
+    for node_id, policy_id, line in (
+        ("ticket_operations__tickets", "itsm-ticket-workflow", 14),
+        ("record_safety__deletion", "itsm-deletion-workflow", 74),
+        ("case_hours__cases", "itsm-hours-workflow", 121),
+    ):
+        node = reference["nodes"][node_id]
+        if any(
+            not isinstance(node.get(key), str) or not node[key].strip()
+            for key in ("description", "instructions")
+        ):
+            raise ValueError("The public workflow requires its applicability and instructions.")
+        documents.append(
+            {
+                "policy_id": policy_id,
+                "version": commit,
+                "source_uri": base + f"src/agents/itsm.yaml#L{line}",
+                "text": f"Applicable requests: {node['description']}\n\n{node['instructions']}",
+            }
+        )
+    return documents
 
 
 def load_fixed_tasks(source: Path, split: str = "development"):

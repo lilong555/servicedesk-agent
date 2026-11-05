@@ -1,11 +1,11 @@
-"""Reproducible development episodes with the upstream user simulator and graders."""
+"""Frozen CRM episodes with the upstream user simulator and graders."""
 
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import json
 import random
-import subprocess
 import threading
 from contextlib import AsyncExitStack
 from datetime import UTC, datetime
@@ -17,13 +17,22 @@ from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, Tool
 from langgraph.checkpoint.sqlite.aio import AsyncSqliteSaver
 
 from servicedesk_agent.benchmark import (
+    POLICY_PROFILE,
     DeepAgentsCRMAdapter,
+    load_business_policies,
     load_fixed_tasks,
     run_episode,
     subset_manifest,
+    validate_source,
 )
 from servicedesk_agent.config import ModelSettings
 from servicedesk_agent.domain import fingerprint
+from servicedesk_agent.protocol import (
+    claim_execution,
+    validate_freeze,
+    validate_options,
+    verify_runtime,
+)
 from servicedesk_agent.provenance import capture_source
 from servicedesk_agent.testing import ScriptedChatModel, tool_call
 from servicedesk_agent.usage import UsageRecorder, summarize_episodes
@@ -48,24 +57,6 @@ class ModelCallLimit(BaseCallbackHandler):
             if self.count >= self.limit:
                 raise ModelCallLimitError("The configured model request limit has been reached.")
             self.count += 1
-
-
-def validate_source(source: Path) -> None:
-    expected = subset_manifest()["source_commit"]
-    actual = subprocess.run(
-        ["git", "-C", str(source), "rev-parse", "HEAD"],
-        capture_output=True,
-        text=True,
-        check=True,
-    ).stdout.strip()
-    changes = subprocess.run(
-        ["git", "-C", str(source), "status", "--porcelain", "--untracked-files=no"],
-        capture_output=True,
-        text=True,
-        check=True,
-    ).stdout.strip()
-    if actual != expected or changes:
-        raise ValueError("Use a clean CRM checkout at the frozen source commit.")
 
 
 def simulator_client(model, recorder: UsageRecorder):
@@ -210,7 +201,7 @@ def smoke_fixture(task_id: str, *, wrong_status: bool = False):
     )
 
 
-async def _components(stack, directory: Path, scope: str, policy: str):
+async def _components(stack, directory: Path, scope: str, policies: list[dict[str, str]]):
     from langgraph.store.sqlite import AsyncSqliteStore
 
     from servicedesk_agent.components import build_components
@@ -222,16 +213,11 @@ async def _components(stack, directory: Path, scope: str, policy: str):
     await store.setup()
     documents = [
         PolicyVersion(
-            policy_id="itsm-operating-policy",
-            version=subset_manifest()["source_commit"],
-            source_uri=(
-                "https://github.com/salesforce-misc/crm-agent-bench/blob/"
-                f"{subset_manifest()['source_commit']}/src/tasks/policies/itsm_policy.md"
-            ),
             scope="crm-itsm",
             valid_from=datetime(2026, 1, 1, tzinfo=UTC),
-            text=policy,
+            **document,
         )
+        for document in policies
     ]
     return build_components(scope, store, PolicyCatalog(documents, "crm-itsm"))
 
@@ -251,23 +237,70 @@ async def run_evaluation(
     settings: ModelSettings | None = None,
     max_calls: int = 300,
     max_turns: int = 15,
+    freeze: Path | None = None,
+) -> dict:
+    if split not in {"calibration", "development", "holdout"}:
+        raise ValueError("Select calibration, development or a frozen holdout evaluation.")
+    if split == "holdout" and (not live or freeze is None):
+        raise ValueError("The holdout stays frozen until a live run supplies --freeze.")
+    if split != "holdout" and freeze is not None:
+        raise ValueError("Use --freeze only for the holdout split.")
+    validate_options(groups, max_calls, max_turns)
+    settings = settings or ModelSettings.from_env()
+    kwargs = {
+        "groups": groups,
+        "split": split,
+        "live": live,
+        "settings": settings,
+        "max_calls": max_calls,
+        "max_turns": max_turns,
+    }
+    if freeze is None:
+        return await _run_evaluation(source, output, **kwargs)
+    record = validate_freeze(
+        freeze,
+        source,
+        settings=settings,
+        groups=groups,
+        max_calls=max_calls,
+        max_turns=max_turns,
+    )
+    with claim_execution(freeze, record, output) as execution:
+        result = await _run_evaluation(source, output, frozen=record, **kwargs)
+        execution.update(
+            status="completed" if result["completed"] else "partial",
+            planned_episodes=result["planned_episodes"],
+            started_episodes=result["started_episodes"],
+        )
+        return result
+
+
+async def _run_evaluation(
+    source: Path,
+    output: Path,
+    *,
+    groups: tuple[str, ...],
+    split: str,
+    live: bool,
+    settings: ModelSettings,
+    max_calls: int,
+    max_turns: int,
+    frozen: dict | None = None,
 ) -> dict:
     from harness.tools.domains.itsm import ITSMEnvironment
     from harness.user_simulator import load_user_simulator
 
-    if split not in {"calibration", "development"}:
-        raise ValueError("Development runs use calibration or development; holdout stays frozen.")
-    if not groups or any(group not in {"A", "B"} for group in groups):
-        raise ValueError("Select A and/or B.")
     if not live and split != "calibration":
         raise ValueError("Scripted wiring smoke tests cover the three calibration tasks.")
-    settings = settings or ModelSettings.from_env()
     if live:
         settings.require_live()
     validate_source(source)
     tasks = load_fixed_tasks(source, split)
+    if frozen is not None and [task.id for task in tasks] != frozen["protocol"]["tasks"]:
+        raise ValueError("The selected tasks differ from the frozen holdout order.")
     output.mkdir(parents=True, exist_ok=False, mode=0o700)
-    policy = (source / "src/tasks/policies/itsm_policy.md").read_text()
+    policies = load_business_policies(source)
+    policy = "\n\n".join(document["text"] for document in policies)
     gate = ModelCallLimit(max_calls)
     configuration = {
         "model_mode": "live" if live else "scripted",
@@ -285,14 +318,32 @@ async def run_evaluation(
         "user_simulator": "react" if live else "recorded-fixture",
         "semantic_judge_calls": 0,
         "native_summarization": True,
+        "policy_profile": POLICY_PROFILE,
+        "policy_sources": [
+            {
+                "policy_id": document["policy_id"],
+                "source_uri": document["source_uri"],
+                "source_version": document["version"],
+                "content_sha256": hashlib.sha256(document["text"].encode()).hexdigest(),
+            }
+            for document in policies
+        ],
         "provenance": capture_source(output),
     }
+    if frozen is not None:
+        verify_runtime(frozen)
+        configuration["freeze_id"] = frozen["freeze_id"]
+        _write_json(output / "freeze.json", frozen)
     _write_json(output / "config.json", configuration)
+    _write_json(output / "policies.json", policies)
     episodes = []
     for task in tasks:
         for group in groups:
             if live and gate.count >= gate.limit:
                 break
+            if frozen is not None:
+                verify_runtime(frozen)
+                validate_source(source)
             random.seed(subset_manifest()["seed"])
             directory = output / group / task.id
             directory.mkdir(parents=True, mode=0o700)
@@ -319,7 +370,7 @@ async def run_evaluation(
                 )
                 scope = fingerprint({"task": task.id, "group": group, "run": str(output.resolve())})
                 bundle = (
-                    await _components(stack, directory, scope, policy) if group == "B" else None
+                    await _components(stack, directory, scope, policies) if group == "B" else None
                 )
                 adapter = DeepAgentsCRMAdapter(
                     agent_model,
@@ -372,6 +423,9 @@ async def run_evaluation(
         "model_mode": configuration["model_mode"],
         "external_model_requests": gate.count if live else 0,
         "planned_episodes": len(tasks) * len(groups),
+        "started_episodes": len(episodes),
+        "unstarted_episodes": len(tasks) * len(groups) - len(episodes),
+        "completed": len(episodes) == len(tasks) * len(groups),
         "groups": {
             group: summarize_episodes([item for item in episodes if item["group"] == group])
             for group in groups
@@ -394,8 +448,12 @@ async def run_evaluation(
             "wins": sum(pair["B"] and not pair["A"] for pair in comparable),
             "losses": sum(pair["A"] and not pair["B"] for pair in comparable),
             "ties": sum(pair["A"] == pair["B"] for pair in comparable),
-            "unscored_pairs": len(pairs) - len(comparable),
+            "unscored_pairs": len(tasks) - len(comparable),
         }
+    if frozen is not None:
+        verify_runtime(frozen)
+        validate_source(source)
+        summary["freeze_id"] = frozen["freeze_id"]
     _write_json(output / "summary.json", summary)
     return summary
 

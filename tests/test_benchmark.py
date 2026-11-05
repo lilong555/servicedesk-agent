@@ -129,3 +129,27 @@ def test_forbidden_attempt_is_visible_even_when_tool_invocation_fails(tmp_path):
         assert result["trace"]["tool_calls_detail"][0]["ok"] is False
 
     asyncio.run(run())
+
+
+def test_all_public_workflows_include_applicability_and_original_instructions():
+    import yaml
+
+    from servicedesk_agent.benchmark import load_business_policies
+
+    documents = load_business_policies(SOURCE)
+    reference = yaml.safe_load((SOURCE / "src/agents/itsm.yaml").read_text())
+    assert documents[0]["text"] == (SOURCE / "src/tasks/policies/itsm_policy.md").read_text()
+    assert len(documents) == 4
+    for document, node_id, line in zip(
+        documents[1:],
+        ("ticket_operations__tickets", "record_safety__deletion", "case_hours__cases"),
+        (14, 74, 121),
+        strict=True,
+    ):
+        node = reference["nodes"][node_id]
+        assert document["text"] == (
+            f"Applicable requests: {node['description']}\n\n{node['instructions']}"
+        )
+        assert document["source_uri"].endswith(f"/src/agents/itsm.yaml#L{line}")
+    assert "1. Use check_dependencies" in documents[2]["text"]
+    assert "2. Use check_permission" in documents[2]["text"]

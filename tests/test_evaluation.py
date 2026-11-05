@@ -152,12 +152,21 @@ async def test_scripted_evaluation_full_ab_smoke_and_negative_control(tmp_path):
 
 
 @pytest.mark.parametrize("live", [False, True])
-@pytest.mark.parametrize("split", ["holdout", "all", "unknown"])
+@pytest.mark.parametrize("split", ["all", "unknown"])
 @pytest.mark.asyncio
 async def test_evaluation_rejects_non_development_splits_before_model_build(tmp_path, live, split):
     output = tmp_path / "rejected"
-    with pytest.raises(ValueError, match="holdout stays frozen"):
+    with pytest.raises(ValueError, match="Select calibration"):
         await run_evaluation(SOURCE, output, split=split, live=live, settings=ModelSettings())
+    assert not output.exists()
+
+
+@pytest.mark.parametrize("live", [False, True])
+@pytest.mark.asyncio
+async def test_holdout_requires_a_live_frozen_protocol(tmp_path, live):
+    output = tmp_path / "rejected"
+    with pytest.raises(ValueError, match="holdout stays frozen"):
+        await run_evaluation(SOURCE, output, split="holdout", live=live, settings=ModelSettings())
     assert not output.exists()
 
 
@@ -248,7 +257,15 @@ async def test_model_call_limit_is_persisted_with_scripted_live_orchestration(
     assert summary["groups"]["A"]["scored"] == 0
     assert summary["groups"]["A"]["successes"] == 0
     assert summary["groups"]["B"]["started"] == 0
-    assert summary["B_vs_A"] == {"wins": 0, "losses": 0, "ties": 0, "unscored_pairs": 1}
+    assert summary["started_episodes"] == 1
+    assert summary["unstarted_episodes"] == summary["planned_episodes"] - 1
+    assert summary["completed"] is False
+    assert summary["B_vs_A"] == {
+        "wins": 0,
+        "losses": 0,
+        "ties": 0,
+        "unscored_pairs": 3 if split == "calibration" else 9,
+    }
     assert summary["negative_control_rejected"] is None
     assert not (output / "negative-control.json").exists()
     directory = output / "A" / episode["task_id"]

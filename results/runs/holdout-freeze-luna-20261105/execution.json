@@ -1,0 +1,9 @@
+{
+  "freeze_id": "b51b5d7b0a13df4e9a5927673bbb92fd43fac0061bb5a5b9705213b209e9c46a",
+  "output": "/home/li/code/servicedesk-agent/artifacts/holdout-luna-20261105",
+  "started_at": "2026-11-05T09:53:41.397151+00:00",
+  "status": "completed",
+  "planned_episodes": 24,
+  "started_episodes": 24,
+  "finished_at": "2026-11-05T10:02:34.629322+00:00"
+}

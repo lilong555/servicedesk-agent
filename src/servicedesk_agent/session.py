@@ -9,8 +9,9 @@ from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
-from langchain_core.messages import HumanMessage, messages_to_dict
+from langchain_core.messages import AIMessage, HumanMessage, ToolMessage, messages_to_dict
 from langgraph.checkpoint.sqlite import SqliteSaver
+from langgraph.graph import END
 
 from servicedesk_agent.agent import build_desk_agent
 from servicedesk_agent.domain import BusinessError, TaskContract
@@ -43,6 +44,42 @@ def load_session(root: Path, client, identity: TaskContract) -> dict[str, Any]:
             if stored.thread_id != identity.thread_id:
                 raise BusinessError("contract_changed", "The saved contract has a different scope.")
         return state
+
+
+def _superseded_tool_results(messages) -> list[ToolMessage]:
+    answered = {item.tool_call_id for item in messages if isinstance(item, ToolMessage)}
+    results = []
+    for item in messages:
+        if not isinstance(item, AIMessage):
+            continue
+        for call in (*item.tool_calls, *item.invalid_tool_calls):
+            if call["id"] is None or call["id"] in answered:
+                continue
+            results.append(
+                ToolMessage(
+                    content=json.dumps(
+                        {
+                            "ok": False,
+                            "error": "superseded_by_user_input",
+                            "retry_cancelled": True,
+                            "execution_outcome": "unknown",
+                            "message": (
+                                "A new user message superseded this pending tool call. "
+                                "Its execution or retry has been cancelled. No result was "
+                                "recorded; earlier execution may have produced side effects. "
+                                "Reconcile possible writes through read-only evidence and "
+                                "verified receipts; keep unconfirmed outcomes unresolved. "
+                                "Plan subsequent actions using the latest user message."
+                            ),
+                        }
+                    ),
+                    tool_call_id=call["id"],
+                    name=call["name"] or "unknown",
+                    status="error",
+                )
+            )
+            answered.add(call["id"])
+    return results
 
 
 def execute_session(
@@ -104,10 +141,12 @@ def execute_session(
         run_id = uuid4().hex
         failure = None
         try:
-            if existing.next:
-                # Complete an interrupted native super-step before accepting a new user turn.
-                graph.invoke(None, config)
-            graph.invoke({"messages": [HumanMessage(content=message)]}, config)
+            if existing.tasks:
+                # END folds in completed sibling outputs and clears queued tasks without
+                # executing them. The live snapshot already includes those saved outputs.
+                graph.update_state(config, None, as_node=END)
+            messages = _superseded_tool_results(existing.values.get("messages", []))
+            graph.invoke({"messages": [*messages, HumanMessage(content=message)]}, config)
         except BaseException as exc:
             failure = exc
             raise

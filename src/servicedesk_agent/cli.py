@@ -1,4 +1,4 @@
-"""Local CLI for service desk work, recovery and development evaluation."""
+"""Local CLI for service desk work, recovery and frozen holdout evaluation."""
 
 from __future__ import annotations
 
@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 
 from servicedesk_agent.config import ModelSettings, RedmineSettings, state_dir
 from servicedesk_agent.domain import BusinessError, TaskContract
+from servicedesk_agent.operations import redmine_store
 from servicedesk_agent.redmine import RedmineClient
 from servicedesk_agent.session import execute_session, load_session
 
@@ -62,20 +63,54 @@ def parser() -> argparse.ArgumentParser:
     demo.add_argument("--output", type=Path)
     demo.add_argument("--live", action="store_true")
     commands.add_parser("mcp-serve", help="Expose read-only Redmine tools over MCP stdio.")
-    bench = commands.add_parser("bench", help="Fixed CRM development tasks.")
+    bench = commands.add_parser("bench", help="CRM development, freezing and holdout evaluation.")
     bench_commands = bench.add_subparsers(dest="bench_command", required=True)
-    for name in ("select", "smoke", "run"):
-        sub = bench_commands.add_parser(name)
-        sub.add_argument("--source", type=Path, default=Path("vendor/crm-agent-bench"))
+    for name, help_text in {
+        "select": "Inspect the fixed CRM task selection without model calls.",
+        "smoke": "Check calibration wiring with offline scripted models.",
+        "freeze": "Freeze evaluation configuration into freeze.json without model calls.",
+        "run": "Run calibration, development or frozen holdout tasks with a live model.",
+    }.items():
+        sub = bench_commands.add_parser(name, help=help_text, description=help_text)
+        sub.add_argument(
+            "--source",
+            type=Path,
+            default=Path("vendor/crm-agent-bench"),
+            help="CRM benchmark checkout (default: vendor/crm-agent-bench).",
+        )
         if name != "select":
-            sub.add_argument("--output", type=Path, required=True)
-            sub.add_argument("--groups", nargs="+", choices=["A", "B"], default=["A", "B"])
+            sub.add_argument(
+                "--output",
+                type=Path,
+                required=True,
+                help="Directory for freeze.json." if name == "freeze" else "Results directory.",
+            )
+            sub.add_argument(
+                "--groups",
+                nargs="+",
+                choices=["A", "B"],
+                default=["A", "B"],
+                help="Evaluation groups (default: A B).",
+            )
         if name == "run":
             sub.add_argument(
-                "--split", choices=["calibration", "development"], default="calibration"
+                "--split",
+                choices=["calibration", "development", "holdout"],
+                default="calibration",
+                help="Task split; holdout requires --freeze (default: calibration).",
             )
-            sub.add_argument("--max-calls", type=int, default=300)
-            sub.add_argument("--max-turns", type=int, default=15)
+            sub.add_argument(
+                "--freeze",
+                type=Path,
+                help="Path to freeze.json, required and used only with --split holdout.",
+            )
+        if name in {"freeze", "run"}:
+            sub.add_argument(
+                "--max-calls", type=int, default=300, help="Model request limit (default: 300)."
+            )
+            sub.add_argument(
+                "--max-turns", type=int, default=15, help="Episode turn limit (default: 15)."
+            )
     return root
 
 
@@ -132,10 +167,20 @@ def dispatch(args):
         output = args.output or Path("artifacts") / f"redmine-demo-{uuid4().hex[:8]}"
         return run_demo(args.access, output, live=args.live)
     if args.command == "bench":
-        from servicedesk_agent.benchmark import load_fixed_tasks, subset_manifest
-        from servicedesk_agent.evaluation import run
+        if args.bench_command == "freeze":
+            from servicedesk_agent.protocol import freeze_evaluation
 
+            return freeze_evaluation(
+                args.source,
+                args.output,
+                settings=ModelSettings.from_env(),
+                groups=tuple(args.groups),
+                max_calls=args.max_calls,
+                max_turns=args.max_turns,
+            )
         if args.bench_command == "select":
+            from servicedesk_agent.benchmark import load_fixed_tasks, subset_manifest
+
             tasks = load_fixed_tasks(args.source, "all")
             return {
                 **subset_manifest(),
@@ -143,12 +188,22 @@ def dispatch(args):
                 "development_count": 9,
                 "holdout_count": 12,
             }
+        split = getattr(args, "split", "calibration")
+        freeze = getattr(args, "freeze", None)
+        if split == "holdout" and freeze is None:
+            raise ValueError("bench run --split holdout requires --freeze pointing to freeze.json.")
+        if freeze is not None and split != "holdout":
+            raise ValueError("--freeze is only valid with bench run --split holdout.")
+
+        from servicedesk_agent.evaluation import run
+
         return run(
             args.source,
             args.output,
             live=args.bench_command == "run",
             groups=tuple(args.groups),
-            split=getattr(args, "split", "calibration"),
+            split=split,
+            freeze=freeze,
             max_calls=getattr(args, "max_calls", 300),
             max_turns=getattr(args, "max_turns", 15),
         )
@@ -183,10 +238,15 @@ def dispatch(args):
     if not redmine_settings.api_key.get_secret_value():
         raise ValueError("Set DESK_REDMINE_API_KEY or select the local Redmine environment file.")
     with ExitStack() as stack:
-        client = stack.enter_context(RedmineClient(redmine_settings))
+        root = state_dir()
+        store = (
+            stack.enter_context(redmine_store(root))
+            if args.command in {"start", "resume"}
+            else None
+        )
+        client = stack.enter_context(RedmineClient(redmine_settings, store=store))
         if args.command == "ticket":
             return client.get_ticket(args.ticket).model_dump(mode="json")
-        root = state_dir()
         identity = _identity(client, args)
         if args.command == "remember":
             from langgraph.store.sqlite import SqliteStore

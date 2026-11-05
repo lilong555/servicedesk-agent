@@ -1,0 +1,44 @@
+{
+  "model_mode": "live",
+  "external_model_requests": 146,
+  "planned_episodes": 18,
+  "started_episodes": 18,
+  "unstarted_episodes": 0,
+  "completed": true,
+  "groups": {
+    "A": {
+      "started": 9,
+      "scored": 9,
+      "successes": 8,
+      "failures": 1,
+      "infrastructure_errors": 0,
+      "success_per_started": 0.8888888888888888,
+      "success_per_scored": 0.8888888888888888,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null
+    },
+    "B": {
+      "started": 9,
+      "scored": 9,
+      "successes": 8,
+      "failures": 1,
+      "infrastructure_errors": 0,
+      "success_per_started": 0.8888888888888888,
+      "success_per_scored": 0.8888888888888888,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null
+    }
+  },
+  "negative_control_rejected": null,
+  "results_path": "/home/li/code/servicedesk-agent/artifacts/development-full-sop-luna-20261105",
+  "B_vs_A": {
+    "wins": 0,
+    "losses": 0,
+    "ties": 9,
+    "unscored_pairs": 0
+  }
+}

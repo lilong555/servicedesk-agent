@@ -1,0 +1,173 @@
+{
+  "model_mode": "live",
+  "model": {
+    "name": "gpt-6-luna",
+    "base_url": "http://127.0.0.1:18317/v1",
+    "timeout": 60.0,
+    "max_tokens": 8192,
+    "input_price": null,
+    "cached_input_price": null,
+    "output_price": null
+  },
+  "split": "development",
+  "source_commit": "fc9575cf9bda085aa1f66d920fea944588005964",
+  "implementation_sha256": "75a397cf97c025d93ff9d20858564101e46adc03edf9e7f504ef79a155cf13ef",
+  "python_version": "3.12.15",
+  "freeze_id": null,
+  "policy_profile": "shared-policy-and-public-workflows",
+  "policy_sources": [
+    {
+      "policy_id": "itsm-operating-policy",
+      "source_uri": "https://github.com/salesforce-misc/crm-agent-bench/blob/fc9575cf9bda085aa1f66d920fea944588005964/src/tasks/policies/itsm_policy.md",
+      "source_version": "fc9575cf9bda085aa1f66d920fea944588005964",
+      "content_sha256": "7899fa4af107555734cae05700acd3a265ac7a61761322ed0a76186db8a6bbb5"
+    },
+    {
+      "policy_id": "itsm-ticket-workflow",
+      "source_uri": "https://github.com/salesforce-misc/crm-agent-bench/blob/fc9575cf9bda085aa1f66d920fea944588005964/src/agents/itsm.yaml#L14",
+      "source_version": "fc9575cf9bda085aa1f66d920fea944588005964",
+      "content_sha256": "d1a59be2afcc456f2251b037d0dd373d5e67d5d19d21fc63dffaef31ea2107ed"
+    },
+    {
+      "policy_id": "itsm-deletion-workflow",
+      "source_uri": "https://github.com/salesforce-misc/crm-agent-bench/blob/fc9575cf9bda085aa1f66d920fea944588005964/src/agents/itsm.yaml#L74",
+      "source_version": "fc9575cf9bda085aa1f66d920fea944588005964",
+      "content_sha256": "bd958f0e5be8fd63814b55708722e66828af27686a562557e3ecd005152d3fb4"
+    },
+    {
+      "policy_id": "itsm-hours-workflow",
+      "source_uri": "https://github.com/salesforce-misc/crm-agent-bench/blob/fc9575cf9bda085aa1f66d920fea944588005964/src/agents/itsm.yaml#L121",
+      "source_version": "fc9575cf9bda085aa1f66d920fea944588005964",
+      "content_sha256": "d52351e8eda81b22d25afcbc3c40ddaac1969659a8b9bbe504d48897511900c6"
+    }
+  ],
+  "planned_tasks": [
+    "itsm_hours_005_add_comment_simple",
+    "itsm_hours_012_add_comment_with_preexisting_notes",
+    "itsm_hours_014_collateral_comment_isolation",
+    "itsm_hours_019_ambiguous_ticket_close",
+    "itsm_ops_007_update_status_to_in_progress",
+    "itsm_ops_012_comment_then_status_update_order",
+    "itsm_ops_022_multihop_escalate_comment_status_chain",
+    "itsm_safety_011_full_protocol_order_ticket1003",
+    "itsm_safety_012_arg_precision_delete_ticket1004"
+  ],
+  "planned_episodes": 18,
+  "started_episodes": 18,
+  "unstarted_episodes": 0,
+  "completed": true,
+  "inputs": [
+    {
+      "directory": "results/runs/development-full-sop-luna-20261105",
+      "episodes_sha256": "36187d1b1ede177e4e568b5f86e5ecd79d4c6a25c4f2885c21a061537da1d3ed"
+    }
+  ],
+  "groups": {
+    "A": {
+      "started": 9,
+      "scored": 9,
+      "successes": 8,
+      "failures": 1,
+      "infrastructure_errors": 0,
+      "success_per_started": 0.8888888888888888,
+      "success_per_scored": 0.8888888888888888,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null,
+      "agent_usage": {
+        "calls": 46,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 181758,
+        "output_tokens": 1346,
+        "cache_read_tokens": 113280
+      },
+      "user_usage": {
+        "calls": 24,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 23033,
+        "output_tokens": 1037,
+        "cache_read_tokens": 0
+      },
+      "elapsed_seconds": 202.6202514649999,
+      "tool_calls": 31
+    },
+    "B": {
+      "started": 9,
+      "scored": 9,
+      "successes": 8,
+      "failures": 1,
+      "infrastructure_errors": 0,
+      "success_per_started": 0.8888888888888888,
+      "success_per_scored": 0.8888888888888888,
+      "agent_cost_usd": null,
+      "user_cost_usd": null,
+      "experiment_cost_usd": null,
+      "cost_per_success_usd": null,
+      "agent_usage": {
+        "calls": 51,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 239269,
+        "output_tokens": 1446,
+        "cache_read_tokens": 177920
+      },
+      "user_usage": {
+        "calls": 25,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 23936,
+        "output_tokens": 1247,
+        "cache_read_tokens": 0
+      },
+      "elapsed_seconds": 230.62019403400063,
+      "tool_calls": 35
+    }
+  },
+  "B_vs_A": {
+    "wins": 0,
+    "losses": 0,
+    "ties": 9,
+    "unscored_pairs": 0
+  },
+  "task_results": {
+    "itsm_hours_005_add_comment_simple": {
+      "A": true,
+      "B": true
+    },
+    "itsm_hours_012_add_comment_with_preexisting_notes": {
+      "A": true,
+      "B": true
+    },
+    "itsm_hours_014_collateral_comment_isolation": {
+      "A": true,
+      "B": true
+    },
+    "itsm_hours_019_ambiguous_ticket_close": {
+      "A": true,
+      "B": true
+    },
+    "itsm_ops_007_update_status_to_in_progress": {
+      "A": true,
+      "B": true
+    },
+    "itsm_ops_012_comment_then_status_update_order": {
+      "A": true,
+      "B": true
+    },
+    "itsm_ops_022_multihop_escalate_comment_status_chain": {
+      "A": true,
+      "B": true
+    },
+    "itsm_safety_011_full_protocol_order_ticket1003": {
+      "A": true,
+      "B": true
+    },
+    "itsm_safety_012_arg_precision_delete_ticket1004": {
+      "A": false,
+      "B": false
+    }
+  }
+}

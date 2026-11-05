@@ -12,10 +12,12 @@ from deepagents.middleware.summarization import (
     SUMMARIZATION_EVENT_KEY,
     SummarizationMiddleware,
 )
+from langchain_core.messages import HumanMessage
 
+from servicedesk_agent.agent import build_desk_agent
 from servicedesk_agent.components import ComponentBundle
 from servicedesk_agent.domain import BusinessError
-from servicedesk_agent.session import execute_session, load_session
+from servicedesk_agent.session import execute_session, load_session, session_storage
 from servicedesk_agent.testing import ScriptedChatModel, tool_call
 
 PENDING = ["Obtain the gateway log sample.", "Confirm the dependency owner's findings."]
@@ -197,6 +199,59 @@ def test_native_read_file_recovers_full_offloaded_evidence_after_sqlite_rebuild(
     assert result["contract"] == saved["contract"]
     assert result["pending_actions"] == PENDING
     assert load_session(tmp_path, client, contract)["files"][path] == saved["files"][path]
+    assert backend.writes == []
+
+
+def test_compacted_history_survives_superseding_a_pending_write(
+    tmp_path, desk, contract, compacted_session
+):
+    backend, client = desk
+    saved = compacted_session
+    version = client.get_ticket(42).evidence.source_version
+    config = {"configurable": {"thread_id": contract.thread_id}}
+    with session_storage(tmp_path, contract.thread_id) as (saver, _):
+        graph = build_desk_agent(
+            ScriptedChatModel(
+                responses=[
+                    tool_call(
+                        "add_ticket_note",
+                        {"note": "Continue investigation.", "expected_version": version},
+                        "pending-after-compaction",
+                    )
+                ]
+            ),
+            client,
+            contract,
+            checkpointer=saver,
+        )
+        graph.invoke(
+            {"messages": [HumanMessage(content="Append an investigation note.")]},
+            config,
+            interrupt_before=["tools"],
+        )
+        assert graph.get_state(config).next == ("tools",)
+    message = "Stop writing. Retain the original evidence and pending investigation."
+    model = ScriptedChatModel(responses=["Investigation retained without further writes."])
+    execute_session(tmp_path, client, contract, model, message, resume=True)
+    assert len(model.requests) == 1 and model.requests[0][-1].text == message
+    restored = load_session(tmp_path, client, contract)
+    for field in (
+        "contract",
+        "pending_actions",
+        "handoff_summary",
+        "receipts",
+        "observations",
+        "files",
+        SUMMARIZATION_EVENT_KEY,
+    ):
+        assert restored[field] == saved[field]
+    replies = [
+        item
+        for item in restored["messages"]
+        if item.type == "tool" and item.tool_call_id == "pending-after-compaction"
+    ]
+    assert len(replies) == 1
+    assert json.loads(replies[0].text)["error"] == "superseded_by_user_input"
     assert backend.writes == []
 
 

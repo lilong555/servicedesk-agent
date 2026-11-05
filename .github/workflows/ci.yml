@@ -1,0 +1,81 @@
+name: Verification
+
+"on":
+  push:
+    branches: [main]
+    paths-ignore:
+      - README.md
+      - docs/**
+      - results/**
+      - THIRD_PARTY_NOTICES.md
+      - LICENSE
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verification-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      LANGSMITH_TRACING: "false"
+      LANGCHAIN_TRACING_V2: "false"
+      HAYSTACK_TELEMETRY_ENABLED: "false"
+      DO_NOT_TRACK: "1"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set Up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version-file: .python-version
+      - name: Install Locked Environment
+        run: bash scripts/bootstrap.sh
+      - name: Lint
+        run: .venv/bin/ruff check src scripts tests
+      - name: Check Formatting
+        run: .venv/bin/ruff format --check src scripts tests
+      - name: Start Isolated Redmine
+        run: .venv/bin/python scripts/redmine.py up
+      - name: Project Tests
+        run: .venv/bin/pytest --junitxml=artifacts/ci/project.xml
+      - name: Upstream Grader Tests
+        run: >-
+          .venv/bin/pytest -q
+          vendor/crm-agent-bench/tests/test_benchmark_gold_paths.py
+          vendor/crm-agent-bench/tests/test_grading.py
+          vendor/crm-agent-bench/tests/test_itsm_safety_contracts.py
+          vendor/crm-agent-bench/tests/test_strict_modes.py
+          vendor/crm-agent-bench/tests/test_forbidden_actions.py
+          vendor/crm-agent-bench/tests/test_tool_failure_grading.py
+          vendor/crm-agent-bench/tests/test_stateful_tools.py
+          --junitxml=artifacts/ci/upstream.xml
+      - name: Native Handoff on Real Redmine
+        run: .venv/bin/desk-agent demo --output artifacts/ci/handoff
+      - name: Native Cancellation on Real Redmine
+        run: >-
+          .venv/bin/python scripts/check_live_cancellation.py
+          --output artifacts/ci/cancellation
+      - name: Retain Verification Results
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: verification-results
+          retention-days: 7
+          path: |
+            artifacts/ci/project.xml
+            artifacts/ci/upstream.xml
+            artifacts/ci/handoff/summary.json
+            artifacts/ci/cancellation/summary.json
+      - name: Stop Isolated Redmine
+        if: always()
+        continue-on-error: true
+        run: .venv/bin/python scripts/redmine.py stop

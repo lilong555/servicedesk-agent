@@ -22,6 +22,9 @@ CONTROL_FIELDS = (
     "user_simulator",
     "semantic_judge_calls",
     "native_summarization",
+    "policy_profile",
+    "policy_sources",
+    "freeze_id",
 )
 
 
@@ -37,28 +40,43 @@ def combine(runs: list[Path]) -> dict:
     episodes = []
     seen = set()
     inputs = []
+    planned_groups = set()
+    planned_tasks = set(configuration["tasks"])
+    if len(planned_tasks) != len(configuration["tasks"]):
+        raise ValueError("The registered task order must contain each task once.")
     for directory in runs:
         candidate = read_json(directory / "config.json")
         if any(candidate.get(key) != configuration.get(key) for key in CONTROL_FIELDS):
             raise ValueError("Comparison runs must have the same task and model configuration.")
         if candidate.get("provenance", {}).get("implementation_sha256") != implementation:
             raise ValueError("Comparison runs must have the same implementation digest.")
+        if any(
+            candidate.get("provenance", {}).get(key) != configuration.get("provenance", {}).get(key)
+            for key in ("packages", "python_version")
+        ):
+            raise ValueError("Comparison runs must have the same runtime provenance.")
+        planned_groups.update(candidate.get("groups", []))
         path = directory / "episodes.json"
         inputs.append(
             {
-                "directory": str(directory.resolve()),
+                "directory": directory.as_posix(),
                 "episodes_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
             }
         )
         for episode in read_json(path):
             identity = (episode["task_id"], episode["group"])
+            if identity[0] not in planned_tasks or identity[1] not in {"A", "B"}:
+                raise ValueError("Every episode must belong to the registered tasks and groups.")
+            if candidate.get("groups") is not None and identity[1] not in candidate["groups"]:
+                raise ValueError("Every episode must belong to its run's registered groups.")
             if identity in seen:
                 raise ValueError("Each task/group pair may occur once in a paired comparison.")
             seen.add(identity)
             episodes.append(episode)
+            planned_groups.add(episode["group"])
 
     groups = {}
-    for group in sorted({item["group"] for item in episodes}):
+    for group in sorted(planned_groups):
         selected = [item for item in episodes if item["group"] == group]
         metrics = summarize_episodes(selected)
         for role in ("agent", "user"):
@@ -98,7 +116,15 @@ def combine(runs: list[Path]) -> dict:
         "split": configuration["split"],
         "source_commit": configuration["source_commit"],
         "implementation_sha256": implementation,
+        "python_version": configuration.get("provenance", {}).get("python_version"),
+        "freeze_id": configuration.get("freeze_id"),
+        "policy_profile": configuration.get("policy_profile"),
+        "policy_sources": configuration.get("policy_sources"),
         "planned_tasks": configuration["tasks"],
+        "planned_episodes": len(planned_tasks) * len(planned_groups),
+        "started_episodes": len(episodes),
+        "unstarted_episodes": len(planned_tasks) * len(planned_groups) - len(episodes),
+        "completed": len(episodes) == len(planned_tasks) * len(planned_groups),
         "inputs": inputs,
         "groups": groups,
         "B_vs_A": {

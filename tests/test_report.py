@@ -81,3 +81,62 @@ def test_report_rejects_incomparable_or_duplicate_runs(report_runs, change):
         (runs[1] / "config.json").write_text(json.dumps(configuration))
     with pytest.raises(ValueError):
         report.combine(runs)
+
+
+def test_report_preserves_unstarted_groups_and_full_denominator(report_runs):
+    report, runs = report_runs
+    configuration = json.loads((runs[0] / "config.json").read_text())
+    configuration["groups"] = ["A", "B"]
+    (runs[0] / "config.json").write_text(json.dumps(configuration))
+    result = report.combine([runs[0]])
+    assert result["planned_episodes"] == 2
+    assert result["started_episodes"] == result["unstarted_episodes"] == 1
+    assert result["completed"] is False
+    assert result["groups"]["B"]["started"] == 0
+    assert result["B_vs_A"]["unscored_pairs"] == 1
+
+
+def test_report_preserves_relative_source_paths(report_runs, monkeypatch):
+    report, runs = report_runs
+    monkeypatch.chdir(runs[0].parent)
+    result = report.combine([Path("A"), Path("B")])
+    assert [item["directory"] for item in result["inputs"]] == ["A", "B"]
+
+
+@pytest.mark.parametrize("field", ["policy_profile", "freeze_id"])
+def test_report_rejects_mixed_protocols(report_runs, field):
+    report, runs = report_runs
+    configuration = json.loads((runs[1] / "config.json").read_text())
+    configuration[field] = "another-protocol"
+    (runs[1] / "config.json").write_text(json.dumps(configuration))
+    with pytest.raises(ValueError, match="same task and model configuration"):
+        report.combine(runs)
+
+
+@pytest.mark.parametrize("field,value", [("task_id", "unregistered"), ("group", "C")])
+def test_report_rejects_unregistered_episodes(report_runs, field, value):
+    report, runs = report_runs
+    episodes = json.loads((runs[0] / "episodes.json").read_text())
+    episodes[0][field] = value
+    (runs[0] / "episodes.json").write_text(json.dumps(episodes))
+    with pytest.raises(ValueError, match="registered tasks and groups"):
+        report.combine(runs)
+
+
+@pytest.mark.parametrize("field,value", [("packages", {"test": "2"}), ("python_version", "3.12.1")])
+def test_report_rejects_runtime_drift(report_runs, field, value):
+    report, runs = report_runs
+    configuration = json.loads((runs[1] / "config.json").read_text())
+    configuration["provenance"][field] = value
+    (runs[1] / "config.json").write_text(json.dumps(configuration))
+    with pytest.raises(ValueError, match="runtime provenance"):
+        report.combine(runs)
+
+
+def test_report_rejects_group_mismatch_with_source_run(report_runs):
+    report, runs = report_runs
+    configuration = json.loads((runs[0] / "config.json").read_text())
+    configuration["groups"] = ["B"]
+    (runs[0] / "config.json").write_text(json.dumps(configuration))
+    with pytest.raises(ValueError, match="registered groups"):
+        report.combine(runs)

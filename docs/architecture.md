@@ -8,6 +8,7 @@ ServiceDesk Agent 围绕一张工单执行具有明确授权的任务。默认�
 | --- | --- | --- |
 | 当前工单、负责人、状态、依赖、操作日志 | Redmine API | Redmine |
 | 用户授权、关键约束、待办、回执引用 | 任务合同与真实工具结果 | 原生 SQLite Checkpointer |
+| 写入意图、未决提交、已确认日志标识 | 业务 Adapter 与真实 Redmine 日志 | 原生 SqliteStore 独立 namespace |
 | 当前及历史政策 | 受信任的版本化政策目录 | JSON 目录与 Haystack 内存索引 |
 | 明确确认的偏好 | 用户显式提交 | LangMem 与 SqliteStore |
 
@@ -28,9 +29,11 @@ CLI 明确授权
   -> 持久化回执、待办与交接摘要
 ```
 
-会话标识由服务、项目、API 用户、工单和用户指定的会话名生成。同一会话采用跨进程单写者锁。恢复时校验完整任务合同，原生未完成执行步骤优先恢复。
+会话标识由服务、项目、API 用户、工单和用户指定的会话名生成。同一会话采用跨进程单写者锁。恢复时校验完整任务合同，最新用户消息先进入下一次模型决策。原生状态更新保留已完成的并行工具结果，取消旧待执行调用，并通过结构化结果保持调用配对。随后依据最新用户要求重新规划。
 
-备注和状态操作携带稳定的操作标识。确认丢失时，通过回读日志的完整备注、作者和日志 ID 恢复操作回执。状态操作同时检查当前状态。`verified_receipts` 由业务 Adapter 写入，模型的自然语言完成声明单独保存。
+备注和状态操作携带稳定的操作标识。HTTP 提交前，业务 Adapter 在原生 Store 中持久化一个会话级意图槽；结果未知时只读对账，确认前保留写入阻塞。操作序列由进程内锁和按会话的文件锁串行保护。
+
+确认丢失时，通过完整备注指纹、作者、编辑者、新日志 ID 和操作标识恢复回执。状态操作同时检查真实 `status_id` 变更明细与当前状态。只读工具 `reconcile_ticket_operations` 可恢复已写入 Store、尚未进入 Checkpoint 的回执。`verified_receipts` 由业务 Adapter 写入，模型的自然语言完成声明单独保存。
 
 读取版本与提交 PUT 之间存在跨客户端并发窗口。当前实现通过单会话串行执行、窄字段更新和回读校验保护演示流程；部署到多人同时修改的环境时，同字段原子冲突控制应由后端条件写入或锁机制承担。
 
@@ -41,6 +44,7 @@ CLI 明确授权
 | `native.py` | 固定原生 Harness，关闭宿主执行工具与通用子 Agent |
 | `agent.py` | 业务工具、任务状态、原生 Command / ToolMessage |
 | `redmine.py` | 真实 REST 适配、授权和版本校验、回执 |
+| `operations.py` | 复用原生 Store 的业务意图记录与会话写入锁 |
 | `session.py` | 会话锁、原生恢复、执行轨迹 |
 | `knowledge.py` | 政策版本、生效区间、BM25、完整原文 |
 | `components.py` | 原生 Skills、LangMem 与 SqliteStore 接线 |
@@ -48,6 +52,7 @@ CLI 明确授权
 | `benchmark.py` | 原生 CRM 工具与 Grader 适配 |
 | `evaluation.py` | 固定任务运行、模拟器、调用限制与结果汇总 |
 | `provenance.py` | 评测源码快照与依赖版本 |
+| `protocol.py` | 留出配置冻结、运行时校验与一次性执行记录 |
 | `demo.py` | 独立进程交接与真实 Redmine 验收 |
 
 业务 Skill 作为只读虚拟文件进入原生 StateBackend。默认 Agent 文件系统处于 Checkpoint 中，业务工具作用范围由任务合同与 Redmine 权限共同决定。

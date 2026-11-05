@@ -6,6 +6,7 @@ from typing import Any
 from urllib.parse import urlsplit
 
 import httpx
+from langgraph.store.base import BaseStore
 
 from servicedesk_agent.config import RedmineSettings
 from servicedesk_agent.domain import (
@@ -16,13 +17,19 @@ from servicedesk_agent.domain import (
     Ticket,
     fingerprint,
 )
+from servicedesk_agent.operations import OperationRecords
 
 
 class RedmineClient:
     def __init__(
-        self, settings: RedmineSettings, *, transport: httpx.BaseTransport | None = None
+        self,
+        settings: RedmineSettings,
+        *,
+        store: BaseStore | None = None,
+        transport: httpx.BaseTransport | None = None,
     ) -> None:
         self.settings = settings
+        self._operations = OperationRecords(store) if store is not None else None
         self._http = httpx.Client(
             base_url=settings.url + "/",
             headers={"X-Redmine-API-Key": settings.api_key.get_secret_value()},
@@ -179,28 +186,122 @@ class RedmineClient:
         payload: dict[str, Any],
         expected_version: str,
     ) -> Receipt:
-        before = self.get_ticket(contract.ticket_id)
+        operations = self._require_operations()
+        with operations.locked(contract.thread_id):
+            return self._write_locked(contract, action, payload, expected_version)
+
+    def _require_operations(self) -> OperationRecords:
+        if self._operations is None:
+            raise BusinessError(
+                "operation_store_required",
+                "Redmine writes require a persistent Store; use InMemoryStore only in tests.",
+            )
+        return self._operations
+
+    def reconcile_operations(
+        self, contract: TaskContract, *, include_completed: bool = False
+    ) -> list[Receipt]:
+        """Reconcile pending writes and optionally replay currently verifiable receipts."""
+        self._check_contract(contract)
+        operations = self._require_operations()
+        with operations.locked(contract.thread_id):
+            records = operations.load(contract.thread_id)
+            pending = records["pending"]
+            candidates = [pending] if pending is not None else []
+            if include_completed:
+                candidates.extend(
+                    receipt
+                    for operation_id, receipt in records["receipts"].items()
+                    if pending is None or operation_id != pending["operation_id"]
+                )
+            if not candidates:
+                return []
+            after = (
+                self._read_for_reconciliation(contract.ticket_id)
+                if pending is not None
+                else self.get_ticket(contract.ticket_id)
+            )
+            receipts = []
+            for intent in candidates:
+                try:
+                    receipt = self._settle(contract, records, intent, after, replayed=True)
+                except BusinessError as exc:
+                    if include_completed and exc.code in {
+                        "action_superseded",
+                        "action_evidence_changed",
+                    }:
+                        continue
+                    raise
+                receipts.append(receipt)
+            return receipts
+
+    @staticmethod
+    def _uncertain(ticket: Ticket | None = None) -> BusinessError:
+        return BusinessError(
+            "operation_uncertain",
+            "The session has an unresolved Redmine operation. Reconcile its journal before "
+            "submitting further writes; automatic resubmission is blocked.",
+            evidence=ticket,
+        )
+
+    def _read_for_reconciliation(self, ticket_id: int) -> Ticket:
+        try:
+            return self.get_ticket(ticket_id)
+        except BusinessError as exc:
+            raise self._uncertain() from exc
+
+    def _write_locked(
+        self, contract: TaskContract, action: str, payload: dict[str, Any], expected_version: str
+    ) -> Receipt:
+        operations = self._require_operations()
+        records = operations.load(contract.thread_id)
         operation_id = fingerprint(
             {"thread": contract.thread_id, "action": action, "payload": payload}
         )
         marker = f"[desk-action:{operation_id}]"
         note = payload.get("notes", f"Service desk status update to {payload.get('status_id')}.")
         journal_note = f"{note}\n\n{marker}"
-        existing = self._confirmed_journal(before, journal_note, contract.principal_id)
-        if existing:
-            if action == "set_status" and before.status_id != payload["status_id"]:
-                raise BusinessError(
-                    "action_superseded", "The completed action has since changed.", evidence=before
-                )
-            return Receipt(
-                operation_id=operation_id,
-                action=action,
-                ticket_id=contract.ticket_id,
-                before_version=before.evidence.source_version,
-                after=before,
-                journal_id=existing["id"],
-                replayed=True,
-            )
+        pending = records["pending"]
+        if pending is not None:
+            before = self._read_for_reconciliation(contract.ticket_id)
+            try:
+                recovered = self._settle(contract, records, pending, before, replayed=True)
+            except BusinessError as exc:
+                if pending["operation_id"] == operation_id or exc.code not in {
+                    "action_superseded",
+                    "action_evidence_changed",
+                }:
+                    raise
+            else:
+                if pending["operation_id"] == operation_id:
+                    return recovered
+        else:
+            before = self.get_ticket(contract.ticket_id)
+        completed = records["receipts"].get(operation_id)
+        if completed is not None:
+            return self._settle(contract, records, completed, before, replayed=True)
+        intent = {
+            "operation_id": operation_id,
+            "action": action,
+            "note_hash": fingerprint(journal_note),
+            "target_status": payload.get("status_id"),
+            "before_version": before.evidence.source_version,
+            "before_status": before.status_id,
+            "journal_floor": max(
+                (
+                    journal["id"]
+                    for journal in before.journals
+                    if type(journal.get("id")) is int and journal["id"] > 0
+                ),
+                default=0,
+            ),
+            "journal_id": None,
+        }
+        if self._marked_journals(before, marker):
+            # A marker without our durable intent needs review, even when its body matches.
+            records["pending"] = intent
+            operations.save(contract.thread_id, records)
+            raise self._uncertain(before)
         if before.evidence.source_version != expected_version:
             raise BusinessError(
                 "stale_observation", "Review the current ticket before writing.", evidence=before
@@ -213,53 +314,119 @@ class RedmineClient:
                 )
         # Only intended fields are submitted; old assignee and dependency fields stay untouched.
         update = {**payload, "notes": journal_note}
+        records["pending"] = intent
+        operations.save(contract.thread_id, records)
         try:
             self._request("PUT", f"issues/{contract.ticket_id}.json", json={"issue": update})
         except BusinessError as exc:
             if exc.code != "write_outcome_unknown":
+                records["pending"] = None
+                operations.save(contract.thread_id, records)
                 raise
-            # A lost acknowledgement can still be recovered from the persisted journal marker.
-            try:
-                after = self.get_ticket(contract.ticket_id)
-            except BusinessError:
-                raise exc from None
-            if self._confirmed_journal(after, journal_note, contract.principal_id) is None:
-                raise exc from None
-        else:
-            try:
-                after = self.get_ticket(contract.ticket_id)
-            except BusinessError as exc:
+        after = self._read_for_reconciliation(contract.ticket_id)
+        return self._settle(contract, records, intent, after, replayed=False)
+
+    def _settle(
+        self,
+        contract: TaskContract,
+        records: dict,
+        intent: dict,
+        after: Ticket,
+        *,
+        replayed: bool,
+    ) -> Receipt:
+        operations = self._require_operations()
+        journal = self._confirmed_journal(after, intent, contract.principal_id)
+        pending = records["pending"]
+        owns_pending = pending is not None and pending["operation_id"] == intent["operation_id"]
+        if journal is None:
+            if intent["journal_id"] is not None:
+                if owns_pending:
+                    records["receipts"][intent["operation_id"]] = intent
+                    records["pending"] = None
+                    operations.save(contract.thread_id, records)
                 raise BusinessError(
-                    "write_outcome_unknown", "The write requires a successful read-back."
-                ) from exc
-        journal = self._confirmed_journal(after, journal_note, contract.principal_id)
-        if journal is None or (action == "set_status" and after.status_id != payload["status_id"]):
+                    "action_evidence_changed",
+                    "The completed action's journal evidence has changed.",
+                    evidence=after,
+                )
+            records["pending"] = intent
+            operations.save(contract.thread_id, records)
+            raise self._uncertain(after)
+        if intent["journal_id"] is None or owns_pending:
+            # Journal evidence settles submission even when later actions changed the status.
+            records["receipts"][intent["operation_id"]] = {**intent, "journal_id": journal["id"]}
+            if owns_pending:
+                records["pending"] = None
+            operations.save(contract.thread_id, records)
+        if intent["action"] == "set_status" and after.status_id != intent["target_status"]:
             raise BusinessError(
-                "write_outcome_unknown",
-                "Read-back did not confirm the requested action.",
-                evidence=after,
+                "action_superseded", "The completed action has since changed.", evidence=after
             )
         return Receipt(
-            operation_id=operation_id,
-            action=action,
+            operation_id=intent["operation_id"],
+            action=intent["action"],
             ticket_id=contract.ticket_id,
-            before_version=before.evidence.source_version,
+            before_version=intent["before_version"],
             after=after,
             journal_id=journal["id"],
+            replayed=replayed,
         )
 
     @staticmethod
-    def _confirmed_journal(ticket: Ticket, note: str, principal_id: int) -> dict[str, Any] | None:
-        return next(
-            (
-                journal
-                for journal in ticket.journals
-                if journal.get("notes") == note
-                and type(journal.get("id")) is int
-                and journal["id"] > 0
-                and isinstance(journal.get("user"), dict)
-                and type(journal["user"].get("id")) is int
-                and journal["user"]["id"] == principal_id
-            ),
-            None,
-        )
+    def _marked_journals(ticket: Ticket, marker: str) -> list[dict[str, Any]]:
+        return [
+            journal
+            for journal in ticket.journals
+            if isinstance(journal.get("notes"), str) and marker in journal["notes"]
+        ]
+
+    @classmethod
+    def _confirmed_journal(
+        cls, ticket: Ticket, intent: dict, principal_id: int
+    ) -> dict[str, Any] | None:
+        candidates = cls._marked_journals(ticket, f"[desk-action:{intent['operation_id']}]")
+        if len(candidates) != 1:
+            return None
+        journal = candidates[0]
+        author = journal.get("user")
+        editor = journal.get("updated_by")
+        if (
+            fingerprint(journal["notes"]) != intent["note_hash"]
+            or type(journal.get("id")) is not int
+            or journal["id"] <= intent["journal_floor"]
+            or (intent["journal_id"] is not None and journal["id"] != intent["journal_id"])
+            or not isinstance(author, dict)
+            or type(author.get("id")) is not int
+            or author["id"] != principal_id
+            or (
+                editor is not None
+                and (
+                    not isinstance(editor, dict)
+                    or type(editor.get("id")) is not int
+                    or editor["id"] != principal_id
+                )
+            )
+        ):
+            return None
+        if intent["action"] == "set_status":
+            details = journal.get("details")
+            if not isinstance(details, list) or any(
+                not isinstance(detail, dict) for detail in details
+            ):
+                return None
+            transitions = [
+                detail
+                for detail in details
+                if detail.get("property") == "attr" and detail.get("name") == "status_id"
+            ]
+            # Redmine omits status details for an authorized, already-current status.
+            if intent["before_status"] == intent["target_status"] and not transitions:
+                return journal
+            if (
+                len(transitions) != 1
+                or transitions[0].get("new_value") != str(intent["target_status"])
+                or transitions[0].get("old_value") != str(intent["before_status"])
+            ):
+                return None
+        return journal
