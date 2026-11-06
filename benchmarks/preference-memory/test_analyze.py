@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import copy
 import importlib.util
+import io
 import json
 import shutil
+import tarfile
 from pathlib import Path
 
 import pytest
@@ -71,3 +73,60 @@ def test_original_run_is_rejected_as_output():
     with pytest.raises(ValueError, match="outside original"):
         analysis.save_result(path, {"checks": {"issues": []}})
     assert path.read_bytes() == before
+
+
+@pytest.fixture
+def archived_state(tmp_path):
+    original = ROOT / "results/runs/preference-memory-20261106-formal"
+    for name in ("raw-state.tar.gz", "raw-state-manifest.json"):
+        shutil.copyfile(original / name, tmp_path / name)
+    return tmp_path
+
+
+def test_public_archive_reconstructs_all_native_ledgers(archived_state):
+    traces, binding, issues = analysis.archived_traces(archived_state)
+    assert issues == []
+    assert len(traces) == 24
+    assert sum(len(trace["model_calls"]) for items in traces.values() for trace in items) == 221
+    assert binding["verified_files"] == 129
+    assert not any(archived_state.glob("*/state"))
+
+
+@pytest.mark.parametrize("field", ["archive", "member"])
+def test_state_archive_hash_mismatch_is_rejected(archived_state, field):
+    path = archived_state / "raw-state-manifest.json"
+    manifest = analysis.read(path)
+    if field == "archive":
+        manifest["archive_sha256"] = "0" * 64
+    else:
+        manifest["members"][0]["sha256"] = "0" * 64
+    path.write_text(json.dumps(manifest))
+    _, _, issues = analysis.archived_traces(archived_state)
+    assert any("mismatch" in issue for issue in issues)
+
+
+@pytest.mark.parametrize("kind", ["traversal", "symlink"])
+def test_state_archive_unsafe_members_are_rejected(tmp_path, kind):
+    path = tmp_path / "raw-state.tar.gz"
+    name = "../outside" if kind == "traversal" else "01-case/state/link"
+    with tarfile.open(path, "w:gz") as archive:
+        member = tarfile.TarInfo(name)
+        if kind == "symlink":
+            member.type = tarfile.SYMTYPE
+            member.linkname = "/outside"
+        archive.addfile(member, io.BytesIO(b""))
+    (tmp_path / "raw-state-manifest.json").write_text(
+        json.dumps(
+            {
+                "archive_sha256": analysis.sha(path.read_bytes()),
+                "members": [{"path": name, "bytes": 0, "sha256": analysis.sha(b"")}],
+            }
+        )
+    )
+    _, _, issues = analysis.archived_traces(tmp_path)
+    assert any(issue.startswith("state-archive-invalid-member") for issue in issues)
+
+
+def test_missing_state_archive_is_reported(tmp_path):
+    _, _, issues = analysis.archived_traces(tmp_path)
+    assert issues == ["state-archive-or-manifest-missing"]

@@ -142,4 +142,9 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python benchmarks/preference-memory/package.
 
 四组分析检查均为 `issues=[]`：逐请求与 UsageRecorder、生产 trace 账本对应；usage 字段完整；HTTP/业务评分/澄清轮数可复算；两条件 Schema 与首请求内容一致。首请求比较排除 LangChain 本地随机 message id，模型输入文本保持逐对相同。归档校验包括三轮源码包哈希与 72 份真实数据库。各组状态包可在对应运行目录恢复，成员路径保持原结构；校验脚本也支持直接从归档读取状态。凭证只在本机加载，公开材料保留合成工单与服务身份。
 
+原生模型轨迹直接从已校验的状态归档读取。公开检出可使用同一命令复算，无需准备展开的本地
+会话目录；对应四组结果见[原生轨迹归档复算](../../results/runs/preference-memory-20261106-archive-audit/README.md)。
+归档检查覆盖包哈希、成员哈希、文件大小、成员集合与安全路径，结果的 `state_binding`
+保留验证来源及文件计数。
+
 分析器的独立校验为 [7 passed](../../results/runs/preference-memory-20261106-audit-final/analyzer-tests.xml)。[场景哈希失配](../../results/runs/preference-memory-20261106-audit-public/validation-scenario-rejection.json)和[源码成员哈希失配](../../results/runs/preference-memory-20261106-audit-public/validation-source-rejection.json)使用单独构造的测试记录，两条命令均写出对应 issues 并以退出码 1 结束；这两份文件是校验器拒绝错误来源的证据，与真实模型实验分账。

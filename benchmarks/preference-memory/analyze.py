@@ -89,6 +89,62 @@ def verify_sources(run_freeze, freeze_path, workspace=ROOT):
     return sources, binding, issues
 
 
+def archived_traces(directory):
+    issues, traces = [], {}
+    archive_path = directory / "raw-state.tar.gz"
+    manifest_path = directory / "raw-state-manifest.json"
+    binding = {"source_mode": "verified_state_archive", "verified_files": 0}
+    if not archive_path.is_file() or not manifest_path.is_file():
+        return traces, binding, ["state-archive-or-manifest-missing"]
+    manifest = read(manifest_path)
+    binding["archive_sha256"] = sha(archive_path.read_bytes())
+    if binding["archive_sha256"] != manifest["archive_sha256"]:
+        return traces, binding, ["state-archive-sha256-mismatch"]
+    expected = {item["path"]: item for item in manifest["members"]}
+    if len(expected) != len(manifest["members"]):
+        issues.append("state-manifest-duplicate-members")
+    seen = set()
+    try:
+        with tarfile.open(archive_path) as archive:
+            for member in archive.getmembers():
+                relative = Path(member.name)
+                if (
+                    not member.isfile()
+                    or relative.is_absolute()
+                    or ".." in relative.parts
+                    or len(relative.parts) < 3
+                    or relative.parts[1] != "state"
+                ):
+                    issues.append(f"state-archive-invalid-member:{member.name}")
+                    continue
+                if member.name in seen:
+                    issues.append(f"state-archive-duplicate-member:{member.name}")
+                    continue
+                seen.add(member.name)
+                if member.name not in expected:
+                    issues.append(f"state-archive-unexpected-member:{member.name}")
+                    continue
+                data = archive.extractfile(member).read()
+                identity = expected[member.name]
+                if len(data) != identity["bytes"] or sha(data) != identity["sha256"]:
+                    issues.append(f"state-member-sha256-or-size-mismatch:{member.name}")
+                    continue
+                binding["verified_files"] += 1
+                if (
+                    len(relative.parts) == 5
+                    and relative.parts[2] == "sessions"
+                    and relative.name.startswith("trace-")
+                    and relative.suffix == ".json"
+                ):
+                    traces.setdefault(relative.parts[0], []).append(json.loads(data))
+    except (OSError, tarfile.TarError, json.JSONDecodeError):
+        issues.append("state-archive-invalid")
+    if seen != set(expected):
+        issues.append("state-archive-member-set-mismatch")
+    binding["trace_files"] = sum(len(items) for items in traces.values())
+    return traces, binding, issues
+
+
 def save_result(output, result):
     output = Path(output).resolve()
     parent = output.parent
@@ -146,6 +202,17 @@ def analyze(directory, freeze_path, output):
         },
         "source_binding": binding,
     }
+    if issues:
+        return save_result(
+            output,
+            {
+                "source": str(directory.relative_to(ROOT)),
+                **provenance,
+                "checks": {"issues": issues},
+            },
+        )
+    native_traces, state_binding, issues = archived_traces(directory)
+    provenance["state_binding"] = state_binding
     if issues:
         return save_result(
             output,
@@ -254,9 +321,11 @@ def analyze(directory, freeze_path, output):
         for previous, current in zip(turns, turns[1:], strict=False):
             if current["user"] != bench.clarification(scenario, previous["assistant"])[1]:
                 issues.append(f"fixed-followup-text:{path.name}:{current['turn']}")
-        native_calls = []
-        for trace in sorted((path / "state/sessions").glob("*/trace-*.json")):
-            native_calls.extend(bench.read(trace)["model_calls"])
+        native_calls = [
+            call
+            for trace in native_traces.get(path.name, [])
+            for call in trace["model_calls"]
+        ]
         if Counter(r["run_id"] for r in native_calls) != Counter(ids):
             issues.append(f"production-ledger:{path.name}")
         rows.append(

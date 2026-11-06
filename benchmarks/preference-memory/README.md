@@ -49,7 +49,7 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python scripts/benchmark_preference_memory.p
 
 ## 既有数据复算
 
-以下命令解析已有正式组并校验四组真实 SQLite、三轮源码包，不发起模型调用或业务请求。分析器校验冻结源码与场景哈希，失配写入 issues 并非零退出；记录自身 SHA，输出写入新的独立目录。已完成审核见 [audit-public](../../results/runs/preference-memory-20261106-audit-public/)。各运行目录的 `raw-state.tar.gz` 保留被根目录忽略规则覆盖的真实 SQLite 与 Checkpoint；成员哈希和表行数见同目录 `raw-state-manifest.json`。
+以下命令解析已有正式组并校验四组真实 SQLite、三轮源码包，不发起模型调用或业务请求。分析器校验冻结源码与场景哈希，失配写入 issues 并非零退出；记录自身 SHA，输出写入新的独立目录。已完成审核见 [audit-public](../../results/runs/preference-memory-20261106-audit-public/)。各运行目录的 `raw-state.tar.gz` 保留被根目录忽略规则覆盖的真实 SQLite 与 Checkpoint；成员哈希和表行数见同目录 `raw-state-manifest.json`。分析器直接从经过包哈希、成员哈希及安全路径校验的归档中读取原生模型轨迹，支持全新公开检出。
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python benchmarks/preference-memory/analyze.py \
