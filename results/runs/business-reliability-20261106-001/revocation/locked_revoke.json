@@ -1,0 +1,8 @@
+{
+  "phase": "locked_revoke",
+  "tick": 1,
+  "pid": 90288,
+  "ok": false,
+  "error": "session_busy",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/li/code/servicedesk-agent/src/servicedesk_agent/session.py\", line 37, in session_storage\n    fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)\nBlockingIOError: [Errno 11] Resource temporarily unavailable\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/li/code/servicedesk-agent/scripts/benchmark_business_reliability.py\", line 519, in revocation_phase\n    outcome[\"result\"] = revoke_session_writes(runtime, client, identity)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/li/code/servicedesk-agent/src/servicedesk_agent/session.py\", line 107, in revoke_session_writes\n    with session_storage(root, identity.thread_id, atomic=True) as (saver, _):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/li/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/contextlib.py\", line 137, in __enter__\n    return next(self.gen)\n           ^^^^^^^^^^^^^^\n  File \"/home/li/code/servicedesk-agent/src/servicedesk_agent/session.py\", line 39, in session_storage\n    raise BusinessError(\"session_busy\", \"Another process owns this session.\") from exc\nservicedesk_agent.domain.BusinessError: Another process owns this session.\n"
+}

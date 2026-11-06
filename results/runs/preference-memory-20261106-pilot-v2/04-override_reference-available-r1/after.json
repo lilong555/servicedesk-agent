@@ -1,0 +1,47 @@
+{
+  "id": 42,
+  "project": {
+    "id": 1,
+    "name": "Service desk"
+  },
+  "subject": "Synthetic service investigation",
+  "description": "Record the user's authorized investigation update.",
+  "status": {
+    "id": 1,
+    "name": "New",
+    "is_closed": false
+  },
+  "assigned_to": {
+    "id": 7,
+    "name": "Original owner"
+  },
+  "updated_on": "2026-11-05T00:00:00Z",
+  "journals": [
+    {
+      "id": 1,
+      "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:b02ec8aa139f9ad0c61a460269130a51d63ccc2521a218e71d81a3177e72559e]",
+      "user": {
+        "id": 1
+      },
+      "details": []
+    }
+  ],
+  "relations": [],
+  "allowed_statuses": [
+    {
+      "id": 1,
+      "name": "New",
+      "is_closed": false
+    },
+    {
+      "id": 2,
+      "name": "In Progress",
+      "is_closed": false
+    },
+    {
+      "id": 5,
+      "name": "Closed",
+      "is_closed": true
+    }
+  ]
+}

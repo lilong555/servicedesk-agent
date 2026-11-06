@@ -1,0 +1,108 @@
+{
+  "runs": [
+    {
+      "directory": "results/runs/preference-memory-20261106-pilot",
+      "archive_sha256": "a75f233c808226c4c7f55373467178ee47a86f3a2ed6fd1567a67cd534114f81",
+      "archived_files": 23,
+      "sqlite_files": 8,
+      "integrity_checks_passed": true,
+      "source_matches_finish": null
+    },
+    {
+      "directory": "results/runs/preference-memory-20261106-pilot-v2",
+      "archive_sha256": "8ab868b944c3a984ee9c281a19a3b3ebf9ea199c50f40e13206a8d3205b0cf1c",
+      "archived_files": 22,
+      "sqlite_files": 8,
+      "integrity_checks_passed": true,
+      "source_matches_finish": true
+    },
+    {
+      "directory": "results/runs/preference-memory-20261106-pilot-v3",
+      "archive_sha256": "60b919e1d9cddc5007c1d67324f85ab268e10839b96b7de0499c73cc1adb4b4b",
+      "archived_files": 21,
+      "sqlite_files": 8,
+      "integrity_checks_passed": true,
+      "source_matches_finish": true
+    },
+    {
+      "directory": "results/runs/preference-memory-20261106-formal",
+      "archive_sha256": "e7e14e20f5257f813e41caf3d6eb8f2f86e6d7655c28c55ea060130f518d7036",
+      "archived_files": 129,
+      "sqlite_files": 48,
+      "integrity_checks_passed": true,
+      "source_matches_finish": true
+    }
+  ],
+  "freezes": [
+    {
+      "directory": "results/runs/preference-memory-20261106-freeze",
+      "freeze_id": "797d8479231d4c422bed60c19cf5e1fd8d107db694ba3d195b25ba489c459290",
+      "source_files": 28,
+      "source_archive_sha256": "837a951edad89cbfdbb7bdd9b58c8a9c1c835d5fbc3abd9596228783b81c7cb8"
+    },
+    {
+      "directory": "results/runs/preference-memory-20261106-freeze-v2",
+      "freeze_id": "2d6bfe1468ba96527ea689c8ab564bd0a11a23e4d4faed68eeb7389a4a3b926a",
+      "source_files": 28,
+      "source_archive_sha256": "96ad989e5b1f94b6c8ee50174fed6a5dbcd2dfa3bf548b1ec316f9ea94c2759e"
+    },
+    {
+      "directory": "results/runs/preference-memory-20261106-freeze-v3",
+      "freeze_id": "71513fefdb3a214a4ebcb40ae987196578908f40d87053935348b1a6ba7b10d2",
+      "source_files": 28,
+      "source_archive_sha256": "27bc69f90b1048895e9557f61d219f5c2664d92310b4ad1ead8eae23ea6a73ed"
+    }
+  ],
+  "usage_by_phase": {
+    "pilot": {
+      "calls": 46,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 226542,
+      "output_tokens": 2051,
+      "cache_read_tokens": 142720
+    },
+    "pilot-v2": {
+      "calls": 36,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 152772,
+      "output_tokens": 1649,
+      "cache_read_tokens": 113408
+    },
+    "pilot-v3": {
+      "calls": 30,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 128067,
+      "output_tokens": 1310,
+      "cache_read_tokens": 82944
+    },
+    "formal": {
+      "calls": 221,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 1003383,
+      "output_tokens": 9974,
+      "cache_read_tokens": 760448
+    }
+  },
+  "formal_gate": {
+    "admission_pilot": "preference-memory-20261106-pilot-v3",
+    "admission_pilot_passed": true,
+    "formal_phase_local_field": false,
+    "phase_local_expression": "phase == 'pilot' and pilot_gate(episodes) and source_matches_finish",
+    "same_freeze": true
+  },
+  "all_usage": {
+    "calls": 333,
+    "failed_calls": 0,
+    "unknown_usage_calls": 0,
+    "input_tokens": 1510764,
+    "output_tokens": 14984,
+    "cache_read_tokens": 1099520
+  },
+  "formal_executions": 24,
+  "pilot_executions": 12,
+  "checks_passed": true
+}

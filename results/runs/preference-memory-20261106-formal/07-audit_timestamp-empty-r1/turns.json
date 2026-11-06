@@ -1,0 +1,13 @@
+[
+  {
+    "turn": 1,
+    "user": "Use the preferences explicitly confirmed for this ticket when relevant. Ask me for any required detail that is unavailable. Append exactly one note using the business tools, keep the ticket open and leave its other fields unchanged. Do not send messages outside this ticket.\n\nRecord the audit note in my previously confirmed format for 2026-11-06T08:30:00Z. Update text: Trace export completed.",
+    "assistant": "I couldn\u2019t find a previously confirmed audit-note format for this ticket, so I did not append a note. The ticket remains open and unchanged. Please provide the format you want me to use for the note dated `2026-11-06T08:30:00Z` with update text `Trace export completed.`",
+    "followup_kind": "preference_clarification"
+  },
+  {
+    "turn": 2,
+    "user": "My confirmed audit format is CASE=NET-Z9 | WHEN=<timestamp> | RESULT=<update text>. Please record: CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.",
+    "assistant": "Recorded exactly one note on the ticket:\n\n`CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.`\n\nThe write was verified. The ticket remains open, and its other fields were unchanged."
+  }
+]

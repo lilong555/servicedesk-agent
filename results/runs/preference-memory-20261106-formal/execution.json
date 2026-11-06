@@ -1,0 +1,126 @@
+{
+  "started_at": "2026-11-06T06:44:24.681982+00:00",
+  "schedule": [
+    {
+      "scenario": "note_reference",
+      "repeat": 1,
+      "condition": "available"
+    },
+    {
+      "scenario": "note_reference",
+      "repeat": 1,
+      "condition": "empty"
+    },
+    {
+      "scenario": "log_summary",
+      "repeat": 1,
+      "condition": "empty"
+    },
+    {
+      "scenario": "log_summary",
+      "repeat": 1,
+      "condition": "available"
+    },
+    {
+      "scenario": "contact_route",
+      "repeat": 1,
+      "condition": "available"
+    },
+    {
+      "scenario": "contact_route",
+      "repeat": 1,
+      "condition": "empty"
+    },
+    {
+      "scenario": "audit_timestamp",
+      "repeat": 1,
+      "condition": "empty"
+    },
+    {
+      "scenario": "audit_timestamp",
+      "repeat": 1,
+      "condition": "available"
+    },
+    {
+      "scenario": "override_reference",
+      "repeat": 1,
+      "condition": "available"
+    },
+    {
+      "scenario": "override_reference",
+      "repeat": 1,
+      "condition": "empty"
+    },
+    {
+      "scenario": "override_contact",
+      "repeat": 1,
+      "condition": "empty"
+    },
+    {
+      "scenario": "override_contact",
+      "repeat": 1,
+      "condition": "available"
+    },
+    {
+      "scenario": "note_reference",
+      "repeat": 2,
+      "condition": "empty"
+    },
+    {
+      "scenario": "note_reference",
+      "repeat": 2,
+      "condition": "available"
+    },
+    {
+      "scenario": "log_summary",
+      "repeat": 2,
+      "condition": "available"
+    },
+    {
+      "scenario": "log_summary",
+      "repeat": 2,
+      "condition": "empty"
+    },
+    {
+      "scenario": "contact_route",
+      "repeat": 2,
+      "condition": "empty"
+    },
+    {
+      "scenario": "contact_route",
+      "repeat": 2,
+      "condition": "available"
+    },
+    {
+      "scenario": "audit_timestamp",
+      "repeat": 2,
+      "condition": "available"
+    },
+    {
+      "scenario": "audit_timestamp",
+      "repeat": 2,
+      "condition": "empty"
+    },
+    {
+      "scenario": "override_reference",
+      "repeat": 2,
+      "condition": "empty"
+    },
+    {
+      "scenario": "override_reference",
+      "repeat": 2,
+      "condition": "available"
+    },
+    {
+      "scenario": "override_contact",
+      "repeat": 2,
+      "condition": "available"
+    },
+    {
+      "scenario": "override_contact",
+      "repeat": 2,
+      "condition": "empty"
+    }
+  ],
+  "source_implementation_sha256": "f3b42bc46d3b0ce60c66ca961a4b6e56f23b457dc6ad235acfaf19fb244636d5"
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "arguments": {
+      "query": "note reference prefix formatting preference for ticket",
+      "limit": 10,
+      "offset": 0,
+      "filter": null
+    },
+    "stored_result": [
+      {
+        "namespace": [
+          "servicedesk",
+          "1c96caa2fb173625dbe38adab1bfd1bcc2220bd938c5c88907b0d622d70dbf44",
+          "confirmed_preferences"
+        ],
+        "key": "c6d7c880-edd6-4ebf-8d49-2b2ca9c50ace",
+        "value": {
+          "content": {
+            "source_uri": "user-confirmation://1c96caa2fb173625dbe38adab1bfd1bcc2220bd938c5c88907b0d622d70dbf44/3d0cf4a0bf72e5c19527ccc35702b544f8b3db9ae9192622550c9176378d6e00",
+            "source_kind": "user",
+            "entity_scope": "http://127.0.0.1:44538/projects/1/principals/1/issues/42",
+            "source_version": "3d0cf4a0bf72e5c19527ccc35702b544f8b3db9ae9192622550c9176378d6e00",
+            "observed_at": "2026-11-06T06:43:53.224763Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": "I explicitly confirm this preference for this ticket: prefix every note with [OPS-27] followed by ' | ' and the update text."
+          }
+        },
+        "created_at": "2026-11-06T06:43:53",
+        "updated_at": "2026-11-06T06:43:53",
+        "score": null
+      }
+    ],
+    "returned_result": [
+      {
+        "namespace": [
+          "servicedesk",
+          "1c96caa2fb173625dbe38adab1bfd1bcc2220bd938c5c88907b0d622d70dbf44",
+          "confirmed_preferences"
+        ],
+        "key": "c6d7c880-edd6-4ebf-8d49-2b2ca9c50ace",
+        "value": {
+          "content": {
+            "source_uri": "user-confirmation://1c96caa2fb173625dbe38adab1bfd1bcc2220bd938c5c88907b0d622d70dbf44/3d0cf4a0bf72e5c19527ccc35702b544f8b3db9ae9192622550c9176378d6e00",
+            "source_kind": "user",
+            "entity_scope": "http://127.0.0.1:44538/projects/1/principals/1/issues/42",
+            "source_version": "3d0cf4a0bf72e5c19527ccc35702b544f8b3db9ae9192622550c9176378d6e00",
+            "observed_at": "2026-11-06T06:43:53.224763Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": "I explicitly confirm this preference for this ticket: prefix every note with [OPS-27] followed by ' | ' and the update text."
+          }
+        },
+        "created_at": "2026-11-06T06:43:53",
+        "updated_at": "2026-11-06T06:43:53",
+        "score": null
+      }
+    ]
+  }
+]

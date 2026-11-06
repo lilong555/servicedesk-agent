@@ -1,0 +1,1349 @@
+{
+  "run_id": "38d3b57e0bba40b39452839f6dd460ac",
+  "model_mode": "live",
+  "thread_id": "1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+  "error_type": null,
+  "usage": {
+    "role": "agent",
+    "calls": 8,
+    "failed_calls": 0,
+    "unknown_usage_calls": 0,
+    "input_tokens": 56633,
+    "output_tokens": 389,
+    "cache_read_tokens": 47616,
+    "cost_usd": null
+  },
+  "model_calls": [
+    {
+      "run_id": "01a1af8f-6a6d-76b3-a83a-31173d30afc8",
+      "role": "agent",
+      "elapsed_seconds": 3.196874025001307,
+      "usage": {
+        "input_tokens": 5705,
+        "output_tokens": 32,
+        "total_tokens": 5737,
+        "input_token_details": {
+          "cache_read": 5376,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8f-76ee-770e-b74f-3525da26e0a5",
+      "role": "agent",
+      "elapsed_seconds": 3.1776323600006435,
+      "usage": {
+        "input_tokens": 5875,
+        "output_tokens": 15,
+        "total_tokens": 5890,
+        "input_token_details": {
+          "cache_read": 5504,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8f-835d-732f-8d66-68fc7eb1acec",
+      "role": "agent",
+      "elapsed_seconds": 3.0439491879988054,
+      "usage": {
+        "input_tokens": 6175,
+        "output_tokens": 14,
+        "total_tokens": 6189,
+        "input_token_details": {
+          "cache_read": 5760,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8f-8f46-7311-9b12-be49694ae700",
+      "role": "agent",
+      "elapsed_seconds": 3.907558077999056,
+      "usage": {
+        "input_tokens": 6642,
+        "output_tokens": 36,
+        "total_tokens": 6678,
+        "input_token_details": {
+          "cache_read": 6016,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8f-9e8f-760c-94a0-dc33d20d983b",
+      "role": "agent",
+      "elapsed_seconds": 3.702780752999388,
+      "usage": {
+        "input_tokens": 7384,
+        "output_tokens": 25,
+        "total_tokens": 7409,
+        "input_token_details": {
+          "cache_read": 2944,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8f-ad0a-73e8-8961-48976a04e8e6",
+      "role": "agent",
+      "elapsed_seconds": 3.85178472699954,
+      "usage": {
+        "input_tokens": 7635,
+        "output_tokens": 74,
+        "total_tokens": 7709,
+        "input_token_details": {
+          "cache_read": 7168,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8f-bc41-7574-b14a-d2361e6a8624",
+      "role": "agent",
+      "elapsed_seconds": 5.071593530001337,
+      "usage": {
+        "input_tokens": 8464,
+        "output_tokens": 142,
+        "total_tokens": 8606,
+        "input_token_details": {
+          "cache_read": 6528,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8f-d016-71ea-ae66-dc7221d8e3c8",
+      "role": "agent",
+      "elapsed_seconds": 5.7582382100008545,
+      "usage": {
+        "input_tokens": 8753,
+        "output_tokens": 51,
+        "total_tokens": 8804,
+        "input_token_details": {
+          "cache_read": 8320,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    }
+  ],
+  "messages": [
+    {
+      "type": "human",
+      "data": {
+        "content": "The scenario clock is 2026-11-04T00:00:00Z. Investigate Production service restart for this ticket using policy production-restart. Read the policy now, but do not add notes or change status yet. Save the pending work and handoff. I will authorize a note in a later message.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": "59f716d4-78cf-43cd-a475-4e33d0473048"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 32,
+            "prompt_tokens": 3166,
+            "total_tokens": 3198,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 2176,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0ab8f29589d3187b016aed74817d0087d08eb1c7342dbf5f1a",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-02ff-7388-bbd7-2ebb23ac4b1e-0",
+        "tool_calls": [
+          {
+            "name": "read_file",
+            "args": {
+              "file_path": "/skills/resume-ticket/SKILL.md",
+              "limit": 1000
+            },
+            "id": "call_Q8Ea52L0X4v5gEtpUXrmqwrq",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 3166,
+          "output_tokens": 32,
+          "total_tokens": 3198,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 2176
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "@@ lines 1-13 of 13 @@\n---\nname: resume-ticket\ndescription: Continue a paused service desk investigation using its saved constraints and current ticket evidence.\n---\n\n# Resume Ticket\n\n1. Read the saved handoff when `read_handoff` is available.\n2. Preserve the saved user constraints and outstanding actions.\n3. Read the current ticket. Check its current owner, status, dependencies and workflow.\n4. Consult the current policy version when the remaining action depends on policy.\n5. Continue authorized unresolved work and verify its actual tool receipt.\n6. Save the remaining work. Historical observations remain available as historical evidence.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_file",
+        "id": "1f0faec1-ddd0-46c2-8dc2-66fe89bab504",
+        "tool_call_id": "call_Q8Ea52L0X4v5gEtpUXrmqwrq",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 33,
+            "prompt_tokens": 3336,
+            "total_tokens": 3369,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 2176,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_08e6432d2e8f399e016aed7483d08087d082b264eb88e7989f",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-0d59-7710-867e-13def6ac63e3-0",
+        "tool_calls": [
+          {
+            "name": "read_file",
+            "args": {
+              "file_path": "/skills/ticket-handling/SKILL.md",
+              "limit": 1000
+            },
+            "id": "call_inBh9ma96miklpfhAURu2Us9",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 3336,
+          "output_tokens": 33,
+          "total_tokens": 3369,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 2176
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "@@ lines 1-17 of 17 @@\n---\nname: ticket-handling\ndescription: Investigate or update an IT service desk ticket with verified tool outcomes and user constraints.\n---\n\n# Ticket Handling\n\n1. Identify the requested ticket and the user's exact intended action.\n2. Read the relevant current business record through the available ticket lookup tool.\n3. Consult the operating policy when the task needs a policy decision. `search_policy`\n   returns current versions; `read_policy` returns the full cited text.\n4. Preserve explicit constraints, including investigation-only and keep-open requests.\n5. Apply only the requested action. For destructive actions, follow the supplied\n   permission and dependency protocol in its specified order.\n6. Confirm the actual tool outcome. Treat business rejection and execution failure\n   as separate outcomes.\n7. When a handoff tool is available, save unresolved work and reference verified receipts.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_file",
+        "id": "b655f899-51c7-4ec7-8745-0c86b6d2c2cb",
+        "tool_call_id": "call_inBh9ma96miklpfhAURu2Us9",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 15,
+            "prompt_tokens": 3561,
+            "total_tokens": 3576,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 3200,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0f29dc331dbe7dd6016aed7486811487d09ba9aaaa66143366",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-1779-7523-8a6c-81ea600ae7ba-0",
+        "tool_calls": [
+          {
+            "name": "read_handoff",
+            "args": {},
+            "id": "call_4os3PWoBGHIrI603VfD5v9Tr",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 3561,
+          "output_tokens": 15,
+          "total_tokens": 3576,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 3200
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"contract\": {\"service_url\": \"https://desk.example.test\", \"project_id\": 1, \"principal_id\": 1, \"ticket_id\": 42, \"session_id\": \"policy-investigation\", \"variant\": \"B\", \"allow_notes\": true, \"allowed_status_ids\": [], \"allow_close\": false, \"user_constraints\": [\"Keep the ticket open and leave its status unchanged.\", \"Add at most one note after explicit authorization in the latest user message.\"]}, \"pending_actions\": [], \"summary\": \"\", \"receipt_ids\": []}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_handoff",
+        "id": "64d0e6b3-7427-407f-b6bc-f525d1c4c919",
+        "tool_call_id": "call_4os3PWoBGHIrI603VfD5v9Tr",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 14,
+            "prompt_tokens": 3703,
+            "total_tokens": 3717,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 2176,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0905b331453f038e016aed7489adb487d0b4012c5484607e1e",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-2366-7236-8a34-c141a4fd9923-0",
+        "tool_calls": [
+          {
+            "name": "read_ticket",
+            "args": {},
+            "id": "call_uajBNJXx8NFYmGIuigxE1koE",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 3703,
+          "output_tokens": 14,
+          "total_tokens": 3717,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 2176
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": true, \"ticket\": {\"id\": 42, \"project_id\": 1, \"subject\": \"Service investigation\", \"description\": \"Investigate and document the authorized handling procedure.\", \"status_id\": 1, \"status_name\": \"New\", \"is_closed\": false, \"assigned_to_id\": 7, \"assigned_to_name\": \"Service owner\", \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}], \"relations\": [], \"journals\": [], \"evidence\": {\"source_uri\": \"https://desk.example.test/issues/42\", \"source_kind\": \"ticket\", \"entity_scope\": \"https://desk.example.test/projects/1\", \"source_version\": \"aa9b8250a75689d52650a38e5a62d7708bfddfcc953e60924ede2854e9121b23\", \"observed_at\": \"2026-11-06T06:32:37.947528Z\", \"valid_from\": null, \"valid_to\": null, \"status\": \"observed\", \"content\": {\"id\": 42, \"project\": {\"id\": 1, \"name\": \"Corporate IT\"}, \"subject\": \"Service investigation\", \"description\": \"Investigate and document the authorized handling procedure.\", \"status\": {\"id\": 1, \"name\": \"New\", \"is_closed\": false}, \"assigned_to\": {\"id\": 7, \"name\": \"Service owner\"}, \"updated_on\": \"2026-11-04T00:00:00Z\", \"journals\": [], \"relations\": [], \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}]}}}}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_ticket",
+        "id": "4eff203f-b20f-4851-83c0-20c3549566ad",
+        "tool_call_id": "call_uajBNJXx8NFYmGIuigxE1koE",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 25,
+            "prompt_tokens": 4170,
+            "total_tokens": 4195,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 2176,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_02c7539e11f890fa016aed748ba45c87d0beb5b82a2b930212",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-2b3f-74e1-b042-362473c99d32-0",
+        "tool_calls": [
+          {
+            "name": "search_policy",
+            "args": {
+              "query": "production-restart",
+              "top_k": 3
+            },
+            "id": "call_z75UeZTGOk7u13iGacIkSbmW",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 4170,
+          "output_tokens": 25,
+          "total_tokens": 4195,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 2176
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "[{\"policy_id\": \"production-restart\", \"version\": \"1\", \"evidence\": {\"source_uri\": \"https://policies.example.test/corporate-it/production-restart/1\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"1:3151105644fcd10d573fa7e5fbd292d0ba933ff4ed771959d68df1973230f75d\", \"observed_at\": \"2026-11-04T00:00:00Z\", \"valid_from\": \"2025-01-01T00:00:00Z\", \"valid_to\": \"2026-11-05T00:00:00Z\", \"status\": \"observed\", \"content\": \"Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the service owner before a production restart. The action code is RESTART-OWNER. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}}, {\"policy_id\": \"production-restart\", \"version\": \"2\", \"evidence\": {\"source_uri\": \"https://policies.example.test/corporate-it/production-restart/2\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"2:2f33193c338881fb9453f46c08c7ebaba515184b310c1baaec4baf840558f76c\", \"observed_at\": \"2026-11-04T00:00:00Z\", \"valid_from\": \"2026-11-05T00:00:00Z\", \"valid_to\": \"2026-12-01T00:00:00Z\", \"status\": \"historical\", \"content\": \"Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the change board before a production restart. The action code is RESTART-CHANGE-BOARD. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}}, {\"policy_id\": \"production-restart\", \"version\": \"3\", \"evidence\": {\"source_uri\": \"https://policies.example.test/corporate-it/production-restart/3\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"3:e29bf5dc323267f4dc3bb00d5627b5f372d67d658e9d0d9545685b357ae1ac46\", \"observed_at\": \"2026-11-04T00:00:00Z\", \"valid_from\": \"2026-12-01T00:00:00Z\", \"valid_to\": null, \"status\": \"historical\", \"content\": \"Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the incident commander before a production restart. The action code is RESTART-INCIDENT-COMMANDER. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}}]",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "search_policy",
+        "id": "fe9d5c59-6841-47aa-9f21-5e10f4d62e5e",
+        "tool_call_id": "call_z75UeZTGOk7u13iGacIkSbmW",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 25,
+            "prompt_tokens": 4901,
+            "total_tokens": 4926,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 3968,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_08e62d47d29dad02016aed748e61ac87d081d2fc87de9f1a5a",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-3395-77b1-bd0c-44f234997c3a-0",
+        "tool_calls": [
+          {
+            "name": "read_policy",
+            "args": {
+              "policy_id": "production-restart",
+              "version": "1"
+            },
+            "id": "call_zYQF5YLN0Qd4EL0JVcRWZOmU",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 4901,
+          "output_tokens": 25,
+          "total_tokens": 4926,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 3968
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"source_uri\": \"https://policies.example.test/corporate-it/production-restart/1\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"1:3151105644fcd10d573fa7e5fbd292d0ba933ff4ed771959d68df1973230f75d\", \"observed_at\": \"2026-11-04T00:00:00Z\", \"valid_from\": \"2025-01-01T00:00:00Z\", \"valid_to\": \"2026-11-05T00:00:00Z\", \"status\": \"observed\", \"content\": \"Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the service owner before a production restart. The action code is RESTART-OWNER. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_policy",
+        "id": "ade35507-bffb-4922-ad87-43f77ed69f99",
+        "tool_call_id": "call_zYQF5YLN0Qd4EL0JVcRWZOmU",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 177,
+            "prompt_tokens": 5150,
+            "total_tokens": 5327,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 3584,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0b7b92e8e8e502aa016aed7491c61087d0be3a0c2e267bb276",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-4318-7148-9d7c-013cab5350d4-0",
+        "tool_calls": [
+          {
+            "name": "save_handoff",
+            "args": {
+              "pending_actions": [
+                "Await explicit authorization in a later user message before adding at most one note documenting the policy, version 1, and action code RESTART-OWNER.",
+                "Do not change ticket status; keep it open and unchanged.",
+                "No production restart is authorized by the policy or this request."
+              ],
+              "summary": "Investigated ticket 42 and consulted production-restart policy at scenario time 2026-11-04T00:00:00Z. Version 1 is valid from 2025-01-01 through 2026-11-05 and requires service owner approval before a production restart. Record policy ID production-restart, version 1, and action code RESTART-OWNER in the ticket when note-writing is later explicitly authorized. Ticket remains New/open. No note or status change made."
+            },
+            "id": "call_gn0wSY1em8cm7MvsLAsXQeUu",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 5150,
+          "output_tokens": 177,
+          "total_tokens": 5327,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 3584
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": true, \"pending_actions\": [\"Await explicit authorization in a later user message before adding at most one note documenting the policy, version 1, and action code RESTART-OWNER.\", \"Do not change ticket status; keep it open and unchanged.\", \"No production restart is authorized by the policy or this request.\"], \"summary\": \"Investigated ticket 42 and consulted production-restart policy at scenario time 2026-11-04T00:00:00Z. Version 1 is valid from 2025-01-01 through 2026-11-05 and requires service owner approval before a production restart. Record policy ID production-restart, version 1, and action code RESTART-OWNER in the ticket when note-writing is later explicitly authorized. Ticket remains New/open. No note or status change made.\"}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "save_handoff",
+        "id": "3efa03f0-dfa2-42f8-b41d-e56c043e8499",
+        "tool_call_id": "call_gn0wSY1em8cm7MvsLAsXQeUu",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "Investigated ticket 42 and read the production-restart policy valid at the scenario time: **version 1** requires approval from the service owner before a production restart. Its action code is **RESTART-OWNER**.\n\nNo note was added and the ticket status was not changed. The ticket remains open in **New**. I saved the pending work and handoff, including the need for your explicit authorization before adding at most one note.",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 93,
+            "prompt_tokens": 5512,
+            "total_tokens": 5605,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 4736,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_028b760f94b52ba7016aed7498390087d0856ec936c134f0be",
+          "service_tier": "default",
+          "finish_reason": "stop",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-5ac4-75bd-85ae-fdef81b77853-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 5512,
+          "output_tokens": 93,
+          "total_tokens": 5605,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 4736
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "human",
+      "data": {
+        "content": "The scenario clock is 2026-11-06T00:00:00Z. Investigate Production service restart and consult policy production-restart applicable at this time. You are now authorized to add exactly one note; preserve the ticket status. Write the applicable policy and action code in this form: 'POLICY: <policy_id>@<version>; CODE: <action code>'. Obtain the version and code from policy evidence. Finish after the note is verified.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": "7557d180-fb9a-4052-92a2-4cdb8f18b2b4"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 32,
+            "prompt_tokens": 5705,
+            "total_tokens": 5737,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 5376,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0dab5426835a9dcc016aed749c65a487d08dc0b16b5d8dab8c",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-6a6d-76b3-a83a-31173d30afc8-0",
+        "tool_calls": [
+          {
+            "name": "read_file",
+            "args": {
+              "file_path": "/skills/resume-ticket/SKILL.md",
+              "limit": 1000
+            },
+            "id": "call_wTITsqWCqraSldssOXB6N7Hz",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 5705,
+          "output_tokens": 32,
+          "total_tokens": 5737,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 5376
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "@@ lines 1-13 of 13 @@\n---\nname: resume-ticket\ndescription: Continue a paused service desk investigation using its saved constraints and current ticket evidence.\n---\n\n# Resume Ticket\n\n1. Read the saved handoff when `read_handoff` is available.\n2. Preserve the saved user constraints and outstanding actions.\n3. Read the current ticket. Check its current owner, status, dependencies and workflow.\n4. Consult the current policy version when the remaining action depends on policy.\n5. Continue authorized unresolved work and verify its actual tool receipt.\n6. Save the remaining work. Historical observations remain available as historical evidence.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_file",
+        "id": "544bbe9f-f33c-4871-a9d0-1b6b3eeeb258",
+        "tool_call_id": "call_wTITsqWCqraSldssOXB6N7Hz",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 15,
+            "prompt_tokens": 5875,
+            "total_tokens": 5890,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 5504,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0e19764f9320af88016aed749f1ebc87d095605abced318be0",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-76ee-770e-b74f-3525da26e0a5-0",
+        "tool_calls": [
+          {
+            "name": "read_handoff",
+            "args": {},
+            "id": "call_bFLvmSNS9lWrEZCTh6PBDpHI",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 5875,
+          "output_tokens": 15,
+          "total_tokens": 5890,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 5504
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"contract\": {\"service_url\": \"https://desk.example.test\", \"project_id\": 1, \"principal_id\": 1, \"ticket_id\": 42, \"session_id\": \"policy-investigation\", \"variant\": \"B\", \"allow_notes\": true, \"allowed_status_ids\": [], \"allow_close\": false, \"user_constraints\": [\"Keep the ticket open and leave its status unchanged.\", \"Add at most one note after explicit authorization in the latest user message.\"]}, \"pending_actions\": [\"Await explicit authorization in a later user message before adding at most one note documenting the policy, version 1, and action code RESTART-OWNER.\", \"Do not change ticket status; keep it open and unchanged.\", \"No production restart is authorized by the policy or this request.\"], \"summary\": \"Investigated ticket 42 and consulted production-restart policy at scenario time 2026-11-04T00:00:00Z. Version 1 is valid from 2025-01-01 through 2026-11-05 and requires service owner approval before a production restart. Record policy ID production-restart, version 1, and action code RESTART-OWNER in the ticket when note-writing is later explicitly authorized. Ticket remains New/open. No note or status change made.\", \"receipt_ids\": []}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_handoff",
+        "id": "1b6a1f27-18b6-4272-bc57-65b9e6f9ed24",
+        "tool_call_id": "call_bFLvmSNS9lWrEZCTh6PBDpHI",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 14,
+            "prompt_tokens": 6175,
+            "total_tokens": 6189,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 5760,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_02309ef8ef1592d2016aed74a2f30087d09a61db777da37af7",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-835d-732f-8d66-68fc7eb1acec-0",
+        "tool_calls": [
+          {
+            "name": "read_ticket",
+            "args": {},
+            "id": "call_eMiyBQdjtLPDkvgPeS3hWN2R",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 6175,
+          "output_tokens": 14,
+          "total_tokens": 6189,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 5760
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": true, \"ticket\": {\"id\": 42, \"project_id\": 1, \"subject\": \"Service investigation\", \"description\": \"Investigate and document the authorized handling procedure.\", \"status_id\": 1, \"status_name\": \"New\", \"is_closed\": false, \"assigned_to_id\": 7, \"assigned_to_name\": \"Service owner\", \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}], \"relations\": [], \"journals\": [], \"evidence\": {\"source_uri\": \"https://desk.example.test/issues/42\", \"source_kind\": \"ticket\", \"entity_scope\": \"https://desk.example.test/projects/1\", \"source_version\": \"aa9b8250a75689d52650a38e5a62d7708bfddfcc953e60924ede2854e9121b23\", \"observed_at\": \"2026-11-06T06:33:03.555229Z\", \"valid_from\": null, \"valid_to\": null, \"status\": \"observed\", \"content\": {\"id\": 42, \"project\": {\"id\": 1, \"name\": \"Corporate IT\"}, \"subject\": \"Service investigation\", \"description\": \"Investigate and document the authorized handling procedure.\", \"status\": {\"id\": 1, \"name\": \"New\", \"is_closed\": false}, \"assigned_to\": {\"id\": 7, \"name\": \"Service owner\"}, \"updated_on\": \"2026-11-04T00:00:00Z\", \"journals\": [], \"relations\": [], \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}]}}}}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_ticket",
+        "id": "d110b05c-94af-4f1e-a54d-d92e6b664f7f",
+        "tool_call_id": "call_eMiyBQdjtLPDkvgPeS3hWN2R",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 36,
+            "prompt_tokens": 6642,
+            "total_tokens": 6678,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 6016,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_034e6330164a4221016aed74a5d6c887d08f0589d03ea2b946",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-8f46-7311-9b12-be49694ae700-0",
+        "tool_calls": [
+          {
+            "name": "search_policy",
+            "args": {
+              "query": "production-restart Production service restart applicable 2026-11-06",
+              "top_k": 3
+            },
+            "id": "call_XA8JIiZxpb3kKfDpBQPgV85l",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 6642,
+          "output_tokens": 36,
+          "total_tokens": 6678,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 6016
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "[{\"policy_id\": \"production-restart\", \"version\": \"1\", \"evidence\": {\"source_uri\": \"https://policies.example.test/corporate-it/production-restart/1\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"1:3151105644fcd10d573fa7e5fbd292d0ba933ff4ed771959d68df1973230f75d\", \"observed_at\": \"2026-11-06T00:00:00Z\", \"valid_from\": \"2025-01-01T00:00:00Z\", \"valid_to\": \"2026-11-05T00:00:00Z\", \"status\": \"historical\", \"content\": \"Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the service owner before a production restart. The action code is RESTART-OWNER. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}}, {\"policy_id\": \"production-restart\", \"version\": \"2\", \"evidence\": {\"source_uri\": \"https://policies.example.test/corporate-it/production-restart/2\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"2:2f33193c338881fb9453f46c08c7ebaba515184b310c1baaec4baf840558f76c\", \"observed_at\": \"2026-11-06T00:00:00Z\", \"valid_from\": \"2026-11-05T00:00:00Z\", \"valid_to\": \"2026-12-01T00:00:00Z\", \"status\": \"observed\", \"content\": \"Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the change board before a production restart. The action code is RESTART-CHANGE-BOARD. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}}, {\"policy_id\": \"production-restart\", \"version\": \"3\", \"evidence\": {\"source_uri\": \"https://policies.example.test/corporate-it/production-restart/3\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"3:e29bf5dc323267f4dc3bb00d5627b5f372d67d658e9d0d9545685b357ae1ac46\", \"observed_at\": \"2026-11-06T00:00:00Z\", \"valid_from\": \"2026-12-01T00:00:00Z\", \"valid_to\": null, \"status\": \"historical\", \"content\": \"Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the incident commander before a production restart. The action code is RESTART-INCIDENT-COMMANDER. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}}]",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "search_policy",
+        "id": "c0ef7b92-3a7d-4cb8-ad63-7dc9188fb572",
+        "tool_call_id": "call_XA8JIiZxpb3kKfDpBQPgV85l",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 25,
+            "prompt_tokens": 7384,
+            "total_tokens": 7409,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 2944,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0301f9d02220147c016aed74aa9d2c87d08fc1f5fc69f29d34",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-9e8f-760c-94a0-dc33d20d983b-0",
+        "tool_calls": [
+          {
+            "name": "read_policy",
+            "args": {
+              "policy_id": "production-restart",
+              "version": "2"
+            },
+            "id": "call_2BkLyVe61aR1ZX88OZec30NI",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 7384,
+          "output_tokens": 25,
+          "total_tokens": 7409,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 2944
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"source_uri\": \"https://policies.example.test/corporate-it/production-restart/2\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"2:2f33193c338881fb9453f46c08c7ebaba515184b310c1baaec4baf840558f76c\", \"observed_at\": \"2026-11-06T00:00:00Z\", \"valid_from\": \"2026-11-05T00:00:00Z\", \"valid_to\": \"2026-12-01T00:00:00Z\", \"status\": \"observed\", \"content\": \"Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the change board before a production restart. The action code is RESTART-CHANGE-BOARD. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_policy",
+        "id": "db0c86b6-87ab-44ba-bc53-a3a364b6ed60",
+        "tool_call_id": "call_2BkLyVe61aR1ZX88OZec30NI",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 74,
+            "prompt_tokens": 7635,
+            "total_tokens": 7709,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 7168,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0d23e94d6852643d016aed74ad774087d0bd207753f2919ee4",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-ad0a-73e8-8961-48976a04e8e6-0",
+        "tool_calls": [
+          {
+            "name": "add_ticket_note",
+            "args": {
+              "note": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD",
+              "expected_version": "aa9b8250a75689d52650a38e5a62d7708bfddfcc953e60924ede2854e9121b23"
+            },
+            "id": "call_NyYUdgWVQ946jrOYg3LtMs9u",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 7635,
+          "output_tokens": 74,
+          "total_tokens": 7709,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 7168
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": true, \"receipt\": {\"operation_id\": \"2af1d962789a011892c42beff556351ffa98b151a4e52c01a04401ca85f4a4bd\", \"action\": \"add_note\", \"ticket_id\": 42, \"before_version\": \"aa9b8250a75689d52650a38e5a62d7708bfddfcc953e60924ede2854e9121b23\", \"after\": {\"id\": 42, \"project_id\": 1, \"subject\": \"Service investigation\", \"description\": \"Investigate and document the authorized handling procedure.\", \"status_id\": 1, \"status_name\": \"New\", \"is_closed\": false, \"assigned_to_id\": 7, \"assigned_to_name\": \"Service owner\", \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}], \"relations\": [], \"journals\": [{\"id\": 1, \"notes\": \"POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD\\n\\n[desk-action:2af1d962789a011892c42beff556351ffa98b151a4e52c01a04401ca85f4a4bd]\", \"user\": {\"id\": 1}, \"details\": []}], \"evidence\": {\"source_uri\": \"https://desk.example.test/issues/42\", \"source_kind\": \"ticket\", \"entity_scope\": \"https://desk.example.test/projects/1\", \"source_version\": \"32c83ed279b6221ddd8334ffaaf412692a26468cbfaeb1ef76ad3ea29362de8f\", \"observed_at\": \"2026-11-06T06:33:15.057074Z\", \"valid_from\": null, \"valid_to\": null, \"status\": \"observed\", \"content\": {\"id\": 42, \"project\": {\"id\": 1, \"name\": \"Corporate IT\"}, \"subject\": \"Service investigation\", \"description\": \"Investigate and document the authorized handling procedure.\", \"status\": {\"id\": 1, \"name\": \"New\", \"is_closed\": false}, \"assigned_to\": {\"id\": 7, \"name\": \"Service owner\"}, \"updated_on\": \"2026-11-04T00:00:00Z\", \"journals\": [{\"id\": 1, \"notes\": \"POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD\\n\\n[desk-action:2af1d962789a011892c42beff556351ffa98b151a4e52c01a04401ca85f4a4bd]\", \"user\": {\"id\": 1}, \"details\": []}], \"relations\": [], \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}]}}}, \"journal_id\": 1, \"verified\": true, \"replayed\": false, \"observed_at\": \"2026-11-06T06:33:15.069619Z\"}}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "add_ticket_note",
+        "id": "612026c6-fbec-4714-a5cd-a38c64281bd4",
+        "tool_call_id": "call_NyYUdgWVQ946jrOYg3LtMs9u",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 142,
+            "prompt_tokens": 8464,
+            "total_tokens": 8606,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 6528,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0d2e61fe91b20b40016aed74b0e3d887d0a2bf25d5de2a3e37",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-bc41-7574-b14a-d2361e6a8624-0",
+        "tool_calls": [
+          {
+            "name": "save_handoff",
+            "args": {
+              "pending_actions": [],
+              "summary": "Completed user-authorized investigation for scenario time 2026-11-06T00:00:00Z. Applicable production-restart policy is version 2 (valid 2026-11-05 through 2026-12-01); action code RESTART-CHANGE-BOARD. Added exactly one note in the requested form and verified receipt operation_id 2af1d962789a011892c42beff556351ffa98b151a4e52c01a04401ca85f4a4bd. Ticket status remains New/open. No status change made."
+            },
+            "id": "call_kIMAy1trshasbrhe168xndVO",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 8464,
+          "output_tokens": 142,
+          "total_tokens": 8606,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 6528
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": true, \"pending_actions\": [], \"summary\": \"Completed user-authorized investigation for scenario time 2026-11-06T00:00:00Z. Applicable production-restart policy is version 2 (valid 2026-11-05 through 2026-12-01); action code RESTART-CHANGE-BOARD. Added exactly one note in the requested form and verified receipt operation_id 2af1d962789a011892c42beff556351ffa98b151a4e52c01a04401ca85f4a4bd. Ticket status remains New/open. No status change made.\"}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "save_handoff",
+        "id": "50b0a728-0f0d-4914-9e11-8d70aaa05ab7",
+        "tool_call_id": "call_kIMAy1trshasbrhe168xndVO",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "Added and verified exactly one note:\n\n`POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD`\n\nThe applicable policy at the scenario time is version 2. Ticket status remains **New/open**, unchanged.",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 51,
+            "prompt_tokens": 8753,
+            "total_tokens": 8804,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 8320,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0e056e53d52aba75016aed74b6ce9487d0a7429778d27d1bf6",
+          "service_tier": "default",
+          "finish_reason": "stop",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8f-d016-71ea-ae66-dc7221d8e3c8-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 8753,
+          "output_tokens": 51,
+          "total_tokens": 8804,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 8320
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    }
+  ],
+  "receipt_ids": [
+    "2af1d962789a011892c42beff556351ffa98b151a4e52c01a04401ca85f4a4bd"
+  ]
+}

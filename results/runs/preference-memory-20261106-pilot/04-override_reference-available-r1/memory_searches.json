@@ -1,0 +1,14 @@
+[
+  {
+    "arguments": {
+      "query": "ticket note reference prefix preference for ticket 42",
+      "limit": 10,
+      "offset": 0,
+      "filter": {
+        "ticket_id": 42
+      }
+    },
+    "stored_result": [],
+    "returned_result": []
+  }
+]

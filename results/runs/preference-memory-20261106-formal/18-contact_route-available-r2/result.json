@@ -1,0 +1,151 @@
+{
+  "scenario": "contact_route",
+  "kind": "history_required",
+  "condition": "available",
+  "repeat": 2,
+  "started": true,
+  "success": true,
+  "business_grade": {
+    "success": true,
+    "checks": {
+      "one_http_write": true,
+      "note_matches": true,
+      "one_journal": true,
+      "no_collateral_change": true,
+      "verified_receipt": true
+    },
+    "actual_notes": [
+      "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready."
+    ]
+  },
+  "error_type": null,
+  "preference_clarifications": 0,
+  "user_turns": 1,
+  "memory_searches": 1,
+  "nonempty_recalls": 1,
+  "new_thread": true,
+  "first_request_preference_leaks": [],
+  "usage": {
+    "role": "agent",
+    "calls": 9,
+    "failed_calls": 0,
+    "unknown_usage_calls": 0,
+    "input_tokens": 41887,
+    "output_tokens": 366,
+    "cache_read_tokens": 29184,
+    "cost_usd": null
+  },
+  "captured_model_requests": 9,
+  "execution_seconds": 29.79166333899957,
+  "setup_seconds": 0.14701325799978804,
+  "total_seconds": 29.938676596999358,
+  "model_mode": "live",
+  "final_receipts": [
+    {
+      "operation_id": "3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b",
+      "action": "add_note",
+      "ticket_id": 42,
+      "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+      "after": {
+        "id": 42,
+        "project_id": 1,
+        "subject": "Synthetic service investigation",
+        "description": "Record the user's authorized investigation update.",
+        "status_id": 1,
+        "status_name": "New",
+        "is_closed": false,
+        "assigned_to_id": 7,
+        "assigned_to_name": "Original owner",
+        "allowed_statuses": [
+          {
+            "id": 1,
+            "name": "New",
+            "is_closed": false
+          },
+          {
+            "id": 2,
+            "name": "In Progress",
+            "is_closed": false
+          },
+          {
+            "id": 5,
+            "name": "Closed",
+            "is_closed": true
+          }
+        ],
+        "relations": [],
+        "journals": [
+          {
+            "id": 1,
+            "notes": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.\n\n[desk-action:3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b]",
+            "user": {
+              "id": 1
+            },
+            "details": []
+          }
+        ],
+        "evidence": {
+          "source_uri": "http://127.0.0.1:43350/issues/42",
+          "source_kind": "ticket",
+          "entity_scope": "http://127.0.0.1:43350/projects/1",
+          "source_version": "52fbcfa28b6d68316075ed1e155733165d686d7b16ef34b37bfdd7cb3846da97",
+          "observed_at": "2026-11-06T06:54:21.686849Z",
+          "valid_from": null,
+          "valid_to": null,
+          "status": "observed",
+          "content": {
+            "id": 42,
+            "project": {
+              "id": 1,
+              "name": "Service desk"
+            },
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status": {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            "assigned_to": {
+              "id": 7,
+              "name": "Original owner"
+            },
+            "updated_on": "2026-11-05T00:00:00Z",
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.\n\n[desk-action:3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "relations": [],
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ]
+          }
+        }
+      },
+      "journal_id": 1,
+      "verified": true,
+      "replayed": false,
+      "observed_at": "2026-11-06T06:54:21.703635Z"
+    }
+  ]
+}

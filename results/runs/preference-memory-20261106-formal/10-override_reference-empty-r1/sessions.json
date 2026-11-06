@@ -1,0 +1,139 @@
+[
+  {
+    "thread_id": "86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa",
+    "message": "Added exactly one note to ticket 42: **[HOTFIX-9] | Rollback approved.** The verified update shows the ticket remains open, with no other fields changed.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43350",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [],
+    "handoff_summary": "Added exactly one note to ticket 42 with the requested [HOTFIX-9] | prefix and text. Ticket remains open; no other fields were changed.",
+    "verified_receipts": [
+      {
+        "operation_id": "a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b",
+        "action": "add_note",
+        "ticket_id": 42,
+        "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+        "after": {
+          "id": 42,
+          "project_id": 1,
+          "subject": "Synthetic service investigation",
+          "description": "Record the user's authorized investigation update.",
+          "status_id": 1,
+          "status_name": "New",
+          "is_closed": false,
+          "assigned_to_id": 7,
+          "assigned_to_name": "Original owner",
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ],
+          "relations": [],
+          "journals": [
+            {
+              "id": 1,
+              "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "evidence": {
+            "source_uri": "http://127.0.0.1:43350/issues/42",
+            "source_kind": "ticket",
+            "entity_scope": "http://127.0.0.1:43350/projects/1",
+            "source_version": "848f2a96be1988ef4968c29831116e90f8ddaa10f32e67271c5538f3162fc7f0",
+            "observed_at": "2026-11-06T06:50:11.078707Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": {
+              "id": 42,
+              "project": {
+                "id": 1,
+                "name": "Service desk"
+              },
+              "subject": "Synthetic service investigation",
+              "description": "Record the user's authorized investigation update.",
+              "status": {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              "assigned_to": {
+                "id": 7,
+                "name": "Original owner"
+              },
+              "updated_on": "2026-11-05T00:00:00Z",
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "relations": [],
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ]
+            }
+          }
+        },
+        "journal_id": 1,
+        "verified": true,
+        "replayed": false,
+        "observed_at": "2026-11-06T06:50:11.091879Z"
+      }
+    ],
+    "usage": {
+      "role": "agent",
+      "calls": 8,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 32756,
+      "output_tokens": 322,
+      "cache_read_tokens": 22016,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-formal/10-override_reference-empty-r1/state/sessions/86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa/trace-9aa8641091b840bf83d9083649a711c4.json"
+  }
+]

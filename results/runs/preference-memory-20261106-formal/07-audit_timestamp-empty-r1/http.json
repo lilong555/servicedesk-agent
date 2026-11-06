@@ -1,0 +1,54 @@
+[
+  {
+    "method": "GET",
+    "path": "/users/current.json",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/issues/42.json?include=journals%2Crelations%2Callowed_statuses",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/users/current.json",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/issues/42.json?include=journals%2Crelations%2Callowed_statuses",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/users/current.json",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/issues/42.json?include=journals%2Crelations%2Callowed_statuses",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/issues/42.json",
+    "status": 204,
+    "body": {
+      "issue": {
+        "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/issues/42.json?include=journals%2Crelations%2Callowed_statuses",
+    "status": 200,
+    "body": null
+  }
+]

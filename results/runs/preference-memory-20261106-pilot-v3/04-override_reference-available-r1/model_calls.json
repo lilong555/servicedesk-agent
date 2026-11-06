@@ -1,0 +1,110 @@
+[
+  {
+    "run_id": "01a1af99-796c-77b3-b2db-5ebcb6bfb2e9",
+    "role": "agent",
+    "elapsed_seconds": 3.411723881999933,
+    "usage": {
+      "input_tokens": 3221,
+      "output_tokens": 33,
+      "total_tokens": 3254,
+      "input_token_details": {
+        "cache_read": 2176,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "run_id": "01a1af99-86c4-73fd-9d4f-ec9afc6f458c",
+    "role": "agent",
+    "elapsed_seconds": 2.1620632789999945,
+    "usage": {
+      "input_tokens": 3446,
+      "output_tokens": 14,
+      "total_tokens": 3460,
+      "input_token_details": {
+        "cache_read": 3328,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "run_id": "01a1af99-8f3c-711c-be41-267aedf248ff",
+    "role": "agent",
+    "elapsed_seconds": 3.190800799000499,
+    "usage": {
+      "input_tokens": 3924,
+      "output_tokens": 35,
+      "total_tokens": 3959,
+      "input_token_details": {
+        "cache_read": 2176,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "run_id": "01a1af99-9bb8-7138-99ec-952aa66c063b",
+    "role": "agent",
+    "elapsed_seconds": 4.015577318999931,
+    "usage": {
+      "input_tokens": 4316,
+      "output_tokens": 66,
+      "total_tokens": 4382,
+      "input_token_details": {
+        "cache_read": 3328,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "run_id": "01a1af99-ab92-72ba-a87e-304762bb3fd0",
+    "role": "agent",
+    "elapsed_seconds": 3.2108578389998,
+    "usage": {
+      "input_tokens": 5151,
+      "output_tokens": 86,
+      "total_tokens": 5237,
+      "input_token_details": {
+        "cache_read": 3712,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  },
+  {
+    "run_id": "01a1af99-b821-73e3-a699-4fb2796a4769",
+    "role": "agent",
+    "elapsed_seconds": 2.9243640980002965,
+    "usage": {
+      "input_tokens": 5328,
+      "output_tokens": 39,
+      "total_tokens": 5367,
+      "input_token_details": {
+        "cache_read": 4096,
+        "cache_creation": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "error": null
+  }
+]

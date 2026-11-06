@@ -1,0 +1,47 @@
+{
+  "id": 42,
+  "project": {
+    "id": 1,
+    "name": "Service desk"
+  },
+  "subject": "Synthetic service investigation",
+  "description": "Record the user's authorized investigation update.",
+  "status": {
+    "id": 1,
+    "name": "New",
+    "is_closed": false
+  },
+  "assigned_to": {
+    "id": 7,
+    "name": "Original owner"
+  },
+  "updated_on": "2026-11-05T00:00:00Z",
+  "journals": [
+    {
+      "id": 1,
+      "notes": "SIGNAL=Packet loss is 2%; FOLLOWUP=Collect two hours of traces.\n\n[desk-action:17408beb79d9e5c4c23e0cfc39d945a0ac765299fa87fc2de0db681edac4f729]",
+      "user": {
+        "id": 1
+      },
+      "details": []
+    }
+  ],
+  "relations": [],
+  "allowed_statuses": [
+    {
+      "id": 1,
+      "name": "New",
+      "is_closed": false
+    },
+    {
+      "id": 2,
+      "name": "In Progress",
+      "is_closed": false
+    },
+    {
+      "id": 5,
+      "name": "Closed",
+      "is_closed": true
+    }
+  ]
+}

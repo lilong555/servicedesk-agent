@@ -1,0 +1,37 @@
+{
+  "checks": {
+    "summarize_exit_zero": true,
+    "summary_identical": true,
+    "raw_unchanged": true,
+    "current_source_matches_freeze": true,
+    "archive_matches_freeze": true,
+    "archive_digest": true,
+    "all_100_pairs_identical_inputs": true,
+    "csv_204_logical_slots": true
+  },
+  "passed": true,
+  "raw_files_verified": 842,
+  "source_files_verified": 29,
+  "independent_sqlite_counts": {
+    "at_least_once": {
+      "operations": 100,
+      "loss_operations": 50,
+      "writes": 150,
+      "journals": 150,
+      "duplicates": 50
+    },
+    "reconcile": {
+      "operations": 100,
+      "loss_operations": 50,
+      "writes": 100,
+      "journals": 100,
+      "duplicates": 0
+    }
+  },
+  "recompute_command": [
+    "/home/li/code/servicedesk-agent/.venv/bin/python",
+    "scripts/benchmark_business_reliability.py",
+    "summarize",
+    "/home/li/code/servicedesk-agent/results/runs/business-reliability-20261106-001"
+  ]
+}

@@ -1,0 +1,756 @@
+{
+  "run_id": "c9cbc189b20a44ce9f221fd90e2c0f07",
+  "model_mode": "live",
+  "thread_id": "1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+  "error_type": null,
+  "usage": {
+    "role": "agent",
+    "calls": 8,
+    "failed_calls": 0,
+    "unknown_usage_calls": 0,
+    "input_tokens": 38330,
+    "output_tokens": 344,
+    "cache_read_tokens": 26880,
+    "cost_usd": null
+  },
+  "model_calls": [
+    {
+      "run_id": "01a1af8c-697f-753f-9432-3921dffb71f6",
+      "role": "agent",
+      "elapsed_seconds": 3.023843170998589,
+      "usage": {
+        "input_tokens": 3195,
+        "output_tokens": 33,
+        "total_tokens": 3228,
+        "input_token_details": {
+          "cache_read": 2176,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8c-7554-7720-bb60-e286aa2f5feb",
+      "role": "agent",
+      "elapsed_seconds": 1.863414573999762,
+      "usage": {
+        "input_tokens": 3420,
+        "output_tokens": 14,
+        "total_tokens": 3434,
+        "input_token_details": {
+          "cache_read": 3072,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8c-7ca2-7768-a57a-63fb0dd0f2ff",
+      "role": "agent",
+      "elapsed_seconds": 2.6167146759999014,
+      "usage": {
+        "input_tokens": 3887,
+        "output_tokens": 15,
+        "total_tokens": 3902,
+        "input_token_details": {
+          "cache_read": 3072,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8c-86df-7694-8284-56e0979cb914",
+      "role": "agent",
+      "elapsed_seconds": 2.4642318149999483,
+      "usage": {
+        "input_tokens": 4029,
+        "output_tokens": 40,
+        "total_tokens": 4069,
+        "input_token_details": {
+          "cache_read": 3712,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8c-9086-72c7-99f5-639dbab759fc",
+      "role": "agent",
+      "elapsed_seconds": 2.607692445999419,
+      "usage": {
+        "input_tokens": 5274,
+        "output_tokens": 25,
+        "total_tokens": 5299,
+        "input_token_details": {
+          "cache_read": 0,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8c-9abc-73b6-adff-322d12c767c3",
+      "role": "agent",
+      "elapsed_seconds": 3.130044411000199,
+      "usage": {
+        "input_tokens": 5538,
+        "output_tokens": 75,
+        "total_tokens": 5613,
+        "input_token_details": {
+          "cache_read": 3200,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8c-a75f-72f6-987c-8976a4dcf7fb",
+      "role": "agent",
+      "elapsed_seconds": 4.185536545999639,
+      "usage": {
+        "input_tokens": 6390,
+        "output_tokens": 101,
+        "total_tokens": 6491,
+        "input_token_details": {
+          "cache_read": 5376,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    },
+    {
+      "run_id": "01a1af8c-b7bd-7688-a05c-5f318d5dd969",
+      "role": "agent",
+      "elapsed_seconds": 4.903249367000171,
+      "usage": {
+        "input_tokens": 6597,
+        "output_tokens": 41,
+        "total_tokens": 6638,
+        "input_token_details": {
+          "cache_read": 6272,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "reasoning": 0
+        }
+      },
+      "error": null
+    }
+  ],
+  "messages": [
+    {
+      "type": "human",
+      "data": {
+        "content": "The scenario clock is 2026-11-06T00:00:00Z. Investigate VPN remote access maintenance and consult policy vpn-maintenance applicable at this time. You are now authorized to add exactly one note; preserve the ticket status. Write the applicable policy and action code in this form: 'POLICY: <policy_id>@<version>; CODE: <action code>'. Obtain the version and code from policy evidence. Finish after the note is verified.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": "07a7bde8-aa3f-4025-9f25-4ceee1059870"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 33,
+            "prompt_tokens": 3195,
+            "total_tokens": 3228,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 2176,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0ff65e14d2353520016aed73d729a487d0a73dd6fe8a3dc393",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8c-697f-753f-9432-3921dffb71f6-0",
+        "tool_calls": [
+          {
+            "name": "read_file",
+            "args": {
+              "file_path": "/skills/ticket-handling/SKILL.md",
+              "limit": 1000
+            },
+            "id": "call_a1sPufa4XEt3mFqz9mBV2MVd",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 3195,
+          "output_tokens": 33,
+          "total_tokens": 3228,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 2176
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "@@ lines 1-17 of 17 @@\n---\nname: ticket-handling\ndescription: Investigate or update an IT service desk ticket with verified tool outcomes and user constraints.\n---\n\n# Ticket Handling\n\n1. Identify the requested ticket and the user's exact intended action.\n2. Read the relevant current business record through the available ticket lookup tool.\n3. Consult the operating policy when the task needs a policy decision. `search_policy`\n   returns current versions; `read_policy` returns the full cited text.\n4. Preserve explicit constraints, including investigation-only and keep-open requests.\n5. Apply only the requested action. For destructive actions, follow the supplied\n   permission and dependency protocol in its specified order.\n6. Confirm the actual tool outcome. Treat business rejection and execution failure\n   as separate outcomes.\n7. When a handoff tool is available, save unresolved work and reference verified receipts.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_file",
+        "id": "8fd476ac-b4c1-410b-9ed5-aa95dea2b84d",
+        "tool_call_id": "call_a1sPufa4XEt3mFqz9mBV2MVd",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 14,
+            "prompt_tokens": 3420,
+            "total_tokens": 3434,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 3072,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_00530016374acab5016aed73d9ee9887d086672199a24cb20b",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8c-7554-7720-bb60-e286aa2f5feb-0",
+        "tool_calls": [
+          {
+            "name": "read_ticket",
+            "args": {},
+            "id": "call_FfJySLBAC0uqVCvP36dTRNd7",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 3420,
+          "output_tokens": 14,
+          "total_tokens": 3434,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 3072
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": true, \"ticket\": {\"id\": 42, \"project_id\": 1, \"subject\": \"Service investigation\", \"description\": \"Investigate and document the authorized handling procedure.\", \"status_id\": 1, \"status_name\": \"New\", \"is_closed\": false, \"assigned_to_id\": 7, \"assigned_to_name\": \"Service owner\", \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}], \"relations\": [], \"journals\": [], \"evidence\": {\"source_uri\": \"https://desk.example.test/issues/42\", \"source_kind\": \"ticket\", \"entity_scope\": \"https://desk.example.test/projects/1\", \"source_version\": \"aa9b8250a75689d52650a38e5a62d7708bfddfcc953e60924ede2854e9121b23\", \"observed_at\": \"2026-11-06T06:29:42.174634Z\", \"valid_from\": null, \"valid_to\": null, \"status\": \"observed\", \"content\": {\"id\": 42, \"project\": {\"id\": 1, \"name\": \"Corporate IT\"}, \"subject\": \"Service investigation\", \"description\": \"Investigate and document the authorized handling procedure.\", \"status\": {\"id\": 1, \"name\": \"New\", \"is_closed\": false}, \"assigned_to\": {\"id\": 7, \"name\": \"Service owner\"}, \"updated_on\": \"2026-11-04T00:00:00Z\", \"journals\": [], \"relations\": [], \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}]}}}}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_ticket",
+        "id": "13f747a0-2082-4adc-91bc-db1c93dd8f28",
+        "tool_call_id": "call_FfJySLBAC0uqVCvP36dTRNd7",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 15,
+            "prompt_tokens": 3887,
+            "total_tokens": 3902,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 3072,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_03cf28f6612dc5d9016aed73dbd36487d0ac414745e70637b2",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8c-7ca2-7768-a57a-63fb0dd0f2ff-0",
+        "tool_calls": [
+          {
+            "name": "read_handoff",
+            "args": {},
+            "id": "call_4lRFiwsrHL2dRMrECa7CrNU4",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 3887,
+          "output_tokens": 15,
+          "total_tokens": 3902,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 3072
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"contract\": {\"service_url\": \"https://desk.example.test\", \"project_id\": 1, \"principal_id\": 1, \"ticket_id\": 42, \"session_id\": \"policy-investigation\", \"variant\": \"B\", \"allow_notes\": true, \"allowed_status_ids\": [], \"allow_close\": false, \"user_constraints\": [\"Keep the ticket open and leave its status unchanged.\", \"Add at most one note after explicit authorization in the latest user message.\"]}, \"pending_actions\": [], \"summary\": \"\", \"receipt_ids\": []}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_handoff",
+        "id": "a8ecf51d-b5f6-4471-abca-d1f1c2bdcaab",
+        "tool_call_id": "call_4lRFiwsrHL2dRMrECa7CrNU4",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 40,
+            "prompt_tokens": 4029,
+            "total_tokens": 4069,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 3712,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0df7078a35503794016aed73de882487d09e2c856b97ae8772",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8c-86df-7694-8284-56e0979cb914-0",
+        "tool_calls": [
+          {
+            "name": "search_policy",
+            "args": {
+              "query": "vpn-maintenance remote access maintenance action code applicable policy at 2026-11-06",
+              "top_k": 5
+            },
+            "id": "call_OZgkHPErLho56t0jtZpmKRQF",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 4029,
+          "output_tokens": 40,
+          "total_tokens": 4069,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 3712
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "[{\"policy_id\": \"vpn-maintenance\", \"version\": \"2\", \"evidence\": {\"source_uri\": \"https://policies.example.test/corporate-it/vpn-maintenance/2\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"2:7c357488bd3d13b5241ffbcd0c6b6982186a764165ae341e25ec235fc3dbf64e\", \"observed_at\": \"2026-11-06T00:00:00Z\", \"valid_from\": \"2026-11-05T00:00:00Z\", \"valid_to\": \"2026-12-01T00:00:00Z\", \"status\": \"observed\", \"content\": \"VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Identity Operations. Maintenance is permitted on Wednesday at 01:00 UTC. The action code is IDENTITY-WED-0100. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}}, {\"policy_id\": \"access-offboarding\", \"version\": \"2\", \"evidence\": {\"source_uri\": \"https://policies.example.test/corporate-it/access-offboarding/2\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"2:ad84655853248e08e94bc81e8bdca9b65a056e309247b442307d813352ed77dd\", \"observed_at\": \"2026-11-06T00:00:00Z\", \"valid_from\": \"2026-11-05T00:00:00Z\", \"valid_to\": \"2026-12-01T00:00:00Z\", \"status\": \"observed\", \"content\": \"Employee access offboarding. This policy covers employee departure account access offboarding and credential revocation. Queue credential revocation within 4 hours after confirmed departure. The action code is ACCESS-4H. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}}, {\"policy_id\": \"production-restart\", \"version\": \"2\", \"evidence\": {\"source_uri\": \"https://policies.example.test/corporate-it/production-restart/2\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"2:2f33193c338881fb9453f46c08c7ebaba515184b310c1baaec4baf840558f76c\", \"observed_at\": \"2026-11-06T00:00:00Z\", \"valid_from\": \"2026-11-05T00:00:00Z\", \"valid_to\": \"2026-12-01T00:00:00Z\", \"status\": \"observed\", \"content\": \"Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the change board before a production restart. The action code is RESTART-CHANGE-BOARD. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}}, {\"policy_id\": \"laptop-replacement\", \"version\": \"2\", \"evidence\": {\"source_uri\": \"https://policies.example.test/corporate-it/laptop-replacement/2\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"2:aa496ae25b110436984abbf14db8c2d43c3cb7d61030411f17ec298932c5f03e\", \"observed_at\": \"2026-11-06T00:00:00Z\", \"valid_from\": \"2026-11-05T00:00:00Z\", \"valid_to\": \"2026-12-01T00:00:00Z\", \"status\": \"observed\", \"content\": \"Laptop replacement and custody. This policy covers damaged laptop replacement inventory custody and equipment handover. The central asset team approves equipment replacement and records the handover. The action code is ASSET-CENTRAL. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}}, {\"policy_id\": \"mailbox-quota\", \"version\": \"2\", \"evidence\": {\"source_uri\": \"https://policies.example.test/corporate-it/mailbox-quota/2\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"2:16d0cd276d20404c5e0099f781fe919cd45b89448836f85b64ca57296f6589fe\", \"observed_at\": \"2026-11-06T00:00:00Z\", \"valid_from\": \"2026-11-05T00:00:00Z\", \"valid_to\": \"2026-12-01T00:00:00Z\", \"status\": \"observed\", \"content\": \"Mailbox quota expansion. This policy covers mailbox storage quota expansion and email delivery. The approved individual mailbox limit is 40 GB. Refer requests above that limit to Messaging. The action code is MAIL-40GB. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}}]",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "search_policy",
+        "id": "e713eed4-f186-4740-a237-ca14e2077e71",
+        "tool_call_id": "call_OZgkHPErLho56t0jtZpmKRQF",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 25,
+            "prompt_tokens": 5274,
+            "total_tokens": 5299,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 0,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_04faa18e453bd95f016aed73e15eb887d0a27e728c3290706a",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8c-9086-72c7-99f5-639dbab759fc-0",
+        "tool_calls": [
+          {
+            "name": "read_policy",
+            "args": {
+              "policy_id": "vpn-maintenance",
+              "version": "2"
+            },
+            "id": "call_3sKNg7XLKitAViDAuigUdlTM",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 5274,
+          "output_tokens": 25,
+          "total_tokens": 5299,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"source_uri\": \"https://policies.example.test/corporate-it/vpn-maintenance/2\", \"source_kind\": \"policy\", \"entity_scope\": \"corporate-it\", \"source_version\": \"2:7c357488bd3d13b5241ffbcd0c6b6982186a764165ae341e25ec235fc3dbf64e\", \"observed_at\": \"2026-11-06T00:00:00Z\", \"valid_from\": \"2026-11-05T00:00:00Z\", \"valid_to\": \"2026-12-01T00:00:00Z\", \"status\": \"observed\", \"content\": \"VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Identity Operations. Maintenance is permitted on Wednesday at 01:00 UTC. The action code is IDENTITY-WED-0100. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets.\"}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_policy",
+        "id": "e6314259-18d2-4fcf-9684-ed8d7d90e43f",
+        "tool_call_id": "call_3sKNg7XLKitAViDAuigUdlTM",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 75,
+            "prompt_tokens": 5538,
+            "total_tokens": 5613,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 3200,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_09df025a4c425372016aed73e38abc87d0900b7ea9e4f626a0",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8c-9abc-73b6-adff-322d12c767c3-0",
+        "tool_calls": [
+          {
+            "name": "add_ticket_note",
+            "args": {
+              "note": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100",
+              "expected_version": "aa9b8250a75689d52650a38e5a62d7708bfddfcc953e60924ede2854e9121b23"
+            },
+            "id": "call_WFUt9P9NUCxER2YA5UnPClRb",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 5538,
+          "output_tokens": 75,
+          "total_tokens": 5613,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 3200
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": true, \"receipt\": {\"operation_id\": \"f9bb39569a91a3d58bc348781493ab9c5ee58bbb4a8ae1c7ec9aa27c314bc6f9\", \"action\": \"add_note\", \"ticket_id\": 42, \"before_version\": \"aa9b8250a75689d52650a38e5a62d7708bfddfcc953e60924ede2854e9121b23\", \"after\": {\"id\": 42, \"project_id\": 1, \"subject\": \"Service investigation\", \"description\": \"Investigate and document the authorized handling procedure.\", \"status_id\": 1, \"status_name\": \"New\", \"is_closed\": false, \"assigned_to_id\": 7, \"assigned_to_name\": \"Service owner\", \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}], \"relations\": [], \"journals\": [{\"id\": 1, \"notes\": \"POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100\\n\\n[desk-action:f9bb39569a91a3d58bc348781493ab9c5ee58bbb4a8ae1c7ec9aa27c314bc6f9]\", \"user\": {\"id\": 1}, \"details\": []}], \"evidence\": {\"source_uri\": \"https://desk.example.test/issues/42\", \"source_kind\": \"ticket\", \"entity_scope\": \"https://desk.example.test/projects/1\", \"source_version\": \"deb731a09db7d915a1af026e6c3528bc5f0bca2168ec8eda1fa3e3e3b4e29d2e\", \"observed_at\": \"2026-11-06T06:29:53.100717Z\", \"valid_from\": null, \"valid_to\": null, \"status\": \"observed\", \"content\": {\"id\": 42, \"project\": {\"id\": 1, \"name\": \"Corporate IT\"}, \"subject\": \"Service investigation\", \"description\": \"Investigate and document the authorized handling procedure.\", \"status\": {\"id\": 1, \"name\": \"New\", \"is_closed\": false}, \"assigned_to\": {\"id\": 7, \"name\": \"Service owner\"}, \"updated_on\": \"2026-11-04T00:00:00Z\", \"journals\": [{\"id\": 1, \"notes\": \"POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100\\n\\n[desk-action:f9bb39569a91a3d58bc348781493ab9c5ee58bbb4a8ae1c7ec9aa27c314bc6f9]\", \"user\": {\"id\": 1}, \"details\": []}], \"relations\": [], \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}]}}}, \"journal_id\": 1, \"verified\": true, \"replayed\": false, \"observed_at\": \"2026-11-06T06:29:53.115145Z\"}}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "add_ticket_note",
+        "id": "e11a9cd7-5f38-4d00-ae6c-3ee0191f4f3d",
+        "tool_call_id": "call_WFUt9P9NUCxER2YA5UnPClRb",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 101,
+            "prompt_tokens": 6390,
+            "total_tokens": 6491,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 5376,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_07e7132ccc1cf94d016aed73e6c09c87d08c2e2e6546f71717",
+          "service_tier": "default",
+          "finish_reason": "tool_calls",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8c-a75f-72f6-987c-8976a4dcf7fb-0",
+        "tool_calls": [
+          {
+            "name": "save_handoff",
+            "args": {
+              "pending_actions": [],
+              "summary": "Added exactly one verified note to ticket 42: POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100. Ticket status remains New (unchanged). Receipt operation_id f9bb39569a91a3d58bc348781493ab9c5ee58bbb4a8ae1c7ec9aa27c314bc6f9."
+            },
+            "id": "call_wBXQlJY70hqIRcvrqFSSrWJo",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 6390,
+          "output_tokens": 101,
+          "total_tokens": 6491,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 5376
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": true, \"pending_actions\": [], \"summary\": \"Added exactly one verified note to ticket 42: POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100. Ticket status remains New (unchanged). Receipt operation_id f9bb39569a91a3d58bc348781493ab9c5ee58bbb4a8ae1c7ec9aa27c314bc6f9.\"}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "save_handoff",
+        "id": "dcb86a23-df03-4638-93de-206686e5b20d",
+        "tool_call_id": "call_wBXQlJY70hqIRcvrqFSSrWJo",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "Added and verified exactly one note:\n\n`POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100`\n\nThe ticket remains open with status unchanged (New).",
+        "additional_kwargs": {
+          "refusal": null
+        },
+        "response_metadata": {
+          "token_usage": {
+            "completion_tokens": 41,
+            "prompt_tokens": 6597,
+            "total_tokens": 6638,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cache_write_tokens": 0,
+              "cached_tokens": 6272,
+              "cached_creation_tokens": 0
+            }
+          },
+          "model_provider": "openai",
+          "model_name": "gpt-6-luna",
+          "system_fingerprint": null,
+          "id": "resp_0b09545c9e2ae6be016aed73ed3d7487d0be658acd46d31b6d",
+          "service_tier": "default",
+          "finish_reason": "stop",
+          "logprobs": null
+        },
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8c-b7bd-7688-a05c-5f318d5dd969-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "input_tokens": 6597,
+          "output_tokens": 41,
+          "total_tokens": 6638,
+          "input_token_details": {
+            "cache_creation": 0,
+            "cache_read": 6272
+          },
+          "output_token_details": {
+            "reasoning": 0
+          }
+        }
+      }
+    }
+  ],
+  "receipt_ids": [
+    "f9bb39569a91a3d58bc348781493ab9c5ee58bbb4a8ae1c7ec9aa27c314bc6f9"
+  ]
+}

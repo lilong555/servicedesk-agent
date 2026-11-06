@@ -1,0 +1,13 @@
+{
+  "command": [
+    "/home/li/code/servicedesk-agent/.venv/bin/python",
+    "/home/li/code/servicedesk-agent/scripts/benchmark_business_reliability.py",
+    "_phase",
+    "/home/li/code/servicedesk-agent/results/runs/business-reliability-20261106-001/deterministic/late_commit/at_least_once",
+    "recover",
+    "1"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"ok\": true, \"pid\": 90008}\n",
+  "stderr": ""
+}

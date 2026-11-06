@@ -1,0 +1,171 @@
+[
+  {
+    "thread_id": "86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa",
+    "message": "I couldn\u2019t find a previously confirmed channel or route for this ticket. What channel and route should I include in the routing note? I haven\u2019t added a note or changed the ticket.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43350",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [
+      "Append one communication routing note for update \u201cDiagnostics are ready.\u201d once the user's previously confirmed channel and route are available. Preference lookup returned no confirmed channel/route; ask user for these details before writing."
+    ],
+    "handoff_summary": "User authorized exactly one note, requested ticket remain open and all other fields unchanged, and prohibited messages outside ticket. Current ticket 42 is open (New), notes allowed, source_version 0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6. Confirmed-preference search found no channel or route, so no note has been appended.",
+    "verified_receipts": [],
+    "usage": {
+      "role": "agent",
+      "calls": 7,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 26901,
+      "output_tokens": 347,
+      "cache_read_tokens": 19840,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-formal/17-contact_route-empty-r2/state/sessions/86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa/trace-cea8ba9bd6f541a582e89afee8a66c52.json"
+  },
+  {
+    "thread_id": "86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa",
+    "message": "Recorded and verified exactly one note: `CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.` The ticket remains open, and its other fields were left unchanged.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43350",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [],
+    "handoff_summary": "Exactly one note was appended and verified with receipt operation_id 3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b (journal 1): CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready. Ticket remains open in New; other fields unchanged.",
+    "verified_receipts": [
+      {
+        "operation_id": "3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b",
+        "action": "add_note",
+        "ticket_id": 42,
+        "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+        "after": {
+          "id": 42,
+          "project_id": 1,
+          "subject": "Synthetic service investigation",
+          "description": "Record the user's authorized investigation update.",
+          "status_id": 1,
+          "status_name": "New",
+          "is_closed": false,
+          "assigned_to_id": 7,
+          "assigned_to_name": "Original owner",
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ],
+          "relations": [],
+          "journals": [
+            {
+              "id": 1,
+              "notes": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.\n\n[desk-action:3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "evidence": {
+            "source_uri": "http://127.0.0.1:43350/issues/42",
+            "source_kind": "ticket",
+            "entity_scope": "http://127.0.0.1:43350/projects/1",
+            "source_version": "52fbcfa28b6d68316075ed1e155733165d686d7b16ef34b37bfdd7cb3846da97",
+            "observed_at": "2026-11-06T06:53:52.072615Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": {
+              "id": 42,
+              "project": {
+                "id": 1,
+                "name": "Service desk"
+              },
+              "subject": "Synthetic service investigation",
+              "description": "Record the user's authorized investigation update.",
+              "status": {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              "assigned_to": {
+                "id": 7,
+                "name": "Original owner"
+              },
+              "updated_on": "2026-11-05T00:00:00Z",
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.\n\n[desk-action:3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "relations": [],
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ]
+            }
+          }
+        },
+        "journal_id": 1,
+        "verified": true,
+        "replayed": false,
+        "observed_at": "2026-11-06T06:53:52.085909Z"
+      }
+    ],
+    "usage": {
+      "role": "agent",
+      "calls": 5,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 27631,
+      "output_tokens": 245,
+      "cache_read_tokens": 20864,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-formal/17-contact_route-empty-r2/state/sessions/86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa/trace-a75f6ade2b9649c490109fe6be2bf719.json"
+  }
+]

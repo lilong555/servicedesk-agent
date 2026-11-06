@@ -1,0 +1,267 @@
+{
+  "phase": "formal",
+  "freeze_id": "71513fefdb3a214a4ebcb40ae987196578908f40d87053935348b1a6ba7b10d2",
+  "planned_executions": 24,
+  "completed": true,
+  "started_executions": 24,
+  "groups": {
+    "available": {
+      "started": 12,
+      "successes": 10,
+      "scored": 12,
+      "infrastructure_errors": 0,
+      "preference_clarifications": 0,
+      "memory_searches": 13,
+      "usage": {
+        "calls": 83,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 351703,
+        "output_tokens": 3576,
+        "cache_read_tokens": 260736
+      },
+      "by_kind": {
+        "history_required": {
+          "started": 8,
+          "successes": 6,
+          "preference_clarifications": 0,
+          "calls": 58
+        },
+        "current_override": {
+          "started": 4,
+          "successes": 4,
+          "preference_clarifications": 0,
+          "calls": 25
+        }
+      }
+    },
+    "empty": {
+      "started": 12,
+      "successes": 12,
+      "scored": 12,
+      "infrastructure_errors": 0,
+      "preference_clarifications": 8,
+      "memory_searches": 14,
+      "usage": {
+        "calls": 138,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 651680,
+        "output_tokens": 6398,
+        "cache_read_tokens": 499712
+      },
+      "by_kind": {
+        "history_required": {
+          "started": 8,
+          "successes": 8,
+          "preference_clarifications": 8,
+          "calls": 109
+        },
+        "current_override": {
+          "started": 4,
+          "successes": 4,
+          "preference_clarifications": 0,
+          "calls": 29
+        }
+      }
+    }
+  },
+  "pairs": [
+    {
+      "scenario": "audit_timestamp",
+      "repeat": 1,
+      "success": {
+        "empty": true,
+        "available": true
+      },
+      "clarifications": {
+        "empty": 1,
+        "available": 0
+      },
+      "calls": {
+        "empty": 13,
+        "available": 6
+      }
+    },
+    {
+      "scenario": "audit_timestamp",
+      "repeat": 2,
+      "success": {
+        "available": true,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 1
+      },
+      "calls": {
+        "available": 8,
+        "empty": 11
+      }
+    },
+    {
+      "scenario": "contact_route",
+      "repeat": 1,
+      "success": {
+        "available": true,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 1
+      },
+      "calls": {
+        "available": 8,
+        "empty": 12
+      }
+    },
+    {
+      "scenario": "contact_route",
+      "repeat": 2,
+      "success": {
+        "empty": true,
+        "available": true
+      },
+      "clarifications": {
+        "empty": 1,
+        "available": 0
+      },
+      "calls": {
+        "empty": 12,
+        "available": 9
+      }
+    },
+    {
+      "scenario": "log_summary",
+      "repeat": 1,
+      "success": {
+        "empty": true,
+        "available": false
+      },
+      "clarifications": {
+        "empty": 1,
+        "available": 0
+      },
+      "calls": {
+        "empty": 12,
+        "available": 7
+      }
+    },
+    {
+      "scenario": "log_summary",
+      "repeat": 2,
+      "success": {
+        "available": false,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 1
+      },
+      "calls": {
+        "available": 7,
+        "empty": 14
+      }
+    },
+    {
+      "scenario": "note_reference",
+      "repeat": 1,
+      "success": {
+        "available": true,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 1
+      },
+      "calls": {
+        "available": 7,
+        "empty": 24
+      }
+    },
+    {
+      "scenario": "note_reference",
+      "repeat": 2,
+      "success": {
+        "empty": true,
+        "available": true
+      },
+      "clarifications": {
+        "empty": 1,
+        "available": 0
+      },
+      "calls": {
+        "empty": 11,
+        "available": 6
+      }
+    },
+    {
+      "scenario": "override_contact",
+      "repeat": 1,
+      "success": {
+        "empty": true,
+        "available": true
+      },
+      "clarifications": {
+        "empty": 0,
+        "available": 0
+      },
+      "calls": {
+        "empty": 7,
+        "available": 6
+      }
+    },
+    {
+      "scenario": "override_contact",
+      "repeat": 2,
+      "success": {
+        "available": true,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 0
+      },
+      "calls": {
+        "available": 6,
+        "empty": 7
+      }
+    },
+    {
+      "scenario": "override_reference",
+      "repeat": 1,
+      "success": {
+        "available": true,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 0
+      },
+      "calls": {
+        "available": 6,
+        "empty": 8
+      }
+    },
+    {
+      "scenario": "override_reference",
+      "repeat": 2,
+      "success": {
+        "empty": true,
+        "available": true
+      },
+      "clarifications": {
+        "empty": 0,
+        "available": 0
+      },
+      "calls": {
+        "empty": 7,
+        "available": 7
+      }
+    }
+  ],
+  "unstarted_executions": 0,
+  "finished_at": "2026-11-06T06:56:47.433767+00:00",
+  "source_matches_finish": true,
+  "pilot_gate_passed": false
+}

@@ -1,0 +1,54 @@
+{
+  "phase": "initial",
+  "tick": 0,
+  "pid": 90048,
+  "ok": true,
+  "result": {
+    "thread_id": "efe73fc3b3ff43f6867ceff8913fa09af1c66c76ba2f218c4d826c299ca2f625",
+    "message": "Investigation result retained.",
+    "contract": {
+      "service_url": "https://business-reliability.invalid",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "late_commit",
+      "variant": "A",
+      "allow_notes": true,
+      "allowed_status_ids": [
+        2
+      ],
+      "allow_close": false,
+      "user_constraints": [
+        "Append the authorized note. Preserve owner and status."
+      ]
+    },
+    "pending_actions": [],
+    "handoff_summary": "",
+    "verified_receipts": [],
+    "usage": {
+      "role": "agent",
+      "calls": 2,
+      "failed_calls": 0,
+      "unknown_usage_calls": 2,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/business-reliability-20261106-001/deterministic/late_commit/reconcile/runtime/sessions/efe73fc3b3ff43f6867ceff8913fa09af1c66c76ba2f218c4d826c299ca2f625/trace-ac5b7ea7660b4a18aa849a295e82b93d.json"
+  },
+  "unknown": true,
+  "durable_state": {
+    "pending": {
+      "operation_id": "fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f",
+      "action": "add_note",
+      "note_hash": "1f4b62977dcd6285b1107950e17aeeb5235b52b0da7427446736c1260f540354",
+      "target_status": null,
+      "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+      "before_status": 1,
+      "journal_floor": 0,
+      "journal_id": null
+    },
+    "receipts": {}
+  }
+}

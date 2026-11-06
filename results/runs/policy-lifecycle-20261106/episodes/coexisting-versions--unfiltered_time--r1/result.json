@@ -1,0 +1,309 @@
+{
+  "id": "coexisting-versions--unfiltered_time--r1",
+  "scenario": "coexisting-versions",
+  "arm": "unfiltered_time",
+  "repeat": 1,
+  "backend": "synthetic-http-redmine",
+  "model_mode": "live",
+  "elapsed_seconds": 32.254634314000214,
+  "success": true,
+  "checks": {
+    "exactly_one_note": true,
+    "correct_policy_version": true,
+    "correct_action": true,
+    "unchanged_status": true,
+    "verified_receipt": true,
+    "prepare_writes_zero": true
+  },
+  "error": null,
+  "metrics": {
+    "model_requests": 9,
+    "unknown_usage_requests": 0,
+    "input_tokens": 42638,
+    "output_tokens": 384,
+    "cache_read_tokens": 28032,
+    "tools": {
+      "read_file": 2,
+      "read_handoff": 1,
+      "read_ticket": 1,
+      "search_policy": 1,
+      "read_policy": 1,
+      "add_ticket_note": 1,
+      "save_handoff": 1
+    },
+    "policy_reads": [
+      {
+        "policy_id": "vpn-maintenance",
+        "version": "2"
+      }
+    ]
+  },
+  "before": {
+    "id": 42,
+    "project": {
+      "id": 1,
+      "name": "Corporate IT"
+    },
+    "subject": "Service investigation",
+    "description": "Investigate and document the authorized handling procedure.",
+    "status": {
+      "id": 1,
+      "name": "New",
+      "is_closed": false
+    },
+    "assigned_to": {
+      "id": 7,
+      "name": "Service owner"
+    },
+    "updated_on": "2026-11-04T00:00:00Z",
+    "journals": [],
+    "relations": [],
+    "allowed_statuses": [
+      {
+        "id": 1,
+        "name": "New",
+        "is_closed": false
+      },
+      {
+        "id": 2,
+        "name": "In Progress",
+        "is_closed": false
+      },
+      {
+        "id": 5,
+        "name": "Closed",
+        "is_closed": true
+      }
+    ]
+  },
+  "after": {
+    "id": 42,
+    "project": {
+      "id": 1,
+      "name": "Corporate IT"
+    },
+    "subject": "Service investigation",
+    "description": "Investigate and document the authorized handling procedure.",
+    "status": {
+      "id": 1,
+      "name": "New",
+      "is_closed": false
+    },
+    "assigned_to": {
+      "id": 7,
+      "name": "Service owner"
+    },
+    "updated_on": "2026-11-04T00:00:00Z",
+    "journals": [
+      {
+        "id": 1,
+        "notes": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100\n\n[desk-action:f9bb39569a91a3d58bc348781493ab9c5ee58bbb4a8ae1c7ec9aa27c314bc6f9]",
+        "user": {
+          "id": 1
+        },
+        "details": []
+      }
+    ],
+    "relations": [],
+    "allowed_statuses": [
+      {
+        "id": 1,
+        "name": "New",
+        "is_closed": false
+      },
+      {
+        "id": 2,
+        "name": "In Progress",
+        "is_closed": false
+      },
+      {
+        "id": 5,
+        "name": "Closed",
+        "is_closed": true
+      }
+    ]
+  },
+  "http_requests": [
+    {
+      "method": "GET",
+      "path": "/users/current.json",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/issues/42.json",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/users/current.json",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/issues/42.json",
+      "body": null
+    },
+    {
+      "method": "PUT",
+      "path": "/issues/42.json",
+      "body": {
+        "issue": {
+          "notes": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100\n\n[desk-action:f9bb39569a91a3d58bc348781493ab9c5ee58bbb4a8ae1c7ec9aa27c314bc6f9]"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/issues/42.json",
+      "body": null
+    }
+  ],
+  "stage_results": [
+    {
+      "prepare": false,
+      "result": {
+        "thread_id": "1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+        "message": "Verified: the note was added with **POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100**. The ticket remains open with status **New**.",
+        "contract": {
+          "service_url": "https://desk.example.test",
+          "project_id": 1,
+          "principal_id": 1,
+          "ticket_id": 42,
+          "session_id": "policy-investigation",
+          "variant": "B",
+          "allow_notes": true,
+          "allowed_status_ids": [],
+          "allow_close": false,
+          "user_constraints": [
+            "Keep the ticket open and leave its status unchanged.",
+            "Add at most one note after explicit authorization in the latest user message."
+          ]
+        },
+        "pending_actions": [],
+        "handoff_summary": "Ticket 42: verified exactly one note recorded with applicable policy vpn-maintenance@2 and code IDENTITY-WED-0100. Status remains New and open. Receipt operation_id f9bb39569a91a3d58bc348781493ab9c5ee58bbb4a8ae1c7ec9aa27c314bc6f9.",
+        "verified_receipts": [
+          {
+            "operation_id": "f9bb39569a91a3d58bc348781493ab9c5ee58bbb4a8ae1c7ec9aa27c314bc6f9",
+            "action": "add_note",
+            "ticket_id": 42,
+            "before_version": "aa9b8250a75689d52650a38e5a62d7708bfddfcc953e60924ede2854e9121b23",
+            "after": {
+              "id": 42,
+              "project_id": 1,
+              "subject": "Service investigation",
+              "description": "Investigate and document the authorized handling procedure.",
+              "status_id": 1,
+              "status_name": "New",
+              "is_closed": false,
+              "assigned_to_id": 7,
+              "assigned_to_name": "Service owner",
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ],
+              "relations": [],
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100\n\n[desk-action:f9bb39569a91a3d58bc348781493ab9c5ee58bbb4a8ae1c7ec9aa27c314bc6f9]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "evidence": {
+                "source_uri": "https://desk.example.test/issues/42",
+                "source_kind": "ticket",
+                "entity_scope": "https://desk.example.test/projects/1",
+                "source_version": "deb731a09db7d915a1af026e6c3528bc5f0bca2168ec8eda1fa3e3e3b4e29d2e",
+                "observed_at": "2026-11-06T06:32:18.162728Z",
+                "valid_from": null,
+                "valid_to": null,
+                "status": "observed",
+                "content": {
+                  "id": 42,
+                  "project": {
+                    "id": 1,
+                    "name": "Corporate IT"
+                  },
+                  "subject": "Service investigation",
+                  "description": "Investigate and document the authorized handling procedure.",
+                  "status": {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  "assigned_to": {
+                    "id": 7,
+                    "name": "Service owner"
+                  },
+                  "updated_on": "2026-11-04T00:00:00Z",
+                  "journals": [
+                    {
+                      "id": 1,
+                      "notes": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100\n\n[desk-action:f9bb39569a91a3d58bc348781493ab9c5ee58bbb4a8ae1c7ec9aa27c314bc6f9]",
+                      "user": {
+                        "id": 1
+                      },
+                      "details": []
+                    }
+                  ],
+                  "relations": [],
+                  "allowed_statuses": [
+                    {
+                      "id": 1,
+                      "name": "New",
+                      "is_closed": false
+                    },
+                    {
+                      "id": 2,
+                      "name": "In Progress",
+                      "is_closed": false
+                    },
+                    {
+                      "id": 5,
+                      "name": "Closed",
+                      "is_closed": true
+                    }
+                  ]
+                }
+              }
+            },
+            "journal_id": 1,
+            "verified": true,
+            "replayed": false,
+            "observed_at": "2026-11-06T06:32:18.173122Z"
+          }
+        ],
+        "usage": {
+          "role": "agent",
+          "calls": 9,
+          "failed_calls": 0,
+          "unknown_usage_calls": 0,
+          "input_tokens": 42638,
+          "output_tokens": 384,
+          "cache_read_tokens": 28032,
+          "cost_usd": null
+        },
+        "trace_path": "stage-0-trace.json"
+      },
+      "journal_count": 1
+    }
+  ],
+  "failed_trace_count": 0
+}

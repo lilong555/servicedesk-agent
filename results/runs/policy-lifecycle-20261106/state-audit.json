@@ -1,0 +1,324 @@
+{
+  "archive": "raw-state.tar.gz",
+  "archive_sha256": "d83954e096180ffd0baed887b80a322f1504b758f5a527e21020d7fdf6d160d7",
+  "audit_source_sha256": "560d01e081e57b34ea962309ed16d35faa90cc27776631b3697bc4367586432c",
+  "database_count": 16,
+  "original_files_compared": 44,
+  "member_count": 44,
+  "members": [
+    {
+      "path": "private-state/coexisting-versions--filtered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/checkpoint.sqlite",
+      "bytes": 229376,
+      "sha256": "04fd69477208931d3106178b3d17132f21d6f7f2f9febb5c759324e94c711780",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/coexisting-versions--filtered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/session.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/coexisting-versions--filtered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/trace-c9cbc189b20a44ce9f221fd90e2c0f07.json",
+      "bytes": 32577,
+      "sha256": "e11c3086cbe7eb8e5e659e418b9bcdb8aac41c370cbd9335893b0e9369439822",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/coexisting-versions--filtered_time--r0/store.redmine-locks/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/coexisting-versions--filtered_time--r0/store.sqlite",
+      "bytes": 24576,
+      "sha256": "6ca5a6a27a48b5c54f470e726fb89c2a87879c8e77f66af094ae859fb3e8d40a",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/coexisting-versions--filtered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/checkpoint.sqlite",
+      "bytes": 241664,
+      "sha256": "d6935f3bf691e55ce76f252868aca6a2a65a135eb15b91108adfb94f26a4657a",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/coexisting-versions--filtered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/session.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/coexisting-versions--filtered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/trace-9655c558be144d3690326c932e9d02da.json",
+      "bytes": 35892,
+      "sha256": "41249a00b8d1402bf189e68757d8fd0af90468e4cce733744609b6f8741fc2a8",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/coexisting-versions--filtered_time--r1/store.redmine-locks/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/coexisting-versions--filtered_time--r1/store.sqlite",
+      "bytes": 24576,
+      "sha256": "e481ea85c74cb9d71c071509d165d5d8049223e701717e45d72bd1928610c847",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/coexisting-versions--unfiltered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/checkpoint.sqlite",
+      "bytes": 241664,
+      "sha256": "54b8c6fe11bb235026ac56bedcfb9630a34e1fb1eab082d1b5844876e126ae77",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/coexisting-versions--unfiltered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/session.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/coexisting-versions--unfiltered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/trace-8e20cb43aba34f739521a158173f2cc8.json",
+      "bytes": 35923,
+      "sha256": "90bd9ffd63c73b49c8d555ed27e8afb392c239f2aa098097a5f98983dbac73aa",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/coexisting-versions--unfiltered_time--r0/store.redmine-locks/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/coexisting-versions--unfiltered_time--r0/store.sqlite",
+      "bytes": 24576,
+      "sha256": "039cb5d42558c8527839e314b9a7b7454dfaaa62259d5c16897ece58bf9bc3f0",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/coexisting-versions--unfiltered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/checkpoint.sqlite",
+      "bytes": 241664,
+      "sha256": "b6cfcf4d8705cb8b271a2aaac8cb5dcaa630e2e38af5347bb6d31c9ee86b513e",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/coexisting-versions--unfiltered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/session.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/coexisting-versions--unfiltered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/trace-0bf3a0260ee14191893dc43402c98a77.json",
+      "bytes": 35921,
+      "sha256": "6edeefb083446be45c88b62dd45f13f2ba72688bfcb7c72129e44c489f52a3c9",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/coexisting-versions--unfiltered_time--r1/store.redmine-locks/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/coexisting-versions--unfiltered_time--r1/store.sqlite",
+      "bytes": 24576,
+      "sha256": "9d0bcb7c3c3d8c08a587425d663d10956b55ce30af0422af6420dec67246eca7",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--filtered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/checkpoint.sqlite",
+      "bytes": 430080,
+      "sha256": "cdbf37213d30c0e2a658cdfaa248366f26871fe53ba3722078d994a41fbce877",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--filtered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/session.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--filtered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/trace-27e7be6bfa89488c8582e05cb14a4f91.json",
+      "bytes": 27660,
+      "sha256": "34b238467ec2447c9a9c7f1d0fe7f20eac7afac1709b9f15c731ac2d7e295319",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--filtered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/trace-6685667b6be6477c9581d5b5e432f369.json",
+      "bytes": 56319,
+      "sha256": "09ec64b5fa4db5347e15890981a8bf1366c8a13c4ddfbf215134a4ec4f68c308",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--filtered_time--r0/store.redmine-locks/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--filtered_time--r0/store.sqlite",
+      "bytes": 24576,
+      "sha256": "eec5feca16957419b11613afabcabeedcf342773b62572d3ac10e8929f3b8f47",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--filtered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/checkpoint.sqlite",
+      "bytes": 372736,
+      "sha256": "6417df944adbeca58606d68a355c13d0182da7a50a57706583f8e5105f983de1",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--filtered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/session.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--filtered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/trace-28375f86b9154549a9194f5d018b608e.json",
+      "bytes": 49112,
+      "sha256": "2b8e01a78a5a9d5a339c47972e22027b95d6a0c8e23543c4d7318a4777639fec",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--filtered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/trace-e15eee4894e84e2fbaa295e28cb46733.json",
+      "bytes": 24013,
+      "sha256": "90226ca647711837d98b375273351392922d296b95d7c2b4b493ba8fc1900356",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--filtered_time--r1/store.redmine-locks/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--filtered_time--r1/store.sqlite",
+      "bytes": 24576,
+      "sha256": "b095781fc4c6970af0d713a2f5922e6347a99a0ef6c23ab21d7dad81ab496c5a",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--unfiltered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/checkpoint.sqlite",
+      "bytes": 368640,
+      "sha256": "ee6deb889aa5a354f75666482b5d92f3183874dd4d8910d0bd2ffca6a2a39c54",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--unfiltered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/session.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--unfiltered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/trace-0491af2140c84828a050c4f9b06dabdb.json",
+      "bytes": 50689,
+      "sha256": "22faa71055f27e97f91fde50b7f89443f184eb93473865af321c77c779f8d6b6",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--unfiltered_time--r0/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/trace-2a9ff5a812954ab09e38983ab0cc2b06.json",
+      "bytes": 25642,
+      "sha256": "8139c5409cefbe20ec400f75539c8c5d01a48067ffe29281e1abe768971522c1",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--unfiltered_time--r0/store.redmine-locks/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--unfiltered_time--r0/store.sqlite",
+      "bytes": 24576,
+      "sha256": "002f0799ba69b8cdfba58b7e711b5155ebf789d9153702b8441ab198f08ae810",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--unfiltered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/checkpoint.sqlite",
+      "bytes": 442368,
+      "sha256": "0355ba5a39470e61b1c945df5d543769f1562ee3232fecfe8592d5b7d8a196bf",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--unfiltered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/session.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--unfiltered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/trace-3356271bca0d49b9ab043e56d5538f2e.json",
+      "bytes": 30120,
+      "sha256": "d86da67711b54624d38330273ebd4012f0c553d0f51cbd541ecaf4d9b163c0e4",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--unfiltered_time--r1/sessions/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91/trace-38d3b57e0bba40b39452839f6dd460ac.json",
+      "bytes": 57755,
+      "sha256": "bc11aae3c342594d75bd808d9efdfced4a4b1f5679849ad1e30282c11da44d0f",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--unfiltered_time--r1/store.redmine-locks/1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_original": true
+    },
+    {
+      "path": "private-state/policy-updated-during-handoff--unfiltered_time--r1/store.sqlite",
+      "bytes": 24576,
+      "sha256": "00f21ebedbff8e0f4148e6a4a320d71a863cee448ea18c4ad8a1d829bd0f26cf",
+      "matches_original": true,
+      "sqlite_integrity": [
+        "ok"
+      ]
+    }
+  ],
+  "issues": [],
+  "verified": true
+}

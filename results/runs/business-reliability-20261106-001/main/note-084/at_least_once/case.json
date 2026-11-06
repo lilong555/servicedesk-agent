@@ -1,0 +1,87 @@
+{
+  "operation_id": "note-084",
+  "strategy": "at_least_once",
+  "fault": "response_loss",
+  "native": false,
+  "contract": {
+    "service_url": "https://business-reliability.invalid",
+    "project_id": 1,
+    "principal_id": 1,
+    "ticket_id": 42,
+    "session_id": "note-084",
+    "variant": "A",
+    "allow_notes": true,
+    "allowed_status_ids": [
+      2
+    ],
+    "allow_close": false,
+    "user_constraints": [
+      "Append the authorized note. Preserve owner and status."
+    ]
+  },
+  "note": "Investigation completed for note-084.",
+  "body": {
+    "issue": {
+      "notes": "Investigation completed for note-084.\n\n[desk-action:fd6424ad0ca9576f33fd238f6694833f369727bafcacd595d23aa0071812fdcc]"
+    }
+  },
+  "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+  "fixture": {
+    "principal_id": 1,
+    "statuses": [
+      {
+        "id": 1,
+        "name": "New",
+        "is_closed": false
+      },
+      {
+        "id": 2,
+        "name": "In Progress",
+        "is_closed": false
+      },
+      {
+        "id": 5,
+        "name": "Closed",
+        "is_closed": true
+      }
+    ],
+    "issue": {
+      "id": 42,
+      "project": {
+        "id": 1,
+        "name": "Synthetic service desk"
+      },
+      "subject": "Synthetic VPN investigation",
+      "description": "Append the authorized investigation note and retain owner and status.",
+      "status": {
+        "id": 1,
+        "name": "New",
+        "is_closed": false
+      },
+      "assigned_to": {
+        "id": 7,
+        "name": "Synthetic owner"
+      },
+      "updated_on": "2026-11-06T00:00:00Z",
+      "journals": [],
+      "relations": [],
+      "allowed_statuses": [
+        {
+          "id": 1,
+          "name": "New",
+          "is_closed": false
+        },
+        {
+          "id": 2,
+          "name": "In Progress",
+          "is_closed": false
+        },
+        {
+          "id": 5,
+          "name": "Closed",
+          "is_closed": true
+        }
+      ]
+    }
+  }
+}

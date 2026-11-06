@@ -1,0 +1,36 @@
+{
+  "phase": "initial",
+  "tick": 0,
+  "pid": 88281,
+  "ok": false,
+  "error": "ReadTimeout",
+  "message": "Synthetic response lost after SQLite commit",
+  "unknown": true,
+  "durable_state": {
+    "contract": {
+      "service_url": "https://business-reliability.invalid",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "note-032",
+      "variant": "A",
+      "allow_notes": true,
+      "allowed_status_ids": [
+        2
+      ],
+      "allow_close": false,
+      "user_constraints": [
+        "Append the authorized note. Preserve owner and status."
+      ]
+    },
+    "note": "Investigation completed for note-032.",
+    "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+    "body": {
+      "issue": {
+        "notes": "Investigation completed for note-032.\n\n[desk-action:d213cfcf8c6ce952a1d4456329ddea49de644ef62dfb2f9fe8840db9f9d67849]"
+      }
+    },
+    "sends": 1,
+    "ack": null
+  }
+}

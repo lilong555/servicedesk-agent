@@ -1,0 +1,61 @@
+{
+  "mode": "explicit_confirmation_without_model",
+  "model_calls": 0,
+  "source_contract": {
+    "service_url": "http://127.0.0.1:43350",
+    "project_id": 1,
+    "principal_id": 1,
+    "ticket_id": 42,
+    "session_id": "confirmation-session",
+    "variant": "B",
+    "allow_notes": true,
+    "allowed_status_ids": [],
+    "allow_close": false,
+    "user_constraints": []
+  },
+  "target_contract": {
+    "service_url": "http://127.0.0.1:43350",
+    "project_id": 1,
+    "principal_id": 1,
+    "ticket_id": 42,
+    "session_id": "new-conversation",
+    "variant": "B",
+    "allow_notes": true,
+    "allowed_status_ids": [],
+    "allow_close": false,
+    "user_constraints": []
+  },
+  "namespace": [
+    "servicedesk",
+    "72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e",
+    "confirmed_preferences"
+  ],
+  "memory": [
+    {
+      "namespace": [
+        "servicedesk",
+        "72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e",
+        "confirmed_preferences"
+      ],
+      "key": "669339f2-eb85-4b15-85e4-89f99e680c26",
+      "value": {
+        "content": {
+          "source_uri": "user-confirmation://72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e/6a08069ca246d99a9ffb3011bd1d423a3fbd3fa328a82f5d08e26d3c685a8b6e",
+          "source_kind": "user",
+          "entity_scope": "http://127.0.0.1:43350/projects/1/principals/1/issues/42",
+          "source_version": "6a08069ca246d99a9ffb3011bd1d423a3fbd3fa328a82f5d08e26d3c685a8b6e",
+          "observed_at": "2026-11-06T06:54:00.517154Z",
+          "valid_from": null,
+          "valid_to": null,
+          "status": "observed",
+          "content": "I explicitly confirm this preference for this ticket: my update channel is the service portal, route code VPN-R7. Record routing notes as CONTACT=portal; ROUTE=VPN-R7; UPDATE=<update text>. Recording the note does not authorize sending any notification."
+        }
+      },
+      "created_at": "2026-11-06T06:54:00",
+      "updated_at": "2026-11-06T06:54:00",
+      "score": null
+    }
+  ],
+  "store_closed_before_execution": true,
+  "elapsed_seconds": 0.14701325799978804
+}

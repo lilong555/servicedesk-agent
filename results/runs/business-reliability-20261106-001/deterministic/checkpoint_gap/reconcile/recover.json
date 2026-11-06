@@ -1,0 +1,163 @@
+{
+  "phase": "recover",
+  "tick": 1,
+  "pid": 90226,
+  "ok": true,
+  "result": {
+    "thread_id": "1816c5c37823f01f59e21001580996a5861893f684786e1321b99ce449b836c3",
+    "message": "Read-only reconciliation finished.",
+    "contract": {
+      "service_url": "https://business-reliability.invalid",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "checkpoint_gap",
+      "variant": "A",
+      "allow_notes": true,
+      "allowed_status_ids": [
+        2
+      ],
+      "allow_close": false,
+      "user_constraints": [
+        "Append the authorized note. Preserve owner and status."
+      ]
+    },
+    "pending_actions": [],
+    "handoff_summary": "",
+    "verified_receipts": [
+      {
+        "operation_id": "43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816",
+        "action": "add_note",
+        "ticket_id": 42,
+        "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+        "after": {
+          "id": 42,
+          "project_id": 1,
+          "subject": "Synthetic VPN investigation",
+          "description": "Append the authorized investigation note and retain owner and status.",
+          "status_id": 1,
+          "status_name": "New",
+          "is_closed": false,
+          "assigned_to_id": 7,
+          "assigned_to_name": "Synthetic owner",
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ],
+          "relations": [],
+          "journals": [
+            {
+              "id": 1,
+              "notes": "Investigation completed for checkpoint_gap.\n\n[desk-action:43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "evidence": {
+            "source_uri": "https://business-reliability.invalid/issues/42",
+            "source_kind": "ticket",
+            "entity_scope": "https://business-reliability.invalid/projects/1",
+            "source_version": "27c113adb42709709f9d9db7044528f81b58f4449eef3c54ba17d4957417f3e9",
+            "observed_at": "2026-11-06T06:29:39.367130Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": {
+              "id": 42,
+              "project": {
+                "id": 1,
+                "name": "Synthetic service desk"
+              },
+              "subject": "Synthetic VPN investigation",
+              "description": "Append the authorized investigation note and retain owner and status.",
+              "status": {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              "assigned_to": {
+                "id": 7,
+                "name": "Synthetic owner"
+              },
+              "updated_on": "2026-11-06T00:00:00Z",
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "Investigation completed for checkpoint_gap.\n\n[desk-action:43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "relations": [],
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ]
+            }
+          }
+        },
+        "journal_id": 1,
+        "verified": true,
+        "replayed": true,
+        "observed_at": "2026-11-06T06:29:39.367188Z"
+      }
+    ],
+    "usage": {
+      "role": "agent",
+      "calls": 2,
+      "failed_calls": 0,
+      "unknown_usage_calls": 2,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/business-reliability-20261106-001/deterministic/checkpoint_gap/reconcile/runtime/sessions/1816c5c37823f01f59e21001580996a5861893f684786e1321b99ce449b836c3/trace-90cdc953682a4efbb69e9b8b55ea7027.json"
+  },
+  "unknown": false,
+  "durable_state": {
+    "pending": null,
+    "receipts": {
+      "43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816": {
+        "operation_id": "43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816",
+        "action": "add_note",
+        "note_hash": "55f054e7c3aa720d84d3f55573cdf9bb366b7917b6815edbc976000ff44fe48c",
+        "target_status": null,
+        "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+        "before_status": 1,
+        "journal_floor": 0,
+        "journal_id": 1
+      }
+    }
+  }
+}

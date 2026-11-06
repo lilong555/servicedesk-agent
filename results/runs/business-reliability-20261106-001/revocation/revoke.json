@@ -1,0 +1,28 @@
+{
+  "phase": "revoke",
+  "tick": 2,
+  "pid": 90308,
+  "ok": true,
+  "result": {
+    "thread_id": "583201d05ff75b3ec0c09cbfb9417d514a49e6df501691ef7bb7bb119bd681a1",
+    "contract": {
+      "service_url": "https://business-reliability.invalid",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "queued-revocation",
+      "variant": "A",
+      "allow_notes": false,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": [
+        "Append the authorized note. Preserve owner and status."
+      ]
+    },
+    "pending_actions": [
+      "Read investigation logs."
+    ],
+    "handoff_summary": "Retain status and owner.",
+    "verified_receipts": []
+  }
+}

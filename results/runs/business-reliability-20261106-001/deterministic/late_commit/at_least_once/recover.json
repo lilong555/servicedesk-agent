@@ -1,0 +1,43 @@
+{
+  "phase": "recover",
+  "tick": 1,
+  "pid": 90008,
+  "ok": true,
+  "result": {
+    "kind": "http_ack",
+    "status_code": 204,
+    "send": 2
+  },
+  "unknown": false,
+  "durable_state": {
+    "contract": {
+      "service_url": "https://business-reliability.invalid",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "late_commit",
+      "variant": "A",
+      "allow_notes": true,
+      "allowed_status_ids": [
+        2
+      ],
+      "allow_close": false,
+      "user_constraints": [
+        "Append the authorized note. Preserve owner and status."
+      ]
+    },
+    "note": "Investigation completed for late_commit.",
+    "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+    "body": {
+      "issue": {
+        "notes": "Investigation completed for late_commit.\n\n[desk-action:fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f]"
+      }
+    },
+    "sends": 2,
+    "ack": {
+      "kind": "http_ack",
+      "status_code": 204,
+      "send": 2
+    }
+  }
+}

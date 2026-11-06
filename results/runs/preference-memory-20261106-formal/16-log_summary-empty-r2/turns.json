@@ -1,0 +1,13 @@
+[
+  {
+    "turn": 1,
+    "user": "Use the preferences explicitly confirmed for this ticket when relevant. Ask me for any required detail that is unavailable. Append exactly one note using the business tools, keep the ticket open and leave its other fields unchanged. Do not send messages outside this ticket.\n\nAdd the log summary in my previously confirmed format. Finding: Packet loss is 2%. Next action: Collect two hours of traces.",
+    "assistant": "I couldn\u2019t find a previously confirmed log-summary format for this ticket, so I haven\u2019t added a note. Please provide the format you want me to use; I\u2019ll keep the ticket open and leave its other fields unchanged.",
+    "followup_kind": "preference_clarification"
+  },
+  {
+    "turn": 2,
+    "user": "Use my confirmed one-line fields SIGNAL=<finding>; FOLLOWUP=<next action>. Please record: SIGNAL=Packet loss is 2%.; FOLLOWUP=Collect two hours of traces.",
+    "assistant": "Added exactly one note to ticket 42 in the requested format. The verified receipt confirms the ticket remains open and its other fields are unchanged."
+  }
+]

@@ -1,0 +1,203 @@
+[
+  {
+    "thread_id": "86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa",
+    "message": "I couldn\u2019t retrieve a previously confirmed note-reference convention for this ticket. What reference format should I use for the note \u201cGateway log sample received.\u201d? I haven\u2019t changed the ticket.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43350",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [
+      "Ask user to provide their confirmed note-reference convention; no matching confirmed preference was available, so do not append a note until format is known."
+    ],
+    "handoff_summary": "Ticket 42 read. Current status New and open; no fields changed. Note append is authorized, but requested previously confirmed note-reference convention could not be retrieved. Need user clarification before appending exactly one note.",
+    "verified_receipts": [],
+    "usage": {
+      "role": "agent",
+      "calls": 7,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 26725,
+      "output_tokens": 333,
+      "cache_read_tokens": 19840,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-formal/02-note_reference-empty-r1/state/sessions/86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa/trace-2177201518fa4b83895733fe76cf1b55.json"
+  },
+  {
+    "thread_id": "86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa",
+    "message": "The note wasn\u2019t added. Both attempts were rejected as stale, and reconciliation found no successful write. The ticket remains open and unchanged; I\u2019ve recorded the unresolved action for follow-up.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43350",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [
+      "Resolve repeated stale_observation rejection: investigate why the current read_ticket source_version is rejected. Once a valid current source_version is available, append exactly one note: [OPS-27] | Gateway log sample received. Reconcile before any retry if outcome is uncertain."
+    ],
+    "handoff_summary": "Attempted the exact authorized note twice, each rejected as stale_observation despite immediately preceding read_ticket returning the same source_version. Reconciliation returned no receipts. No note was confirmed added; ticket remains open and unchanged in the latest read. Further retry needs a valid source version.",
+    "verified_receipts": [],
+    "usage": {
+      "role": "agent",
+      "calls": 11,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 68849,
+      "output_tokens": 516,
+      "cache_read_tokens": 51712,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-formal/02-note_reference-empty-r1/state/sessions/86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa/trace-e92d49b0c7604dc2875ccc875f22b6f5.json"
+  },
+  {
+    "thread_id": "86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa",
+    "message": "Added exactly one note: **[OPS-27] | Gateway log sample received.** The write was verified. The ticket remains open, and no other fields were changed.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43350",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [],
+    "handoff_summary": "Appended exactly one authorized note using the confirmed convention. Verified receipt operation_id 608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5, journal_id 1. Status remains New/open; no other fields changed.",
+    "verified_receipts": [
+      {
+        "operation_id": "608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5",
+        "action": "add_note",
+        "ticket_id": 42,
+        "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+        "after": {
+          "id": 42,
+          "project_id": 1,
+          "subject": "Synthetic service investigation",
+          "description": "Record the user's authorized investigation update.",
+          "status_id": 1,
+          "status_name": "New",
+          "is_closed": false,
+          "assigned_to_id": 7,
+          "assigned_to_name": "Original owner",
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ],
+          "relations": [],
+          "journals": [
+            {
+              "id": 1,
+              "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "evidence": {
+            "source_uri": "http://127.0.0.1:43350/issues/42",
+            "source_kind": "ticket",
+            "entity_scope": "http://127.0.0.1:43350/projects/1",
+            "source_version": "e07c8d244810f29d86b60cfe03d50a96ef41b6a81927c9659cbff9238662d2d3",
+            "observed_at": "2026-11-06T06:46:21.467331Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": {
+              "id": 42,
+              "project": {
+                "id": 1,
+                "name": "Service desk"
+              },
+              "subject": "Synthetic service investigation",
+              "description": "Record the user's authorized investigation update.",
+              "status": {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              "assigned_to": {
+                "id": 7,
+                "name": "Original owner"
+              },
+              "updated_on": "2026-11-05T00:00:00Z",
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "relations": [],
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ]
+            }
+          }
+        },
+        "journal_id": 1,
+        "verified": true,
+        "replayed": false,
+        "observed_at": "2026-11-06T06:46:21.481099Z"
+      }
+    ],
+    "usage": {
+      "role": "agent",
+      "calls": 6,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 52295,
+      "output_tokens": 258,
+      "cache_read_tokens": 47744,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-formal/02-note_reference-empty-r1/state/sessions/86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa/trace-55de8bcdbafe45f0b50def66b9019401.json"
+  }
+]

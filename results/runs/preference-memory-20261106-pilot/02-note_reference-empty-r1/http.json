@@ -1,0 +1,54 @@
+[
+  {
+    "method": "GET",
+    "path": "/users/current.json",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/issues/42.json?include=journals%2Crelations%2Callowed_statuses",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/users/current.json",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/issues/42.json?include=journals%2Crelations%2Callowed_statuses",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/users/current.json",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/issues/42.json?include=journals%2Crelations%2Callowed_statuses",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/issues/42.json",
+    "status": 204,
+    "body": {
+      "issue": {
+        "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:e3e377f50139ba2e9119de9c2a06842878e753243dc68caea0d8293b6844a618]"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/issues/42.json?include=journals%2Crelations%2Callowed_statuses",
+    "status": 200,
+    "body": null
+  }
+]

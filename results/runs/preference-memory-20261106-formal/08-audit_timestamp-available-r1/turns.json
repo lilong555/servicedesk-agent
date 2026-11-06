@@ -1,0 +1,7 @@
+[
+  {
+    "turn": 1,
+    "user": "Use the preferences explicitly confirmed for this ticket when relevant. Ask me for any required detail that is unavailable. Append exactly one note using the business tools, keep the ticket open and leave its other fields unchanged. Do not send messages outside this ticket.\n\nRecord the audit note in my previously confirmed format for 2026-11-06T08:30:00Z. Update text: Trace export completed.",
+    "assistant": "Added exactly one note to ticket 42 in your confirmed format:\n\n`CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.`\n\nThe write was verified. The ticket remains open, and no other fields were changed."
+  }
+]

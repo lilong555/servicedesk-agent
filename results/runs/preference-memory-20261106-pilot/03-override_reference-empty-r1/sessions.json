@@ -1,0 +1,98 @@
+[
+  {
+    "thread_id": "9914300b4e5415aa638c6d95a0ccdc5cd761f52271b6adab735f63d97b1a4cc2",
+    "message": "I couldn\u2019t append the note: the write was rejected twice as stale, and read-back found no receipt confirming it was added. Ticket 42 was last verified open, with its other fields unchanged. I saved the unresolved note action for follow-up.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43864",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [
+      "Append exactly one note: [HOTFIX-9] | Rollback approved. Note write was rejected twice as stale_observation despite ticket read; retry requires a fresh read_ticket observation/version."
+    ],
+    "handoff_summary": "Ticket 42 remains open and fields unchanged as last verified. Note not confirmed appended; reconciliation returned no receipt. No external messages sent.",
+    "verified_receipts": [],
+    "usage": {
+      "role": "agent",
+      "calls": 8,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 34156,
+      "output_tokens": 349,
+      "cache_read_tokens": 10496,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-pilot/03-override_reference-empty-r1/state/sessions/9914300b4e5415aa638c6d95a0ccdc5cd761f52271b6adab735f63d97b1a4cc2/trace-c5ca04147344454ba47b20894366add3.json"
+  },
+  {
+    "thread_id": "9914300b4e5415aa638c6d95a0ccdc5cd761f52271b6adab735f63d97b1a4cc2",
+    "message": "No preference detail is missing\u2014you provided the exact note and the override. I still couldn\u2019t append it: the write was rejected as stale, and reconciliation found no receipt confirming a note was added. I\u2019ve saved the unresolved action for follow-up.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43864",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [
+      "Append exactly one note: [HOTFIX-9] | Rollback approved. Fresh read_ticket succeeded, but write again rejected stale_observation; reconcile found no receipt."
+    ],
+    "handoff_summary": "Latest attempt to append exact authorized note did not succeed. No preference detail is missing; user supplied exact note and override. Ticket last observed open with unchanged fields; no receipt confirms note. No external messages sent.",
+    "verified_receipts": [],
+    "usage": {
+      "role": "agent",
+      "calls": 6,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 37186,
+      "output_tokens": 261,
+      "cache_read_tokens": 29440,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-pilot/03-override_reference-empty-r1/state/sessions/9914300b4e5415aa638c6d95a0ccdc5cd761f52271b6adab735f63d97b1a4cc2/trace-312dbb1c9f844a14ae8d45d8be3c6b6d.json"
+  },
+  {
+    "thread_id": "9914300b4e5415aa638c6d95a0ccdc5cd761f52271b6adab735f63d97b1a4cc2",
+    "message": "The preference details are complete; you don\u2019t need to provide anything else. I couldn\u2019t append the note because the business tool again rejected the write as stale, and reconciliation found no receipt. The ticket was last observed open and unchanged. I saved the unresolved action for follow-up.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43864",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [
+      "Append exactly one note: [HOTFIX-9] | Rollback approved. Write rejected stale_observation again; reconciliation shows no receipt. A business-tool issue prevents completion."
+    ],
+    "handoff_summary": "No preference detail missing. User authorized exact note and explicitly requested keep-open/no other changes. Repeated write rejected stale_observation; no receipt. Ticket last observed open and unchanged. No external messages sent.",
+    "verified_receipts": [],
+    "usage": {
+      "role": "agent",
+      "calls": 6,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 46499,
+      "output_tokens": 268,
+      "cache_read_tokens": 35200,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-pilot/03-override_reference-empty-r1/state/sessions/9914300b4e5415aa638c6d95a0ccdc5cd761f52271b6adab735f63d97b1a4cc2/trace-ca89034757ee42abba3b51f8259ae69d.json"
+  }
+]

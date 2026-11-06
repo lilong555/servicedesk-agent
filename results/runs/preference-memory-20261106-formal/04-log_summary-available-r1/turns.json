@@ -1,0 +1,7 @@
+[
+  {
+    "turn": 1,
+    "user": "Use the preferences explicitly confirmed for this ticket when relevant. Ask me for any required detail that is unavailable. Append exactly one note using the business tools, keep the ticket open and leave its other fields unchanged. Do not send messages outside this ticket.\n\nAdd the log summary in my previously confirmed format. Finding: Packet loss is 2%. Next action: Collect two hours of traces.",
+    "assistant": "Added exactly one note in your confirmed format:\n\n`SIGNAL=Packet loss is 2%; FOLLOWUP=Collect two hours of traces.`\n\nThe ticket remains open, and its other fields were left unchanged."
+  }
+]

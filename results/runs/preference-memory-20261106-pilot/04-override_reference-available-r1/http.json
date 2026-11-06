@@ -1,0 +1,42 @@
+[
+  {
+    "method": "GET",
+    "path": "/users/current.json",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/issues/42.json?include=journals%2Crelations%2Callowed_statuses",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/users/current.json",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "GET",
+    "path": "/issues/42.json?include=journals%2Crelations%2Callowed_statuses",
+    "status": 200,
+    "body": null
+  },
+  {
+    "method": "PUT",
+    "path": "/issues/42.json",
+    "status": 204,
+    "body": {
+      "issue": {
+        "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:79690603dfdf6a0ade5e0cca6c66eac27ba0189cd598ffb35556d18a766bb77b]"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/issues/42.json?include=journals%2Crelations%2Callowed_statuses",
+    "status": 200,
+    "body": null
+  }
+]

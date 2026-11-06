@@ -1,0 +1,87 @@
+{
+  "protocol_id": "business-reliability-20261106",
+  "service": "synthetic Redmine REST via httpx.MockTransport, SQLite committed journals",
+  "model": "ScriptedChatModel only in session cases; zero provider requests",
+  "main_operations_per_strategy": 100,
+  "strategies": ["at_least_once", "reconcile"],
+  "loss_operation_indices": [
+    0, 3, 4, 7, 8, 11, 12, 15, 16, 19,
+    20, 23, 24, 27, 28, 31, 32, 35, 36, 39,
+    40, 43, 44, 47, 48, 51, 52, 55, 56, 59,
+    60, 63, 64, 67, 68, 71, 72, 75, 76, 79,
+    80, 83, 84, 87, 88, 91, 92, 95, 96, 99
+  ],
+  "order": "paired by index; even indices baseline first, odd indices reconcile first",
+  "isolation": "independent fixture database and file-backed production SqliteStore per logical operation and strategy; same input/contract/loss index across each pair",
+  "main_schedule": [
+    {"tick": 0, "phase": "initial", "action": "submit once; selected first PUT commits then raises httpx.ReadTimeout"},
+    {"tick": 1, "phase": "recover", "action": "reopen client and SqliteStore; baseline resends unacknowledged input once; production reconcile_operations(readonly, include_completed=True)"}
+  ],
+  "baseline": {
+    "layer": "raw httpx PUT, never RedmineClient.add_note/_write/reconcile_operations",
+    "persisted": ["task input", "contract", "expected_version", "exact REST body", "send count before each send", "HTTP acknowledgement after return"],
+    "max_sends": 2,
+    "retry_wait": "one logical tick, no wall-clock sleep",
+    "authorization": "same production scope/principal check, note grant, note validation, ticket project/status/assignee checks; initial expected_version guard",
+    "retransmission": "replay the already admitted raw request after refreshing authorization and current ticket; original version is a first-admission precondition; journal evidence does not suppress a replay",
+    "acknowledgement": "successful HTTP response persisted; acknowledgement carries no verified journal ID",
+    "exhaustion": "missing acknowledgement after two sends remains unknown"
+  },
+  "reconcile": {
+    "initial": "unmodified RedmineClient.add_note using redmine_store/SqliteStore",
+    "recovery": "unmodified read-only reconciliation; completed records included",
+    "resends": 0,
+    "receipt": "production Receipt verified against journal body, author, ID and marker"
+  },
+  "deterministic_cases": {
+    "late_commit": {
+      "per_strategy": 1,
+      "schedule": [
+        {"tick": 0, "phase": "initial", "action": "persist deferred first PUT; timeout before commit"},
+        {"tick": 1, "phase": "recover", "action": "new process; baseline resends once, production read-only session recovery remains uncertain"},
+        {"tick": 2, "phase": "release", "action": "commit original deferred request in synthetic server"},
+        {"tick": 3, "phase": "observe", "action": "new process; production read-only session recovery, baseline reopens acknowledged task"}
+      ]
+    },
+    "checkpoint_gap": {
+      "per_strategy": 1,
+      "schedule": [
+        {"tick": 0, "phase": "initial", "action": "commit first PUT and receive success; exit process with code 86 after production operation receipt is stored but before session tool Command checkpoint, or before baseline acknowledgement checkpoint"},
+        {"tick": 1, "phase": "recover", "action": "new process; production execute_session(resume=True) calls read-only reconciliation; baseline resends missing acknowledgement once"}
+      ]
+    },
+    "revocation": {
+      "independent_schedules": 1,
+      "schedule": [
+        "process 1 persists two native queued write tools using interrupt_before=['tools']",
+        "parent holds production session_storage lock; process 2 revoke returns session_busy with zero HTTP",
+        "release lock; process 3 successfully commits revoke_session_writes",
+        "record successful revoke return as conservative committed boundary",
+        "process 4 rejects stale writable contract, reloads readonly contract, resumes with two scripted write probes and read-only reconciliation"
+      ],
+      "primary_metric": "HTTP write admissions after successful revoke return",
+      "in_flight_writes_at_revoke": 0,
+      "interpretation": "specified queued-tool schedule and process lock semantics; preemption of already executing writes is outside this schedule"
+    }
+  },
+  "metrics": {
+    "denominator": "logical operations within strategy and normal/fault-hit cohort; all planned attempts retained including failures; deterministic cases and revocation counted separately",
+    "fault_rate": "50/100 first logical-operation responses selected to be lost after commit in each main strategy; retry responses are delivered",
+    "business_complete": "at least one exact intended journal, unchanged initial ticket status/assignee/project",
+    "exactly_once": "business_complete and exactly one intended journal",
+    "duplicate_entries": "max(0, exact intended journal count - 1)",
+    "duplicate_operations": "logical operations with duplicate_entries > 0",
+    "unknown": "client durable pending intent or missing baseline acknowledgement after a send, sampled at registered phase boundaries",
+    "unknown_duration": "sum of logical tick intervals with unknown state; simulated schedule units, wall-clock MTTR is not measured",
+    "receipts": "persisted raw HTTP acknowledgements and production verified receipts reported separately; observer uniqueness reported identically for both strategies",
+    "raw": "request/response/commit/fault events with phase, logical tick, PID, exact bodies; server before/after, Store snapshots, session checkpoints/traces, child exit/stdout/stderr",
+    "scope": "fixed synthetic note operations and deterministic schedules; descriptive mechanism comparison, separate from real Redmine production reliability"
+  },
+  "acceptance": {
+    "main": "all 200 planned slots retained; loss sequence matched; exactly 50 commit-then-loss hits per strategy; raw-derived counts reconcile",
+    "production": "business completion and exactly-once checked independently, final unknown preserved on failure",
+    "deterministic": "new process recovery plus retained checkpoint/Store evidence; all unexpected errors retained and cause nonzero runner exit",
+    "revocation": "session_busy while locked; two queued calls cancelled; stale contract rejected; two fresh probes write_not_authorized; zero post-revoke HTTP writes",
+    "tuning": "fixed schedule and metric definitions before execution; all run directories retained"
+  }
+}

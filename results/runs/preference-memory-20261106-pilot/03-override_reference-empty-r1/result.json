@@ -1,0 +1,42 @@
+{
+  "scenario": "override_reference",
+  "kind": "current_override",
+  "condition": "empty",
+  "repeat": 1,
+  "started": true,
+  "success": false,
+  "business_grade": {
+    "success": false,
+    "checks": {
+      "one_http_write": false,
+      "note_matches": false,
+      "one_journal": false,
+      "no_collateral_change": true,
+      "verified_receipt": false
+    },
+    "actual_notes": []
+  },
+  "error_type": null,
+  "preference_clarifications": 0,
+  "user_turns": 3,
+  "memory_searches": 0,
+  "nonempty_recalls": 0,
+  "new_thread": true,
+  "first_request_preference_leaks": [],
+  "usage": {
+    "role": "agent",
+    "calls": 20,
+    "failed_calls": 0,
+    "unknown_usage_calls": 0,
+    "input_tokens": 117841,
+    "output_tokens": 878,
+    "cache_read_tokens": 75136,
+    "cost_usd": null
+  },
+  "captured_model_requests": 20,
+  "execution_seconds": 65.57796686999973,
+  "setup_seconds": 0.15504103800049052,
+  "total_seconds": 65.73300790800022,
+  "model_mode": "live",
+  "final_receipts": []
+}

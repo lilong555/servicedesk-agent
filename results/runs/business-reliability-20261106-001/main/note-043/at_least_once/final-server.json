@@ -1,0 +1,55 @@
+{
+  "id": 42,
+  "project": {
+    "id": 1,
+    "name": "Synthetic service desk"
+  },
+  "subject": "Synthetic VPN investigation",
+  "description": "Append the authorized investigation note and retain owner and status.",
+  "status": {
+    "id": 1,
+    "name": "New",
+    "is_closed": false
+  },
+  "assigned_to": {
+    "id": 7,
+    "name": "Synthetic owner"
+  },
+  "updated_on": "2026-11-06T00:00:00Z",
+  "journals": [
+    {
+      "id": 1,
+      "notes": "Investigation completed for note-043.\n\n[desk-action:9a23808f8858b4b664e37af366ff8b397758497160d1a62e702c7ae82a3e34c5]",
+      "user": {
+        "id": 1
+      },
+      "details": []
+    },
+    {
+      "id": 2,
+      "notes": "Investigation completed for note-043.\n\n[desk-action:9a23808f8858b4b664e37af366ff8b397758497160d1a62e702c7ae82a3e34c5]",
+      "user": {
+        "id": 1
+      },
+      "details": []
+    }
+  ],
+  "relations": [],
+  "allowed_statuses": [
+    {
+      "id": 1,
+      "name": "New",
+      "is_closed": false
+    },
+    {
+      "id": 2,
+      "name": "In Progress",
+      "is_closed": false
+    },
+    {
+      "id": 5,
+      "name": "Closed",
+      "is_closed": true
+    }
+  ]
+}

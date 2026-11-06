@@ -1,0 +1,214 @@
+{
+  "archive": "raw-state.tar.gz",
+  "archive_sha256": "8ab868b944c3a984ee9c281a19a3b3ebf9ea199c50f40e13206a8d3205b0cf1c",
+  "members": [
+    {
+      "path": "01-note_reference-available-r1/state/memory.redmine-locks/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "01-note_reference-available-r1/state/memory.sqlite",
+      "bytes": 24576,
+      "sha256": "8dc7ec729bbef27e043da9cc9d941ed19ff8e4d215ad6ebaf82a0b47d83f32ee",
+      "sqlite": {
+        "integrity_check": [
+          "ok"
+        ],
+        "table_rows": {
+          "store": 2,
+          "store_migrations": 5
+        },
+        "archived_bytes_integrity_check": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "path": "01-note_reference-available-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/checkpoint.sqlite",
+      "bytes": 307200,
+      "sha256": "0898b5edd1174e1ebceeb4c8a23b8140557ad93b6b79a136ea36b4a1b300b45d",
+      "sqlite": {
+        "integrity_check": [
+          "ok"
+        ],
+        "table_rows": {
+          "checkpoints": 42,
+          "writes": 82
+        },
+        "archived_bytes_integrity_check": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "path": "01-note_reference-available-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/session.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "01-note_reference-available-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/trace-6e48e893ed9f4184958d641f93f1102b.json",
+      "bytes": 20070,
+      "sha256": "99bc36da4bde3c0dd5b5ee98cd9133ac611feb4237c0b41da2f707eab7d9f23e"
+    },
+    {
+      "path": "01-note_reference-available-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/trace-775e111d082f460dbc279e689a2e2087.json",
+      "bytes": 35531,
+      "sha256": "96bc56385f7a8b8cda946d2ba6f8eeb5d45e3fa7eef343dc997a6e87376eb1de"
+    },
+    {
+      "path": "02-note_reference-empty-r1/state/memory.redmine-locks/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "02-note_reference-empty-r1/state/memory.sqlite",
+      "bytes": 24576,
+      "sha256": "15f50f96ba42dbb2c6e20d77f08ef7f3783f13e4667b1027a5812b9a5211a241",
+      "sqlite": {
+        "integrity_check": [
+          "ok"
+        ],
+        "table_rows": {
+          "store": 2,
+          "store_migrations": 5
+        },
+        "archived_bytes_integrity_check": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "path": "02-note_reference-empty-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/checkpoint.sqlite",
+      "bytes": 331776,
+      "sha256": "431d744a04e73224217d399a260ac6d6f269474897c2e13b93d80af74fcc7183",
+      "sqlite": {
+        "integrity_check": [
+          "ok"
+        ],
+        "table_rows": {
+          "checkpoints": 45,
+          "writes": 88
+        },
+        "archived_bytes_integrity_check": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "path": "02-note_reference-empty-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/session.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "02-note_reference-empty-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/trace-4d9ed2cc586f4ceab140b6ee10f3fde3.json",
+      "bytes": 38633,
+      "sha256": "8a8298cebdc284ded0745878009ea725cc869aa88d70a52a90cefaeb801fb77d"
+    },
+    {
+      "path": "02-note_reference-empty-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/trace-cc29b94f0ec64959a97454379623ff38.json",
+      "bytes": 23616,
+      "sha256": "995e54ab2640805b7b12ba2d80767e1847d1025c794204f4ac4d6c539776b811"
+    },
+    {
+      "path": "03-override_reference-empty-r1/state/memory.redmine-locks/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "03-override_reference-empty-r1/state/memory.sqlite",
+      "bytes": 24576,
+      "sha256": "107e6b8ea08bf36a591fe324758be1d3b10af5f3bf3b7a86d5667185b538b826",
+      "sqlite": {
+        "integrity_check": [
+          "ok"
+        ],
+        "table_rows": {
+          "store": 2,
+          "store_migrations": 5
+        },
+        "archived_bytes_integrity_check": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "path": "03-override_reference-empty-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/checkpoint.sqlite",
+      "bytes": 200704,
+      "sha256": "e49931e9594d1d3e5010a647d86d41b071b97ebf82e75fa3c3e6f34f90a78a63",
+      "sqlite": {
+        "integrity_check": [
+          "ok"
+        ],
+        "table_rows": {
+          "checkpoints": 26,
+          "writes": 52
+        },
+        "archived_bytes_integrity_check": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "path": "03-override_reference-empty-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/session.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "03-override_reference-empty-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/trace-c3df337983d04e6eb248907307557e60.json",
+      "bytes": 24685,
+      "sha256": "85878afff66d60c65a3e29a2dd7da21857cd85e92db132f804f8bb76dccb283b"
+    },
+    {
+      "path": "04-override_reference-available-r1/state/memory.redmine-locks/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "04-override_reference-available-r1/state/memory.sqlite",
+      "bytes": 24576,
+      "sha256": "6122bfd5042aa7896181c5ea1c359725a5b852d012e5a34e889e3564482c97f6",
+      "sqlite": {
+        "integrity_check": [
+          "ok"
+        ],
+        "table_rows": {
+          "store": 2,
+          "store_migrations": 5
+        },
+        "archived_bytes_integrity_check": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "path": "04-override_reference-available-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/checkpoint.sqlite",
+      "bytes": 180224,
+      "sha256": "a41dc10d2180afe33529d89bc96f99b95d463750457a1ab6d8a05b432cd94f4a",
+      "sqlite": {
+        "integrity_check": [
+          "ok"
+        ],
+        "table_rows": {
+          "checkpoints": 23,
+          "writes": 46
+        },
+        "archived_bytes_integrity_check": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "path": "04-override_reference-available-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/session.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "04-override_reference-available-r1/state/sessions/9e32b8ee498a501ec331a6d921488284e144570af6359da8d3d15dde3dca0d0e/trace-11054f7e527844e4b94fb5d1f5e3e717.json",
+      "bytes": 21876,
+      "sha256": "977753a82e45a83412f4d2d41247e7eb7f3a3e2b9c7f11c0f64c35a9aa21a2a0"
+    }
+  ],
+  "sqlite_files": 8,
+  "original_files_unchanged": true
+}

@@ -1,0 +1,106 @@
+{
+  "phase": "pilot",
+  "freeze_id": "797d8479231d4c422bed60c19cf5e1fd8d107db694ba3d195b25ba489c459290",
+  "planned_executions": 4,
+  "completed": true,
+  "started_executions": 4,
+  "groups": {
+    "available": {
+      "started": 2,
+      "successes": 2,
+      "scored": 2,
+      "infrastructure_errors": 0,
+      "preference_clarifications": 0,
+      "memory_searches": 3,
+      "usage": {
+        "calls": 14,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 56268,
+        "output_tokens": 568,
+        "cache_read_tokens": 35200
+      },
+      "by_kind": {
+        "history_required": {
+          "started": 1,
+          "successes": 1,
+          "preference_clarifications": 0,
+          "calls": 7
+        },
+        "current_override": {
+          "started": 1,
+          "successes": 1,
+          "preference_clarifications": 0,
+          "calls": 7
+        }
+      }
+    },
+    "empty": {
+      "started": 2,
+      "successes": 1,
+      "scored": 2,
+      "infrastructure_errors": 0,
+      "preference_clarifications": 1,
+      "memory_searches": 2,
+      "usage": {
+        "calls": 32,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 170274,
+        "output_tokens": 1483,
+        "cache_read_tokens": 107520
+      },
+      "by_kind": {
+        "history_required": {
+          "started": 1,
+          "successes": 1,
+          "preference_clarifications": 1,
+          "calls": 12
+        },
+        "current_override": {
+          "started": 1,
+          "successes": 0,
+          "preference_clarifications": 0,
+          "calls": 20
+        }
+      }
+    }
+  },
+  "pairs": [
+    {
+      "scenario": "note_reference",
+      "repeat": 1,
+      "success": {
+        "available": true,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 1
+      },
+      "calls": {
+        "available": 7,
+        "empty": 12
+      }
+    },
+    {
+      "scenario": "override_reference",
+      "repeat": 1,
+      "success": {
+        "empty": false,
+        "available": true
+      },
+      "clarifications": {
+        "empty": 0,
+        "available": 0
+      },
+      "calls": {
+        "empty": 20,
+        "available": 7
+      }
+    }
+  ],
+  "unstarted_executions": 0,
+  "finished_at": "2026-11-06T06:35:57.556811+00:00",
+  "pilot_gate_passed": false
+}

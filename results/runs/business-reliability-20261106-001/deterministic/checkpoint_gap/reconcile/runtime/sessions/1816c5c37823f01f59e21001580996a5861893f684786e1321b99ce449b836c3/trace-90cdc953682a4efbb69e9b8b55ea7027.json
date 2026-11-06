@@ -1,0 +1,146 @@
+{
+  "run_id": "90cdc953682a4efbb69e9b8b55ea7027",
+  "model_mode": "scripted",
+  "thread_id": "1816c5c37823f01f59e21001580996a5861893f684786e1321b99ce449b836c3",
+  "error_type": null,
+  "usage": {
+    "role": "agent",
+    "calls": 2,
+    "failed_calls": 0,
+    "unknown_usage_calls": 2,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cache_read_tokens": 0,
+    "cost_usd": null
+  },
+  "model_calls": [
+    {
+      "run_id": "01a1af8c-7158-73f7-9eeb-dfda539b57bf",
+      "role": "agent",
+      "elapsed_seconds": 0.00014207899948814884,
+      "usage": null,
+      "error": null
+    },
+    {
+      "run_id": "01a1af8c-71aa-72d5-ac30-e82a4ca0f170",
+      "role": "agent",
+      "elapsed_seconds": 0.00011258300037297886,
+      "usage": null,
+      "error": null
+    }
+  ],
+  "messages": [
+    {
+      "type": "human",
+      "data": {
+        "content": "Append the authorized investigation note.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": "64a30481-3014-4728-be26-95e8129151ff"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8c-6da5-7623-b3af-c9e08bde640f-0",
+        "tool_calls": [
+          {
+            "name": "add_ticket_note",
+            "args": {
+              "note": "Investigation completed for checkpoint_gap.",
+              "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216"
+            },
+            "id": "initial-note",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": null
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": false, \"error\": \"superseded_by_user_input\", \"retry_cancelled\": true, \"execution_outcome\": \"unknown\", \"message\": \"A new user message superseded this pending tool call. Its execution or retry has been cancelled. No result was recorded; earlier execution may have produced side effects. Reconcile possible writes through read-only evidence and verified receipts; keep unconfirmed outcomes unresolved. Plan subsequent actions using the latest user message.\"}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "add_ticket_note",
+        "id": "4096669b-633d-4f72-a1ee-f72482646d9f",
+        "tool_call_id": "initial-note",
+        "artifact": null,
+        "status": "error"
+      }
+    },
+    {
+      "type": "human",
+      "data": {
+        "content": "Only reconcile the previous operation. Keep further writes stopped.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": "6b78915a-0df4-4769-989c-26d387e0f104"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8c-7158-73f7-9eeb-dfda539b57bf-0",
+        "tool_calls": [
+          {
+            "name": "reconcile_ticket_operations",
+            "args": {},
+            "id": "reconcile-recover",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": null
+      }
+    },
+    {
+      "type": "tool",
+      "data": {
+        "content": "{\"ok\": true, \"receipts\": [{\"operation_id\": \"43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816\", \"action\": \"add_note\", \"ticket_id\": 42, \"before_version\": \"8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216\", \"after\": {\"id\": 42, \"project_id\": 1, \"subject\": \"Synthetic VPN investigation\", \"description\": \"Append the authorized investigation note and retain owner and status.\", \"status_id\": 1, \"status_name\": \"New\", \"is_closed\": false, \"assigned_to_id\": 7, \"assigned_to_name\": \"Synthetic owner\", \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}], \"relations\": [], \"journals\": [{\"id\": 1, \"notes\": \"Investigation completed for checkpoint_gap.\\n\\n[desk-action:43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816]\", \"user\": {\"id\": 1}, \"details\": []}], \"evidence\": {\"source_uri\": \"https://business-reliability.invalid/issues/42\", \"source_kind\": \"ticket\", \"entity_scope\": \"https://business-reliability.invalid/projects/1\", \"source_version\": \"27c113adb42709709f9d9db7044528f81b58f4449eef3c54ba17d4957417f3e9\", \"observed_at\": \"2026-11-06T06:29:39.367130Z\", \"valid_from\": null, \"valid_to\": null, \"status\": \"observed\", \"content\": {\"id\": 42, \"project\": {\"id\": 1, \"name\": \"Synthetic service desk\"}, \"subject\": \"Synthetic VPN investigation\", \"description\": \"Append the authorized investigation note and retain owner and status.\", \"status\": {\"id\": 1, \"name\": \"New\", \"is_closed\": false}, \"assigned_to\": {\"id\": 7, \"name\": \"Synthetic owner\"}, \"updated_on\": \"2026-11-06T00:00:00Z\", \"journals\": [{\"id\": 1, \"notes\": \"Investigation completed for checkpoint_gap.\\n\\n[desk-action:43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816]\", \"user\": {\"id\": 1}, \"details\": []}], \"relations\": [], \"allowed_statuses\": [{\"id\": 1, \"name\": \"New\", \"is_closed\": false}, {\"id\": 2, \"name\": \"In Progress\", \"is_closed\": false}, {\"id\": 5, \"name\": \"Closed\", \"is_closed\": true}]}}}, \"journal_id\": 1, \"verified\": true, \"replayed\": true, \"observed_at\": \"2026-11-06T06:29:39.367188Z\"}]}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "reconcile_ticket_operations",
+        "id": "c8ad812e-7c98-477d-994c-95cbf8c58d50",
+        "tool_call_id": "reconcile-recover",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "Read-only reconciliation finished.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8c-71aa-72d5-ac30-e82a4ca0f170-0",
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": null
+      }
+    }
+  ],
+  "receipt_ids": [
+    "43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816"
+  ]
+}

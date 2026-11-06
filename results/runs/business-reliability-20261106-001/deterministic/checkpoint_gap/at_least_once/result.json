@@ -1,0 +1,113 @@
+{
+  "operation_id": "checkpoint_gap",
+  "strategy": "at_least_once",
+  "fault": "checkpoint_gap",
+  "http_requests": 6,
+  "http_reads": 4,
+  "http_writes": 2,
+  "server_commits": 2,
+  "journal_count": 2,
+  "intended_journals": 2,
+  "business_complete": true,
+  "exactly_once": false,
+  "duplicate_entries": 1,
+  "duplicate_operation": true,
+  "fault_hits": 1,
+  "fault_hit": true,
+  "commit_then_loss_hits": 0,
+  "http_acknowledgements": [
+    {
+      "kind": "http_ack",
+      "status_code": 204,
+      "send": 2
+    }
+  ],
+  "production_receipts": [],
+  "http_ack_count": 1,
+  "verified_receipt_count": 0,
+  "observer_unique_journal": false,
+  "final_unknown": false,
+  "unknown_at_any_phase": true,
+  "unknown_logical_ticks": 1,
+  "phase_count": 2,
+  "unexpected_errors": 0,
+  "phases": [
+    {
+      "phase": "initial",
+      "tick": 0,
+      "ok": false,
+      "error": "injected_process_exit",
+      "unknown": true,
+      "durable_state": {
+        "contract": {
+          "service_url": "https://business-reliability.invalid",
+          "project_id": 1,
+          "principal_id": 1,
+          "ticket_id": 42,
+          "session_id": "checkpoint_gap",
+          "variant": "A",
+          "allow_notes": true,
+          "allowed_status_ids": [
+            2
+          ],
+          "allow_close": false,
+          "user_constraints": [
+            "Append the authorized note. Preserve owner and status."
+          ]
+        },
+        "note": "Investigation completed for checkpoint_gap.",
+        "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+        "body": {
+          "issue": {
+            "notes": "Investigation completed for checkpoint_gap.\n\n[desk-action:43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816]"
+          }
+        },
+        "sends": 1,
+        "ack": null
+      }
+    },
+    {
+      "phase": "recover",
+      "tick": 1,
+      "pid": 90167,
+      "ok": true,
+      "result": {
+        "kind": "http_ack",
+        "status_code": 204,
+        "send": 2
+      },
+      "unknown": false,
+      "durable_state": {
+        "contract": {
+          "service_url": "https://business-reliability.invalid",
+          "project_id": 1,
+          "principal_id": 1,
+          "ticket_id": 42,
+          "session_id": "checkpoint_gap",
+          "variant": "A",
+          "allow_notes": true,
+          "allowed_status_ids": [
+            2
+          ],
+          "allow_close": false,
+          "user_constraints": [
+            "Append the authorized note. Preserve owner and status."
+          ]
+        },
+        "note": "Investigation completed for checkpoint_gap.",
+        "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+        "body": {
+          "issue": {
+            "notes": "Investigation completed for checkpoint_gap.\n\n[desk-action:43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816]"
+          }
+        },
+        "sends": 2,
+        "ack": {
+          "kind": "http_ack",
+          "status_code": 204,
+          "send": 2
+        }
+      }
+    }
+  ]
+}

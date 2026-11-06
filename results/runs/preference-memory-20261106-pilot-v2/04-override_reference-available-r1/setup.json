@@ -1,0 +1,61 @@
+{
+  "mode": "explicit_confirmation_without_model",
+  "model_calls": 0,
+  "source_contract": {
+    "service_url": "http://127.0.0.1:43820",
+    "project_id": 1,
+    "principal_id": 1,
+    "ticket_id": 42,
+    "session_id": "confirmation-session",
+    "variant": "B",
+    "allow_notes": true,
+    "allowed_status_ids": [],
+    "allow_close": false,
+    "user_constraints": []
+  },
+  "target_contract": {
+    "service_url": "http://127.0.0.1:43820",
+    "project_id": 1,
+    "principal_id": 1,
+    "ticket_id": 42,
+    "session_id": "new-conversation",
+    "variant": "B",
+    "allow_notes": true,
+    "allowed_status_ids": [],
+    "allow_close": false,
+    "user_constraints": []
+  },
+  "namespace": [
+    "servicedesk",
+    "2574312930b2174e1c37f734fd91d84252605680463b78ff34bb82e21ea01365",
+    "confirmed_preferences"
+  ],
+  "memory": [
+    {
+      "namespace": [
+        "servicedesk",
+        "2574312930b2174e1c37f734fd91d84252605680463b78ff34bb82e21ea01365",
+        "confirmed_preferences"
+      ],
+      "key": "538eaea3-8830-4ed2-9e85-87d9bb262632",
+      "value": {
+        "content": {
+          "source_uri": "user-confirmation://2574312930b2174e1c37f734fd91d84252605680463b78ff34bb82e21ea01365/3d0cf4a0bf72e5c19527ccc35702b544f8b3db9ae9192622550c9176378d6e00",
+          "source_kind": "user",
+          "entity_scope": "http://127.0.0.1:43820/projects/1/principals/1/issues/42",
+          "source_version": "3d0cf4a0bf72e5c19527ccc35702b544f8b3db9ae9192622550c9176378d6e00",
+          "observed_at": "2026-11-06T06:39:56.893173Z",
+          "valid_from": null,
+          "valid_to": null,
+          "status": "observed",
+          "content": "I explicitly confirm this preference for this ticket: prefix every note with [OPS-27] followed by ' | ' and the update text."
+        }
+      },
+      "created_at": "2026-11-06T06:39:56",
+      "updated_at": "2026-11-06T06:39:56",
+      "score": null
+    }
+  ],
+  "store_closed_before_execution": true,
+  "elapsed_seconds": 0.14919983899926592
+}

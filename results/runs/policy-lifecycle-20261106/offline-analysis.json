@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "analysis": "offline-strict-policy-evidence",
+  "source_sha256": "9b7b3fc2c76b62178dad2c20842e336ab677c75d7be30e735102b0305245069c",
+  "input_files": {
+    "episodes/coexisting-versions--filtered_time--r0/result.json": "aec8d6aeae68afeed2cc6f929f136283785f8b3383b1e6714d23b28cf6d83654",
+    "episodes/coexisting-versions--filtered_time--r0/stage-0-trace.json": "3b8c8debb67e01305f7bb485626e04127368ab0fa5ac01614517586d05022352",
+    "episodes/coexisting-versions--filtered_time--r1/result.json": "bf087762c1324d52886028f27dd4e000467ef872f217fe0e0308c79d2962127a",
+    "episodes/coexisting-versions--filtered_time--r1/stage-0-trace.json": "19bb01162d5784c6b3708ec6746fdd675b970f401925e65ef8097fbf526f6c5f",
+    "episodes/coexisting-versions--unfiltered_time--r0/result.json": "420a10473d42234a3d5fc74304679fedad44cc325047523163d8f244aa9b79f7",
+    "episodes/coexisting-versions--unfiltered_time--r0/stage-0-trace.json": "f3037d005abaa6848ec2a4421b30e285eee05c7a679cfe668f704f4738af6977",
+    "episodes/coexisting-versions--unfiltered_time--r1/result.json": "ee7ff1f84ecb6c7fab895f682f8d4fe9c19fdbee4621b25d83547134f6ccdb49",
+    "episodes/coexisting-versions--unfiltered_time--r1/stage-0-trace.json": "390490e31a692b57a284923ee32b39696c9e1629e8f5ccff9c8a84e08cee7610",
+    "episodes/policy-updated-during-handoff--filtered_time--r0/result.json": "d89f1a683f9867488d3e9681309c3c449c665b1e6a29e08dab8b6795692af38e",
+    "episodes/policy-updated-during-handoff--filtered_time--r0/stage-0-trace.json": "ef7fc2db85682ae7194dd80c42969d1e40d42d022ea63161cb5f424f28e8a726",
+    "episodes/policy-updated-during-handoff--filtered_time--r0/stage-1-trace.json": "ea5a3a10257ad13f93c5b63b365813f795a4e7371b5fd59f2b9c7d9039f3673b",
+    "episodes/policy-updated-during-handoff--filtered_time--r1/result.json": "d0c2541c0c1c1ab731afe9f23c2f11621e8694eafdead74681711c07b3065c98",
+    "episodes/policy-updated-during-handoff--filtered_time--r1/stage-0-trace.json": "e5b49803542b29ba2cb533b219a3b36d19235275bf9df2ed6a323592a76e25cb",
+    "episodes/policy-updated-during-handoff--filtered_time--r1/stage-1-trace.json": "060b98d38d9bfa4be461389aea96c905a6d16fa76448d2a8f217a1865b00ea5f",
+    "episodes/policy-updated-during-handoff--unfiltered_time--r0/result.json": "41ac203d4d8f9822236ed963e2ba5d8b68bca2a42348e583c4d75775d415314c",
+    "episodes/policy-updated-during-handoff--unfiltered_time--r0/stage-0-trace.json": "e9bd9e4949b32378f362b440b2d6887133ac6496084162dc4cb0d56c63bc8855",
+    "episodes/policy-updated-during-handoff--unfiltered_time--r0/stage-1-trace.json": "27210edb5a308c4a46581d1b2ca150e2f17e5b5089a34759248a60a2bd1f193c",
+    "episodes/policy-updated-during-handoff--unfiltered_time--r1/result.json": "e2033e5e198f842d1125e06bd5edb8f4b996becca102ec02e2a9ff0aefd10515",
+    "episodes/policy-updated-during-handoff--unfiltered_time--r1/stage-0-trace.json": "da4d12a4cc3d7d4bae543857218bbff2f9217a68ed1c41b1ae90e87de7cf31aa",
+    "episodes/policy-updated-during-handoff--unfiltered_time--r1/stage-1-trace.json": "ae2be8668e0e8d0f37201e2dc79d69c87aa8981a0e2040d7d714d90dd254bc75",
+    "episodes.json": "046cdbd3a14b4369ef20c98e3ca3507088356e7eed42c381fee2b9282b4a967b",
+    "policies.json": "f7e36f1bc42e637f52a703f37363e305a13a4d343c02e9d912414e12199a4100",
+    "protocol.json": "7fbf9717b7f25eb625cff3408779356a84edbb29b3cd5707dceeeaba862f31e7",
+    "retrieval.json": "58148c7fd1f6a5185c1524b7d32a67b905eb56a05ae5c3a1d55e3221b31a5cce",
+    "summary.json": "3d54582f080ae0c045a44c89efce7153414f49c4821d14713e55d9ae11f98a72"
+  },
+  "issues": [],
+  "verified": true,
+  "retrieval": {
+    "unfiltered_time": {
+      "queries": 12,
+      "answerable_queries": 9,
+      "hit_at_1": 1,
+      "hit_at_3": 9,
+      "returned_documents": 30,
+      "time_inapplicable_returned": 21,
+      "out_of_scope_returned": 0,
+      "empty_eligible_cases": 2,
+      "correct_empty_results": 1,
+      "unrelated_query_returns": [
+        0
+      ]
+    },
+    "filtered_time": {
+      "queries": 12,
+      "answerable_queries": 9,
+      "hit_at_1": 9,
+      "hit_at_3": 9,
+      "returned_documents": 18,
+      "time_inapplicable_returned": 0,
+      "out_of_scope_returned": 0,
+      "empty_eligible_cases": 2,
+      "correct_empty_results": 2,
+      "unrelated_query_returns": [
+        0
+      ]
+    }
+  },
+  "agent": {
+    "unfiltered_time": {
+      "started": 4,
+      "successes": 4,
+      "failures": 0,
+      "infrastructure_errors": 0,
+      "model_requests": 47,
+      "unknown_usage_requests": 0,
+      "input_tokens": 251170,
+      "output_tokens": 2173,
+      "cache_read_tokens": 192640,
+      "search_used_episodes": 4
+    },
+    "filtered_time": {
+      "started": 4,
+      "successes": 4,
+      "failures": 0,
+      "infrastructure_errors": 0,
+      "model_requests": 45,
+      "unknown_usage_requests": 0,
+      "input_tokens": 239702,
+      "output_tokens": 2268,
+      "cache_read_tokens": 187136,
+      "search_used_episodes": 4
+    }
+  },
+  "strict_business": [
+    {
+      "id": "coexisting-versions--unfiltered_time--r0",
+      "arm": "unfiltered_time",
+      "success": true,
+      "expected_note": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100",
+      "actual_note": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100",
+      "checks": {
+        "exactly_one_journal": true,
+        "exact_note_body": true,
+        "receipt_matches_journal": true,
+        "one_matching_http_write": true,
+        "other_fields_preserved": true,
+        "prepare_writes_zero": true
+      }
+    },
+    {
+      "id": "coexisting-versions--filtered_time--r0",
+      "arm": "filtered_time",
+      "success": true,
+      "expected_note": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100",
+      "actual_note": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100",
+      "checks": {
+        "exactly_one_journal": true,
+        "exact_note_body": true,
+        "receipt_matches_journal": true,
+        "one_matching_http_write": true,
+        "other_fields_preserved": true,
+        "prepare_writes_zero": true
+      }
+    },
+    {
+      "id": "policy-updated-during-handoff--filtered_time--r0",
+      "arm": "filtered_time",
+      "success": true,
+      "expected_note": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD",
+      "actual_note": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD",
+      "checks": {
+        "exactly_one_journal": true,
+        "exact_note_body": true,
+        "receipt_matches_journal": true,
+        "one_matching_http_write": true,
+        "other_fields_preserved": true,
+        "prepare_writes_zero": true
+      }
+    },
+    {
+      "id": "policy-updated-during-handoff--unfiltered_time--r0",
+      "arm": "unfiltered_time",
+      "success": true,
+      "expected_note": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD",
+      "actual_note": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD",
+      "checks": {
+        "exactly_one_journal": true,
+        "exact_note_body": true,
+        "receipt_matches_journal": true,
+        "one_matching_http_write": true,
+        "other_fields_preserved": true,
+        "prepare_writes_zero": true
+      }
+    },
+    {
+      "id": "coexisting-versions--filtered_time--r1",
+      "arm": "filtered_time",
+      "success": true,
+      "expected_note": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100",
+      "actual_note": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100",
+      "checks": {
+        "exactly_one_journal": true,
+        "exact_note_body": true,
+        "receipt_matches_journal": true,
+        "one_matching_http_write": true,
+        "other_fields_preserved": true,
+        "prepare_writes_zero": true
+      }
+    },
+    {
+      "id": "coexisting-versions--unfiltered_time--r1",
+      "arm": "unfiltered_time",
+      "success": true,
+      "expected_note": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100",
+      "actual_note": "POLICY: vpn-maintenance@2; CODE: IDENTITY-WED-0100",
+      "checks": {
+        "exactly_one_journal": true,
+        "exact_note_body": true,
+        "receipt_matches_journal": true,
+        "one_matching_http_write": true,
+        "other_fields_preserved": true,
+        "prepare_writes_zero": true
+      }
+    },
+    {
+      "id": "policy-updated-during-handoff--unfiltered_time--r1",
+      "arm": "unfiltered_time",
+      "success": true,
+      "expected_note": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD",
+      "actual_note": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD",
+      "checks": {
+        "exactly_one_journal": true,
+        "exact_note_body": true,
+        "receipt_matches_journal": true,
+        "one_matching_http_write": true,
+        "other_fields_preserved": true,
+        "prepare_writes_zero": true
+      }
+    },
+    {
+      "id": "policy-updated-during-handoff--filtered_time--r1",
+      "arm": "filtered_time",
+      "success": true,
+      "expected_note": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD",
+      "actual_note": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD",
+      "checks": {
+        "exactly_one_journal": true,
+        "exact_note_body": true,
+        "receipt_matches_journal": true,
+        "one_matching_http_write": true,
+        "other_fields_preserved": true,
+        "prepare_writes_zero": true
+      }
+    }
+  ],
+  "planned_episodes": 8,
+  "recorded_episodes": 8,
+  "interpretation": "Post-run exact-note and receipt-link audit. Original frozen scores are preserved."
+}

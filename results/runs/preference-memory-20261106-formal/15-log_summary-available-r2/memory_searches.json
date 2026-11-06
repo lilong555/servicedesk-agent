@@ -1,0 +1,62 @@
+[
+  {
+    "arguments": {
+      "query": "format log summary ticket 42",
+      "limit": 10,
+      "offset": 0,
+      "filter": null
+    },
+    "stored_result": [
+      {
+        "namespace": [
+          "servicedesk",
+          "72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e",
+          "confirmed_preferences"
+        ],
+        "key": "7402ecc8-7ddc-4130-a46c-e95024f7ccc9",
+        "value": {
+          "content": {
+            "source_uri": "user-confirmation://72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e/59603e2193fb27c28c1b9e546d0ef0c4f36f6b688965b57e1b0184a90427dfdd",
+            "source_kind": "user",
+            "entity_scope": "http://127.0.0.1:43350/projects/1/principals/1/issues/42",
+            "source_version": "59603e2193fb27c28c1b9e546d0ef0c4f36f6b688965b57e1b0184a90427dfdd",
+            "observed_at": "2026-11-06T06:52:13.952722Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": "I explicitly confirm this preference for this ticket: log summaries must be one line in the exact field order SIGNAL=<finding>; FOLLOWUP=<next action>. Preserve the supplied finding and action text."
+          }
+        },
+        "created_at": "2026-11-06T06:52:13",
+        "updated_at": "2026-11-06T06:52:13",
+        "score": null
+      }
+    ],
+    "returned_result": [
+      {
+        "namespace": [
+          "servicedesk",
+          "72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e",
+          "confirmed_preferences"
+        ],
+        "key": "7402ecc8-7ddc-4130-a46c-e95024f7ccc9",
+        "value": {
+          "content": {
+            "source_uri": "user-confirmation://72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e/59603e2193fb27c28c1b9e546d0ef0c4f36f6b688965b57e1b0184a90427dfdd",
+            "source_kind": "user",
+            "entity_scope": "http://127.0.0.1:43350/projects/1/principals/1/issues/42",
+            "source_version": "59603e2193fb27c28c1b9e546d0ef0c4f36f6b688965b57e1b0184a90427dfdd",
+            "observed_at": "2026-11-06T06:52:13.952722Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": "I explicitly confirm this preference for this ticket: log summaries must be one line in the exact field order SIGNAL=<finding>; FOLLOWUP=<next action>. Preserve the supplied finding and action text."
+          }
+        },
+        "created_at": "2026-11-06T06:52:13",
+        "updated_at": "2026-11-06T06:52:13",
+        "score": null
+      }
+    ]
+  }
+]

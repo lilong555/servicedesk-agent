@@ -1,0 +1,13 @@
+[
+  {
+    "turn": 1,
+    "user": "Use the preferences explicitly confirmed for this ticket when relevant. Ask me for any required detail that is unavailable. Append exactly one note using the business tools, keep the ticket open and leave its other fields unchanged. Do not send messages outside this ticket.\n\nRecord the communication routing note for this update using my previously confirmed channel and route: Diagnostics are ready.",
+    "assistant": "I couldn\u2019t find a previously confirmed channel or route for this ticket. What channel and route should I include in the routing note? I haven\u2019t added a note or changed the ticket.",
+    "followup_kind": "preference_clarification"
+  },
+  {
+    "turn": 2,
+    "user": "My confirmed channel is portal and route code is VPN-R7. Use CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready. Record the note only.",
+    "assistant": "Recorded and verified exactly one note: `CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.` The ticket remains open, and its other fields were left unchanged."
+  }
+]

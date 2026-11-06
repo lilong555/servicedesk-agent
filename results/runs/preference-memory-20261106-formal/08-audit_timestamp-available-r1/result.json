@@ -1,0 +1,151 @@
+{
+  "scenario": "audit_timestamp",
+  "kind": "history_required",
+  "condition": "available",
+  "repeat": 1,
+  "started": true,
+  "success": true,
+  "business_grade": {
+    "success": true,
+    "checks": {
+      "one_http_write": true,
+      "note_matches": true,
+      "one_journal": true,
+      "no_collateral_change": true,
+      "verified_receipt": true
+    },
+    "actual_notes": [
+      "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed."
+    ]
+  },
+  "error_type": null,
+  "preference_clarifications": 0,
+  "user_turns": 1,
+  "memory_searches": 1,
+  "nonempty_recalls": 1,
+  "new_thread": true,
+  "first_request_preference_leaks": [],
+  "usage": {
+    "role": "agent",
+    "calls": 6,
+    "failed_calls": 0,
+    "unknown_usage_calls": 0,
+    "input_tokens": 24912,
+    "output_tokens": 292,
+    "cache_read_tokens": 21248,
+    "cost_usd": null
+  },
+  "captured_model_requests": 6,
+  "execution_seconds": 17.694254555999578,
+  "setup_seconds": 0.08746168299876445,
+  "total_seconds": 17.781716238998342,
+  "model_mode": "live",
+  "final_receipts": [
+    {
+      "operation_id": "cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f",
+      "action": "add_note",
+      "ticket_id": 42,
+      "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+      "after": {
+        "id": 42,
+        "project_id": 1,
+        "subject": "Synthetic service investigation",
+        "description": "Record the user's authorized investigation update.",
+        "status_id": 1,
+        "status_name": "New",
+        "is_closed": false,
+        "assigned_to_id": 7,
+        "assigned_to_name": "Original owner",
+        "allowed_statuses": [
+          {
+            "id": 1,
+            "name": "New",
+            "is_closed": false
+          },
+          {
+            "id": 2,
+            "name": "In Progress",
+            "is_closed": false
+          },
+          {
+            "id": 5,
+            "name": "Closed",
+            "is_closed": true
+          }
+        ],
+        "relations": [],
+        "journals": [
+          {
+            "id": 1,
+            "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+            "user": {
+              "id": 1
+            },
+            "details": []
+          }
+        ],
+        "evidence": {
+          "source_uri": "http://127.0.0.1:43350/issues/42",
+          "source_kind": "ticket",
+          "entity_scope": "http://127.0.0.1:43350/projects/1",
+          "source_version": "95faa4dee30ab82b769293c3fae5773d31072336ff2fc9daba573796b3095e65",
+          "observed_at": "2026-11-06T06:49:24.126170Z",
+          "valid_from": null,
+          "valid_to": null,
+          "status": "observed",
+          "content": {
+            "id": 42,
+            "project": {
+              "id": 1,
+              "name": "Service desk"
+            },
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status": {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            "assigned_to": {
+              "id": 7,
+              "name": "Original owner"
+            },
+            "updated_on": "2026-11-05T00:00:00Z",
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "relations": [],
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ]
+          }
+        }
+      },
+      "journal_id": 1,
+      "verified": true,
+      "replayed": false,
+      "observed_at": "2026-11-06T06:49:24.137221Z"
+    }
+  ]
+}

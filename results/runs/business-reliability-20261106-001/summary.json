@@ -1,0 +1,1128 @@
+{
+  "protocol_id": "business-reliability-20261106",
+  "service": "synthetic Redmine REST via httpx.MockTransport, SQLite committed journals",
+  "planned_main_slots": 200,
+  "observed_main_slots": 200,
+  "main": {
+    "at_least_once": {
+      "all": {
+        "logical_operations": 100,
+        "http_requests": 450,
+        "http_reads": 300,
+        "http_writes": 150,
+        "server_commits": 150,
+        "journal_count": 150,
+        "business_complete": 100,
+        "exactly_once": 50,
+        "duplicate_entries": 50,
+        "duplicate_operation": 50,
+        "fault_hits": 50,
+        "commit_then_loss_hits": 50,
+        "http_ack_count": 100,
+        "verified_receipt_count": 0,
+        "observer_unique_journal": 50,
+        "final_unknown": 0,
+        "unknown_at_any_phase": 50,
+        "unknown_logical_ticks": 50,
+        "unexpected_errors": 0
+      },
+      "normal": {
+        "logical_operations": 50,
+        "http_requests": 150,
+        "http_reads": 100,
+        "http_writes": 50,
+        "server_commits": 50,
+        "journal_count": 50,
+        "business_complete": 50,
+        "exactly_once": 50,
+        "duplicate_entries": 0,
+        "duplicate_operation": 0,
+        "fault_hits": 0,
+        "commit_then_loss_hits": 0,
+        "http_ack_count": 50,
+        "verified_receipt_count": 0,
+        "observer_unique_journal": 50,
+        "final_unknown": 0,
+        "unknown_at_any_phase": 0,
+        "unknown_logical_ticks": 0,
+        "unexpected_errors": 0
+      },
+      "fault": {
+        "logical_operations": 50,
+        "http_requests": 300,
+        "http_reads": 200,
+        "http_writes": 100,
+        "server_commits": 100,
+        "journal_count": 100,
+        "business_complete": 50,
+        "exactly_once": 0,
+        "duplicate_entries": 50,
+        "duplicate_operation": 50,
+        "fault_hits": 50,
+        "commit_then_loss_hits": 50,
+        "http_ack_count": 50,
+        "verified_receipt_count": 0,
+        "observer_unique_journal": 0,
+        "final_unknown": 0,
+        "unknown_at_any_phase": 50,
+        "unknown_logical_ticks": 50,
+        "unexpected_errors": 0
+      }
+    },
+    "reconcile": {
+      "all": {
+        "logical_operations": 100,
+        "http_requests": 600,
+        "http_reads": 500,
+        "http_writes": 100,
+        "server_commits": 100,
+        "journal_count": 100,
+        "business_complete": 100,
+        "exactly_once": 100,
+        "duplicate_entries": 0,
+        "duplicate_operation": 0,
+        "fault_hits": 50,
+        "commit_then_loss_hits": 50,
+        "http_ack_count": 0,
+        "verified_receipt_count": 100,
+        "observer_unique_journal": 100,
+        "final_unknown": 0,
+        "unknown_at_any_phase": 0,
+        "unknown_logical_ticks": 0,
+        "unexpected_errors": 0
+      },
+      "normal": {
+        "logical_operations": 50,
+        "http_requests": 300,
+        "http_reads": 250,
+        "http_writes": 50,
+        "server_commits": 50,
+        "journal_count": 50,
+        "business_complete": 50,
+        "exactly_once": 50,
+        "duplicate_entries": 0,
+        "duplicate_operation": 0,
+        "fault_hits": 0,
+        "commit_then_loss_hits": 0,
+        "http_ack_count": 0,
+        "verified_receipt_count": 50,
+        "observer_unique_journal": 50,
+        "final_unknown": 0,
+        "unknown_at_any_phase": 0,
+        "unknown_logical_ticks": 0,
+        "unexpected_errors": 0
+      },
+      "fault": {
+        "logical_operations": 50,
+        "http_requests": 300,
+        "http_reads": 250,
+        "http_writes": 50,
+        "server_commits": 50,
+        "journal_count": 50,
+        "business_complete": 50,
+        "exactly_once": 50,
+        "duplicate_entries": 0,
+        "duplicate_operation": 0,
+        "fault_hits": 50,
+        "commit_then_loss_hits": 50,
+        "http_ack_count": 0,
+        "verified_receipt_count": 50,
+        "observer_unique_journal": 50,
+        "final_unknown": 0,
+        "unknown_at_any_phase": 0,
+        "unknown_logical_ticks": 0,
+        "unexpected_errors": 0
+      }
+    }
+  },
+  "deterministic": [
+    {
+      "operation_id": "checkpoint_gap",
+      "strategy": "at_least_once",
+      "fault": "checkpoint_gap",
+      "http_requests": 6,
+      "http_reads": 4,
+      "http_writes": 2,
+      "server_commits": 2,
+      "journal_count": 2,
+      "intended_journals": 2,
+      "business_complete": true,
+      "exactly_once": false,
+      "duplicate_entries": 1,
+      "duplicate_operation": true,
+      "fault_hits": 1,
+      "fault_hit": true,
+      "commit_then_loss_hits": 0,
+      "http_acknowledgements": [
+        {
+          "kind": "http_ack",
+          "status_code": 204,
+          "send": 2
+        }
+      ],
+      "production_receipts": [],
+      "http_ack_count": 1,
+      "verified_receipt_count": 0,
+      "observer_unique_journal": false,
+      "final_unknown": false,
+      "unknown_at_any_phase": true,
+      "unknown_logical_ticks": 1,
+      "phase_count": 2,
+      "unexpected_errors": 0,
+      "phases": [
+        {
+          "phase": "initial",
+          "tick": 0,
+          "ok": false,
+          "error": "injected_process_exit",
+          "unknown": true,
+          "durable_state": {
+            "contract": {
+              "service_url": "https://business-reliability.invalid",
+              "project_id": 1,
+              "principal_id": 1,
+              "ticket_id": 42,
+              "session_id": "checkpoint_gap",
+              "variant": "A",
+              "allow_notes": true,
+              "allowed_status_ids": [
+                2
+              ],
+              "allow_close": false,
+              "user_constraints": [
+                "Append the authorized note. Preserve owner and status."
+              ]
+            },
+            "note": "Investigation completed for checkpoint_gap.",
+            "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+            "body": {
+              "issue": {
+                "notes": "Investigation completed for checkpoint_gap.\n\n[desk-action:43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816]"
+              }
+            },
+            "sends": 1,
+            "ack": null
+          }
+        },
+        {
+          "phase": "recover",
+          "tick": 1,
+          "pid": 90167,
+          "ok": true,
+          "result": {
+            "kind": "http_ack",
+            "status_code": 204,
+            "send": 2
+          },
+          "unknown": false,
+          "durable_state": {
+            "contract": {
+              "service_url": "https://business-reliability.invalid",
+              "project_id": 1,
+              "principal_id": 1,
+              "ticket_id": 42,
+              "session_id": "checkpoint_gap",
+              "variant": "A",
+              "allow_notes": true,
+              "allowed_status_ids": [
+                2
+              ],
+              "allow_close": false,
+              "user_constraints": [
+                "Append the authorized note. Preserve owner and status."
+              ]
+            },
+            "note": "Investigation completed for checkpoint_gap.",
+            "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+            "body": {
+              "issue": {
+                "notes": "Investigation completed for checkpoint_gap.\n\n[desk-action:43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816]"
+              }
+            },
+            "sends": 2,
+            "ack": {
+              "kind": "http_ack",
+              "status_code": 204,
+              "send": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "checkpoint_gap",
+      "strategy": "reconcile",
+      "fault": "checkpoint_gap",
+      "http_requests": 8,
+      "http_reads": 7,
+      "http_writes": 1,
+      "server_commits": 1,
+      "journal_count": 1,
+      "intended_journals": 1,
+      "business_complete": true,
+      "exactly_once": true,
+      "duplicate_entries": 0,
+      "duplicate_operation": false,
+      "fault_hits": 1,
+      "fault_hit": true,
+      "commit_then_loss_hits": 0,
+      "http_acknowledgements": [],
+      "production_receipts": [
+        {
+          "operation_id": "43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816",
+          "action": "add_note",
+          "note_hash": "55f054e7c3aa720d84d3f55573cdf9bb366b7917b6815edbc976000ff44fe48c",
+          "target_status": null,
+          "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+          "before_status": 1,
+          "journal_floor": 0,
+          "journal_id": 1
+        }
+      ],
+      "http_ack_count": 0,
+      "verified_receipt_count": 1,
+      "observer_unique_journal": true,
+      "final_unknown": false,
+      "unknown_at_any_phase": false,
+      "unknown_logical_ticks": 0,
+      "phase_count": 2,
+      "unexpected_errors": 0,
+      "phases": [
+        {
+          "phase": "initial",
+          "tick": 0,
+          "ok": false,
+          "error": "injected_process_exit",
+          "unknown": false,
+          "durable_state": {
+            "pending": null,
+            "receipts": {
+              "43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816": {
+                "operation_id": "43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816",
+                "action": "add_note",
+                "note_hash": "55f054e7c3aa720d84d3f55573cdf9bb366b7917b6815edbc976000ff44fe48c",
+                "target_status": null,
+                "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+                "before_status": 1,
+                "journal_floor": 0,
+                "journal_id": 1
+              }
+            }
+          }
+        },
+        {
+          "phase": "recover",
+          "tick": 1,
+          "pid": 90226,
+          "ok": true,
+          "result": {
+            "thread_id": "1816c5c37823f01f59e21001580996a5861893f684786e1321b99ce449b836c3",
+            "message": "Read-only reconciliation finished.",
+            "contract": {
+              "service_url": "https://business-reliability.invalid",
+              "project_id": 1,
+              "principal_id": 1,
+              "ticket_id": 42,
+              "session_id": "checkpoint_gap",
+              "variant": "A",
+              "allow_notes": true,
+              "allowed_status_ids": [
+                2
+              ],
+              "allow_close": false,
+              "user_constraints": [
+                "Append the authorized note. Preserve owner and status."
+              ]
+            },
+            "pending_actions": [],
+            "handoff_summary": "",
+            "verified_receipts": [
+              {
+                "operation_id": "43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816",
+                "action": "add_note",
+                "ticket_id": 42,
+                "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+                "after": {
+                  "id": 42,
+                  "project_id": 1,
+                  "subject": "Synthetic VPN investigation",
+                  "description": "Append the authorized investigation note and retain owner and status.",
+                  "status_id": 1,
+                  "status_name": "New",
+                  "is_closed": false,
+                  "assigned_to_id": 7,
+                  "assigned_to_name": "Synthetic owner",
+                  "allowed_statuses": [
+                    {
+                      "id": 1,
+                      "name": "New",
+                      "is_closed": false
+                    },
+                    {
+                      "id": 2,
+                      "name": "In Progress",
+                      "is_closed": false
+                    },
+                    {
+                      "id": 5,
+                      "name": "Closed",
+                      "is_closed": true
+                    }
+                  ],
+                  "relations": [],
+                  "journals": [
+                    {
+                      "id": 1,
+                      "notes": "Investigation completed for checkpoint_gap.\n\n[desk-action:43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816]",
+                      "user": {
+                        "id": 1
+                      },
+                      "details": []
+                    }
+                  ],
+                  "evidence": {
+                    "source_uri": "https://business-reliability.invalid/issues/42",
+                    "source_kind": "ticket",
+                    "entity_scope": "https://business-reliability.invalid/projects/1",
+                    "source_version": "27c113adb42709709f9d9db7044528f81b58f4449eef3c54ba17d4957417f3e9",
+                    "observed_at": "2026-11-06T06:29:39.367130Z",
+                    "valid_from": null,
+                    "valid_to": null,
+                    "status": "observed",
+                    "content": {
+                      "id": 42,
+                      "project": {
+                        "id": 1,
+                        "name": "Synthetic service desk"
+                      },
+                      "subject": "Synthetic VPN investigation",
+                      "description": "Append the authorized investigation note and retain owner and status.",
+                      "status": {
+                        "id": 1,
+                        "name": "New",
+                        "is_closed": false
+                      },
+                      "assigned_to": {
+                        "id": 7,
+                        "name": "Synthetic owner"
+                      },
+                      "updated_on": "2026-11-06T00:00:00Z",
+                      "journals": [
+                        {
+                          "id": 1,
+                          "notes": "Investigation completed for checkpoint_gap.\n\n[desk-action:43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816]",
+                          "user": {
+                            "id": 1
+                          },
+                          "details": []
+                        }
+                      ],
+                      "relations": [],
+                      "allowed_statuses": [
+                        {
+                          "id": 1,
+                          "name": "New",
+                          "is_closed": false
+                        },
+                        {
+                          "id": 2,
+                          "name": "In Progress",
+                          "is_closed": false
+                        },
+                        {
+                          "id": 5,
+                          "name": "Closed",
+                          "is_closed": true
+                        }
+                      ]
+                    }
+                  }
+                },
+                "journal_id": 1,
+                "verified": true,
+                "replayed": true,
+                "observed_at": "2026-11-06T06:29:39.367188Z"
+              }
+            ],
+            "usage": {
+              "role": "agent",
+              "calls": 2,
+              "failed_calls": 0,
+              "unknown_usage_calls": 2,
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cache_read_tokens": 0,
+              "cost_usd": null
+            },
+            "trace_path": "/home/li/code/servicedesk-agent/results/runs/business-reliability-20261106-001/deterministic/checkpoint_gap/reconcile/runtime/sessions/1816c5c37823f01f59e21001580996a5861893f684786e1321b99ce449b836c3/trace-90cdc953682a4efbb69e9b8b55ea7027.json"
+          },
+          "unknown": false,
+          "durable_state": {
+            "pending": null,
+            "receipts": {
+              "43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816": {
+                "operation_id": "43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816",
+                "action": "add_note",
+                "note_hash": "55f054e7c3aa720d84d3f55573cdf9bb366b7917b6815edbc976000ff44fe48c",
+                "target_status": null,
+                "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+                "before_status": 1,
+                "journal_floor": 0,
+                "journal_id": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "late_commit",
+      "strategy": "at_least_once",
+      "fault": "late_commit",
+      "http_requests": 6,
+      "http_reads": 4,
+      "http_writes": 2,
+      "server_commits": 2,
+      "journal_count": 2,
+      "intended_journals": 2,
+      "business_complete": true,
+      "exactly_once": false,
+      "duplicate_entries": 1,
+      "duplicate_operation": true,
+      "fault_hits": 1,
+      "fault_hit": true,
+      "commit_then_loss_hits": 0,
+      "http_acknowledgements": [
+        {
+          "kind": "http_ack",
+          "status_code": 204,
+          "send": 2
+        }
+      ],
+      "production_receipts": [],
+      "http_ack_count": 1,
+      "verified_receipt_count": 0,
+      "observer_unique_journal": false,
+      "final_unknown": false,
+      "unknown_at_any_phase": true,
+      "unknown_logical_ticks": 1,
+      "phase_count": 3,
+      "unexpected_errors": 0,
+      "phases": [
+        {
+          "phase": "initial",
+          "tick": 0,
+          "pid": 89987,
+          "ok": false,
+          "error": "ReadTimeout",
+          "message": "Synthetic deferred commit",
+          "unknown": true,
+          "durable_state": {
+            "contract": {
+              "service_url": "https://business-reliability.invalid",
+              "project_id": 1,
+              "principal_id": 1,
+              "ticket_id": 42,
+              "session_id": "late_commit",
+              "variant": "A",
+              "allow_notes": true,
+              "allowed_status_ids": [
+                2
+              ],
+              "allow_close": false,
+              "user_constraints": [
+                "Append the authorized note. Preserve owner and status."
+              ]
+            },
+            "note": "Investigation completed for late_commit.",
+            "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+            "body": {
+              "issue": {
+                "notes": "Investigation completed for late_commit.\n\n[desk-action:fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f]"
+              }
+            },
+            "sends": 1,
+            "ack": null
+          }
+        },
+        {
+          "phase": "recover",
+          "tick": 1,
+          "pid": 90008,
+          "ok": true,
+          "result": {
+            "kind": "http_ack",
+            "status_code": 204,
+            "send": 2
+          },
+          "unknown": false,
+          "durable_state": {
+            "contract": {
+              "service_url": "https://business-reliability.invalid",
+              "project_id": 1,
+              "principal_id": 1,
+              "ticket_id": 42,
+              "session_id": "late_commit",
+              "variant": "A",
+              "allow_notes": true,
+              "allowed_status_ids": [
+                2
+              ],
+              "allow_close": false,
+              "user_constraints": [
+                "Append the authorized note. Preserve owner and status."
+              ]
+            },
+            "note": "Investigation completed for late_commit.",
+            "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+            "body": {
+              "issue": {
+                "notes": "Investigation completed for late_commit.\n\n[desk-action:fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f]"
+              }
+            },
+            "sends": 2,
+            "ack": {
+              "kind": "http_ack",
+              "status_code": 204,
+              "send": 2
+            }
+          }
+        },
+        {
+          "phase": "observe",
+          "tick": 3,
+          "pid": 90029,
+          "ok": true,
+          "result": {
+            "kind": "http_ack",
+            "status_code": 204,
+            "send": 2
+          },
+          "unknown": false,
+          "durable_state": {
+            "contract": {
+              "service_url": "https://business-reliability.invalid",
+              "project_id": 1,
+              "principal_id": 1,
+              "ticket_id": 42,
+              "session_id": "late_commit",
+              "variant": "A",
+              "allow_notes": true,
+              "allowed_status_ids": [
+                2
+              ],
+              "allow_close": false,
+              "user_constraints": [
+                "Append the authorized note. Preserve owner and status."
+              ]
+            },
+            "note": "Investigation completed for late_commit.",
+            "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+            "body": {
+              "issue": {
+                "notes": "Investigation completed for late_commit.\n\n[desk-action:fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f]"
+              }
+            },
+            "sends": 2,
+            "ack": {
+              "kind": "http_ack",
+              "status_code": 204,
+              "send": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "operation_id": "late_commit",
+      "strategy": "reconcile",
+      "fault": "late_commit",
+      "http_requests": 11,
+      "http_reads": 10,
+      "http_writes": 1,
+      "server_commits": 1,
+      "journal_count": 1,
+      "intended_journals": 1,
+      "business_complete": true,
+      "exactly_once": true,
+      "duplicate_entries": 0,
+      "duplicate_operation": false,
+      "fault_hits": 1,
+      "fault_hit": true,
+      "commit_then_loss_hits": 0,
+      "http_acknowledgements": [],
+      "production_receipts": [
+        {
+          "operation_id": "fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f",
+          "action": "add_note",
+          "note_hash": "1f4b62977dcd6285b1107950e17aeeb5235b52b0da7427446736c1260f540354",
+          "target_status": null,
+          "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+          "before_status": 1,
+          "journal_floor": 0,
+          "journal_id": 1
+        }
+      ],
+      "http_ack_count": 0,
+      "verified_receipt_count": 1,
+      "observer_unique_journal": true,
+      "final_unknown": false,
+      "unknown_at_any_phase": true,
+      "unknown_logical_ticks": 3,
+      "phase_count": 3,
+      "unexpected_errors": 0,
+      "phases": [
+        {
+          "phase": "initial",
+          "tick": 0,
+          "pid": 90048,
+          "ok": true,
+          "result": {
+            "thread_id": "efe73fc3b3ff43f6867ceff8913fa09af1c66c76ba2f218c4d826c299ca2f625",
+            "message": "Investigation result retained.",
+            "contract": {
+              "service_url": "https://business-reliability.invalid",
+              "project_id": 1,
+              "principal_id": 1,
+              "ticket_id": 42,
+              "session_id": "late_commit",
+              "variant": "A",
+              "allow_notes": true,
+              "allowed_status_ids": [
+                2
+              ],
+              "allow_close": false,
+              "user_constraints": [
+                "Append the authorized note. Preserve owner and status."
+              ]
+            },
+            "pending_actions": [],
+            "handoff_summary": "",
+            "verified_receipts": [],
+            "usage": {
+              "role": "agent",
+              "calls": 2,
+              "failed_calls": 0,
+              "unknown_usage_calls": 2,
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cache_read_tokens": 0,
+              "cost_usd": null
+            },
+            "trace_path": "/home/li/code/servicedesk-agent/results/runs/business-reliability-20261106-001/deterministic/late_commit/reconcile/runtime/sessions/efe73fc3b3ff43f6867ceff8913fa09af1c66c76ba2f218c4d826c299ca2f625/trace-ac5b7ea7660b4a18aa849a295e82b93d.json"
+          },
+          "unknown": true,
+          "durable_state": {
+            "pending": {
+              "operation_id": "fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f",
+              "action": "add_note",
+              "note_hash": "1f4b62977dcd6285b1107950e17aeeb5235b52b0da7427446736c1260f540354",
+              "target_status": null,
+              "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+              "before_status": 1,
+              "journal_floor": 0,
+              "journal_id": null
+            },
+            "receipts": {}
+          }
+        },
+        {
+          "phase": "recover",
+          "tick": 1,
+          "pid": 90090,
+          "ok": true,
+          "result": {
+            "thread_id": "efe73fc3b3ff43f6867ceff8913fa09af1c66c76ba2f218c4d826c299ca2f625",
+            "message": "Read-only reconciliation finished.",
+            "contract": {
+              "service_url": "https://business-reliability.invalid",
+              "project_id": 1,
+              "principal_id": 1,
+              "ticket_id": 42,
+              "session_id": "late_commit",
+              "variant": "A",
+              "allow_notes": true,
+              "allowed_status_ids": [
+                2
+              ],
+              "allow_close": false,
+              "user_constraints": [
+                "Append the authorized note. Preserve owner and status."
+              ]
+            },
+            "pending_actions": [],
+            "handoff_summary": "",
+            "verified_receipts": [],
+            "usage": {
+              "role": "agent",
+              "calls": 2,
+              "failed_calls": 0,
+              "unknown_usage_calls": 2,
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cache_read_tokens": 0,
+              "cost_usd": null
+            },
+            "trace_path": "/home/li/code/servicedesk-agent/results/runs/business-reliability-20261106-001/deterministic/late_commit/reconcile/runtime/sessions/efe73fc3b3ff43f6867ceff8913fa09af1c66c76ba2f218c4d826c299ca2f625/trace-9335d0c0c11a4cccbc55e05cb9cc46f5.json"
+          },
+          "unknown": true,
+          "durable_state": {
+            "pending": {
+              "operation_id": "fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f",
+              "action": "add_note",
+              "note_hash": "1f4b62977dcd6285b1107950e17aeeb5235b52b0da7427446736c1260f540354",
+              "target_status": null,
+              "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+              "before_status": 1,
+              "journal_floor": 0,
+              "journal_id": null
+            },
+            "receipts": {}
+          }
+        },
+        {
+          "phase": "observe",
+          "tick": 3,
+          "pid": 90117,
+          "ok": true,
+          "result": {
+            "thread_id": "efe73fc3b3ff43f6867ceff8913fa09af1c66c76ba2f218c4d826c299ca2f625",
+            "message": "Read-only reconciliation finished.",
+            "contract": {
+              "service_url": "https://business-reliability.invalid",
+              "project_id": 1,
+              "principal_id": 1,
+              "ticket_id": 42,
+              "session_id": "late_commit",
+              "variant": "A",
+              "allow_notes": true,
+              "allowed_status_ids": [
+                2
+              ],
+              "allow_close": false,
+              "user_constraints": [
+                "Append the authorized note. Preserve owner and status."
+              ]
+            },
+            "pending_actions": [],
+            "handoff_summary": "",
+            "verified_receipts": [
+              {
+                "operation_id": "fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f",
+                "action": "add_note",
+                "ticket_id": 42,
+                "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+                "after": {
+                  "id": 42,
+                  "project_id": 1,
+                  "subject": "Synthetic VPN investigation",
+                  "description": "Append the authorized investigation note and retain owner and status.",
+                  "status_id": 1,
+                  "status_name": "New",
+                  "is_closed": false,
+                  "assigned_to_id": 7,
+                  "assigned_to_name": "Synthetic owner",
+                  "allowed_statuses": [
+                    {
+                      "id": 1,
+                      "name": "New",
+                      "is_closed": false
+                    },
+                    {
+                      "id": 2,
+                      "name": "In Progress",
+                      "is_closed": false
+                    },
+                    {
+                      "id": 5,
+                      "name": "Closed",
+                      "is_closed": true
+                    }
+                  ],
+                  "relations": [],
+                  "journals": [
+                    {
+                      "id": 1,
+                      "notes": "Investigation completed for late_commit.\n\n[desk-action:fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f]",
+                      "user": {
+                        "id": 1
+                      },
+                      "details": []
+                    }
+                  ],
+                  "evidence": {
+                    "source_uri": "https://business-reliability.invalid/issues/42",
+                    "source_kind": "ticket",
+                    "entity_scope": "https://business-reliability.invalid/projects/1",
+                    "source_version": "331954771a59f5a09ad7cfba4139e4b401635fc4b9d6119d223c64c46dba8d41",
+                    "observed_at": "2026-11-06T06:29:34.780066Z",
+                    "valid_from": null,
+                    "valid_to": null,
+                    "status": "observed",
+                    "content": {
+                      "id": 42,
+                      "project": {
+                        "id": 1,
+                        "name": "Synthetic service desk"
+                      },
+                      "subject": "Synthetic VPN investigation",
+                      "description": "Append the authorized investigation note and retain owner and status.",
+                      "status": {
+                        "id": 1,
+                        "name": "New",
+                        "is_closed": false
+                      },
+                      "assigned_to": {
+                        "id": 7,
+                        "name": "Synthetic owner"
+                      },
+                      "updated_on": "2026-11-06T00:00:00Z",
+                      "journals": [
+                        {
+                          "id": 1,
+                          "notes": "Investigation completed for late_commit.\n\n[desk-action:fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f]",
+                          "user": {
+                            "id": 1
+                          },
+                          "details": []
+                        }
+                      ],
+                      "relations": [],
+                      "allowed_statuses": [
+                        {
+                          "id": 1,
+                          "name": "New",
+                          "is_closed": false
+                        },
+                        {
+                          "id": 2,
+                          "name": "In Progress",
+                          "is_closed": false
+                        },
+                        {
+                          "id": 5,
+                          "name": "Closed",
+                          "is_closed": true
+                        }
+                      ]
+                    }
+                  }
+                },
+                "journal_id": 1,
+                "verified": true,
+                "replayed": true,
+                "observed_at": "2026-11-06T06:29:34.794702Z"
+              }
+            ],
+            "usage": {
+              "role": "agent",
+              "calls": 2,
+              "failed_calls": 0,
+              "unknown_usage_calls": 2,
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "cache_read_tokens": 0,
+              "cost_usd": null
+            },
+            "trace_path": "/home/li/code/servicedesk-agent/results/runs/business-reliability-20261106-001/deterministic/late_commit/reconcile/runtime/sessions/efe73fc3b3ff43f6867ceff8913fa09af1c66c76ba2f218c4d826c299ca2f625/trace-5ac08b0977b3412a9df311639b25ed9d.json"
+          },
+          "unknown": false,
+          "durable_state": {
+            "pending": null,
+            "receipts": {
+              "fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f": {
+                "operation_id": "fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f",
+                "action": "add_note",
+                "note_hash": "1f4b62977dcd6285b1107950e17aeeb5235b52b0da7427446736c1260f540354",
+                "target_status": null,
+                "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+                "before_status": 1,
+                "journal_floor": 0,
+                "journal_id": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "revocation": {
+    "independent_schedules": 1,
+    "checks": {
+      "queued_two_tools": true,
+      "locked_revoke_busy": true,
+      "locked_revoke_zero_http": true,
+      "revoke_success": true,
+      "stale_contract_rejected": true,
+      "stale_model_unused": true,
+      "queued_writes_cancelled": true,
+      "fresh_probes_denied": true,
+      "readonly_reconcile_succeeded": true,
+      "zero_post_revoke_writes": true
+    },
+    "passed": true,
+    "revoke_boundary_seq": 13,
+    "post_revoke_http_requests": 4,
+    "post_revoke_http_writes": 0,
+    "all_http_writes": 0,
+    "child_processes": 4,
+    "phases": {
+      "queue": {
+        "phase": "queue",
+        "tick": 0,
+        "pid": 90253,
+        "ok": true,
+        "queued_nodes": [
+          "tools",
+          "tools"
+        ]
+      },
+      "locked_revoke": {
+        "phase": "locked_revoke",
+        "tick": 1,
+        "pid": 90288,
+        "ok": false,
+        "error": "session_busy",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/li/code/servicedesk-agent/src/servicedesk_agent/session.py\", line 37, in session_storage\n    fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)\nBlockingIOError: [Errno 11] Resource temporarily unavailable\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/li/code/servicedesk-agent/scripts/benchmark_business_reliability.py\", line 519, in revocation_phase\n    outcome[\"result\"] = revoke_session_writes(runtime, client, identity)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/li/code/servicedesk-agent/src/servicedesk_agent/session.py\", line 107, in revoke_session_writes\n    with session_storage(root, identity.thread_id, atomic=True) as (saver, _):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/li/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/contextlib.py\", line 137, in __enter__\n    return next(self.gen)\n           ^^^^^^^^^^^^^^\n  File \"/home/li/code/servicedesk-agent/src/servicedesk_agent/session.py\", line 39, in session_storage\n    raise BusinessError(\"session_busy\", \"Another process owns this session.\") from exc\nservicedesk_agent.domain.BusinessError: Another process owns this session.\n"
+      },
+      "revoke": {
+        "phase": "revoke",
+        "tick": 2,
+        "pid": 90308,
+        "ok": true,
+        "result": {
+          "thread_id": "583201d05ff75b3ec0c09cbfb9417d514a49e6df501691ef7bb7bb119bd681a1",
+          "contract": {
+            "service_url": "https://business-reliability.invalid",
+            "project_id": 1,
+            "principal_id": 1,
+            "ticket_id": 42,
+            "session_id": "queued-revocation",
+            "variant": "A",
+            "allow_notes": false,
+            "allowed_status_ids": [],
+            "allow_close": false,
+            "user_constraints": [
+              "Append the authorized note. Preserve owner and status."
+            ]
+          },
+          "pending_actions": [
+            "Read investigation logs."
+          ],
+          "handoff_summary": "Retain status and owner.",
+          "verified_receipts": []
+        }
+      },
+      "resume": {
+        "phase": "resume",
+        "tick": 3,
+        "pid": 90329,
+        "ok": true,
+        "stale_contract_error": "contract_changed",
+        "stale_model_requests": 0,
+        "cancelled": {
+          "queued-note": {
+            "ok": false,
+            "error": "session_writes_revoked",
+            "retry_cancelled": true,
+            "execution_outcome": "unknown",
+            "message": "Session write permissions have been revoked. This pending tool call's execution or retry has been cancelled. No result was recorded; earlier execution may have produced side effects. Reconcile possible writes through read-only evidence and verified receipts; keep unconfirmed outcomes unresolved. Plan subsequent actions using the read-only contract."
+          },
+          "queued-status": {
+            "ok": false,
+            "error": "session_writes_revoked",
+            "retry_cancelled": true,
+            "execution_outcome": "unknown",
+            "message": "Session write permissions have been revoked. This pending tool call's execution or retry has been cancelled. No result was recorded; earlier execution may have produced side effects. Reconcile possible writes through read-only evidence and verified receipts; keep unconfirmed outcomes unresolved. Plan subsequent actions using the read-only contract."
+          }
+        },
+        "result": {
+          "thread_id": "583201d05ff75b3ec0c09cbfb9417d514a49e6df501691ef7bb7bb119bd681a1",
+          "message": "Read-only recovery complete.",
+          "contract": {
+            "service_url": "https://business-reliability.invalid",
+            "project_id": 1,
+            "principal_id": 1,
+            "ticket_id": 42,
+            "session_id": "queued-revocation",
+            "variant": "A",
+            "allow_notes": false,
+            "allowed_status_ids": [],
+            "allow_close": false,
+            "user_constraints": [
+              "Append the authorized note. Preserve owner and status."
+            ]
+          },
+          "pending_actions": [
+            "Read investigation logs."
+          ],
+          "handoff_summary": "Retain status and owner.",
+          "verified_receipts": [],
+          "usage": {
+            "role": "agent",
+            "calls": 4,
+            "failed_calls": 0,
+            "unknown_usage_calls": 4,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cache_read_tokens": 0,
+            "cost_usd": null
+          },
+          "trace_path": "/home/li/code/servicedesk-agent/results/runs/business-reliability-20261106-001/revocation/runtime/sessions/583201d05ff75b3ec0c09cbfb9417d514a49e6df501691ef7bb7bb119bd681a1/trace-967cd505b13d4076898c4e2f9849b053.json"
+        },
+        "tool_results": {
+          "queued-note": {
+            "ok": false,
+            "error": "session_writes_revoked",
+            "retry_cancelled": true,
+            "execution_outcome": "unknown",
+            "message": "Session write permissions have been revoked. This pending tool call's execution or retry has been cancelled. No result was recorded; earlier execution may have produced side effects. Reconcile possible writes through read-only evidence and verified receipts; keep unconfirmed outcomes unresolved. Plan subsequent actions using the read-only contract."
+          },
+          "queued-status": {
+            "ok": false,
+            "error": "session_writes_revoked",
+            "retry_cancelled": true,
+            "execution_outcome": "unknown",
+            "message": "Session write permissions have been revoked. This pending tool call's execution or retry has been cancelled. No result was recorded; earlier execution may have produced side effects. Reconcile possible writes through read-only evidence and verified receipts; keep unconfirmed outcomes unresolved. Plan subsequent actions using the read-only contract."
+          },
+          "denied-note": {
+            "ok": false,
+            "error": "write_not_authorized",
+            "message": "This task is authorized for read access."
+          },
+          "denied-status": {
+            "ok": false,
+            "error": "write_not_authorized",
+            "message": "The status is outside this task's grant."
+          },
+          "readonly-reconcile": {
+            "ok": true,
+            "receipts": []
+          }
+        }
+      }
+    }
+  },
+  "checks": {
+    "frozen_protocol_hash": true,
+    "all_main_slots": true,
+    "all_main_phases": true,
+    "main_fault_hits": true,
+    "all_main_business_complete": true,
+    "production_exactly_once": true,
+    "main_no_unknown": true,
+    "raw_counts_consistent": true,
+    "four_deterministic_cases": true,
+    "all_deterministic_phases": true,
+    "deterministic_business_complete": true,
+    "deterministic_production_exactly_once": true,
+    "no_unexpected_phase_errors": true,
+    "revocation_passed": true,
+    "deterministic_new_processes": true,
+    "same_loss_sequence": true,
+    "child_exits": true
+  },
+  "passed": true,
+  "external_model_requests": 0,
+  "real_business_writes": 0
+}

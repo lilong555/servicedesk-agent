@@ -1,0 +1,47 @@
+{
+  "id": 42,
+  "project": {
+    "id": 1,
+    "name": "Service desk"
+  },
+  "subject": "Synthetic service investigation",
+  "description": "Record the user's authorized investigation update.",
+  "status": {
+    "id": 1,
+    "name": "New",
+    "is_closed": false
+  },
+  "assigned_to": {
+    "id": 7,
+    "name": "Original owner"
+  },
+  "updated_on": "2026-11-05T00:00:00Z",
+  "journals": [
+    {
+      "id": 1,
+      "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+      "user": {
+        "id": 1
+      },
+      "details": []
+    }
+  ],
+  "relations": [],
+  "allowed_statuses": [
+    {
+      "id": 1,
+      "name": "New",
+      "is_closed": false
+    },
+    {
+      "id": 2,
+      "name": "In Progress",
+      "is_closed": false
+    },
+    {
+      "id": 5,
+      "name": "Closed",
+      "is_closed": true
+    }
+  ]
+}

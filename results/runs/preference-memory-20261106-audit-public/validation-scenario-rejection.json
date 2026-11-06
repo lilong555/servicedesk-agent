@@ -1,0 +1,20 @@
+{
+  "source": "results/runs/preference-memory-20261106-audit-final/test-tmp/test_scenario_hash_mismatch_is0",
+  "analyzer": {
+    "path": "benchmarks/preference-memory/analyze.py",
+    "sha256": "b3a91bdf2e41d1542b1675f98dbd9d1e03e1d99bd9c0527bb8e150c23d2b739e"
+  },
+  "source_binding": {
+    "source_mode": "verified_frozen_archive",
+    "freeze_record": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-audit-final/test-tmp/test_scenario_hash_mismatch_is0/freeze.json",
+    "source_archive_sha256": "27bc69f90b1048895e9557f61d219f5c2664d92310b4ad1ead8eae23ea6a73ed",
+    "verified_source_files": 28,
+    "workspace_import_files": 24,
+    "frozen_scenario_sha256_matches": false
+  },
+  "checks": {
+    "issues": [
+      "frozen-scenario-sha256-mismatch"
+    ]
+  }
+}

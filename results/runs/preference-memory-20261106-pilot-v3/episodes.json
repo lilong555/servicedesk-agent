@@ -1,0 +1,610 @@
+[
+  {
+    "scenario": "note_reference",
+    "kind": "history_required",
+    "condition": "available",
+    "repeat": 1,
+    "started": true,
+    "success": true,
+    "business_grade": {
+      "success": true,
+      "checks": {
+        "one_http_write": true,
+        "note_matches": true,
+        "one_journal": true,
+        "no_collateral_change": true,
+        "verified_receipt": true
+      },
+      "actual_notes": [
+        "[OPS-27] | Gateway log sample received."
+      ]
+    },
+    "error_type": null,
+    "preference_clarifications": 0,
+    "user_turns": 1,
+    "memory_searches": 1,
+    "nonempty_recalls": 1,
+    "new_thread": true,
+    "first_request_preference_leaks": [],
+    "usage": {
+      "role": "agent",
+      "calls": 6,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 25176,
+      "output_tokens": 267,
+      "cache_read_tokens": 14720,
+      "cost_usd": null
+    },
+    "captured_model_requests": 6,
+    "execution_seconds": 25.123931690999598,
+    "setup_seconds": 0.19149661800111062,
+    "total_seconds": 25.31542830900071,
+    "model_mode": "live",
+    "final_receipts": [
+      {
+        "operation_id": "82407f28c3d5cd24454bba98189dcb9566bd7f8964f1089395ffb40234bb2ae4",
+        "action": "add_note",
+        "ticket_id": 42,
+        "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+        "after": {
+          "id": 42,
+          "project_id": 1,
+          "subject": "Synthetic service investigation",
+          "description": "Record the user's authorized investigation update.",
+          "status_id": 1,
+          "status_name": "New",
+          "is_closed": false,
+          "assigned_to_id": 7,
+          "assigned_to_name": "Original owner",
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ],
+          "relations": [],
+          "journals": [
+            {
+              "id": 1,
+              "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:82407f28c3d5cd24454bba98189dcb9566bd7f8964f1089395ffb40234bb2ae4]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "evidence": {
+            "source_uri": "http://127.0.0.1:44538/issues/42",
+            "source_kind": "ticket",
+            "entity_scope": "http://127.0.0.1:44538/projects/1",
+            "source_version": "b1a5bc4b58d60e702c3bb908ecf3ae3be68b0cc920f55bfc85394d19dc07e529",
+            "observed_at": "2026-11-06T06:42:41.464283Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": {
+              "id": 42,
+              "project": {
+                "id": 1,
+                "name": "Service desk"
+              },
+              "subject": "Synthetic service investigation",
+              "description": "Record the user's authorized investigation update.",
+              "status": {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              "assigned_to": {
+                "id": 7,
+                "name": "Original owner"
+              },
+              "updated_on": "2026-11-05T00:00:00Z",
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:82407f28c3d5cd24454bba98189dcb9566bd7f8964f1089395ffb40234bb2ae4]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "relations": [],
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ]
+            }
+          }
+        },
+        "journal_id": 1,
+        "verified": true,
+        "replayed": false,
+        "observed_at": "2026-11-06T06:42:41.476746Z"
+      }
+    ],
+    "directory": "01-note_reference-available-r1"
+  },
+  {
+    "scenario": "note_reference",
+    "kind": "history_required",
+    "condition": "empty",
+    "repeat": 1,
+    "started": true,
+    "success": true,
+    "business_grade": {
+      "success": true,
+      "checks": {
+        "one_http_write": true,
+        "note_matches": true,
+        "one_journal": true,
+        "no_collateral_change": true,
+        "verified_receipt": true
+      },
+      "actual_notes": [
+        "[OPS-27] | Gateway log sample received."
+      ]
+    },
+    "error_type": null,
+    "preference_clarifications": 1,
+    "user_turns": 2,
+    "memory_searches": 1,
+    "nonempty_recalls": 0,
+    "new_thread": true,
+    "first_request_preference_leaks": [],
+    "usage": {
+      "role": "agent",
+      "calls": 12,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 53154,
+      "output_tokens": 501,
+      "cache_read_tokens": 34944,
+      "cost_usd": null
+    },
+    "captured_model_requests": 12,
+    "execution_seconds": 44.851285427999755,
+    "setup_seconds": 0.15632298799937416,
+    "total_seconds": 45.00760841599913,
+    "model_mode": "live",
+    "final_receipts": [
+      {
+        "operation_id": "82407f28c3d5cd24454bba98189dcb9566bd7f8964f1089395ffb40234bb2ae4",
+        "action": "add_note",
+        "ticket_id": 42,
+        "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+        "after": {
+          "id": 42,
+          "project_id": 1,
+          "subject": "Synthetic service investigation",
+          "description": "Record the user's authorized investigation update.",
+          "status_id": 1,
+          "status_name": "New",
+          "is_closed": false,
+          "assigned_to_id": 7,
+          "assigned_to_name": "Original owner",
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ],
+          "relations": [],
+          "journals": [
+            {
+              "id": 1,
+              "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:82407f28c3d5cd24454bba98189dcb9566bd7f8964f1089395ffb40234bb2ae4]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "evidence": {
+            "source_uri": "http://127.0.0.1:44538/issues/42",
+            "source_kind": "ticket",
+            "entity_scope": "http://127.0.0.1:44538/projects/1",
+            "source_version": "b1a5bc4b58d60e702c3bb908ecf3ae3be68b0cc920f55bfc85394d19dc07e529",
+            "observed_at": "2026-11-06T06:43:26.882405Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": {
+              "id": 42,
+              "project": {
+                "id": 1,
+                "name": "Service desk"
+              },
+              "subject": "Synthetic service investigation",
+              "description": "Record the user's authorized investigation update.",
+              "status": {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              "assigned_to": {
+                "id": 7,
+                "name": "Original owner"
+              },
+              "updated_on": "2026-11-05T00:00:00Z",
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:82407f28c3d5cd24454bba98189dcb9566bd7f8964f1089395ffb40234bb2ae4]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "relations": [],
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ]
+            }
+          }
+        },
+        "journal_id": 1,
+        "verified": true,
+        "replayed": false,
+        "observed_at": "2026-11-06T06:43:26.893093Z"
+      }
+    ],
+    "directory": "02-note_reference-empty-r1"
+  },
+  {
+    "scenario": "override_reference",
+    "kind": "current_override",
+    "condition": "empty",
+    "repeat": 1,
+    "started": true,
+    "success": true,
+    "business_grade": {
+      "success": true,
+      "checks": {
+        "one_http_write": true,
+        "note_matches": true,
+        "one_journal": true,
+        "no_collateral_change": true,
+        "verified_receipt": true
+      },
+      "actual_notes": [
+        "[HOTFIX-9] | Rollback approved."
+      ]
+    },
+    "error_type": null,
+    "preference_clarifications": 0,
+    "user_turns": 1,
+    "memory_searches": 1,
+    "nonempty_recalls": 0,
+    "new_thread": true,
+    "first_request_preference_leaks": [],
+    "usage": {
+      "role": "agent",
+      "calls": 6,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 24351,
+      "output_tokens": 269,
+      "cache_read_tokens": 14464,
+      "cost_usd": null
+    },
+    "captured_model_requests": 6,
+    "execution_seconds": 17.484373463999873,
+    "setup_seconds": 0.14901814500080945,
+    "total_seconds": 17.633391609000682,
+    "model_mode": "live",
+    "final_receipts": [
+      {
+        "operation_id": "279e6746eb2e6d8a04cb03480bed1dc6e136b6c321c93bdc1d7a79eac429fbad",
+        "action": "add_note",
+        "ticket_id": 42,
+        "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+        "after": {
+          "id": 42,
+          "project_id": 1,
+          "subject": "Synthetic service investigation",
+          "description": "Record the user's authorized investigation update.",
+          "status_id": 1,
+          "status_name": "New",
+          "is_closed": false,
+          "assigned_to_id": 7,
+          "assigned_to_name": "Original owner",
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ],
+          "relations": [],
+          "journals": [
+            {
+              "id": 1,
+              "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:279e6746eb2e6d8a04cb03480bed1dc6e136b6c321c93bdc1d7a79eac429fbad]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "evidence": {
+            "source_uri": "http://127.0.0.1:44538/issues/42",
+            "source_kind": "ticket",
+            "entity_scope": "http://127.0.0.1:44538/projects/1",
+            "source_version": "9923230f17597251772f1e1028a9b345b4bff274679aea7ebc3a1f9d80f828bd",
+            "observed_at": "2026-11-06T06:43:46.574973Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": {
+              "id": 42,
+              "project": {
+                "id": 1,
+                "name": "Service desk"
+              },
+              "subject": "Synthetic service investigation",
+              "description": "Record the user's authorized investigation update.",
+              "status": {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              "assigned_to": {
+                "id": 7,
+                "name": "Original owner"
+              },
+              "updated_on": "2026-11-05T00:00:00Z",
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:279e6746eb2e6d8a04cb03480bed1dc6e136b6c321c93bdc1d7a79eac429fbad]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "relations": [],
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ]
+            }
+          }
+        },
+        "journal_id": 1,
+        "verified": true,
+        "replayed": false,
+        "observed_at": "2026-11-06T06:43:46.583006Z"
+      }
+    ],
+    "directory": "03-override_reference-empty-r1"
+  },
+  {
+    "scenario": "override_reference",
+    "kind": "current_override",
+    "condition": "available",
+    "repeat": 1,
+    "started": true,
+    "success": true,
+    "business_grade": {
+      "success": true,
+      "checks": {
+        "one_http_write": true,
+        "note_matches": true,
+        "one_journal": true,
+        "no_collateral_change": true,
+        "verified_receipt": true
+      },
+      "actual_notes": [
+        "[HOTFIX-9] | Rollback approved."
+      ]
+    },
+    "error_type": null,
+    "preference_clarifications": 0,
+    "user_turns": 1,
+    "memory_searches": 1,
+    "nonempty_recalls": 1,
+    "new_thread": true,
+    "first_request_preference_leaks": [],
+    "usage": {
+      "role": "agent",
+      "calls": 6,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 25386,
+      "output_tokens": 273,
+      "cache_read_tokens": 18816,
+      "cost_usd": null
+    },
+    "captured_model_requests": 6,
+    "execution_seconds": 19.092048909998994,
+    "setup_seconds": 0.15661475000160863,
+    "total_seconds": 19.248663660000602,
+    "model_mode": "live",
+    "final_receipts": [
+      {
+        "operation_id": "279e6746eb2e6d8a04cb03480bed1dc6e136b6c321c93bdc1d7a79eac429fbad",
+        "action": "add_note",
+        "ticket_id": 42,
+        "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+        "after": {
+          "id": 42,
+          "project_id": 1,
+          "subject": "Synthetic service investigation",
+          "description": "Record the user's authorized investigation update.",
+          "status_id": 1,
+          "status_name": "New",
+          "is_closed": false,
+          "assigned_to_id": 7,
+          "assigned_to_name": "Original owner",
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ],
+          "relations": [],
+          "journals": [
+            {
+              "id": 1,
+              "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:279e6746eb2e6d8a04cb03480bed1dc6e136b6c321c93bdc1d7a79eac429fbad]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "evidence": {
+            "source_uri": "http://127.0.0.1:44538/issues/42",
+            "source_kind": "ticket",
+            "entity_scope": "http://127.0.0.1:44538/projects/1",
+            "source_version": "9923230f17597251772f1e1028a9b345b4bff274679aea7ebc3a1f9d80f828bd",
+            "observed_at": "2026-11-06T06:44:06.145708Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": {
+              "id": 42,
+              "project": {
+                "id": 1,
+                "name": "Service desk"
+              },
+              "subject": "Synthetic service investigation",
+              "description": "Record the user's authorized investigation update.",
+              "status": {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              "assigned_to": {
+                "id": 7,
+                "name": "Original owner"
+              },
+              "updated_on": "2026-11-05T00:00:00Z",
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:279e6746eb2e6d8a04cb03480bed1dc6e136b6c321c93bdc1d7a79eac429fbad]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "relations": [],
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ]
+            }
+          }
+        },
+        "journal_id": 1,
+        "verified": true,
+        "replayed": false,
+        "observed_at": "2026-11-06T06:44:06.158499Z"
+      }
+    ],
+    "directory": "04-override_reference-available-r1"
+  }
+]

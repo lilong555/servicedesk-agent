@@ -1,0 +1,115 @@
+{
+  "operation_id": "note-035",
+  "strategy": "at_least_once",
+  "fault": "response_loss",
+  "http_requests": 6,
+  "http_reads": 4,
+  "http_writes": 2,
+  "server_commits": 2,
+  "journal_count": 2,
+  "intended_journals": 2,
+  "business_complete": true,
+  "exactly_once": false,
+  "duplicate_entries": 1,
+  "duplicate_operation": true,
+  "fault_hits": 1,
+  "fault_hit": true,
+  "commit_then_loss_hits": 1,
+  "http_acknowledgements": [
+    {
+      "kind": "http_ack",
+      "status_code": 204,
+      "send": 2
+    }
+  ],
+  "production_receipts": [],
+  "http_ack_count": 1,
+  "verified_receipt_count": 0,
+  "observer_unique_journal": false,
+  "final_unknown": false,
+  "unknown_at_any_phase": true,
+  "unknown_logical_ticks": 1,
+  "phase_count": 2,
+  "unexpected_errors": 0,
+  "phases": [
+    {
+      "phase": "initial",
+      "tick": 0,
+      "pid": 88281,
+      "ok": false,
+      "error": "ReadTimeout",
+      "message": "Synthetic response lost after SQLite commit",
+      "unknown": true,
+      "durable_state": {
+        "contract": {
+          "service_url": "https://business-reliability.invalid",
+          "project_id": 1,
+          "principal_id": 1,
+          "ticket_id": 42,
+          "session_id": "note-035",
+          "variant": "A",
+          "allow_notes": true,
+          "allowed_status_ids": [
+            2
+          ],
+          "allow_close": false,
+          "user_constraints": [
+            "Append the authorized note. Preserve owner and status."
+          ]
+        },
+        "note": "Investigation completed for note-035.",
+        "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+        "body": {
+          "issue": {
+            "notes": "Investigation completed for note-035.\n\n[desk-action:231570cba49ff79dd47822da1b8d0f5b2d41a542be3efc6d97539a55e12293d8]"
+          }
+        },
+        "sends": 1,
+        "ack": null
+      }
+    },
+    {
+      "phase": "recover",
+      "tick": 1,
+      "pid": 88281,
+      "ok": true,
+      "result": {
+        "kind": "http_ack",
+        "status_code": 204,
+        "send": 2
+      },
+      "unknown": false,
+      "durable_state": {
+        "contract": {
+          "service_url": "https://business-reliability.invalid",
+          "project_id": 1,
+          "principal_id": 1,
+          "ticket_id": 42,
+          "session_id": "note-035",
+          "variant": "A",
+          "allow_notes": true,
+          "allowed_status_ids": [
+            2
+          ],
+          "allow_close": false,
+          "user_constraints": [
+            "Append the authorized note. Preserve owner and status."
+          ]
+        },
+        "note": "Investigation completed for note-035.",
+        "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+        "body": {
+          "issue": {
+            "notes": "Investigation completed for note-035.\n\n[desk-action:231570cba49ff79dd47822da1b8d0f5b2d41a542be3efc6d97539a55e12293d8]"
+          }
+        },
+        "sends": 2,
+        "ack": {
+          "kind": "http_ack",
+          "status_code": 204,
+          "send": 2
+        }
+      }
+    }
+  ]
+}

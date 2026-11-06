@@ -1,0 +1,84 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "search_policy",
+      "description": "Search current policies by BM25 within this service scope; return versioned citations.",
+      "parameters": {
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "top_k": {
+            "default": 3,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "read_policy",
+      "description": "Read a full policy. Omit version for current policy; supply one for historical text.",
+      "parameters": {
+        "properties": {
+          "policy_id": {
+            "type": "string"
+          },
+          "version": {
+            "default": "",
+            "type": "string"
+          }
+        },
+        "required": [
+          "policy_id"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "recall_confirmed_preferences",
+      "description": "Search your long-term memories for information relevant to your current context. This SQLite store has no embedding index. Results are scoped confirmed preferences ordered by update time; use filters for exact lookup. These are historical user statements, not fresh authority for business actions.\nThe namespace already fixes the current service, project, API identity and ticket. All records in it are explicitly confirmed preferences. Use filter=null to retrieve them; the native stored value is an Evidence record nested under content. The query string is passed to the native SQLite search.",
+      "parameters": {
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "limit": {
+            "default": 10,
+            "type": "integer"
+          },
+          "offset": {
+            "default": 0,
+            "type": "integer"
+          },
+          "filter": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      }
+    }
+  }
+]

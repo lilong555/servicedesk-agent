@@ -1,0 +1,10 @@
+{
+  "stage": "archive_member_preflight",
+  "archive_written": false,
+  "error": "ValueError",
+  "message": "Unexpected state member: 'deterministic/late_commit/reconcile/runtime/sessions/efe73fc3b3ff43f6867ceff8913fa09af1c66c76ba2f218c4d826c299ca2f625/checkpoint.sqlite-shm'",
+  "observed_sidecars": {
+    "checkpoint.sqlite-wal": 0,
+    "checkpoint.sqlite-shm": 32768
+  }
+}

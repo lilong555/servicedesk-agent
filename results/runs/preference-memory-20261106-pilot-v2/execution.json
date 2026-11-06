@@ -1,0 +1,26 @@
+{
+  "started_at": "2026-11-06T06:38:02.596172+00:00",
+  "schedule": [
+    {
+      "scenario": "note_reference",
+      "repeat": 1,
+      "condition": "available"
+    },
+    {
+      "scenario": "note_reference",
+      "repeat": 1,
+      "condition": "empty"
+    },
+    {
+      "scenario": "override_reference",
+      "repeat": 1,
+      "condition": "empty"
+    },
+    {
+      "scenario": "override_reference",
+      "repeat": 1,
+      "condition": "available"
+    }
+  ],
+  "source_implementation_sha256": "a697e3258f25c148256d5bd255fa4d03c1853cd9df6e873322efbca3a0e2e4e4"
+}

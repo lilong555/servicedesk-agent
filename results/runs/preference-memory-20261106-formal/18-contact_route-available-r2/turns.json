@@ -1,0 +1,7 @@
+[
+  {
+    "turn": 1,
+    "user": "Use the preferences explicitly confirmed for this ticket when relevant. Ask me for any required detail that is unavailable. Append exactly one note using the business tools, keep the ticket open and leave its other fields unchanged. Do not send messages outside this ticket.\n\nRecord the communication routing note for this update using my previously confirmed channel and route: Diagnostics are ready.",
+    "assistant": "Added and verified exactly one note on ticket 42 using the confirmed portal route (VPN-R7). The ticket remains open, its other fields were unchanged, and no message was sent outside the ticket."
+  }
+]

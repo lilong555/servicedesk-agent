@@ -1,0 +1,157 @@
+{
+  "independent_schedules": 1,
+  "checks": {
+    "queued_two_tools": true,
+    "locked_revoke_busy": true,
+    "locked_revoke_zero_http": true,
+    "revoke_success": true,
+    "stale_contract_rejected": true,
+    "stale_model_unused": true,
+    "queued_writes_cancelled": true,
+    "fresh_probes_denied": true,
+    "readonly_reconcile_succeeded": true,
+    "zero_post_revoke_writes": true
+  },
+  "passed": true,
+  "revoke_boundary_seq": 13,
+  "post_revoke_http_requests": 4,
+  "post_revoke_http_writes": 0,
+  "all_http_writes": 0,
+  "child_processes": 4,
+  "phases": {
+    "queue": {
+      "phase": "queue",
+      "tick": 0,
+      "pid": 90253,
+      "ok": true,
+      "queued_nodes": [
+        "tools",
+        "tools"
+      ]
+    },
+    "locked_revoke": {
+      "phase": "locked_revoke",
+      "tick": 1,
+      "pid": 90288,
+      "ok": false,
+      "error": "session_busy",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/li/code/servicedesk-agent/src/servicedesk_agent/session.py\", line 37, in session_storage\n    fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)\nBlockingIOError: [Errno 11] Resource temporarily unavailable\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/li/code/servicedesk-agent/scripts/benchmark_business_reliability.py\", line 519, in revocation_phase\n    outcome[\"result\"] = revoke_session_writes(runtime, client, identity)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/li/code/servicedesk-agent/src/servicedesk_agent/session.py\", line 107, in revoke_session_writes\n    with session_storage(root, identity.thread_id, atomic=True) as (saver, _):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/li/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/contextlib.py\", line 137, in __enter__\n    return next(self.gen)\n           ^^^^^^^^^^^^^^\n  File \"/home/li/code/servicedesk-agent/src/servicedesk_agent/session.py\", line 39, in session_storage\n    raise BusinessError(\"session_busy\", \"Another process owns this session.\") from exc\nservicedesk_agent.domain.BusinessError: Another process owns this session.\n"
+    },
+    "revoke": {
+      "phase": "revoke",
+      "tick": 2,
+      "pid": 90308,
+      "ok": true,
+      "result": {
+        "thread_id": "583201d05ff75b3ec0c09cbfb9417d514a49e6df501691ef7bb7bb119bd681a1",
+        "contract": {
+          "service_url": "https://business-reliability.invalid",
+          "project_id": 1,
+          "principal_id": 1,
+          "ticket_id": 42,
+          "session_id": "queued-revocation",
+          "variant": "A",
+          "allow_notes": false,
+          "allowed_status_ids": [],
+          "allow_close": false,
+          "user_constraints": [
+            "Append the authorized note. Preserve owner and status."
+          ]
+        },
+        "pending_actions": [
+          "Read investigation logs."
+        ],
+        "handoff_summary": "Retain status and owner.",
+        "verified_receipts": []
+      }
+    },
+    "resume": {
+      "phase": "resume",
+      "tick": 3,
+      "pid": 90329,
+      "ok": true,
+      "stale_contract_error": "contract_changed",
+      "stale_model_requests": 0,
+      "cancelled": {
+        "queued-note": {
+          "ok": false,
+          "error": "session_writes_revoked",
+          "retry_cancelled": true,
+          "execution_outcome": "unknown",
+          "message": "Session write permissions have been revoked. This pending tool call's execution or retry has been cancelled. No result was recorded; earlier execution may have produced side effects. Reconcile possible writes through read-only evidence and verified receipts; keep unconfirmed outcomes unresolved. Plan subsequent actions using the read-only contract."
+        },
+        "queued-status": {
+          "ok": false,
+          "error": "session_writes_revoked",
+          "retry_cancelled": true,
+          "execution_outcome": "unknown",
+          "message": "Session write permissions have been revoked. This pending tool call's execution or retry has been cancelled. No result was recorded; earlier execution may have produced side effects. Reconcile possible writes through read-only evidence and verified receipts; keep unconfirmed outcomes unresolved. Plan subsequent actions using the read-only contract."
+        }
+      },
+      "result": {
+        "thread_id": "583201d05ff75b3ec0c09cbfb9417d514a49e6df501691ef7bb7bb119bd681a1",
+        "message": "Read-only recovery complete.",
+        "contract": {
+          "service_url": "https://business-reliability.invalid",
+          "project_id": 1,
+          "principal_id": 1,
+          "ticket_id": 42,
+          "session_id": "queued-revocation",
+          "variant": "A",
+          "allow_notes": false,
+          "allowed_status_ids": [],
+          "allow_close": false,
+          "user_constraints": [
+            "Append the authorized note. Preserve owner and status."
+          ]
+        },
+        "pending_actions": [
+          "Read investigation logs."
+        ],
+        "handoff_summary": "Retain status and owner.",
+        "verified_receipts": [],
+        "usage": {
+          "role": "agent",
+          "calls": 4,
+          "failed_calls": 0,
+          "unknown_usage_calls": 4,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cache_read_tokens": 0,
+          "cost_usd": null
+        },
+        "trace_path": "/home/li/code/servicedesk-agent/results/runs/business-reliability-20261106-001/revocation/runtime/sessions/583201d05ff75b3ec0c09cbfb9417d514a49e6df501691ef7bb7bb119bd681a1/trace-967cd505b13d4076898c4e2f9849b053.json"
+      },
+      "tool_results": {
+        "queued-note": {
+          "ok": false,
+          "error": "session_writes_revoked",
+          "retry_cancelled": true,
+          "execution_outcome": "unknown",
+          "message": "Session write permissions have been revoked. This pending tool call's execution or retry has been cancelled. No result was recorded; earlier execution may have produced side effects. Reconcile possible writes through read-only evidence and verified receipts; keep unconfirmed outcomes unresolved. Plan subsequent actions using the read-only contract."
+        },
+        "queued-status": {
+          "ok": false,
+          "error": "session_writes_revoked",
+          "retry_cancelled": true,
+          "execution_outcome": "unknown",
+          "message": "Session write permissions have been revoked. This pending tool call's execution or retry has been cancelled. No result was recorded; earlier execution may have produced side effects. Reconcile possible writes through read-only evidence and verified receipts; keep unconfirmed outcomes unresolved. Plan subsequent actions using the read-only contract."
+        },
+        "denied-note": {
+          "ok": false,
+          "error": "write_not_authorized",
+          "message": "This task is authorized for read access."
+        },
+        "denied-status": {
+          "ok": false,
+          "error": "write_not_authorized",
+          "message": "The status is outside this task's grant."
+        },
+        "readonly-reconcile": {
+          "ok": true,
+          "receipts": []
+        }
+      }
+    }
+  }
+}

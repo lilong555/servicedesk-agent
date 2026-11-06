@@ -1,0 +1,139 @@
+[
+  {
+    "thread_id": "86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa",
+    "message": "Added exactly one note to ticket 42 in your confirmed format:\n\n`CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.`\n\nThe write was verified. The ticket remains open, and no other fields were changed.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43350",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [],
+    "handoff_summary": "Appended one audit note in the user's confirmed format; ticket remains open and other fields unchanged.",
+    "verified_receipts": [
+      {
+        "operation_id": "cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f",
+        "action": "add_note",
+        "ticket_id": 42,
+        "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+        "after": {
+          "id": 42,
+          "project_id": 1,
+          "subject": "Synthetic service investigation",
+          "description": "Record the user's authorized investigation update.",
+          "status_id": 1,
+          "status_name": "New",
+          "is_closed": false,
+          "assigned_to_id": 7,
+          "assigned_to_name": "Original owner",
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ],
+          "relations": [],
+          "journals": [
+            {
+              "id": 1,
+              "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "evidence": {
+            "source_uri": "http://127.0.0.1:43350/issues/42",
+            "source_kind": "ticket",
+            "entity_scope": "http://127.0.0.1:43350/projects/1",
+            "source_version": "95faa4dee30ab82b769293c3fae5773d31072336ff2fc9daba573796b3095e65",
+            "observed_at": "2026-11-06T06:49:24.126170Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": {
+              "id": 42,
+              "project": {
+                "id": 1,
+                "name": "Service desk"
+              },
+              "subject": "Synthetic service investigation",
+              "description": "Record the user's authorized investigation update.",
+              "status": {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              "assigned_to": {
+                "id": 7,
+                "name": "Original owner"
+              },
+              "updated_on": "2026-11-05T00:00:00Z",
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "relations": [],
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ]
+            }
+          }
+        },
+        "journal_id": 1,
+        "verified": true,
+        "replayed": false,
+        "observed_at": "2026-11-06T06:49:24.137221Z"
+      }
+    ],
+    "usage": {
+      "role": "agent",
+      "calls": 6,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 24912,
+      "output_tokens": 292,
+      "cache_read_tokens": 21248,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-formal/08-audit_timestamp-available-r1/state/sessions/86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa/trace-00533d4ae03a4eb68ea583dd2bc147dd.json"
+  }
+]

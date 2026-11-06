@@ -1,0 +1,11 @@
+E501 Line too long (101 > 100)
+   --> benchmarks/business-reliability/package_raw_state.py:122:101
+    |
+120 |         "service_urls": sorted(urls),
+121 |         "scope": "Synthetic business state plus local paths, process IDs and timestamps.",
+122 |         "credentials": "Transport headers are omitted; no real credentials found in database bytes.",
+    |                                                                                                     ^
+123 |     }
+    |
+
+Found 1 error.

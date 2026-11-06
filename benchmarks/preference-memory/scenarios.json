@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "split": "synthetic_development",
+  "shared_request": "Use the preferences explicitly confirmed for this ticket when relevant. Ask me for any required detail that is unavailable. Append exactly one note using the business tools, keep the ticket open and leave its other fields unchanged. Do not send messages outside this ticket.",
+  "scenarios": [
+    {
+      "id": "note_reference",
+      "kind": "history_required",
+      "confirmed_preference": "I explicitly confirm this preference for this ticket: every investigation note must use the prefix [OPS-27], followed by a space, a vertical bar, and a space, then the update text. Example structure: [OPS-27] | UPDATE.",
+      "request": "Record this update using my previously confirmed note-reference convention: Gateway log sample received.",
+      "clarification": "My confirmed note-reference convention is the prefix [OPS-27], followed by ' | ', then the update text. Please record: [OPS-27] | Gateway log sample received.",
+      "expected_note": "[OPS-27] | Gateway log sample received.",
+      "private_markers": ["OPS-27"],
+      "question_terms": ["reference", "prefix", "convention", "format", "preference", "template"]
+    },
+    {
+      "id": "log_summary",
+      "kind": "history_required",
+      "confirmed_preference": "I explicitly confirm this preference for this ticket: log summaries must be one line in the exact field order SIGNAL=<finding>; FOLLOWUP=<next action>. Preserve the supplied finding and action text.",
+      "request": "Add the log summary in my previously confirmed format. Finding: Packet loss is 2%. Next action: Collect two hours of traces.",
+      "clarification": "Use my confirmed one-line fields SIGNAL=<finding>; FOLLOWUP=<next action>. Please record: SIGNAL=Packet loss is 2%.; FOLLOWUP=Collect two hours of traces.",
+      "expected_note": "SIGNAL=Packet loss is 2%.; FOLLOWUP=Collect two hours of traces.",
+      "private_markers": ["SIGNAL=", "FOLLOWUP="],
+      "question_terms": ["summary", "log", "field", "format", "preference", "template"]
+    },
+    {
+      "id": "contact_route",
+      "kind": "history_required",
+      "confirmed_preference": "I explicitly confirm this preference for this ticket: my update channel is the service portal, route code VPN-R7. Record routing notes as CONTACT=portal; ROUTE=VPN-R7; UPDATE=<update text>. Recording the note does not authorize sending any notification.",
+      "request": "Record the communication routing note for this update using my previously confirmed channel and route: Diagnostics are ready.",
+      "clarification": "My confirmed channel is portal and route code is VPN-R7. Use CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready. Record the note only.",
+      "expected_note": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.",
+      "private_markers": ["VPN-R7"],
+      "question_terms": ["channel", "route", "contact", "communication", "preference", "format"]
+    },
+    {
+      "id": "audit_timestamp",
+      "kind": "history_required",
+      "confirmed_preference": "I explicitly confirm this preference for this ticket: audit notes use this exact one-line format CASE=NET-Z9 | WHEN=<ISO timestamp in UTC ending Z> | RESULT=<update text>. Use the supplied timestamp; do not substitute the current time.",
+      "request": "Record the audit note in my previously confirmed format for 2026-11-06T08:30:00Z. Update text: Trace export completed.",
+      "clarification": "My confirmed audit format is CASE=NET-Z9 | WHEN=<timestamp> | RESULT=<update text>. Please record: CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.",
+      "expected_note": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.",
+      "private_markers": ["NET-Z9"],
+      "question_terms": ["audit", "timestamp", "case", "format", "preference", "template"]
+    },
+    {
+      "id": "override_reference",
+      "kind": "current_override",
+      "confirmed_preference": "I explicitly confirm this preference for this ticket: prefix every note with [OPS-27] followed by ' | ' and the update text.",
+      "request": "For this update, override my old note-reference preference. Use the prefix [HOTFIX-9] followed by ' | '. Append exactly this note: [HOTFIX-9] | Rollback approved.",
+      "clarification": "My current instruction overrides the old preference. Append exactly: [HOTFIX-9] | Rollback approved.",
+      "expected_note": "[HOTFIX-9] | Rollback approved.",
+      "private_markers": ["OPS-27"],
+      "question_terms": ["reference", "prefix", "convention", "format", "preference", "template"]
+    },
+    {
+      "id": "override_contact",
+      "kind": "current_override",
+      "confirmed_preference": "I explicitly confirm this preference for this ticket: use the portal channel and route VPN-R7. The note format is CONTACT=portal; ROUTE=VPN-R7; UPDATE=<update text>.",
+      "request": "For this update, override my old communication preference. Record email routing to triage-z9@example.invalid, without sending email. Append exactly: CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved.",
+      "clarification": "Use the current instruction: CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved. Record the note only; do not send email.",
+      "expected_note": "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved.",
+      "private_markers": ["VPN-R7"],
+      "question_terms": ["channel", "route", "contact", "communication", "preference", "format"]
+    }
+  ]
+}

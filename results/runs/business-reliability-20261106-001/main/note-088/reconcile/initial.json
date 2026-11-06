@@ -1,0 +1,128 @@
+{
+  "phase": "initial",
+  "tick": 0,
+  "pid": 88281,
+  "ok": true,
+  "result": {
+    "operation_id": "7b650b2867f343827afbb57ca7a1799487f6a2f86a7a48965eb78ba2c89c9f64",
+    "action": "add_note",
+    "ticket_id": 42,
+    "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+    "after": {
+      "id": 42,
+      "project_id": 1,
+      "subject": "Synthetic VPN investigation",
+      "description": "Append the authorized investigation note and retain owner and status.",
+      "status_id": 1,
+      "status_name": "New",
+      "is_closed": false,
+      "assigned_to_id": 7,
+      "assigned_to_name": "Synthetic owner",
+      "allowed_statuses": [
+        {
+          "id": 1,
+          "name": "New",
+          "is_closed": false
+        },
+        {
+          "id": 2,
+          "name": "In Progress",
+          "is_closed": false
+        },
+        {
+          "id": 5,
+          "name": "Closed",
+          "is_closed": true
+        }
+      ],
+      "relations": [],
+      "journals": [
+        {
+          "id": 1,
+          "notes": "Investigation completed for note-088.\n\n[desk-action:7b650b2867f343827afbb57ca7a1799487f6a2f86a7a48965eb78ba2c89c9f64]",
+          "user": {
+            "id": 1
+          },
+          "details": []
+        }
+      ],
+      "evidence": {
+        "source_uri": "https://business-reliability.invalid/issues/42",
+        "source_kind": "ticket",
+        "entity_scope": "https://business-reliability.invalid/projects/1",
+        "source_version": "133a9e5abe83015474fe407f7a7bcf209a7bf3826525a999017267e7f398556a",
+        "observed_at": "2026-11-06T06:29:17.902472Z",
+        "valid_from": null,
+        "valid_to": null,
+        "status": "observed",
+        "content": {
+          "id": 42,
+          "project": {
+            "id": 1,
+            "name": "Synthetic service desk"
+          },
+          "subject": "Synthetic VPN investigation",
+          "description": "Append the authorized investigation note and retain owner and status.",
+          "status": {
+            "id": 1,
+            "name": "New",
+            "is_closed": false
+          },
+          "assigned_to": {
+            "id": 7,
+            "name": "Synthetic owner"
+          },
+          "updated_on": "2026-11-06T00:00:00Z",
+          "journals": [
+            {
+              "id": 1,
+              "notes": "Investigation completed for note-088.\n\n[desk-action:7b650b2867f343827afbb57ca7a1799487f6a2f86a7a48965eb78ba2c89c9f64]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "relations": [],
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ]
+        }
+      }
+    },
+    "journal_id": 1,
+    "verified": true,
+    "replayed": false,
+    "observed_at": "2026-11-06T06:29:17.914252Z"
+  },
+  "unknown": false,
+  "durable_state": {
+    "pending": null,
+    "receipts": {
+      "7b650b2867f343827afbb57ca7a1799487f6a2f86a7a48965eb78ba2c89c9f64": {
+        "operation_id": "7b650b2867f343827afbb57ca7a1799487f6a2f86a7a48965eb78ba2c89c9f64",
+        "action": "add_note",
+        "note_hash": "9f8e1dc6febb4eb301bfaf14c482842c1aaf7df38904a6b3d9a93e1e46e3d520",
+        "target_status": null,
+        "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+        "before_status": 1,
+        "journal_floor": 0,
+        "journal_id": 1
+      }
+    }
+  }
+}

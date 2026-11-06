@@ -1,0 +1,62 @@
+[
+  {
+    "arguments": {
+      "query": "audit note format date update text",
+      "limit": 10,
+      "offset": 0,
+      "filter": null
+    },
+    "stored_result": [
+      {
+        "namespace": [
+          "servicedesk",
+          "72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e",
+          "confirmed_preferences"
+        ],
+        "key": "8f67de4e-3fa8-414c-87da-69a15712969c",
+        "value": {
+          "content": {
+            "source_uri": "user-confirmation://72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e/c060b3d4489b09e1b250fcdc1b4c6e4b4bedfc68d63230999d513dd5f2748e1e",
+            "source_kind": "user",
+            "entity_scope": "http://127.0.0.1:43350/projects/1/principals/1/issues/42",
+            "source_version": "c060b3d4489b09e1b250fcdc1b4c6e4b4bedfc68d63230999d513dd5f2748e1e",
+            "observed_at": "2026-11-06T06:49:12.799977Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": "I explicitly confirm this preference for this ticket: audit notes use this exact one-line format CASE=NET-Z9 | WHEN=<ISO timestamp in UTC ending Z> | RESULT=<update text>. Use the supplied timestamp; do not substitute the current time."
+          }
+        },
+        "created_at": "2026-11-06T06:49:12",
+        "updated_at": "2026-11-06T06:49:12",
+        "score": null
+      }
+    ],
+    "returned_result": [
+      {
+        "namespace": [
+          "servicedesk",
+          "72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e",
+          "confirmed_preferences"
+        ],
+        "key": "8f67de4e-3fa8-414c-87da-69a15712969c",
+        "value": {
+          "content": {
+            "source_uri": "user-confirmation://72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e/c060b3d4489b09e1b250fcdc1b4c6e4b4bedfc68d63230999d513dd5f2748e1e",
+            "source_kind": "user",
+            "entity_scope": "http://127.0.0.1:43350/projects/1/principals/1/issues/42",
+            "source_version": "c060b3d4489b09e1b250fcdc1b4c6e4b4bedfc68d63230999d513dd5f2748e1e",
+            "observed_at": "2026-11-06T06:49:12.799977Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": "I explicitly confirm this preference for this ticket: audit notes use this exact one-line format CASE=NET-Z9 | WHEN=<ISO timestamp in UTC ending Z> | RESULT=<update text>. Use the supplied timestamp; do not substitute the current time."
+          }
+        },
+        "created_at": "2026-11-06T06:49:12",
+        "updated_at": "2026-11-06T06:49:12",
+        "score": null
+      }
+    ]
+  }
+]

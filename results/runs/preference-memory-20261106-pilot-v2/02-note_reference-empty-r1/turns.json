@@ -1,0 +1,13 @@
+[
+  {
+    "turn": 1,
+    "user": "Use the preferences explicitly confirmed for this ticket when relevant. Ask me for any required detail that is unavailable. Append exactly one note using the business tools, keep the ticket open and leave its other fields unchanged. Do not send messages outside this ticket.\n\nRecord this update using my previously confirmed note-reference convention: Gateway log sample received.",
+    "assistant": "I couldn\u2019t retrieve your previously confirmed note-reference convention, so I haven\u2019t added a note. Please provide the convention you want me to use; I\u2019ll then append exactly one note and leave the ticket open and all other fields unchanged.",
+    "followup_kind": "preference_clarification"
+  },
+  {
+    "turn": 2,
+    "user": "My confirmed note-reference convention is the prefix [OPS-27], followed by ' | ', then the update text. Please record: [OPS-27] | Gateway log sample received.",
+    "assistant": "Added exactly one note to ticket 42: **[OPS-27] | Gateway log sample received.** The write was verified, and the ticket remains open with its other fields unchanged."
+  }
+]

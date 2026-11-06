@@ -1,0 +1,7 @@
+[
+  {
+    "turn": 1,
+    "user": "Use the preferences explicitly confirmed for this ticket when relevant. Ask me for any required detail that is unavailable. Append exactly one note using the business tools, keep the ticket open and leave its other fields unchanged. Do not send messages outside this ticket.\n\nRecord this update using my previously confirmed note-reference convention: Gateway log sample received.",
+    "assistant": "Added exactly one note: **[OPS-27] | Gateway log sample received.** The verified update left the ticket open and its other fields unchanged."
+  }
+]

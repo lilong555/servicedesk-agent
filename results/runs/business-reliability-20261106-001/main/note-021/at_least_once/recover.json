@@ -1,0 +1,43 @@
+{
+  "phase": "recover",
+  "tick": 1,
+  "pid": 88281,
+  "ok": true,
+  "result": {
+    "kind": "http_ack",
+    "status_code": 204,
+    "send": 1
+  },
+  "unknown": false,
+  "durable_state": {
+    "contract": {
+      "service_url": "https://business-reliability.invalid",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "note-021",
+      "variant": "A",
+      "allow_notes": true,
+      "allowed_status_ids": [
+        2
+      ],
+      "allow_close": false,
+      "user_constraints": [
+        "Append the authorized note. Preserve owner and status."
+      ]
+    },
+    "note": "Investigation completed for note-021.",
+    "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+    "body": {
+      "issue": {
+        "notes": "Investigation completed for note-021.\n\n[desk-action:d8e75af46498b2ae0f411c4376ad2ca7262ebf4d1176d453302114907b86de46]"
+      }
+    },
+    "sends": 1,
+    "ack": {
+      "kind": "http_ack",
+      "status_code": 204,
+      "send": 1
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "dataset_id": "synthetic-policy-lifecycle-v1",
+  "scope": "corporate-it",
+  "versions": [
+    {"version": "1", "valid_from": "2025-01-01T00:00:00Z", "valid_to": "2026-11-05T00:00:00Z"},
+    {"version": "2", "valid_from": "2026-11-05T00:00:00Z", "valid_to": "2026-12-01T00:00:00Z"},
+    {"version": "3", "valid_from": "2026-12-01T00:00:00Z", "valid_to": null}
+  ],
+  "policies": [
+    {
+      "policy_id": "vpn-maintenance", "scope": "corporate-it",
+      "title": "VPN remote access maintenance",
+      "topic": "VPN disconnects, remote access authentication and tunnel maintenance",
+      "actions": ["NET-MON-2300", "IDENTITY-WED-0100", "ACCESS-SAT-0300"],
+      "instructions": [
+        "Route investigation to Network Operations. Maintenance is permitted on Monday at 23:00 UTC.",
+        "Route investigation to Identity Operations. Maintenance is permitted on Wednesday at 01:00 UTC.",
+        "Route investigation to Access Engineering. Maintenance is permitted on Saturday at 03:00 UTC."
+      ]
+    },
+    {
+      "policy_id": "mailbox-quota", "scope": "corporate-it",
+      "title": "Mailbox quota expansion",
+      "topic": "mailbox storage quota expansion and email delivery",
+      "actions": ["MAIL-20GB", "MAIL-40GB", "MAIL-60GB"],
+      "instructions": [
+        "The approved individual mailbox limit is 20 GB. Refer requests above that limit to Messaging.",
+        "The approved individual mailbox limit is 40 GB. Refer requests above that limit to Messaging.",
+        "The approved individual mailbox limit is 60 GB. Refer requests above that limit to Messaging."
+      ]
+    },
+    {
+      "policy_id": "production-restart", "scope": "corporate-it",
+      "title": "Production service restart",
+      "topic": "production restart maintenance change approval and service outage",
+      "actions": ["RESTART-OWNER", "RESTART-CHANGE-BOARD", "RESTART-INCIDENT-COMMANDER"],
+      "instructions": [
+        "Obtain approval from the service owner before a production restart.",
+        "Obtain approval from the change board before a production restart.",
+        "Obtain approval from the incident commander before a production restart."
+      ]
+    },
+    {
+      "policy_id": "access-offboarding", "scope": "corporate-it",
+      "title": "Employee access offboarding",
+      "topic": "employee departure account access offboarding and credential revocation",
+      "actions": ["ACCESS-24H", "ACCESS-4H", "ACCESS-1H"],
+      "instructions": [
+        "Queue credential revocation within 24 hours after confirmed departure.",
+        "Queue credential revocation within 4 hours after confirmed departure.",
+        "Queue credential revocation within 1 hour after confirmed departure."
+      ]
+    },
+    {
+      "policy_id": "laptop-replacement", "scope": "corporate-it",
+      "title": "Laptop replacement and custody",
+      "topic": "damaged laptop replacement inventory custody and equipment handover",
+      "actions": ["ASSET-LOCAL", "ASSET-CENTRAL", "ASSET-REGIONAL"],
+      "instructions": [
+        "The local asset custodian approves equipment replacement and records the handover.",
+        "The central asset team approves equipment replacement and records the handover.",
+        "The regional asset team approves equipment replacement and records the handover."
+      ]
+    },
+    {
+      "policy_id": "backup-restore", "scope": "corporate-it",
+      "title": "Backup restoration request",
+      "topic": "backup restoration recovery point storage retention and restore authorization",
+      "actions": ["RESTORE-7D", "RESTORE-14D", "RESTORE-30D"],
+      "instructions": [
+        "A restore request may select a recovery point from the last 7 days.",
+        "A restore request may select a recovery point from the last 14 days.",
+        "A restore request may select a recovery point from the last 30 days."
+      ]
+    },
+    {
+      "policy_id": "vpn-maintenance", "scope": "laboratory-it",
+      "title": "VPN remote access maintenance",
+      "topic": "VPN disconnects, remote access authentication and tunnel maintenance",
+      "actions": ["LAB-MON", "LAB-TUE", "LAB-FRI"],
+      "instructions": [
+        "Only the laboratory network team may approve Monday maintenance.",
+        "Only the laboratory network team may approve Tuesday maintenance.",
+        "Only the laboratory network team may approve Friday maintenance."
+      ]
+    },
+    {
+      "policy_id": "production-restart", "scope": "laboratory-it",
+      "title": "Production service restart",
+      "topic": "production restart maintenance change approval and service outage",
+      "actions": ["LAB-OWNER", "LAB-LEAD", "LAB-DIRECTOR"],
+      "instructions": [
+        "The laboratory service owner approves a restart.",
+        "The laboratory lead approves a restart.",
+        "The laboratory director approves a restart."
+      ]
+    }
+  ],
+  "queries": [
+    {"id": "vpn-current", "query": "VPN remote access maintenance", "time": "2026-11-06T00:00:00Z", "scope": "corporate-it", "gold": [["vpn-maintenance", "2"]], "kind": "answerable"},
+    {"id": "mail-current", "query": "mailbox quota expansion", "time": "2026-11-06T00:00:00Z", "scope": "corporate-it", "gold": [["mailbox-quota", "2"]], "kind": "answerable"},
+    {"id": "restart-current", "query": "production service restart approval", "time": "2026-11-06T00:00:00Z", "scope": "corporate-it", "gold": [["production-restart", "2"]], "kind": "answerable"},
+    {"id": "access-current", "query": "employee access offboarding credential revocation", "time": "2026-11-06T00:00:00Z", "scope": "corporate-it", "gold": [["access-offboarding", "2"]], "kind": "answerable"},
+    {"id": "laptop-current", "query": "laptop replacement custody", "time": "2026-11-06T00:00:00Z", "scope": "corporate-it", "gold": [["laptop-replacement", "2"]], "kind": "answerable"},
+    {"id": "restore-current", "query": "backup restoration recovery point", "time": "2026-11-06T00:00:00Z", "scope": "corporate-it", "gold": [["backup-restore", "2"]], "kind": "answerable"},
+    {"id": "vpn-history", "query": "VPN remote access maintenance", "time": "2026-11-04T00:00:00Z", "scope": "corporate-it", "gold": [["vpn-maintenance", "1"]], "kind": "answerable"},
+    {"id": "restart-history", "query": "production service restart approval", "time": "2026-10-04T00:00:00Z", "scope": "corporate-it", "gold": [["production-restart", "1"]], "kind": "answerable"},
+    {"id": "mail-future", "query": "mailbox quota expansion", "time": "2026-12-15T00:00:00Z", "scope": "corporate-it", "gold": [["mailbox-quota", "3"]], "kind": "answerable"},
+    {"id": "empty-scope", "query": "VPN maintenance", "time": "2026-11-06T00:00:00Z", "scope": "unregistered-service", "gold": [], "kind": "empty-eligible"},
+    {"id": "before-publication", "query": "VPN maintenance", "time": "2024-11-06T00:00:00Z", "scope": "corporate-it", "gold": [], "kind": "empty-eligible"},
+    {"id": "unrelated-query", "query": "cafeteria allergy dietary menu", "time": "2026-11-06T00:00:00Z", "scope": "corporate-it", "gold": [], "kind": "unrelated"}
+  ],
+  "agent_scenarios": [
+    {"id": "coexisting-versions", "policy_id": "vpn-maintenance", "title": "VPN remote access maintenance", "resume": false},
+    {"id": "policy-updated-during-handoff", "policy_id": "production-restart", "title": "Production service restart", "resume": true}
+  ]
+}

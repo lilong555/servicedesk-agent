@@ -1,0 +1,4324 @@
+{
+  "analyzer": {
+    "path": "benchmarks/preference-memory/analyze.py",
+    "sha256": "94ba2e48a90f8290df57e751d6caac5c39fac6ae6cb60a1d4fc7d87c178cd843"
+  },
+  "source_binding": {
+    "source_mode": "verified_frozen_archive",
+    "freeze_record": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-freeze-v3/freeze.json",
+    "source_archive_sha256": "27bc69f90b1048895e9557f61d219f5c2664d92310b4ad1ead8eae23ea6a73ed",
+    "verified_source_files": 28,
+    "workspace_import_files": 24,
+    "frozen_scenario_sha256_matches": true
+  },
+  "source": "results/runs/preference-memory-20261106-formal",
+  "freeze_id": "71513fefdb3a214a4ebcb40ae987196578908f40d87053935348b1a6ba7b10d2",
+  "phase": "formal",
+  "planned": 24,
+  "started": 24,
+  "independent_scenarios": 6,
+  "calls": 221,
+  "all_usage": {
+    "calls": 221,
+    "failed_calls": 0,
+    "unknown_usage_calls": 0,
+    "input_tokens": 1003383,
+    "output_tokens": 9974,
+    "cache_read_tokens": 760448
+  },
+  "checks": {
+    "issues": []
+  },
+  "groups": {
+    "available": {
+      "started": 12,
+      "successes": 10,
+      "scored": 12,
+      "infrastructure_errors": 0,
+      "preference_clarifications": 0,
+      "memory_searches": 13,
+      "usage": {
+        "calls": 83,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 351703,
+        "output_tokens": 3576,
+        "cache_read_tokens": 260736
+      },
+      "by_kind": {
+        "history_required": {
+          "started": 8,
+          "successes": 6,
+          "preference_clarifications": 0,
+          "calls": 58
+        },
+        "current_override": {
+          "started": 4,
+          "successes": 4,
+          "preference_clarifications": 0,
+          "calls": 25
+        }
+      },
+      "user_followups": 0,
+      "preference_followups": 0
+    },
+    "empty": {
+      "started": 12,
+      "successes": 12,
+      "scored": 12,
+      "infrastructure_errors": 0,
+      "preference_clarifications": 8,
+      "memory_searches": 14,
+      "usage": {
+        "calls": 138,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 651680,
+        "output_tokens": 6398,
+        "cache_read_tokens": 499712
+      },
+      "by_kind": {
+        "history_required": {
+          "started": 8,
+          "successes": 8,
+          "preference_clarifications": 8,
+          "calls": 109
+        },
+        "current_override": {
+          "started": 4,
+          "successes": 4,
+          "preference_clarifications": 0,
+          "calls": 29
+        }
+      },
+      "user_followups": 9,
+      "preference_followups": 8
+    }
+  },
+  "pairs": [
+    {
+      "scenario": "audit_timestamp",
+      "repeat": 1,
+      "success": {
+        "empty": true,
+        "available": true
+      },
+      "clarifications": {
+        "empty": 1,
+        "available": 0
+      },
+      "calls": {
+        "empty": 13,
+        "available": 6
+      }
+    },
+    {
+      "scenario": "audit_timestamp",
+      "repeat": 2,
+      "success": {
+        "available": true,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 1
+      },
+      "calls": {
+        "available": 8,
+        "empty": 11
+      }
+    },
+    {
+      "scenario": "contact_route",
+      "repeat": 1,
+      "success": {
+        "available": true,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 1
+      },
+      "calls": {
+        "available": 8,
+        "empty": 12
+      }
+    },
+    {
+      "scenario": "contact_route",
+      "repeat": 2,
+      "success": {
+        "empty": true,
+        "available": true
+      },
+      "clarifications": {
+        "empty": 1,
+        "available": 0
+      },
+      "calls": {
+        "empty": 12,
+        "available": 9
+      }
+    },
+    {
+      "scenario": "log_summary",
+      "repeat": 1,
+      "success": {
+        "empty": true,
+        "available": false
+      },
+      "clarifications": {
+        "empty": 1,
+        "available": 0
+      },
+      "calls": {
+        "empty": 12,
+        "available": 7
+      }
+    },
+    {
+      "scenario": "log_summary",
+      "repeat": 2,
+      "success": {
+        "available": false,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 1
+      },
+      "calls": {
+        "available": 7,
+        "empty": 14
+      }
+    },
+    {
+      "scenario": "note_reference",
+      "repeat": 1,
+      "success": {
+        "available": true,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 1
+      },
+      "calls": {
+        "available": 7,
+        "empty": 24
+      }
+    },
+    {
+      "scenario": "note_reference",
+      "repeat": 2,
+      "success": {
+        "empty": true,
+        "available": true
+      },
+      "clarifications": {
+        "empty": 1,
+        "available": 0
+      },
+      "calls": {
+        "empty": 11,
+        "available": 6
+      }
+    },
+    {
+      "scenario": "override_contact",
+      "repeat": 1,
+      "success": {
+        "empty": true,
+        "available": true
+      },
+      "clarifications": {
+        "empty": 0,
+        "available": 0
+      },
+      "calls": {
+        "empty": 7,
+        "available": 6
+      }
+    },
+    {
+      "scenario": "override_contact",
+      "repeat": 2,
+      "success": {
+        "available": true,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 0
+      },
+      "calls": {
+        "available": 6,
+        "empty": 7
+      }
+    },
+    {
+      "scenario": "override_reference",
+      "repeat": 1,
+      "success": {
+        "available": true,
+        "empty": true
+      },
+      "clarifications": {
+        "available": 0,
+        "empty": 0
+      },
+      "calls": {
+        "available": 6,
+        "empty": 8
+      }
+    },
+    {
+      "scenario": "override_reference",
+      "repeat": 2,
+      "success": {
+        "empty": true,
+        "available": true
+      },
+      "clarifications": {
+        "empty": 0,
+        "available": 0
+      },
+      "calls": {
+        "empty": 7,
+        "available": 7
+      }
+    }
+  ],
+  "effects": {
+    "calls": {
+      "available": 83,
+      "empty_denominator": 138,
+      "empty_minus_available": 55,
+      "reduction_percent": 39.85507246376812
+    },
+    "input_tokens": {
+      "available": 351703,
+      "empty_denominator": 651680,
+      "empty_minus_available": 299977,
+      "reduction_percent": 46.031334397250184
+    },
+    "output_tokens": {
+      "available": 3576,
+      "empty_denominator": 6398,
+      "empty_minus_available": 2822,
+      "reduction_percent": 44.10753360425133
+    },
+    "cache_read_tokens": {
+      "available": 260736,
+      "empty_denominator": 499712,
+      "empty_minus_available": 238976,
+      "reduction_percent": 47.822745901639344
+    },
+    "history_required": {
+      "preference_clarifications": {
+        "available": 0,
+        "empty_denominator": 8,
+        "empty_minus_available": 8,
+        "reduction_percent": 100.0
+      },
+      "preference_questions": {
+        "available": 0,
+        "empty_denominator": 8,
+        "empty_minus_available": 8,
+        "reduction_percent": 100.0
+      },
+      "user_followups": {
+        "available": 0,
+        "empty_denominator": 9,
+        "empty_minus_available": 9,
+        "reduction_percent": 100.0
+      },
+      "http_write_attempts": {
+        "available": 8,
+        "empty_denominator": 8,
+        "empty_minus_available": 0,
+        "reduction_percent": 0.0
+      },
+      "executions_per_condition": {
+        "available": 8,
+        "empty": 8
+      }
+    },
+    "current_override": {
+      "preference_clarifications": {
+        "available": 0,
+        "empty_denominator": 0,
+        "empty_minus_available": 0,
+        "reduction_percent": null
+      },
+      "preference_questions": {
+        "available": 0,
+        "empty_denominator": 0,
+        "empty_minus_available": 0,
+        "reduction_percent": null
+      },
+      "user_followups": {
+        "available": 0,
+        "empty_denominator": 0,
+        "empty_minus_available": 0,
+        "reduction_percent": null
+      },
+      "http_write_attempts": {
+        "available": 4,
+        "empty_denominator": 4,
+        "empty_minus_available": 0,
+        "reduction_percent": 0.0
+      },
+      "executions_per_condition": {
+        "available": 4,
+        "empty": 4
+      }
+    },
+    "all": {
+      "preference_clarifications": {
+        "available": 0,
+        "empty_denominator": 8,
+        "empty_minus_available": 8,
+        "reduction_percent": 100.0
+      },
+      "preference_questions": {
+        "available": 0,
+        "empty_denominator": 8,
+        "empty_minus_available": 8,
+        "reduction_percent": 100.0
+      },
+      "user_followups": {
+        "available": 0,
+        "empty_denominator": 9,
+        "empty_minus_available": 9,
+        "reduction_percent": 100.0
+      },
+      "http_write_attempts": {
+        "available": 12,
+        "empty_denominator": 12,
+        "empty_minus_available": 0,
+        "reduction_percent": 0.0
+      },
+      "executions_per_condition": {
+        "available": 12,
+        "empty": 12
+      }
+    }
+  },
+  "executions": [
+    {
+      "scenario": "note_reference",
+      "kind": "history_required",
+      "condition": "available",
+      "repeat": 1,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "[OPS-27] | Gateway log sample received."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 2,
+      "nonempty_recalls": 1,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 7,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 28686,
+        "output_tokens": 280,
+        "cache_read_tokens": 19200,
+        "cost_usd": null
+      },
+      "captured_model_requests": 7,
+      "execution_seconds": 25.903627673998926,
+      "setup_seconds": 0.187816075000228,
+      "total_seconds": 26.091443748999154,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "e07c8d244810f29d86b60cfe03d50a96ef41b6a81927c9659cbff9238662d2d3",
+              "observed_at": "2026-11-06T06:44:42.340701Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:44:42.353004Z"
+        }
+      ],
+      "directory": "01-note_reference-available-r1",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 25.098668225997244,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "cb26f3cc49408189af574cc73cb9aace1a2854ad5a23ba7eb7beb42559eaafc4",
+      "first_request_provider_messages_sha256": "60738f2e44de15ca22cb8386f73fe012c63abf4c2fba7812e4f7df8b08f280a0",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "note_reference",
+      "kind": "history_required",
+      "condition": "empty",
+      "repeat": 1,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "[OPS-27] | Gateway log sample received."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 1,
+      "user_turns": 3,
+      "memory_searches": 1,
+      "nonempty_recalls": 0,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 24,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 147869,
+        "output_tokens": 1107,
+        "cache_read_tokens": 119296,
+        "cost_usd": null
+      },
+      "captured_model_requests": 24,
+      "execution_seconds": 99.64884451299986,
+      "setup_seconds": 0.15456149500096217,
+      "total_seconds": 99.80340600800082,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "e07c8d244810f29d86b60cfe03d50a96ef41b6a81927c9659cbff9238662d2d3",
+              "observed_at": "2026-11-06T06:46:21.467331Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:46:21.481099Z"
+        }
+      ],
+      "directory": "02-note_reference-empty-r1",
+      "preference_questions": 1,
+      "user_followups": 2,
+      "preference_followups": 1,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 99.23981517000357,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "12c7932b4afe3b41b069ed45b116b7e22fb51dfaa7f3db6dbf528a5284408bba",
+      "first_request_provider_messages_sha256": "60738f2e44de15ca22cb8386f73fe012c63abf4c2fba7812e4f7df8b08f280a0",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "log_summary",
+      "kind": "history_required",
+      "condition": "empty",
+      "repeat": 1,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "SIGNAL=Packet loss is 2%.; FOLLOWUP=Collect two hours of traces."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 1,
+      "user_turns": 2,
+      "memory_searches": 2,
+      "nonempty_recalls": 0,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 12,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 52939,
+        "output_tokens": 555,
+        "cache_read_tokens": 37376,
+        "cost_usd": null
+      },
+      "captured_model_requests": 12,
+      "execution_seconds": 34.5191407530001,
+      "setup_seconds": 0.1479524650003441,
+      "total_seconds": 34.667093218000446,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "ae77606294b58205318bcb221eec2822b3c75ac4647c9721f68e1566b4704159",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "SIGNAL=Packet loss is 2%.; FOLLOWUP=Collect two hours of traces.\n\n[desk-action:ae77606294b58205318bcb221eec2822b3c75ac4647c9721f68e1566b4704159]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "bc48b4a468bffe19f206a0ae9eccb9dc154216ce757e053f6ba092c4f84e3066",
+              "observed_at": "2026-11-06T06:46:59.417205Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "SIGNAL=Packet loss is 2%.; FOLLOWUP=Collect two hours of traces.\n\n[desk-action:ae77606294b58205318bcb221eec2822b3c75ac4647c9721f68e1566b4704159]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:46:59.430022Z"
+        }
+      ],
+      "directory": "03-log_summary-empty-r1",
+      "preference_questions": 1,
+      "user_followups": 1,
+      "preference_followups": 1,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 34.26101818099778,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "bc750f14ea6a2db9363d3dc609a7645ae678c0d056781574554a4fc3eee69148",
+      "first_request_provider_messages_sha256": "58ccc4b7f25087e572d4fb490294cfbaa7bd37bb722a33cf74b2664de8d3459b",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "log_summary",
+      "kind": "history_required",
+      "condition": "available",
+      "repeat": 1,
+      "started": true,
+      "success": false,
+      "business_grade": {
+        "success": false,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": false,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "SIGNAL=Packet loss is 2%; FOLLOWUP=Collect two hours of traces."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 1,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 7,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 29350,
+        "output_tokens": 296,
+        "cache_read_tokens": 23040,
+        "cost_usd": null
+      },
+      "captured_model_requests": 7,
+      "execution_seconds": 21.454163753000103,
+      "setup_seconds": 0.1498081709996768,
+      "total_seconds": 21.60397192399978,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "17408beb79d9e5c4c23e0cfc39d945a0ac765299fa87fc2de0db681edac4f729",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "SIGNAL=Packet loss is 2%; FOLLOWUP=Collect two hours of traces.\n\n[desk-action:17408beb79d9e5c4c23e0cfc39d945a0ac765299fa87fc2de0db681edac4f729]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "774919e03fbeba21741f83635aff8fd0a4e1c765fa9039dca2ace2d375859cd1",
+              "observed_at": "2026-11-06T06:47:19.099773Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "SIGNAL=Packet loss is 2%; FOLLOWUP=Collect two hours of traces.\n\n[desk-action:17408beb79d9e5c4c23e0cfc39d945a0ac765299fa87fc2de0db681edac4f729]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:47:19.112457Z"
+        }
+      ],
+      "directory": "04-log_summary-available-r1",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 21.276875844998358,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "446ea9277b3361a8a147c71ea2bcb49269cbc56adc88ab6538daa182dc7040f8",
+      "first_request_provider_messages_sha256": "58ccc4b7f25087e572d4fb490294cfbaa7bd37bb722a33cf74b2664de8d3459b",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "contact_route",
+      "kind": "history_required",
+      "condition": "available",
+      "repeat": 1,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 1,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 8,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 33798,
+        "output_tokens": 342,
+        "cache_read_tokens": 25088,
+        "cost_usd": null
+      },
+      "captured_model_requests": 8,
+      "execution_seconds": 28.4621518369986,
+      "setup_seconds": 0.14602889100024186,
+      "total_seconds": 28.608180727998842,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.\n\n[desk-action:3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "52fbcfa28b6d68316075ed1e155733165d686d7b16ef34b37bfdd7cb3846da97",
+              "observed_at": "2026-11-06T06:47:48.582813Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.\n\n[desk-action:3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:47:48.593244Z"
+        }
+      ],
+      "directory": "05-contact_route-available-r1",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 28.179664072002197,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "ca58f24907ec861b7cf00a36eabaee927a7fab5fea90a910cd96d137b45906c6",
+      "first_request_provider_messages_sha256": "7e5396d9bc3b50f00f54ece8f54c00be7f6e73721efad1dbc191b70affd32232",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "contact_route",
+      "kind": "history_required",
+      "condition": "empty",
+      "repeat": 1,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 1,
+      "user_turns": 2,
+      "memory_searches": 1,
+      "nonempty_recalls": 0,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 12,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 52977,
+        "output_tokens": 568,
+        "cache_read_tokens": 39168,
+        "cost_usd": null
+      },
+      "captured_model_requests": 12,
+      "execution_seconds": 39.915026380998825,
+      "setup_seconds": 0.150707713999509,
+      "total_seconds": 40.065734094998334,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.\n\n[desk-action:3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "52fbcfa28b6d68316075ed1e155733165d686d7b16ef34b37bfdd7cb3846da97",
+              "observed_at": "2026-11-06T06:48:27.252309Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.\n\n[desk-action:3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:48:27.264972Z"
+        }
+      ],
+      "directory": "06-contact_route-empty-r1",
+      "preference_questions": 1,
+      "user_followups": 1,
+      "preference_followups": 1,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 39.646798332998515,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "d874ff00a9d1b64682fde71ebc702a75f7d0174013f709ed61a32af1d5e7bdeb",
+      "first_request_provider_messages_sha256": "7e5396d9bc3b50f00f54ece8f54c00be7f6e73721efad1dbc191b70affd32232",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "audit_timestamp",
+      "kind": "history_required",
+      "condition": "empty",
+      "repeat": 1,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 1,
+      "user_turns": 2,
+      "memory_searches": 2,
+      "nonempty_recalls": 0,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 13,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 58679,
+        "output_tokens": 650,
+        "cache_read_tokens": 45184,
+        "cost_usd": null
+      },
+      "captured_model_requests": 13,
+      "execution_seconds": 36.91855985499933,
+      "setup_seconds": 0.15253209000002244,
+      "total_seconds": 37.07109194499935,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "95faa4dee30ab82b769293c3fae5773d31072336ff2fc9daba573796b3095e65",
+              "observed_at": "2026-11-06T06:49:05.357426Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:49:05.370937Z"
+        }
+      ],
+      "directory": "07-audit_timestamp-empty-r1",
+      "preference_questions": 1,
+      "user_followups": 1,
+      "preference_followups": 1,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 36.646180441999604,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "776d7def499b0da19ed73c5479b1d29b6ac8f7c050f9ae07846813724995b881",
+      "first_request_provider_messages_sha256": "8a8327063ab4ff687f984e80ac912ae9a83f10aa1e9ee1f9f455adcfd8cb17ad",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "audit_timestamp",
+      "kind": "history_required",
+      "condition": "available",
+      "repeat": 1,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 1,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 6,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 24912,
+        "output_tokens": 292,
+        "cache_read_tokens": 21248,
+        "cost_usd": null
+      },
+      "captured_model_requests": 6,
+      "execution_seconds": 17.694254555999578,
+      "setup_seconds": 0.08746168299876445,
+      "total_seconds": 17.781716238998342,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "95faa4dee30ab82b769293c3fae5773d31072336ff2fc9daba573796b3095e65",
+              "observed_at": "2026-11-06T06:49:24.126170Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:49:24.137221Z"
+        }
+      ],
+      "directory": "08-audit_timestamp-available-r1",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 17.517724703999193,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "864c3b8aca679b7c3b10fa22412bde91f0b1166bd49cbc4fda527fa60cd071d4",
+      "first_request_provider_messages_sha256": "8a8327063ab4ff687f984e80ac912ae9a83f10aa1e9ee1f9f455adcfd8cb17ad",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "override_reference",
+      "kind": "current_override",
+      "condition": "available",
+      "repeat": 1,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "[HOTFIX-9] | Rollback approved."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 1,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 6,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 25344,
+        "output_tokens": 275,
+        "cache_read_tokens": 17280,
+        "cost_usd": null
+      },
+      "captured_model_requests": 6,
+      "execution_seconds": 19.89302284400037,
+      "setup_seconds": 0.14926321699931577,
+      "total_seconds": 20.042286060999686,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "848f2a96be1988ef4968c29831116e90f8ddaa10f32e67271c5538f3162fc7f0",
+              "observed_at": "2026-11-06T06:49:43.322299Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:49:43.333223Z"
+        }
+      ],
+      "directory": "09-override_reference-available-r1",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 19.721677109997472,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "6a8b89fe9c15f529b43e15b4795433cf158b4f0f7505571ec3fd9e1b6cb4ffd5",
+      "first_request_provider_messages_sha256": "2b0e9a1ce671a2f06e1c8384ecee45dcf57bea679c0065e9805a9815c45be981",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "override_reference",
+      "kind": "current_override",
+      "condition": "empty",
+      "repeat": 1,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "[HOTFIX-9] | Rollback approved."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 0,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 8,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 32756,
+        "output_tokens": 322,
+        "cache_read_tokens": 22016,
+        "cost_usd": null
+      },
+      "captured_model_requests": 8,
+      "execution_seconds": 26.909628288998647,
+      "setup_seconds": 0.145246952000889,
+      "total_seconds": 27.054875240999536,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "848f2a96be1988ef4968c29831116e90f8ddaa10f32e67271c5538f3162fc7f0",
+              "observed_at": "2026-11-06T06:50:11.078707Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:50:11.091879Z"
+        }
+      ],
+      "directory": "10-override_reference-empty-r1",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 26.732151811998847,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "157c7d78a5beacab820bb143f1fa05401e9ce61cde3f1dc0572245a658c5f666",
+      "first_request_provider_messages_sha256": "2b0e9a1ce671a2f06e1c8384ecee45dcf57bea679c0065e9805a9815c45be981",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "override_contact",
+      "kind": "current_override",
+      "condition": "empty",
+      "repeat": 1,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 0,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 7,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 28352,
+        "output_tokens": 310,
+        "cache_read_tokens": 17536,
+        "cost_usd": null
+      },
+      "captured_model_requests": 7,
+      "execution_seconds": 22.939080622998517,
+      "setup_seconds": 0.08656408200113219,
+      "total_seconds": 23.02564470499965,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "265a11bb74c3f72292a7c85eaaa637dd121b79ecaa1e421d26e4bdad902a993c",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved.\n\n[desk-action:265a11bb74c3f72292a7c85eaaa637dd121b79ecaa1e421d26e4bdad902a993c]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "1e53b1c117a4f00429ccadd6e506c39a75d1db633286a8301ec3a8fce396af94",
+              "observed_at": "2026-11-06T06:50:34.135225Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved.\n\n[desk-action:265a11bb74c3f72292a7c85eaaa637dd121b79ecaa1e421d26e4bdad902a993c]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:50:34.145448Z"
+        }
+      ],
+      "directory": "11-override_contact-empty-r1",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 22.764339096002004,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "c9efb8355f69b037c8b5f3df68d9d4677907603cbc0068a19fcecaf353304501",
+      "first_request_provider_messages_sha256": "0ea9bfccea7cc1cb8f639420b0694aefe828c6e7eaad4d4c5dca22d0b0e2eec6",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "override_contact",
+      "kind": "current_override",
+      "condition": "available",
+      "repeat": 1,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 1,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 6,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 25415,
+        "output_tokens": 283,
+        "cache_read_tokens": 17408,
+        "cost_usd": null
+      },
+      "captured_model_requests": 6,
+      "execution_seconds": 20.27648434999901,
+      "setup_seconds": 0.16455864099953033,
+      "total_seconds": 20.44104299099854,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "265a11bb74c3f72292a7c85eaaa637dd121b79ecaa1e421d26e4bdad902a993c",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved.\n\n[desk-action:265a11bb74c3f72292a7c85eaaa637dd121b79ecaa1e421d26e4bdad902a993c]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "1e53b1c117a4f00429ccadd6e506c39a75d1db633286a8301ec3a8fce396af94",
+              "observed_at": "2026-11-06T06:50:52.696076Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved.\n\n[desk-action:265a11bb74c3f72292a7c85eaaa637dd121b79ecaa1e421d26e4bdad902a993c]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:50:52.708915Z"
+        }
+      ],
+      "directory": "12-override_contact-available-r1",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 20.06946995800172,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "504c4acc2d294fc379ea2cf474aac0efc59671a1e2d9d6fea0519e969cc558fa",
+      "first_request_provider_messages_sha256": "0ea9bfccea7cc1cb8f639420b0694aefe828c6e7eaad4d4c5dca22d0b0e2eec6",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "note_reference",
+      "kind": "history_required",
+      "condition": "empty",
+      "repeat": 2,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "[OPS-27] | Gateway log sample received."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 1,
+      "user_turns": 2,
+      "memory_searches": 1,
+      "nonempty_recalls": 0,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 11,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 48908,
+        "output_tokens": 555,
+        "cache_read_tokens": 37248,
+        "cost_usd": null
+      },
+      "captured_model_requests": 11,
+      "execution_seconds": 49.835404740999365,
+      "setup_seconds": 0.14959711899973627,
+      "total_seconds": 49.9850018599991,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "e07c8d244810f29d86b60cfe03d50a96ef41b6a81927c9659cbff9238662d2d3",
+              "observed_at": "2026-11-06T06:51:41.439169Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:51:41.453050Z"
+        }
+      ],
+      "directory": "13-note_reference-empty-r2",
+      "preference_questions": 1,
+      "user_followups": 1,
+      "preference_followups": 1,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 49.55517306100046,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "33d408d4d6f7a441c23186cb519e29219772864906c0ae07cfc01b5d2d41257f",
+      "first_request_provider_messages_sha256": "60738f2e44de15ca22cb8386f73fe012c63abf4c2fba7812e4f7df8b08f280a0",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "note_reference",
+      "kind": "history_required",
+      "condition": "available",
+      "repeat": 2,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "[OPS-27] | Gateway log sample received."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 1,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 6,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 24723,
+        "output_tokens": 250,
+        "cache_read_tokens": 17152,
+        "cost_usd": null
+      },
+      "captured_model_requests": 6,
+      "execution_seconds": 22.542487091999647,
+      "setup_seconds": 0.15584122200016282,
+      "total_seconds": 22.69832831399981,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "e07c8d244810f29d86b60cfe03d50a96ef41b6a81927c9659cbff9238662d2d3",
+              "observed_at": "2026-11-06T06:52:06.078532Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:608f6ce085479b7a86591524f9bcd44af3965f5c3bcf3c04290cca5e3e0adea5]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:52:06.090487Z"
+        }
+      ],
+      "directory": "14-note_reference-available-r2",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 22.348991863003903,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "1b919c44d6b3b27df7a52cef05388f94b48fdc9cb85f344006ab9e5f1e5c9345",
+      "first_request_provider_messages_sha256": "60738f2e44de15ca22cb8386f73fe012c63abf4c2fba7812e4f7df8b08f280a0",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "log_summary",
+      "kind": "history_required",
+      "condition": "available",
+      "repeat": 2,
+      "started": true,
+      "success": false,
+      "business_grade": {
+        "success": false,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": false,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "SIGNAL=Packet loss is 2%; FOLLOWUP=Collect two hours of traces"
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 1,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 7,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 29433,
+        "output_tokens": 324,
+        "cache_read_tokens": 23552,
+        "cost_usd": null
+      },
+      "captured_model_requests": 7,
+      "execution_seconds": 21.04844682899966,
+      "setup_seconds": 0.1563186660005158,
+      "total_seconds": 21.204765495000174,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "86e9a6b355f5fded309991b9d16eb5b47af3101850c656a587264c7ccaf97e7f",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "SIGNAL=Packet loss is 2%; FOLLOWUP=Collect two hours of traces\n\n[desk-action:86e9a6b355f5fded309991b9d16eb5b47af3101850c656a587264c7ccaf97e7f]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "450cf1994d219938468f55f82464ee62a95a01c555ea584aca1069515018a8ab",
+              "observed_at": "2026-11-06T06:52:28.065688Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "SIGNAL=Packet loss is 2%; FOLLOWUP=Collect two hours of traces\n\n[desk-action:86e9a6b355f5fded309991b9d16eb5b47af3101850c656a587264c7ccaf97e7f]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:52:28.077973Z"
+        }
+      ],
+      "directory": "15-log_summary-available-r2",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 20.860762464999425,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "8876de9497f67cd1416cd5b6f4109c14612f7506df38ba3fd545a72daed1683c",
+      "first_request_provider_messages_sha256": "58ccc4b7f25087e572d4fb490294cfbaa7bd37bb722a33cf74b2664de8d3459b",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "log_summary",
+      "kind": "history_required",
+      "condition": "empty",
+      "repeat": 2,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "SIGNAL=Packet loss is 2%.; FOLLOWUP=Collect two hours of traces."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 1,
+      "user_turns": 2,
+      "memory_searches": 1,
+      "nonempty_recalls": 0,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 14,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 68657,
+        "output_tokens": 594,
+        "cache_read_tokens": 56192,
+        "cost_usd": null
+      },
+      "captured_model_requests": 14,
+      "execution_seconds": 45.175310946000536,
+      "setup_seconds": 0.1488621680000506,
+      "total_seconds": 45.32417311400059,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "ae77606294b58205318bcb221eec2822b3c75ac4647c9721f68e1566b4704159",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "SIGNAL=Packet loss is 2%.; FOLLOWUP=Collect two hours of traces.\n\n[desk-action:ae77606294b58205318bcb221eec2822b3c75ac4647c9721f68e1566b4704159]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "bc48b4a468bffe19f206a0ae9eccb9dc154216ce757e053f6ba092c4f84e3066",
+              "observed_at": "2026-11-06T06:53:13.584829Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "SIGNAL=Packet loss is 2%.; FOLLOWUP=Collect two hours of traces.\n\n[desk-action:ae77606294b58205318bcb221eec2822b3c75ac4647c9721f68e1566b4704159]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:53:13.597372Z"
+        }
+      ],
+      "directory": "16-log_summary-empty-r2",
+      "preference_questions": 1,
+      "user_followups": 1,
+      "preference_followups": 1,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 44.740969362001124,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "40d5df72b47185056df1b2c8f3bd6d9c0f9ded76d2dff7d6da6c76df4dda860b",
+      "first_request_provider_messages_sha256": "58ccc4b7f25087e572d4fb490294cfbaa7bd37bb722a33cf74b2664de8d3459b",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "contact_route",
+      "kind": "history_required",
+      "condition": "empty",
+      "repeat": 2,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 1,
+      "user_turns": 2,
+      "memory_searches": 1,
+      "nonempty_recalls": 0,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 12,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 54532,
+        "output_tokens": 592,
+        "cache_read_tokens": 40704,
+        "cost_usd": null
+      },
+      "captured_model_requests": 12,
+      "execution_seconds": 39.851990858000136,
+      "setup_seconds": 0.1531723990010505,
+      "total_seconds": 40.005163257001186,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.\n\n[desk-action:3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "52fbcfa28b6d68316075ed1e155733165d686d7b16ef34b37bfdd7cb3846da97",
+              "observed_at": "2026-11-06T06:53:52.072615Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.\n\n[desk-action:3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:53:52.085909Z"
+        }
+      ],
+      "directory": "17-contact_route-empty-r2",
+      "preference_questions": 1,
+      "user_followups": 1,
+      "preference_followups": 1,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 39.5890435780002,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "6648e7b4e954f274df32d821870f150cbc27da9b2d55c3e81dfe3511ae643e2c",
+      "first_request_provider_messages_sha256": "7e5396d9bc3b50f00f54ece8f54c00be7f6e73721efad1dbc191b70affd32232",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "contact_route",
+      "kind": "history_required",
+      "condition": "available",
+      "repeat": 2,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 1,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 9,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 41887,
+        "output_tokens": 366,
+        "cache_read_tokens": 29184,
+        "cost_usd": null
+      },
+      "captured_model_requests": 9,
+      "execution_seconds": 29.79166333899957,
+      "setup_seconds": 0.14701325799978804,
+      "total_seconds": 29.938676596999358,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.\n\n[desk-action:3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "52fbcfa28b6d68316075ed1e155733165d686d7b16ef34b37bfdd7cb3846da97",
+              "observed_at": "2026-11-06T06:54:21.686849Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "CONTACT=portal; ROUTE=VPN-R7; UPDATE=Diagnostics are ready.\n\n[desk-action:3b66d4c479b8332621e70119c1b185023444733873e260a5c71efab33e6ad31b]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:54:21.703635Z"
+        }
+      ],
+      "directory": "18-contact_route-available-r2",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 29.59062731800077,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "29a34b2a478546719284694dc297ffda65c947bb9f5bcc1ab5d781acba5cc555",
+      "first_request_provider_messages_sha256": "7e5396d9bc3b50f00f54ece8f54c00be7f6e73721efad1dbc191b70affd32232",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "audit_timestamp",
+      "kind": "history_required",
+      "condition": "available",
+      "repeat": 2,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 1,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 8,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 33878,
+        "output_tokens": 322,
+        "cache_read_tokens": 24064,
+        "cost_usd": null
+      },
+      "captured_model_requests": 8,
+      "execution_seconds": 23.14256154099894,
+      "setup_seconds": 0.1451577530006034,
+      "total_seconds": 23.287719293999544,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "95faa4dee30ab82b769293c3fae5773d31072336ff2fc9daba573796b3095e65",
+              "observed_at": "2026-11-06T06:54:47.458511Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:54:47.469156Z"
+        }
+      ],
+      "directory": "19-audit_timestamp-available-r2",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 22.95905426999525,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "ba320978e3e591b4f6110d59f1e24890f65c25d937da7e67e3c664c2b5c40687",
+      "first_request_provider_messages_sha256": "8a8327063ab4ff687f984e80ac912ae9a83f10aa1e9ee1f9f455adcfd8cb17ad",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "audit_timestamp",
+      "kind": "history_required",
+      "condition": "empty",
+      "repeat": 2,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 1,
+      "user_turns": 2,
+      "memory_searches": 1,
+      "nonempty_recalls": 0,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 11,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 49243,
+        "output_tokens": 591,
+        "cache_read_tokens": 39808,
+        "cost_usd": null
+      },
+      "captured_model_requests": 11,
+      "execution_seconds": 34.22556304200043,
+      "setup_seconds": 0.1501423829995474,
+      "total_seconds": 34.37570542499998,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "95faa4dee30ab82b769293c3fae5773d31072336ff2fc9daba573796b3095e65",
+              "observed_at": "2026-11-06T06:55:20.837486Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "CASE=NET-Z9 | WHEN=2026-11-06T08:30:00Z | RESULT=Trace export completed.\n\n[desk-action:cdee2d825e0d88a579c5466cf9000e52c411cf873af5189dcd3be4474af1d10f]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:55:20.850316Z"
+        }
+      ],
+      "directory": "20-audit_timestamp-empty-r2",
+      "preference_questions": 1,
+      "user_followups": 1,
+      "preference_followups": 1,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 33.95365927599778,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "f892b1bf8a1b1a3977b7c6b3a3823d546f35deba26894844fa9de03dfa55bd00",
+      "first_request_provider_messages_sha256": "8a8327063ab4ff687f984e80ac912ae9a83f10aa1e9ee1f9f455adcfd8cb17ad",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "override_reference",
+      "kind": "current_override",
+      "condition": "empty",
+      "repeat": 2,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "[HOTFIX-9] | Rollback approved."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 0,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 7,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 28346,
+        "output_tokens": 282,
+        "cache_read_tokens": 24576,
+        "cost_usd": null
+      },
+      "captured_model_requests": 7,
+      "execution_seconds": 21.396550703000685,
+      "setup_seconds": 0.14924120000068797,
+      "total_seconds": 21.545791903001373,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "848f2a96be1988ef4968c29831116e90f8ddaa10f32e67271c5538f3162fc7f0",
+              "observed_at": "2026-11-06T06:55:42.619597Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:55:42.632000Z"
+        }
+      ],
+      "directory": "21-override_reference-empty-r2",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 21.216405754003063,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "a8588f82a48be3f436a4e1e9fbdf3f6dbde6008676c37e98427ceb02c52d8358",
+      "first_request_provider_messages_sha256": "2b0e9a1ce671a2f06e1c8384ecee45dcf57bea679c0065e9805a9815c45be981",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "override_reference",
+      "kind": "current_override",
+      "condition": "available",
+      "repeat": 2,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "[HOTFIX-9] | Rollback approved."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 1,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 7,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 29399,
+        "output_tokens": 292,
+        "cache_read_tokens": 23296,
+        "cost_usd": null
+      },
+      "captured_model_requests": 7,
+      "execution_seconds": 22.358597127000394,
+      "setup_seconds": 0.14688295899941295,
+      "total_seconds": 22.505480085999807,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "848f2a96be1988ef4968c29831116e90f8ddaa10f32e67271c5538f3162fc7f0",
+              "observed_at": "2026-11-06T06:56:04.549686Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "[HOTFIX-9] | Rollback approved.\n\n[desk-action:a92acdc2972236ee17d22b42523c0739586067cfc413b7a8a2976453ae424d2b]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:56:04.562540Z"
+        }
+      ],
+      "directory": "22-override_reference-available-r2",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 22.177620335998654,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "937f636fbca2831ade0e32118598e82ace3dfac57cd3a5c6d9ddf4e5b367bda6",
+      "first_request_provider_messages_sha256": "2b0e9a1ce671a2f06e1c8384ecee45dcf57bea679c0065e9805a9815c45be981",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "override_contact",
+      "kind": "current_override",
+      "condition": "available",
+      "repeat": 2,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 1,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 6,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 24878,
+        "output_tokens": 254,
+        "cache_read_tokens": 20224,
+        "cost_usd": null
+      },
+      "captured_model_requests": 6,
+      "execution_seconds": 17.345177400000466,
+      "setup_seconds": 0.15263506200062693,
+      "total_seconds": 17.497812462001093,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "265a11bb74c3f72292a7c85eaaa637dd121b79ecaa1e421d26e4bdad902a993c",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved.\n\n[desk-action:265a11bb74c3f72292a7c85eaaa637dd121b79ecaa1e421d26e4bdad902a993c]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "1e53b1c117a4f00429ccadd6e506c39a75d1db633286a8301ec3a8fce396af94",
+              "observed_at": "2026-11-06T06:56:23.659146Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved.\n\n[desk-action:265a11bb74c3f72292a7c85eaaa637dd121b79ecaa1e421d26e4bdad902a993c]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:56:23.671920Z"
+        }
+      ],
+      "directory": "23-override_contact-available-r2",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 17.149509759998182,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "71c05b287128685a617b275727cb76f07a77b53df2637631bf23602635366bae",
+      "first_request_provider_messages_sha256": "0ea9bfccea7cc1cb8f639420b0694aefe828c6e7eaad4d4c5dca22d0b0e2eec6",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    },
+    {
+      "scenario": "override_contact",
+      "kind": "current_override",
+      "condition": "empty",
+      "repeat": 2,
+      "started": true,
+      "success": true,
+      "business_grade": {
+        "success": true,
+        "checks": {
+          "one_http_write": true,
+          "note_matches": true,
+          "one_journal": true,
+          "no_collateral_change": true,
+          "verified_receipt": true
+        },
+        "actual_notes": [
+          "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved."
+        ]
+      },
+      "error_type": null,
+      "preference_clarifications": 0,
+      "user_turns": 1,
+      "memory_searches": 1,
+      "nonempty_recalls": 0,
+      "new_thread": true,
+      "first_request_preference_leaks": [],
+      "usage": {
+        "role": "agent",
+        "calls": 7,
+        "failed_calls": 0,
+        "unknown_usage_calls": 0,
+        "input_tokens": 28422,
+        "output_tokens": 272,
+        "cache_read_tokens": 20608,
+        "cost_usd": null
+      },
+      "captured_model_requests": 7,
+      "execution_seconds": 17.640627104001396,
+      "setup_seconds": 0.1659389550004562,
+      "total_seconds": 17.806566059001852,
+      "model_mode": "live",
+      "final_receipts": [
+        {
+          "operation_id": "265a11bb74c3f72292a7c85eaaa637dd121b79ecaa1e421d26e4bdad902a993c",
+          "action": "add_note",
+          "ticket_id": 42,
+          "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+          "after": {
+            "id": 42,
+            "project_id": 1,
+            "subject": "Synthetic service investigation",
+            "description": "Record the user's authorized investigation update.",
+            "status_id": 1,
+            "status_name": "New",
+            "is_closed": false,
+            "assigned_to_id": 7,
+            "assigned_to_name": "Original owner",
+            "allowed_statuses": [
+              {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              {
+                "id": 2,
+                "name": "In Progress",
+                "is_closed": false
+              },
+              {
+                "id": 5,
+                "name": "Closed",
+                "is_closed": true
+              }
+            ],
+            "relations": [],
+            "journals": [
+              {
+                "id": 1,
+                "notes": "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved.\n\n[desk-action:265a11bb74c3f72292a7c85eaaa637dd121b79ecaa1e421d26e4bdad902a993c]",
+                "user": {
+                  "id": 1
+                },
+                "details": []
+              }
+            ],
+            "evidence": {
+              "source_uri": "http://127.0.0.1:43350/issues/42",
+              "source_kind": "ticket",
+              "entity_scope": "http://127.0.0.1:43350/projects/1",
+              "source_version": "1e53b1c117a4f00429ccadd6e506c39a75d1db633286a8301ec3a8fce396af94",
+              "observed_at": "2026-11-06T06:56:42.428280Z",
+              "valid_from": null,
+              "valid_to": null,
+              "status": "observed",
+              "content": {
+                "id": 42,
+                "project": {
+                  "id": 1,
+                  "name": "Service desk"
+                },
+                "subject": "Synthetic service investigation",
+                "description": "Record the user's authorized investigation update.",
+                "status": {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                "assigned_to": {
+                  "id": 7,
+                  "name": "Original owner"
+                },
+                "updated_on": "2026-11-05T00:00:00Z",
+                "journals": [
+                  {
+                    "id": 1,
+                    "notes": "CONTACT=email; ROUTE=triage-z9@example.invalid; UPDATE=Restart approved.\n\n[desk-action:265a11bb74c3f72292a7c85eaaa637dd121b79ecaa1e421d26e4bdad902a993c]",
+                    "user": {
+                      "id": 1
+                    },
+                    "details": []
+                  }
+                ],
+                "relations": [],
+                "allowed_statuses": [
+                  {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "In Progress",
+                    "is_closed": false
+                  },
+                  {
+                    "id": 5,
+                    "name": "Closed",
+                    "is_closed": true
+                  }
+                ]
+              }
+            }
+          },
+          "journal_id": 1,
+          "verified": true,
+          "replayed": false,
+          "observed_at": "2026-11-06T06:56:42.441353Z"
+        }
+      ],
+      "directory": "24-override_contact-empty-r2",
+      "preference_questions": 0,
+      "user_followups": 0,
+      "preference_followups": 0,
+      "http_write_attempts": 1,
+      "journals": 1,
+      "unknown_latency_calls": 0,
+      "model_seconds": 17.440172712003914,
+      "first_request_tool_schema_sha256": "6214fee0edf2d506343aeffeb0329519cd5baa2ed3ae6376d0a97c9861f19fc8",
+      "first_request_messages_sha256": "9216579391faf6d8d87c3aea31ae208cfcd10c58b491b72427c04367647bc6aa",
+      "first_request_provider_messages_sha256": "0ea9bfccea7cc1cb8f639420b0694aefe828c6e7eaad4d4c5dca22d0b0e2eec6",
+      "component_schema_sha256": "42949e5b225b276fe1eb57fa324c06f091324aab2710786517f69f06edd50f0d"
+    }
+  ],
+  "source_matches_finish": true,
+  "frozen_scenario_sha256_matches": true
+}

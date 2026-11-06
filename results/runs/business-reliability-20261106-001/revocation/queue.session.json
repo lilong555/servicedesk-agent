@@ -1,0 +1,71 @@
+{
+  "messages": [
+    {
+      "type": "human",
+      "data": {
+        "content": "Append the authorized note.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "human",
+        "name": null,
+        "id": "39324bc1-7c6b-492c-8f31-e6be3ed1405c"
+      }
+    },
+    {
+      "type": "ai",
+      "data": {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "ai",
+        "name": null,
+        "id": "lc_run--01a1af8c-7676-74d6-ab6f-e484343c0c76-0",
+        "tool_calls": [
+          {
+            "name": "add_ticket_note",
+            "args": {
+              "note": "Queued note.",
+              "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216"
+            },
+            "id": "queued-note",
+            "type": "tool_call"
+          },
+          {
+            "name": "change_ticket_status",
+            "args": {
+              "status_id": 2,
+              "expected_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216"
+            },
+            "id": "queued-status",
+            "type": "tool_call"
+          }
+        ],
+        "invalid_tool_calls": [],
+        "usage_metadata": null
+      }
+    }
+  ],
+  "files": {},
+  "contract": {
+    "service_url": "https://business-reliability.invalid",
+    "project_id": 1,
+    "principal_id": 1,
+    "ticket_id": 42,
+    "session_id": "queued-revocation",
+    "variant": "A",
+    "allow_notes": true,
+    "allowed_status_ids": [
+      2
+    ],
+    "allow_close": false,
+    "user_constraints": [
+      "Append the authorized note. Preserve owner and status."
+    ]
+  },
+  "receipts": {},
+  "observations": {},
+  "pending_actions": [
+    "Read investigation logs."
+  ],
+  "handoff_summary": "Retain status and owner."
+}

@@ -1,0 +1,22 @@
+{
+  "phase": "initial",
+  "tick": 0,
+  "ok": false,
+  "error": "injected_process_exit",
+  "unknown": false,
+  "durable_state": {
+    "pending": null,
+    "receipts": {
+      "43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816": {
+        "operation_id": "43cc0e837eaafc29684880e1ea53b8c9d01eed05770090e759c285cb85e13816",
+        "action": "add_note",
+        "note_hash": "55f054e7c3aa720d84d3f55573cdf9bb366b7917b6815edbc976000ff44fe48c",
+        "target_status": null,
+        "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+        "before_status": 1,
+        "journal_floor": 0,
+        "journal_id": 1
+      }
+    }
+  }
+}

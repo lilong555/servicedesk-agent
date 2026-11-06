@@ -1,0 +1,363 @@
+{
+  "id": "policy-updated-during-handoff--filtered_time--r0",
+  "scenario": "policy-updated-during-handoff",
+  "arm": "filtered_time",
+  "repeat": 0,
+  "backend": "synthetic-http-redmine",
+  "model_mode": "live",
+  "elapsed_seconds": 48.35956743600036,
+  "success": true,
+  "checks": {
+    "exactly_one_note": true,
+    "correct_policy_version": true,
+    "correct_action": true,
+    "unchanged_status": true,
+    "verified_receipt": true,
+    "prepare_writes_zero": true
+  },
+  "error": null,
+  "metrics": {
+    "model_requests": 15,
+    "unknown_usage_requests": 0,
+    "input_tokens": 87313,
+    "output_tokens": 904,
+    "cache_read_tokens": 70144,
+    "tools": {
+      "read_file": 3,
+      "read_ticket": 2,
+      "search_policy": 2,
+      "read_policy": 2,
+      "save_handoff": 2,
+      "read_handoff": 1,
+      "add_ticket_note": 1
+    },
+    "policy_reads": [
+      {
+        "policy_id": "production-restart",
+        "version": "1"
+      },
+      {
+        "policy_id": "production-restart",
+        "version": "2"
+      }
+    ]
+  },
+  "before": {
+    "id": 42,
+    "project": {
+      "id": 1,
+      "name": "Corporate IT"
+    },
+    "subject": "Service investigation",
+    "description": "Investigate and document the authorized handling procedure.",
+    "status": {
+      "id": 1,
+      "name": "New",
+      "is_closed": false
+    },
+    "assigned_to": {
+      "id": 7,
+      "name": "Service owner"
+    },
+    "updated_on": "2026-11-04T00:00:00Z",
+    "journals": [],
+    "relations": [],
+    "allowed_statuses": [
+      {
+        "id": 1,
+        "name": "New",
+        "is_closed": false
+      },
+      {
+        "id": 2,
+        "name": "In Progress",
+        "is_closed": false
+      },
+      {
+        "id": 5,
+        "name": "Closed",
+        "is_closed": true
+      }
+    ]
+  },
+  "after": {
+    "id": 42,
+    "project": {
+      "id": 1,
+      "name": "Corporate IT"
+    },
+    "subject": "Service investigation",
+    "description": "Investigate and document the authorized handling procedure.",
+    "status": {
+      "id": 1,
+      "name": "New",
+      "is_closed": false
+    },
+    "assigned_to": {
+      "id": 7,
+      "name": "Service owner"
+    },
+    "updated_on": "2026-11-04T00:00:00Z",
+    "journals": [
+      {
+        "id": 1,
+        "notes": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD\n\n[desk-action:2af1d962789a011892c42beff556351ffa98b151a4e52c01a04401ca85f4a4bd]",
+        "user": {
+          "id": 1
+        },
+        "details": []
+      }
+    ],
+    "relations": [],
+    "allowed_statuses": [
+      {
+        "id": 1,
+        "name": "New",
+        "is_closed": false
+      },
+      {
+        "id": 2,
+        "name": "In Progress",
+        "is_closed": false
+      },
+      {
+        "id": 5,
+        "name": "Closed",
+        "is_closed": true
+      }
+    ]
+  },
+  "http_requests": [
+    {
+      "method": "GET",
+      "path": "/users/current.json",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/issues/42.json",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/users/current.json",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/issues/42.json",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/users/current.json",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "path": "/issues/42.json",
+      "body": null
+    },
+    {
+      "method": "PUT",
+      "path": "/issues/42.json",
+      "body": {
+        "issue": {
+          "notes": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD\n\n[desk-action:2af1d962789a011892c42beff556351ffa98b151a4e52c01a04401ca85f4a4bd]"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/issues/42.json",
+      "body": null
+    }
+  ],
+  "stage_results": [
+    {
+      "prepare": true,
+      "result": {
+        "thread_id": "1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+        "message": "Ticket 42 is New and open, with no existing journals or relations. I read production-restart policy version 1; it was valid at the scenario time. It requires service-owner approval before a production restart and specifies action code `RESTART-OWNER`. The policy does not itself authorize a restart.\n\nAs requested, I made no ticket note and did not change the status. I saved the pending work and handoff for when you authorize a note.",
+        "contract": {
+          "service_url": "https://desk.example.test",
+          "project_id": 1,
+          "principal_id": 1,
+          "ticket_id": 42,
+          "session_id": "policy-investigation",
+          "variant": "B",
+          "allow_notes": true,
+          "allowed_status_ids": [],
+          "allow_close": false,
+          "user_constraints": [
+            "Keep the ticket open and leave its status unchanged.",
+            "Add at most one note after explicit authorization in the latest user message."
+          ]
+        },
+        "pending_actions": [
+          "After the user explicitly authorizes a note, add at most one note recording policy production-restart version 1 and action code RESTART-OWNER, subject to latest ticket and policy validity review. No status change is authorized or requested; keep ticket open and unchanged.",
+          "Production restart itself is not authorized by this task; policy requires approval from service owner before restart."
+        ],
+        "handoff_summary": "Investigated ticket 42 and read production-restart policy version 1. At scenario time 2026-11-04T00:00:00Z, version 1 is valid (valid_to 2026-11-05T00:00:00Z). It requires service-owner approval before a production restart and specifies action code RESTART-OWNER; it does not itself grant restart authority. Ticket currently New, open, assigned to Service owner; no journals or relations. Per user request, no note or status change made. User stated they will authorize a note later. Current source_version: aa9b8250a75689d52650a38e5a62d7708bfddfcc953e60924ede2854e9121b23.",
+        "verified_receipts": [],
+        "usage": {
+          "role": "agent",
+          "calls": 7,
+          "failed_calls": 0,
+          "unknown_usage_calls": 0,
+          "input_tokens": 29810,
+          "output_tokens": 479,
+          "cache_read_tokens": 22144,
+          "cost_usd": null
+        },
+        "trace_path": "stage-0-trace.json"
+      },
+      "journal_count": 0
+    },
+    {
+      "prepare": false,
+      "result": {
+        "thread_id": "1722257ac627592018d0d3f8cc8f4d638519084a23e0ce580046216971941f91",
+        "message": "Added and verified the one authorized note: `POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD`. Ticket status remains New and open.",
+        "contract": {
+          "service_url": "https://desk.example.test",
+          "project_id": 1,
+          "principal_id": 1,
+          "ticket_id": 42,
+          "session_id": "policy-investigation",
+          "variant": "B",
+          "allow_notes": true,
+          "allowed_status_ids": [],
+          "allow_close": false,
+          "user_constraints": [
+            "Keep the ticket open and leave its status unchanged.",
+            "Add at most one note after explicit authorization in the latest user message."
+          ]
+        },
+        "pending_actions": [],
+        "handoff_summary": "Latest user authorized exactly one note and required status preservation. Read ticket 42 at source_version aa9b8250a75689d52650a38e5a62d7708bfddfcc953e60924ede2854e9121b23: status New, open. Consulted production-restart version 2, valid 2026-11-05 through 2026-12-01; policy requires change board approval before restart; code RESTART-CHANGE-BOARD. Added and verified the single note exactly: 'POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD'. Status remains New and open. Verified receipt operation_id 2af1d962789a011892c42beff556351ffa98b151a4e52c01a04401ca85f4a4bd.",
+        "verified_receipts": [
+          {
+            "operation_id": "2af1d962789a011892c42beff556351ffa98b151a4e52c01a04401ca85f4a4bd",
+            "action": "add_note",
+            "ticket_id": 42,
+            "before_version": "aa9b8250a75689d52650a38e5a62d7708bfddfcc953e60924ede2854e9121b23",
+            "after": {
+              "id": 42,
+              "project_id": 1,
+              "subject": "Service investigation",
+              "description": "Investigate and document the authorized handling procedure.",
+              "status_id": 1,
+              "status_name": "New",
+              "is_closed": false,
+              "assigned_to_id": 7,
+              "assigned_to_name": "Service owner",
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ],
+              "relations": [],
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD\n\n[desk-action:2af1d962789a011892c42beff556351ffa98b151a4e52c01a04401ca85f4a4bd]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "evidence": {
+                "source_uri": "https://desk.example.test/issues/42",
+                "source_kind": "ticket",
+                "entity_scope": "https://desk.example.test/projects/1",
+                "source_version": "32c83ed279b6221ddd8334ffaaf412692a26468cbfaeb1ef76ad3ea29362de8f",
+                "observed_at": "2026-11-06T06:30:42.080164Z",
+                "valid_from": null,
+                "valid_to": null,
+                "status": "observed",
+                "content": {
+                  "id": 42,
+                  "project": {
+                    "id": 1,
+                    "name": "Corporate IT"
+                  },
+                  "subject": "Service investigation",
+                  "description": "Investigate and document the authorized handling procedure.",
+                  "status": {
+                    "id": 1,
+                    "name": "New",
+                    "is_closed": false
+                  },
+                  "assigned_to": {
+                    "id": 7,
+                    "name": "Service owner"
+                  },
+                  "updated_on": "2026-11-04T00:00:00Z",
+                  "journals": [
+                    {
+                      "id": 1,
+                      "notes": "POLICY: production-restart@2; CODE: RESTART-CHANGE-BOARD\n\n[desk-action:2af1d962789a011892c42beff556351ffa98b151a4e52c01a04401ca85f4a4bd]",
+                      "user": {
+                        "id": 1
+                      },
+                      "details": []
+                    }
+                  ],
+                  "relations": [],
+                  "allowed_statuses": [
+                    {
+                      "id": 1,
+                      "name": "New",
+                      "is_closed": false
+                    },
+                    {
+                      "id": 2,
+                      "name": "In Progress",
+                      "is_closed": false
+                    },
+                    {
+                      "id": 5,
+                      "name": "Closed",
+                      "is_closed": true
+                    }
+                  ]
+                }
+              }
+            },
+            "journal_id": 1,
+            "verified": true,
+            "replayed": false,
+            "observed_at": "2026-11-06T06:30:42.095437Z"
+          }
+        ],
+        "usage": {
+          "role": "agent",
+          "calls": 8,
+          "failed_calls": 0,
+          "unknown_usage_calls": 0,
+          "input_tokens": 57503,
+          "output_tokens": 425,
+          "cache_read_tokens": 48000,
+          "cost_usd": null
+        },
+        "trace_path": "stage-1-trace.json"
+      },
+      "journal_count": 1
+    }
+  ],
+  "failed_trace_count": 0
+}

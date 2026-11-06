@@ -1,0 +1,1416 @@
+{
+  "corpus_documents": 24,
+  "rows": [
+    {
+      "query": {
+        "id": "vpn-current",
+        "query": "VPN remote access maintenance",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "vpn-maintenance",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "unfiltered_time",
+      "results": [
+        {
+          "policy_id": "vpn-maintenance",
+          "version": "3",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/vpn-maintenance/3",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "3:3df77f72ac08eea7ba7749d5a02714ccca8bdc0d2f61d1aeb8b763f1d9eaed0c",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-12-01T00:00:00Z",
+            "valid_to": null,
+            "status": "historical",
+            "content": "VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Access Engineering. Maintenance is permitted on Saturday at 03:00 UTC. The action code is ACCESS-SAT-0300. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "vpn-maintenance",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/vpn-maintenance/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:db3760f3dc13ff6d121520b50dd0dba45d222e57988df426e9446199daf8edfb",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "historical",
+            "content": "VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Network Operations. Maintenance is permitted on Monday at 23:00 UTC. The action code is NET-MON-2300. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "vpn-maintenance",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/vpn-maintenance/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:7c357488bd3d13b5241ffbcd0c6b6982186a764165ae341e25ec235fc3dbf64e",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Identity Operations. Maintenance is permitted on Wednesday at 01:00 UTC. The action code is IDENTITY-WED-0100. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 2,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "vpn-current",
+        "query": "VPN remote access maintenance",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "vpn-maintenance",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "filtered_time",
+      "results": [
+        {
+          "policy_id": "vpn-maintenance",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/vpn-maintenance/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:7c357488bd3d13b5241ffbcd0c6b6982186a764165ae341e25ec235fc3dbf64e",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Identity Operations. Maintenance is permitted on Wednesday at 01:00 UTC. The action code is IDENTITY-WED-0100. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "access-offboarding",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/access-offboarding/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:ad84655853248e08e94bc81e8bdca9b65a056e309247b442307d813352ed77dd",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Employee access offboarding. This policy covers employee departure account access offboarding and credential revocation. Queue credential revocation within 4 hours after confirmed departure. The action code is ACCESS-4H. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "production-restart",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/production-restart/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:2f33193c338881fb9453f46c08c7ebaba515184b310c1baaec4baf840558f76c",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the change board before a production restart. The action code is RESTART-CHANGE-BOARD. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "mail-current",
+        "query": "mailbox quota expansion",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "mailbox-quota",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "unfiltered_time",
+      "results": [
+        {
+          "policy_id": "mailbox-quota",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/mailbox-quota/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:7c2419fcd58e0e62568b0d60e57c998168ae193b26bd5aeecfe4bfc992e03a94",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "historical",
+            "content": "Mailbox quota expansion. This policy covers mailbox storage quota expansion and email delivery. The approved individual mailbox limit is 20 GB. Refer requests above that limit to Messaging. The action code is MAIL-20GB. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "mailbox-quota",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/mailbox-quota/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:16d0cd276d20404c5e0099f781fe919cd45b89448836f85b64ca57296f6589fe",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Mailbox quota expansion. This policy covers mailbox storage quota expansion and email delivery. The approved individual mailbox limit is 40 GB. Refer requests above that limit to Messaging. The action code is MAIL-40GB. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "mailbox-quota",
+          "version": "3",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/mailbox-quota/3",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "3:06f878352be15dcfcb126fd1a1175d107d8ce6fa2e5d3fa2edd1fe3ebf4d307e",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-12-01T00:00:00Z",
+            "valid_to": null,
+            "status": "historical",
+            "content": "Mailbox quota expansion. This policy covers mailbox storage quota expansion and email delivery. The approved individual mailbox limit is 60 GB. Refer requests above that limit to Messaging. The action code is MAIL-60GB. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 2,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "mail-current",
+        "query": "mailbox quota expansion",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "mailbox-quota",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "filtered_time",
+      "results": [
+        {
+          "policy_id": "mailbox-quota",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/mailbox-quota/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:16d0cd276d20404c5e0099f781fe919cd45b89448836f85b64ca57296f6589fe",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Mailbox quota expansion. This policy covers mailbox storage quota expansion and email delivery. The approved individual mailbox limit is 40 GB. Refer requests above that limit to Messaging. The action code is MAIL-40GB. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 1,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "restart-current",
+        "query": "production service restart approval",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "production-restart",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "unfiltered_time",
+      "results": [
+        {
+          "policy_id": "production-restart",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/production-restart/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:3151105644fcd10d573fa7e5fbd292d0ba933ff4ed771959d68df1973230f75d",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "historical",
+            "content": "Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the service owner before a production restart. The action code is RESTART-OWNER. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "production-restart",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/production-restart/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:2f33193c338881fb9453f46c08c7ebaba515184b310c1baaec4baf840558f76c",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the change board before a production restart. The action code is RESTART-CHANGE-BOARD. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "production-restart",
+          "version": "3",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/production-restart/3",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "3:e29bf5dc323267f4dc3bb00d5627b5f372d67d658e9d0d9545685b357ae1ac46",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-12-01T00:00:00Z",
+            "valid_to": null,
+            "status": "historical",
+            "content": "Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the incident commander before a production restart. The action code is RESTART-INCIDENT-COMMANDER. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 2,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "restart-current",
+        "query": "production service restart approval",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "production-restart",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "filtered_time",
+      "results": [
+        {
+          "policy_id": "production-restart",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/production-restart/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:2f33193c338881fb9453f46c08c7ebaba515184b310c1baaec4baf840558f76c",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the change board before a production restart. The action code is RESTART-CHANGE-BOARD. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "access-offboarding",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/access-offboarding/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:ad84655853248e08e94bc81e8bdca9b65a056e309247b442307d813352ed77dd",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Employee access offboarding. This policy covers employee departure account access offboarding and credential revocation. Queue credential revocation within 4 hours after confirmed departure. The action code is ACCESS-4H. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "laptop-replacement",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/laptop-replacement/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:aa496ae25b110436984abbf14db8c2d43c3cb7d61030411f17ec298932c5f03e",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Laptop replacement and custody. This policy covers damaged laptop replacement inventory custody and equipment handover. The central asset team approves equipment replacement and records the handover. The action code is ASSET-CENTRAL. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "access-current",
+        "query": "employee access offboarding credential revocation",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "access-offboarding",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "unfiltered_time",
+      "results": [
+        {
+          "policy_id": "access-offboarding",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/access-offboarding/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:93f2bdc440cab98ce264bbe4a7f36ddee04ee4f3fcf87c450e14d0284ca9d78d",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "historical",
+            "content": "Employee access offboarding. This policy covers employee departure account access offboarding and credential revocation. Queue credential revocation within 24 hours after confirmed departure. The action code is ACCESS-24H. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "access-offboarding",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/access-offboarding/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:ad84655853248e08e94bc81e8bdca9b65a056e309247b442307d813352ed77dd",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Employee access offboarding. This policy covers employee departure account access offboarding and credential revocation. Queue credential revocation within 4 hours after confirmed departure. The action code is ACCESS-4H. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "access-offboarding",
+          "version": "3",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/access-offboarding/3",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "3:e7bc32f35cd25b89b759b8c51991cd9ab68963c96a041b54e8d2847486295d90",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-12-01T00:00:00Z",
+            "valid_to": null,
+            "status": "historical",
+            "content": "Employee access offboarding. This policy covers employee departure account access offboarding and credential revocation. Queue credential revocation within 1 hour after confirmed departure. The action code is ACCESS-1H. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 2,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "access-current",
+        "query": "employee access offboarding credential revocation",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "access-offboarding",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "filtered_time",
+      "results": [
+        {
+          "policy_id": "access-offboarding",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/access-offboarding/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:ad84655853248e08e94bc81e8bdca9b65a056e309247b442307d813352ed77dd",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Employee access offboarding. This policy covers employee departure account access offboarding and credential revocation. Queue credential revocation within 4 hours after confirmed departure. The action code is ACCESS-4H. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "vpn-maintenance",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/vpn-maintenance/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:7c357488bd3d13b5241ffbcd0c6b6982186a764165ae341e25ec235fc3dbf64e",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Identity Operations. Maintenance is permitted on Wednesday at 01:00 UTC. The action code is IDENTITY-WED-0100. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 2,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "laptop-current",
+        "query": "laptop replacement custody",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "laptop-replacement",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "unfiltered_time",
+      "results": [
+        {
+          "policy_id": "laptop-replacement",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/laptop-replacement/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:db750b7a30a98356d2f4cf3a1299670f336e8fb98f2e4f9ccc1f36e754e43c2a",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "historical",
+            "content": "Laptop replacement and custody. This policy covers damaged laptop replacement inventory custody and equipment handover. The local asset custodian approves equipment replacement and records the handover. The action code is ASSET-LOCAL. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "laptop-replacement",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/laptop-replacement/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:aa496ae25b110436984abbf14db8c2d43c3cb7d61030411f17ec298932c5f03e",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Laptop replacement and custody. This policy covers damaged laptop replacement inventory custody and equipment handover. The central asset team approves equipment replacement and records the handover. The action code is ASSET-CENTRAL. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "laptop-replacement",
+          "version": "3",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/laptop-replacement/3",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "3:dc057c5e68881ecc591d625b671c5b9314397ecefae5b378d0e6374538b81206",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-12-01T00:00:00Z",
+            "valid_to": null,
+            "status": "historical",
+            "content": "Laptop replacement and custody. This policy covers damaged laptop replacement inventory custody and equipment handover. The regional asset team approves equipment replacement and records the handover. The action code is ASSET-REGIONAL. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 2,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "laptop-current",
+        "query": "laptop replacement custody",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "laptop-replacement",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "filtered_time",
+      "results": [
+        {
+          "policy_id": "laptop-replacement",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/laptop-replacement/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:aa496ae25b110436984abbf14db8c2d43c3cb7d61030411f17ec298932c5f03e",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Laptop replacement and custody. This policy covers damaged laptop replacement inventory custody and equipment handover. The central asset team approves equipment replacement and records the handover. The action code is ASSET-CENTRAL. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 1,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "restore-current",
+        "query": "backup restoration recovery point",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "backup-restore",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "unfiltered_time",
+      "results": [
+        {
+          "policy_id": "backup-restore",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/backup-restore/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:d26b892bca7a5774cb14ca46366aa34fffe95fc94818569f826915cfbdbeaad3",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "historical",
+            "content": "Backup restoration request. This policy covers backup restoration recovery point storage retention and restore authorization. A restore request may select a recovery point from the last 7 days. The action code is RESTORE-7D. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "backup-restore",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/backup-restore/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:eb69d803caa25d02754878e4e1591fb731cc9ecf92dbdd4ce28e613b039dcbfc",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Backup restoration request. This policy covers backup restoration recovery point storage retention and restore authorization. A restore request may select a recovery point from the last 14 days. The action code is RESTORE-14D. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "backup-restore",
+          "version": "3",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/backup-restore/3",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "3:3c20f59456499069f53ad95ca36adc2cc3fe1592ca34fd8da5400e18d762ea1c",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-12-01T00:00:00Z",
+            "valid_to": null,
+            "status": "historical",
+            "content": "Backup restoration request. This policy covers backup restoration recovery point storage retention and restore authorization. A restore request may select a recovery point from the last 30 days. The action code is RESTORE-30D. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 2,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "restore-current",
+        "query": "backup restoration recovery point",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "backup-restore",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "filtered_time",
+      "results": [
+        {
+          "policy_id": "backup-restore",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/backup-restore/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:eb69d803caa25d02754878e4e1591fb731cc9ecf92dbdd4ce28e613b039dcbfc",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "observed",
+            "content": "Backup restoration request. This policy covers backup restoration recovery point storage retention and restore authorization. A restore request may select a recovery point from the last 14 days. The action code is RESTORE-14D. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 1,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "vpn-history",
+        "query": "VPN remote access maintenance",
+        "time": "2026-11-04T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "vpn-maintenance",
+            "1"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "unfiltered_time",
+      "results": [
+        {
+          "policy_id": "vpn-maintenance",
+          "version": "3",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/vpn-maintenance/3",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "3:3df77f72ac08eea7ba7749d5a02714ccca8bdc0d2f61d1aeb8b763f1d9eaed0c",
+            "observed_at": "2026-11-04T00:00:00Z",
+            "valid_from": "2026-12-01T00:00:00Z",
+            "valid_to": null,
+            "status": "historical",
+            "content": "VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Access Engineering. Maintenance is permitted on Saturday at 03:00 UTC. The action code is ACCESS-SAT-0300. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "vpn-maintenance",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/vpn-maintenance/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:db3760f3dc13ff6d121520b50dd0dba45d222e57988df426e9446199daf8edfb",
+            "observed_at": "2026-11-04T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "observed",
+            "content": "VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Network Operations. Maintenance is permitted on Monday at 23:00 UTC. The action code is NET-MON-2300. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "vpn-maintenance",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/vpn-maintenance/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:7c357488bd3d13b5241ffbcd0c6b6982186a764165ae341e25ec235fc3dbf64e",
+            "observed_at": "2026-11-04T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "historical",
+            "content": "VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Identity Operations. Maintenance is permitted on Wednesday at 01:00 UTC. The action code is IDENTITY-WED-0100. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 2,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "vpn-history",
+        "query": "VPN remote access maintenance",
+        "time": "2026-11-04T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "vpn-maintenance",
+            "1"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "filtered_time",
+      "results": [
+        {
+          "policy_id": "vpn-maintenance",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/vpn-maintenance/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:db3760f3dc13ff6d121520b50dd0dba45d222e57988df426e9446199daf8edfb",
+            "observed_at": "2026-11-04T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "observed",
+            "content": "VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Network Operations. Maintenance is permitted on Monday at 23:00 UTC. The action code is NET-MON-2300. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "access-offboarding",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/access-offboarding/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:93f2bdc440cab98ce264bbe4a7f36ddee04ee4f3fcf87c450e14d0284ca9d78d",
+            "observed_at": "2026-11-04T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "observed",
+            "content": "Employee access offboarding. This policy covers employee departure account access offboarding and credential revocation. Queue credential revocation within 24 hours after confirmed departure. The action code is ACCESS-24H. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "production-restart",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/production-restart/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:3151105644fcd10d573fa7e5fbd292d0ba933ff4ed771959d68df1973230f75d",
+            "observed_at": "2026-11-04T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "observed",
+            "content": "Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the service owner before a production restart. The action code is RESTART-OWNER. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "restart-history",
+        "query": "production service restart approval",
+        "time": "2026-10-04T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "production-restart",
+            "1"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "unfiltered_time",
+      "results": [
+        {
+          "policy_id": "production-restart",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/production-restart/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:3151105644fcd10d573fa7e5fbd292d0ba933ff4ed771959d68df1973230f75d",
+            "observed_at": "2026-10-04T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "observed",
+            "content": "Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the service owner before a production restart. The action code is RESTART-OWNER. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "production-restart",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/production-restart/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:2f33193c338881fb9453f46c08c7ebaba515184b310c1baaec4baf840558f76c",
+            "observed_at": "2026-10-04T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "historical",
+            "content": "Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the change board before a production restart. The action code is RESTART-CHANGE-BOARD. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "production-restart",
+          "version": "3",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/production-restart/3",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "3:e29bf5dc323267f4dc3bb00d5627b5f372d67d658e9d0d9545685b357ae1ac46",
+            "observed_at": "2026-10-04T00:00:00Z",
+            "valid_from": "2026-12-01T00:00:00Z",
+            "valid_to": null,
+            "status": "historical",
+            "content": "Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the incident commander before a production restart. The action code is RESTART-INCIDENT-COMMANDER. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 2,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "restart-history",
+        "query": "production service restart approval",
+        "time": "2026-10-04T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "production-restart",
+            "1"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "filtered_time",
+      "results": [
+        {
+          "policy_id": "production-restart",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/production-restart/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:3151105644fcd10d573fa7e5fbd292d0ba933ff4ed771959d68df1973230f75d",
+            "observed_at": "2026-10-04T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "observed",
+            "content": "Production service restart. This policy covers production restart maintenance change approval and service outage. Obtain approval from the service owner before a production restart. The action code is RESTART-OWNER. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "access-offboarding",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/access-offboarding/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:93f2bdc440cab98ce264bbe4a7f36ddee04ee4f3fcf87c450e14d0284ca9d78d",
+            "observed_at": "2026-10-04T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "observed",
+            "content": "Employee access offboarding. This policy covers employee departure account access offboarding and credential revocation. Queue credential revocation within 24 hours after confirmed departure. The action code is ACCESS-24H. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "laptop-replacement",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/laptop-replacement/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:db750b7a30a98356d2f4cf3a1299670f336e8fb98f2e4f9ccc1f36e754e43c2a",
+            "observed_at": "2026-10-04T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "observed",
+            "content": "Laptop replacement and custody. This policy covers damaged laptop replacement inventory custody and equipment handover. The local asset custodian approves equipment replacement and records the handover. The action code is ASSET-LOCAL. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "mail-future",
+        "query": "mailbox quota expansion",
+        "time": "2026-12-15T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "mailbox-quota",
+            "3"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "unfiltered_time",
+      "results": [
+        {
+          "policy_id": "mailbox-quota",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/mailbox-quota/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:7c2419fcd58e0e62568b0d60e57c998168ae193b26bd5aeecfe4bfc992e03a94",
+            "observed_at": "2026-12-15T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "historical",
+            "content": "Mailbox quota expansion. This policy covers mailbox storage quota expansion and email delivery. The approved individual mailbox limit is 20 GB. Refer requests above that limit to Messaging. The action code is MAIL-20GB. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "mailbox-quota",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/mailbox-quota/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:16d0cd276d20404c5e0099f781fe919cd45b89448836f85b64ca57296f6589fe",
+            "observed_at": "2026-12-15T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "historical",
+            "content": "Mailbox quota expansion. This policy covers mailbox storage quota expansion and email delivery. The approved individual mailbox limit is 40 GB. Refer requests above that limit to Messaging. The action code is MAIL-40GB. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "mailbox-quota",
+          "version": "3",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/mailbox-quota/3",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "3:06f878352be15dcfcb126fd1a1175d107d8ce6fa2e5d3fa2edd1fe3ebf4d307e",
+            "observed_at": "2026-12-15T00:00:00Z",
+            "valid_from": "2026-12-01T00:00:00Z",
+            "valid_to": null,
+            "status": "observed",
+            "content": "Mailbox quota expansion. This policy covers mailbox storage quota expansion and email delivery. The approved individual mailbox limit is 60 GB. Refer requests above that limit to Messaging. The action code is MAIL-60GB. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": false,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 3,
+        "time_inapplicable_returned": 2,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "mail-future",
+        "query": "mailbox quota expansion",
+        "time": "2026-12-15T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "mailbox-quota",
+            "3"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      "arm": "filtered_time",
+      "results": [
+        {
+          "policy_id": "mailbox-quota",
+          "version": "3",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/mailbox-quota/3",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "3:06f878352be15dcfcb126fd1a1175d107d8ce6fa2e5d3fa2edd1fe3ebf4d307e",
+            "observed_at": "2026-12-15T00:00:00Z",
+            "valid_from": "2026-12-01T00:00:00Z",
+            "valid_to": null,
+            "status": "observed",
+            "content": "Mailbox quota expansion. This policy covers mailbox storage quota expansion and email delivery. The approved individual mailbox limit is 60 GB. Refer requests above that limit to Messaging. The action code is MAIL-60GB. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": true,
+        "hit_at_1": true,
+        "hit_at_3": true,
+        "relevant_returned": 1,
+        "required_documents": 1,
+        "returned": 1,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "empty-scope",
+        "query": "VPN maintenance",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "unregistered-service",
+        "gold": [],
+        "kind": "empty-eligible"
+      },
+      "arm": "unfiltered_time",
+      "results": [],
+      "metrics": {
+        "answerable": false,
+        "hit_at_1": null,
+        "hit_at_3": null,
+        "relevant_returned": 0,
+        "required_documents": 0,
+        "returned": 0,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": true
+      }
+    },
+    {
+      "query": {
+        "id": "empty-scope",
+        "query": "VPN maintenance",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "unregistered-service",
+        "gold": [],
+        "kind": "empty-eligible"
+      },
+      "arm": "filtered_time",
+      "results": [],
+      "metrics": {
+        "answerable": false,
+        "hit_at_1": null,
+        "hit_at_3": null,
+        "relevant_returned": 0,
+        "required_documents": 0,
+        "returned": 0,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": true
+      }
+    },
+    {
+      "query": {
+        "id": "before-publication",
+        "query": "VPN maintenance",
+        "time": "2024-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [],
+        "kind": "empty-eligible"
+      },
+      "arm": "unfiltered_time",
+      "results": [
+        {
+          "policy_id": "vpn-maintenance",
+          "version": "1",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/vpn-maintenance/1",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "1:db3760f3dc13ff6d121520b50dd0dba45d222e57988df426e9446199daf8edfb",
+            "observed_at": "2024-11-06T00:00:00Z",
+            "valid_from": "2025-01-01T00:00:00Z",
+            "valid_to": "2026-11-05T00:00:00Z",
+            "status": "historical",
+            "content": "VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Network Operations. Maintenance is permitted on Monday at 23:00 UTC. The action code is NET-MON-2300. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "vpn-maintenance",
+          "version": "2",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/vpn-maintenance/2",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "2:7c357488bd3d13b5241ffbcd0c6b6982186a764165ae341e25ec235fc3dbf64e",
+            "observed_at": "2024-11-06T00:00:00Z",
+            "valid_from": "2026-11-05T00:00:00Z",
+            "valid_to": "2026-12-01T00:00:00Z",
+            "status": "historical",
+            "content": "VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Identity Operations. Maintenance is permitted on Wednesday at 01:00 UTC. The action code is IDENTITY-WED-0100. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        },
+        {
+          "policy_id": "vpn-maintenance",
+          "version": "3",
+          "evidence": {
+            "source_uri": "https://policies.example.test/corporate-it/vpn-maintenance/3",
+            "source_kind": "policy",
+            "entity_scope": "corporate-it",
+            "source_version": "3:3df77f72ac08eea7ba7749d5a02714ccca8bdc0d2f61d1aeb8b763f1d9eaed0c",
+            "observed_at": "2024-11-06T00:00:00Z",
+            "valid_from": "2026-12-01T00:00:00Z",
+            "valid_to": null,
+            "status": "historical",
+            "content": "VPN remote access maintenance. This policy covers VPN disconnects, remote access authentication and tunnel maintenance. Route investigation to Access Engineering. Maintenance is permitted on Saturday at 03:00 UTC. The action code is ACCESS-SAT-0300. Record the applicable policy ID, version and action code in the ticket. The policy does not itself grant authority to restart or close tickets."
+          }
+        }
+      ],
+      "metrics": {
+        "answerable": false,
+        "hit_at_1": null,
+        "hit_at_3": null,
+        "relevant_returned": 0,
+        "required_documents": 0,
+        "returned": 3,
+        "time_inapplicable_returned": 3,
+        "out_of_scope_returned": 0,
+        "empty_result": false
+      }
+    },
+    {
+      "query": {
+        "id": "before-publication",
+        "query": "VPN maintenance",
+        "time": "2024-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [],
+        "kind": "empty-eligible"
+      },
+      "arm": "filtered_time",
+      "results": [],
+      "metrics": {
+        "answerable": false,
+        "hit_at_1": null,
+        "hit_at_3": null,
+        "relevant_returned": 0,
+        "required_documents": 0,
+        "returned": 0,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": true
+      }
+    },
+    {
+      "query": {
+        "id": "unrelated-query",
+        "query": "cafeteria allergy dietary menu",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [],
+        "kind": "unrelated"
+      },
+      "arm": "unfiltered_time",
+      "results": [],
+      "metrics": {
+        "answerable": false,
+        "hit_at_1": null,
+        "hit_at_3": null,
+        "relevant_returned": 0,
+        "required_documents": 0,
+        "returned": 0,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": true
+      }
+    },
+    {
+      "query": {
+        "id": "unrelated-query",
+        "query": "cafeteria allergy dietary menu",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [],
+        "kind": "unrelated"
+      },
+      "arm": "filtered_time",
+      "results": [],
+      "metrics": {
+        "answerable": false,
+        "hit_at_1": null,
+        "hit_at_3": null,
+        "relevant_returned": 0,
+        "required_documents": 0,
+        "returned": 0,
+        "time_inapplicable_returned": 0,
+        "out_of_scope_returned": 0,
+        "empty_result": true
+      }
+    }
+  ],
+  "summary": {
+    "unfiltered_time": {
+      "queries": 12,
+      "answerable_queries": 9,
+      "hit_at_1": 1,
+      "hit_at_3": 9,
+      "returned_documents": 30,
+      "time_inapplicable_returned": 21,
+      "out_of_scope_returned": 0,
+      "empty_eligible_cases": 2,
+      "correct_empty_results": 1,
+      "unrelated_query_returns": [
+        0
+      ]
+    },
+    "filtered_time": {
+      "queries": 12,
+      "answerable_queries": 9,
+      "hit_at_1": 9,
+      "hit_at_3": 9,
+      "returned_documents": 18,
+      "time_inapplicable_returned": 0,
+      "out_of_scope_returned": 0,
+      "empty_eligible_cases": 2,
+      "correct_empty_results": 2,
+      "unrelated_query_returns": [
+        0
+      ]
+    }
+  }
+}

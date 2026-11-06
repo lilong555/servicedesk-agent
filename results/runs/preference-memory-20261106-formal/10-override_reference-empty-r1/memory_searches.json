@@ -1,0 +1,37 @@
+[
+  {
+    "arguments": {
+      "query": "note-reference prefix",
+      "limit": 10,
+      "offset": 0,
+      "filter": null
+    },
+    "stored_result": [
+      {
+        "namespace": [
+          "servicedesk",
+          "72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e",
+          "confirmed_preferences"
+        ],
+        "key": "c6f83970-16d0-4344-9a2b-734cb9417b7f",
+        "value": {
+          "content": {
+            "source_uri": "user-confirmation://72ebe8e782611924f29152096bddc72cb862834b5f343b540b3b9cbbf18ed88e/3d0cf4a0bf72e5c19527ccc35702b544f8b3db9ae9192622550c9176378d6e00",
+            "source_kind": "user",
+            "entity_scope": "http://127.0.0.1:43350/projects/1/principals/1/issues/42",
+            "source_version": "3d0cf4a0bf72e5c19527ccc35702b544f8b3db9ae9192622550c9176378d6e00",
+            "observed_at": "2026-11-06T06:49:50.692432Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": "I explicitly confirm this preference for this ticket: prefix every note with [OPS-27] followed by ' | ' and the update text."
+          }
+        },
+        "created_at": "2026-11-06T06:49:50",
+        "updated_at": "2026-11-06T06:49:50",
+        "score": null
+      }
+    ],
+    "returned_result": []
+  }
+]

@@ -1,0 +1,139 @@
+[
+  {
+    "thread_id": "9914300b4e5415aa638c6d95a0ccdc5cd761f52271b6adab735f63d97b1a4cc2",
+    "message": "Added exactly one note to ticket 42: \u201c[OPS-27] | Gateway log sample received.\u201d The ticket remains open, and no other fields were changed.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43864",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [],
+    "handoff_summary": "Added exactly one ticket note using the confirmed [OPS-27] | prefix. Ticket remains open; no other fields were changed.",
+    "verified_receipts": [
+      {
+        "operation_id": "e3e377f50139ba2e9119de9c2a06842878e753243dc68caea0d8293b6844a618",
+        "action": "add_note",
+        "ticket_id": 42,
+        "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+        "after": {
+          "id": 42,
+          "project_id": 1,
+          "subject": "Synthetic service investigation",
+          "description": "Record the user's authorized investigation update.",
+          "status_id": 1,
+          "status_name": "New",
+          "is_closed": false,
+          "assigned_to_id": 7,
+          "assigned_to_name": "Original owner",
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ],
+          "relations": [],
+          "journals": [
+            {
+              "id": 1,
+              "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:e3e377f50139ba2e9119de9c2a06842878e753243dc68caea0d8293b6844a618]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "evidence": {
+            "source_uri": "http://127.0.0.1:43864/issues/42",
+            "source_kind": "ticket",
+            "entity_scope": "http://127.0.0.1:43864/projects/1",
+            "source_version": "8471591cb14746bd13bab7bde4b91b09b4a826c31346b6840a0d5dd5719cc045",
+            "observed_at": "2026-11-06T06:33:26.676562Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": {
+              "id": 42,
+              "project": {
+                "id": 1,
+                "name": "Service desk"
+              },
+              "subject": "Synthetic service investigation",
+              "description": "Record the user's authorized investigation update.",
+              "status": {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              "assigned_to": {
+                "id": 7,
+                "name": "Original owner"
+              },
+              "updated_on": "2026-11-05T00:00:00Z",
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "[OPS-27] | Gateway log sample received.\n\n[desk-action:e3e377f50139ba2e9119de9c2a06842878e753243dc68caea0d8293b6844a618]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "relations": [],
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ]
+            }
+          }
+        },
+        "journal_id": 1,
+        "verified": true,
+        "replayed": false,
+        "observed_at": "2026-11-06T06:33:26.688760Z"
+      }
+    ],
+    "usage": {
+      "role": "agent",
+      "calls": 7,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 28244,
+      "output_tokens": 276,
+      "cache_read_tokens": 14464,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-pilot/01-note_reference-available-r1/state/sessions/9914300b4e5415aa638c6d95a0ccdc5cd761f52271b6adab735f63d97b1a4cc2/trace-6696d5bbb2084927b5d286cf9fbeef59.json"
+  }
+]

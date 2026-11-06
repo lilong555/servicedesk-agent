@@ -1,0 +1,163 @@
+{
+  "phase": "observe",
+  "tick": 3,
+  "pid": 90117,
+  "ok": true,
+  "result": {
+    "thread_id": "efe73fc3b3ff43f6867ceff8913fa09af1c66c76ba2f218c4d826c299ca2f625",
+    "message": "Read-only reconciliation finished.",
+    "contract": {
+      "service_url": "https://business-reliability.invalid",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "late_commit",
+      "variant": "A",
+      "allow_notes": true,
+      "allowed_status_ids": [
+        2
+      ],
+      "allow_close": false,
+      "user_constraints": [
+        "Append the authorized note. Preserve owner and status."
+      ]
+    },
+    "pending_actions": [],
+    "handoff_summary": "",
+    "verified_receipts": [
+      {
+        "operation_id": "fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f",
+        "action": "add_note",
+        "ticket_id": 42,
+        "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+        "after": {
+          "id": 42,
+          "project_id": 1,
+          "subject": "Synthetic VPN investigation",
+          "description": "Append the authorized investigation note and retain owner and status.",
+          "status_id": 1,
+          "status_name": "New",
+          "is_closed": false,
+          "assigned_to_id": 7,
+          "assigned_to_name": "Synthetic owner",
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ],
+          "relations": [],
+          "journals": [
+            {
+              "id": 1,
+              "notes": "Investigation completed for late_commit.\n\n[desk-action:fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "evidence": {
+            "source_uri": "https://business-reliability.invalid/issues/42",
+            "source_kind": "ticket",
+            "entity_scope": "https://business-reliability.invalid/projects/1",
+            "source_version": "331954771a59f5a09ad7cfba4139e4b401635fc4b9d6119d223c64c46dba8d41",
+            "observed_at": "2026-11-06T06:29:34.780066Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": {
+              "id": 42,
+              "project": {
+                "id": 1,
+                "name": "Synthetic service desk"
+              },
+              "subject": "Synthetic VPN investigation",
+              "description": "Append the authorized investigation note and retain owner and status.",
+              "status": {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              "assigned_to": {
+                "id": 7,
+                "name": "Synthetic owner"
+              },
+              "updated_on": "2026-11-06T00:00:00Z",
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "Investigation completed for late_commit.\n\n[desk-action:fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "relations": [],
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ]
+            }
+          }
+        },
+        "journal_id": 1,
+        "verified": true,
+        "replayed": true,
+        "observed_at": "2026-11-06T06:29:34.794702Z"
+      }
+    ],
+    "usage": {
+      "role": "agent",
+      "calls": 2,
+      "failed_calls": 0,
+      "unknown_usage_calls": 2,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_read_tokens": 0,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/business-reliability-20261106-001/deterministic/late_commit/reconcile/runtime/sessions/efe73fc3b3ff43f6867ceff8913fa09af1c66c76ba2f218c4d826c299ca2f625/trace-5ac08b0977b3412a9df311639b25ed9d.json"
+  },
+  "unknown": false,
+  "durable_state": {
+    "pending": null,
+    "receipts": {
+      "fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f": {
+        "operation_id": "fad9712daf2851ac4206b86d2841edf514b9f6604103175f3f4aebd6120fe91f",
+        "action": "add_note",
+        "note_hash": "1f4b62977dcd6285b1107950e17aeeb5235b52b0da7427446736c1260f540354",
+        "target_status": null,
+        "before_version": "8a122d0079a6879b59d06385c45b7ca257eea74d0f4a4a89ebcecc180aac6216",
+        "before_status": 1,
+        "journal_floor": 0,
+        "journal_id": 1
+      }
+    }
+  }
+}

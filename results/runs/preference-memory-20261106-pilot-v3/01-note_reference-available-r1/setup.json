@@ -1,0 +1,61 @@
+{
+  "mode": "explicit_confirmation_without_model",
+  "model_calls": 0,
+  "source_contract": {
+    "service_url": "http://127.0.0.1:44538",
+    "project_id": 1,
+    "principal_id": 1,
+    "ticket_id": 42,
+    "session_id": "confirmation-session",
+    "variant": "B",
+    "allow_notes": true,
+    "allowed_status_ids": [],
+    "allow_close": false,
+    "user_constraints": []
+  },
+  "target_contract": {
+    "service_url": "http://127.0.0.1:44538",
+    "project_id": 1,
+    "principal_id": 1,
+    "ticket_id": 42,
+    "session_id": "new-conversation",
+    "variant": "B",
+    "allow_notes": true,
+    "allowed_status_ids": [],
+    "allow_close": false,
+    "user_constraints": []
+  },
+  "namespace": [
+    "servicedesk",
+    "1c96caa2fb173625dbe38adab1bfd1bcc2220bd938c5c88907b0d622d70dbf44",
+    "confirmed_preferences"
+  ],
+  "memory": [
+    {
+      "namespace": [
+        "servicedesk",
+        "1c96caa2fb173625dbe38adab1bfd1bcc2220bd938c5c88907b0d622d70dbf44",
+        "confirmed_preferences"
+      ],
+      "key": "b1e46f07-9298-41f5-a939-ebd3a6b434e6",
+      "value": {
+        "content": {
+          "source_uri": "user-confirmation://1c96caa2fb173625dbe38adab1bfd1bcc2220bd938c5c88907b0d622d70dbf44/d668905c25a2b96d52ca14b48d106122f474bdf618c8c0ef424f50452063f880",
+          "source_kind": "user",
+          "entity_scope": "http://127.0.0.1:44538/projects/1/principals/1/issues/42",
+          "source_version": "d668905c25a2b96d52ca14b48d106122f474bdf618c8c0ef424f50452063f880",
+          "observed_at": "2026-11-06T06:42:25.279270Z",
+          "valid_from": null,
+          "valid_to": null,
+          "status": "observed",
+          "content": "I explicitly confirm this preference for this ticket: every investigation note must use the prefix [OPS-27], followed by a space, a vertical bar, and a space, then the update text. Example structure: [OPS-27] | UPDATE."
+        }
+      },
+      "created_at": "2026-11-06T06:42:25",
+      "updated_at": "2026-11-06T06:42:25",
+      "score": null
+    }
+  ],
+  "store_closed_before_execution": true,
+  "elapsed_seconds": 0.19149661800111062
+}

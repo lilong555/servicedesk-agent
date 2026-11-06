@@ -1,0 +1,171 @@
+[
+  {
+    "thread_id": "86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa",
+    "message": "I couldn\u2019t find a previously confirmed log-summary format for this ticket, so I haven\u2019t added a note. Please provide the format you want me to use; I\u2019ll keep the ticket open and leave its other fields unchanged.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43350",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [
+      "Append exactly one ticket note with the requested log summary; user's previously confirmed format was not available in confirmed preferences, so ask user for that format before writing."
+    ],
+    "handoff_summary": "User requires ticket 42 remain open and all other fields unchanged; no external messages. Current ticket read shows status New, open, no journals. No note was added because the confirmed log-summary format could not be found; awaiting user-provided format.",
+    "verified_receipts": [],
+    "usage": {
+      "role": "agent",
+      "calls": 6,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 22590,
+      "output_tokens": 283,
+      "cache_read_tokens": 16640,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-formal/16-log_summary-empty-r2/state/sessions/86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa/trace-fb791f4274c64aeab16875226ba154de.json"
+  },
+  {
+    "thread_id": "86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa",
+    "message": "Added exactly one note to ticket 42 in the requested format. The verified receipt confirms the ticket remains open and its other fields are unchanged.",
+    "contract": {
+      "service_url": "http://127.0.0.1:43350",
+      "project_id": 1,
+      "principal_id": 1,
+      "ticket_id": 42,
+      "session_id": "new-conversation",
+      "variant": "B",
+      "allow_notes": true,
+      "allowed_status_ids": [],
+      "allow_close": false,
+      "user_constraints": []
+    },
+    "pending_actions": [],
+    "handoff_summary": "Appended one note to ticket 42 in the user's requested SIGNAL/FOLLOWUP format. Verified receipt confirms the ticket remains New/open and all other fields unchanged.",
+    "verified_receipts": [
+      {
+        "operation_id": "ae77606294b58205318bcb221eec2822b3c75ac4647c9721f68e1566b4704159",
+        "action": "add_note",
+        "ticket_id": 42,
+        "before_version": "0ab592aa0b210f2a337fadb0366f830a250d45daa4cab20a3633890efbd414c6",
+        "after": {
+          "id": 42,
+          "project_id": 1,
+          "subject": "Synthetic service investigation",
+          "description": "Record the user's authorized investigation update.",
+          "status_id": 1,
+          "status_name": "New",
+          "is_closed": false,
+          "assigned_to_id": 7,
+          "assigned_to_name": "Original owner",
+          "allowed_statuses": [
+            {
+              "id": 1,
+              "name": "New",
+              "is_closed": false
+            },
+            {
+              "id": 2,
+              "name": "In Progress",
+              "is_closed": false
+            },
+            {
+              "id": 5,
+              "name": "Closed",
+              "is_closed": true
+            }
+          ],
+          "relations": [],
+          "journals": [
+            {
+              "id": 1,
+              "notes": "SIGNAL=Packet loss is 2%.; FOLLOWUP=Collect two hours of traces.\n\n[desk-action:ae77606294b58205318bcb221eec2822b3c75ac4647c9721f68e1566b4704159]",
+              "user": {
+                "id": 1
+              },
+              "details": []
+            }
+          ],
+          "evidence": {
+            "source_uri": "http://127.0.0.1:43350/issues/42",
+            "source_kind": "ticket",
+            "entity_scope": "http://127.0.0.1:43350/projects/1",
+            "source_version": "bc48b4a468bffe19f206a0ae9eccb9dc154216ce757e053f6ba092c4f84e3066",
+            "observed_at": "2026-11-06T06:53:13.584829Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": {
+              "id": 42,
+              "project": {
+                "id": 1,
+                "name": "Service desk"
+              },
+              "subject": "Synthetic service investigation",
+              "description": "Record the user's authorized investigation update.",
+              "status": {
+                "id": 1,
+                "name": "New",
+                "is_closed": false
+              },
+              "assigned_to": {
+                "id": 7,
+                "name": "Original owner"
+              },
+              "updated_on": "2026-11-05T00:00:00Z",
+              "journals": [
+                {
+                  "id": 1,
+                  "notes": "SIGNAL=Packet loss is 2%.; FOLLOWUP=Collect two hours of traces.\n\n[desk-action:ae77606294b58205318bcb221eec2822b3c75ac4647c9721f68e1566b4704159]",
+                  "user": {
+                    "id": 1
+                  },
+                  "details": []
+                }
+              ],
+              "relations": [],
+              "allowed_statuses": [
+                {
+                  "id": 1,
+                  "name": "New",
+                  "is_closed": false
+                },
+                {
+                  "id": 2,
+                  "name": "In Progress",
+                  "is_closed": false
+                },
+                {
+                  "id": 5,
+                  "name": "Closed",
+                  "is_closed": true
+                }
+              ]
+            }
+          }
+        },
+        "journal_id": 1,
+        "verified": true,
+        "replayed": false,
+        "observed_at": "2026-11-06T06:53:13.597372Z"
+      }
+    ],
+    "usage": {
+      "role": "agent",
+      "calls": 8,
+      "failed_calls": 0,
+      "unknown_usage_calls": 0,
+      "input_tokens": 46067,
+      "output_tokens": 311,
+      "cache_read_tokens": 39552,
+      "cost_usd": null
+    },
+    "trace_path": "/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-formal/16-log_summary-empty-r2/state/sessions/86f53addc8e3946e04623cee7668feb3a66f01470dfb3352b4137c241f991eaa/trace-d653b0b0aadf48e7be2530a9dd2eb08b.json"
+  }
+]

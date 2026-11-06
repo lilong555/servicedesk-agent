@@ -1,0 +1,451 @@
+{
+  "name": "policy-lifecycle-v1",
+  "split": "synthetic-development",
+  "source": {
+    "git_head": "49850cd965ab19789abfa45fc654dc60acbcce45",
+    "files": {
+      "scripts/benchmark_policy_lifecycle.py": "0fbf60f17de17fbfac82f82da16b43a2d093afe264df80b606e2bee5bcfb3fd0",
+      "benchmarks/policy-lifecycle/cases.json": "70f0b43e96d7a17f797ae2394924ad1566b9ef4fcd4b8d4a515e4d46e4c30b6c",
+      "src/servicedesk_agent/__init__.py": "e78258d43721f3274a3a7a4ce270242841db76edea94213b087418e5a8f571ab",
+      "src/servicedesk_agent/agent.py": "227126d64f3cc37b858fa4720f259fdd8a811fdd610a6cbf42bc289fba012b1f",
+      "src/servicedesk_agent/benchmark.py": "abdb350bc0c0bb5e59234b75c83d808a58142ec97ee5be4afc7286250534c50a",
+      "src/servicedesk_agent/cli.py": "574b52baab49b090fcade9c19b603c93cf60970cc74fb0069d27b57596e1b864",
+      "src/servicedesk_agent/components.py": "a8d5a4e31acb93eb79c7499e58a6f2d2f6d209f3394c791d1b30594c6349e814",
+      "src/servicedesk_agent/config.py": "bf1c4212a10a35667d02dffbf7661c447328291bd194c21ee1b08b0be02fb34b",
+      "src/servicedesk_agent/demo.py": "05722de693170893c9ada5052c3605c64888cdd3b99ad1f33dee83adf50bdc04",
+      "src/servicedesk_agent/domain.py": "a42ee4051f03bb9ef267fe740ecc209e9086f0ec50b15c0f98efc56ca48cb40b",
+      "src/servicedesk_agent/evaluation.py": "562d28dbde3dd8b6550a0310c6ee1cdc063903de66c4f82abb3b235294fd7f02",
+      "src/servicedesk_agent/knowledge.py": "b2b0f70f2600746b1c820da9d82093d0b0072ea4428054b65ac76a660d6f91af",
+      "src/servicedesk_agent/mcp_server.py": "f140b61ed966e956bc58dd8b92e62f82c5d4772c9bb9e18605babaeceb81a128",
+      "src/servicedesk_agent/native.py": "f5076bb79f18e70799b4f140f50015cdef33f966251f3ba888979cf50843290e",
+      "src/servicedesk_agent/operations.py": "a33fd24c302f6a9aa2d460b5057b36afde5f964b34517d020f8fa97bc10f5c63",
+      "src/servicedesk_agent/protocol.py": "1c29e3244469d563ebde424cf1fefabd4cd5e0c9f5e32de6ed7347cb15dc5a2b",
+      "src/servicedesk_agent/provenance.py": "8645084833a449d37c030715685ed43ed6fa582bc08fc00b8bb5295ccd12a697",
+      "src/servicedesk_agent/redmine.py": "c8f7b6909106fe09141cc810d22e47a32cf5d9ae320de8e8ff5fb9b94b5b1c3b",
+      "src/servicedesk_agent/session.py": "ffe1f017dd65c3e97aeb7564a8e210aeb49cedbfa7c97de323fc7547a5b07da6",
+      "src/servicedesk_agent/testing.py": "1addf038f4116517f6a9ae4cfa326b16dbc83ac3113cc3a48a43b6c4e22ba029",
+      "src/servicedesk_agent/usage.py": "dae5bc711457fc450fe6cb0a160214fb190b082e473264b8bd5e6944a271c028"
+    },
+    "implementation_sha256": "e3625f69533197c51c9db472ed992f40f189b106e7f435dcd42279947c46ee94"
+  },
+  "dataset": {
+    "dataset_id": "synthetic-policy-lifecycle-v1",
+    "scope": "corporate-it",
+    "versions": [
+      {
+        "version": "1",
+        "valid_from": "2025-01-01T00:00:00Z",
+        "valid_to": "2026-11-05T00:00:00Z"
+      },
+      {
+        "version": "2",
+        "valid_from": "2026-11-05T00:00:00Z",
+        "valid_to": "2026-12-01T00:00:00Z"
+      },
+      {
+        "version": "3",
+        "valid_from": "2026-12-01T00:00:00Z",
+        "valid_to": null
+      }
+    ],
+    "policies": [
+      {
+        "policy_id": "vpn-maintenance",
+        "scope": "corporate-it",
+        "title": "VPN remote access maintenance",
+        "topic": "VPN disconnects, remote access authentication and tunnel maintenance",
+        "actions": [
+          "NET-MON-2300",
+          "IDENTITY-WED-0100",
+          "ACCESS-SAT-0300"
+        ],
+        "instructions": [
+          "Route investigation to Network Operations. Maintenance is permitted on Monday at 23:00 UTC.",
+          "Route investigation to Identity Operations. Maintenance is permitted on Wednesday at 01:00 UTC.",
+          "Route investigation to Access Engineering. Maintenance is permitted on Saturday at 03:00 UTC."
+        ]
+      },
+      {
+        "policy_id": "mailbox-quota",
+        "scope": "corporate-it",
+        "title": "Mailbox quota expansion",
+        "topic": "mailbox storage quota expansion and email delivery",
+        "actions": [
+          "MAIL-20GB",
+          "MAIL-40GB",
+          "MAIL-60GB"
+        ],
+        "instructions": [
+          "The approved individual mailbox limit is 20 GB. Refer requests above that limit to Messaging.",
+          "The approved individual mailbox limit is 40 GB. Refer requests above that limit to Messaging.",
+          "The approved individual mailbox limit is 60 GB. Refer requests above that limit to Messaging."
+        ]
+      },
+      {
+        "policy_id": "production-restart",
+        "scope": "corporate-it",
+        "title": "Production service restart",
+        "topic": "production restart maintenance change approval and service outage",
+        "actions": [
+          "RESTART-OWNER",
+          "RESTART-CHANGE-BOARD",
+          "RESTART-INCIDENT-COMMANDER"
+        ],
+        "instructions": [
+          "Obtain approval from the service owner before a production restart.",
+          "Obtain approval from the change board before a production restart.",
+          "Obtain approval from the incident commander before a production restart."
+        ]
+      },
+      {
+        "policy_id": "access-offboarding",
+        "scope": "corporate-it",
+        "title": "Employee access offboarding",
+        "topic": "employee departure account access offboarding and credential revocation",
+        "actions": [
+          "ACCESS-24H",
+          "ACCESS-4H",
+          "ACCESS-1H"
+        ],
+        "instructions": [
+          "Queue credential revocation within 24 hours after confirmed departure.",
+          "Queue credential revocation within 4 hours after confirmed departure.",
+          "Queue credential revocation within 1 hour after confirmed departure."
+        ]
+      },
+      {
+        "policy_id": "laptop-replacement",
+        "scope": "corporate-it",
+        "title": "Laptop replacement and custody",
+        "topic": "damaged laptop replacement inventory custody and equipment handover",
+        "actions": [
+          "ASSET-LOCAL",
+          "ASSET-CENTRAL",
+          "ASSET-REGIONAL"
+        ],
+        "instructions": [
+          "The local asset custodian approves equipment replacement and records the handover.",
+          "The central asset team approves equipment replacement and records the handover.",
+          "The regional asset team approves equipment replacement and records the handover."
+        ]
+      },
+      {
+        "policy_id": "backup-restore",
+        "scope": "corporate-it",
+        "title": "Backup restoration request",
+        "topic": "backup restoration recovery point storage retention and restore authorization",
+        "actions": [
+          "RESTORE-7D",
+          "RESTORE-14D",
+          "RESTORE-30D"
+        ],
+        "instructions": [
+          "A restore request may select a recovery point from the last 7 days.",
+          "A restore request may select a recovery point from the last 14 days.",
+          "A restore request may select a recovery point from the last 30 days."
+        ]
+      },
+      {
+        "policy_id": "vpn-maintenance",
+        "scope": "laboratory-it",
+        "title": "VPN remote access maintenance",
+        "topic": "VPN disconnects, remote access authentication and tunnel maintenance",
+        "actions": [
+          "LAB-MON",
+          "LAB-TUE",
+          "LAB-FRI"
+        ],
+        "instructions": [
+          "Only the laboratory network team may approve Monday maintenance.",
+          "Only the laboratory network team may approve Tuesday maintenance.",
+          "Only the laboratory network team may approve Friday maintenance."
+        ]
+      },
+      {
+        "policy_id": "production-restart",
+        "scope": "laboratory-it",
+        "title": "Production service restart",
+        "topic": "production restart maintenance change approval and service outage",
+        "actions": [
+          "LAB-OWNER",
+          "LAB-LEAD",
+          "LAB-DIRECTOR"
+        ],
+        "instructions": [
+          "The laboratory service owner approves a restart.",
+          "The laboratory lead approves a restart.",
+          "The laboratory director approves a restart."
+        ]
+      }
+    ],
+    "queries": [
+      {
+        "id": "vpn-current",
+        "query": "VPN remote access maintenance",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "vpn-maintenance",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      {
+        "id": "mail-current",
+        "query": "mailbox quota expansion",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "mailbox-quota",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      {
+        "id": "restart-current",
+        "query": "production service restart approval",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "production-restart",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      {
+        "id": "access-current",
+        "query": "employee access offboarding credential revocation",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "access-offboarding",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      {
+        "id": "laptop-current",
+        "query": "laptop replacement custody",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "laptop-replacement",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      {
+        "id": "restore-current",
+        "query": "backup restoration recovery point",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "backup-restore",
+            "2"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      {
+        "id": "vpn-history",
+        "query": "VPN remote access maintenance",
+        "time": "2026-11-04T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "vpn-maintenance",
+            "1"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      {
+        "id": "restart-history",
+        "query": "production service restart approval",
+        "time": "2026-10-04T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "production-restart",
+            "1"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      {
+        "id": "mail-future",
+        "query": "mailbox quota expansion",
+        "time": "2026-12-15T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [
+          [
+            "mailbox-quota",
+            "3"
+          ]
+        ],
+        "kind": "answerable"
+      },
+      {
+        "id": "empty-scope",
+        "query": "VPN maintenance",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "unregistered-service",
+        "gold": [],
+        "kind": "empty-eligible"
+      },
+      {
+        "id": "before-publication",
+        "query": "VPN maintenance",
+        "time": "2024-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [],
+        "kind": "empty-eligible"
+      },
+      {
+        "id": "unrelated-query",
+        "query": "cafeteria allergy dietary menu",
+        "time": "2026-11-06T00:00:00Z",
+        "scope": "corporate-it",
+        "gold": [],
+        "kind": "unrelated"
+      }
+    ],
+    "agent_scenarios": [
+      {
+        "id": "coexisting-versions",
+        "policy_id": "vpn-maintenance",
+        "title": "VPN remote access maintenance",
+        "resume": false
+      },
+      {
+        "id": "policy-updated-during-handoff",
+        "policy_id": "production-restart",
+        "title": "Production service restart",
+        "resume": true
+      }
+    ]
+  },
+  "independent_variable": "search candidate valid-time filter; scope and read are fixed",
+  "model": {
+    "name": "gpt-6-luna",
+    "temperature": 0,
+    "max_tokens": 8192,
+    "timeout": 60.0,
+    "client_max_retries": 0
+  },
+  "packages": {
+    "deepagents": "0.7.32",
+    "langgraph": "1.2.20",
+    "haystack-ai": "3.4.1",
+    "langmem": "0.0.30",
+    "langchain-openai": "1.7.3"
+  },
+  "order": [
+    {
+      "scenario": {
+        "id": "coexisting-versions",
+        "policy_id": "vpn-maintenance",
+        "title": "VPN remote access maintenance",
+        "resume": false
+      },
+      "arm": "unfiltered_time",
+      "repeat": 0
+    },
+    {
+      "scenario": {
+        "id": "coexisting-versions",
+        "policy_id": "vpn-maintenance",
+        "title": "VPN remote access maintenance",
+        "resume": false
+      },
+      "arm": "filtered_time",
+      "repeat": 0
+    },
+    {
+      "scenario": {
+        "id": "policy-updated-during-handoff",
+        "policy_id": "production-restart",
+        "title": "Production service restart",
+        "resume": true
+      },
+      "arm": "filtered_time",
+      "repeat": 0
+    },
+    {
+      "scenario": {
+        "id": "policy-updated-during-handoff",
+        "policy_id": "production-restart",
+        "title": "Production service restart",
+        "resume": true
+      },
+      "arm": "unfiltered_time",
+      "repeat": 0
+    },
+    {
+      "scenario": {
+        "id": "coexisting-versions",
+        "policy_id": "vpn-maintenance",
+        "title": "VPN remote access maintenance",
+        "resume": false
+      },
+      "arm": "filtered_time",
+      "repeat": 1
+    },
+    {
+      "scenario": {
+        "id": "coexisting-versions",
+        "policy_id": "vpn-maintenance",
+        "title": "VPN remote access maintenance",
+        "resume": false
+      },
+      "arm": "unfiltered_time",
+      "repeat": 1
+    },
+    {
+      "scenario": {
+        "id": "policy-updated-during-handoff",
+        "policy_id": "production-restart",
+        "title": "Production service restart",
+        "resume": true
+      },
+      "arm": "unfiltered_time",
+      "repeat": 1
+    },
+    {
+      "scenario": {
+        "id": "policy-updated-during-handoff",
+        "policy_id": "production-restart",
+        "title": "Production service restart",
+        "resume": true
+      },
+      "arm": "filtered_time",
+      "repeat": 1
+    }
+  ],
+  "planned_episodes": 8,
+  "grading": [
+    "one note",
+    "current policy ID/version",
+    "matching action code",
+    "unchanged ticket status",
+    "verified receipt",
+    "no prepare-stage write"
+  ],
+  "notes": [
+    "Real model, synthetic policy documents and HTTP business service.",
+    "Policy lifecycle resumes the same production thread and task contract.",
+    "Retrieval metrics and downstream business outcomes are separate.",
+    "No retries or exclusions of failed episodes; setup failures are retained."
+  ]
+}

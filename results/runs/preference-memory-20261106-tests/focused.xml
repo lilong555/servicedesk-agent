@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="5" failures="0" skipped="0" tests="13" time="0.507" timestamp="2026-11-06T14:30:41.649730+08:00" hostname="LAPTOP-GBFPGV8B"><testcase classname="tests.test_preference_memory_benchmark" name="test_frozen_schedule_balances_order_and_has_24_executions" time="0.012" /><testcase classname="tests.test_preference_memory_benchmark" name="test_scenario_partition_and_initial_information_separation" time="0.000" /><testcase classname="tests.test_preference_memory_benchmark" name="test_conditions_share_native_schema_skills_and_policy" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [Errno 2] No such file or directory: '/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp'&quot;">fixturedef = &lt;FixtureDef argname='tmp_path' scope='function' baseid=''&gt;
+request = &lt;SubRequest 'tmp_path' for &lt;Function test_conditions_share_native_schema_skills_and_policy&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:925: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [Errno 2] No such file or directory: '/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp'
+
+../../.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/pathlib.py:1311: FileNotFoundError</error></testcase><testcase classname="tests.test_preference_memory_benchmark" name="test_production_memory_reopens_and_isolates_ticket_and_principal" time="0.000"><error message="failed on setup with &quot;FileNotFoundError: [Errno 2] No such file or directory: '/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp'&quot;">fixturedef = &lt;FixtureDef argname='tmp_path' scope='function' baseid=''&gt;
+request = &lt;SubRequest 'tmp_path' for &lt;Function test_production_memory_reopens_and_isolates_ticket_and_principal&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:925: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [Errno 2] No such file or directory: '/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp'
+
+../../.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/pathlib.py:1311: FileNotFoundError</error></testcase><testcase classname="tests.test_preference_memory_benchmark" name="test_preference_questions_get_fixed_answer[Which note-reference prefix should I use?]" time="0.001" /><testcase classname="tests.test_preference_memory_benchmark" name="test_preference_questions_get_fixed_answer[Please provide your preferred note format.]" time="0.000" /><testcase classname="tests.test_preference_memory_benchmark" name="test_preference_questions_get_fixed_answer[I don't have your confirmed reference convention.]" time="0.000" /><testcase classname="tests.test_preference_memory_benchmark" name="test_unrelated_followup_does_not_disclose_preference" time="0.000" /><testcase classname="tests.test_preference_memory_benchmark" name="test_production_session_real_langmem_and_http_writes[available]" time="0.000"><error message="failed on setup with &quot;FileNotFoundError: [Errno 2] No such file or directory: '/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp'&quot;">fixturedef = &lt;FixtureDef argname='tmp_path' scope='function' baseid=''&gt;
+request = &lt;SubRequest 'tmp_path' for &lt;Function test_production_session_real_langmem_and_http_writes[available]&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:925: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [Errno 2] No such file or directory: '/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp'
+
+../../.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/pathlib.py:1311: FileNotFoundError</error></testcase><testcase classname="tests.test_preference_memory_benchmark" name="test_production_session_real_langmem_and_http_writes[empty]" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [Errno 2] No such file or directory: '/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp'&quot;">fixturedef = &lt;FixtureDef argname='tmp_path' scope='function' baseid=''&gt;
+request = &lt;SubRequest 'tmp_path' for &lt;Function test_production_session_real_langmem_and_http_writes[empty]&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:925: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [Errno 2] No such file or directory: '/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp'
+
+../../.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/pathlib.py:1311: FileNotFoundError</error></testcase><testcase classname="tests.test_preference_memory_benchmark" name="test_failure_preserves_unknown_usage_and_empty_business_state" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [Errno 2] No such file or directory: '/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp'&quot;">fixturedef = &lt;FixtureDef argname='tmp_path' scope='function' baseid=''&gt;
+request = &lt;SubRequest 'tmp_path' for &lt;Function test_failure_preserves_unknown_usage_and_empty_business_state&gt;&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_fixture_setup(fixturedef: FixtureDef, request) -&gt; object | None:
+        if (
+            fixturedef.argname == "event_loop_policy"
+            and fixturedef.func.__module__ != __name__
+        ):
+            warnings.warn(
+                PytestDeprecationWarning(_EVENT_LOOP_POLICY_FIXTURE_DEPRECATION_WARNING),
+            )
+        asyncio_mode = _get_asyncio_mode(request.config)
+        if not _is_asyncio_fixture_function(fixturedef.func):
+            if asyncio_mode == Mode.STRICT:
+                # Ignore async fixtures without explicit asyncio mark in strict mode
+                # This applies to pytest_trio fixtures, for example
+&gt;               return (yield)
+                        ^^^^^
+
+.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:925: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [Errno 2] No such file or directory: '/home/li/code/servicedesk-agent/results/runs/preference-memory-20261106-tests/tmp'
+
+../../.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/pathlib.py:1311: FileNotFoundError</error></testcase><testcase classname="tests.test_preference_memory_benchmark" name="test_wrong_preference_and_collateral_changes_fail_independently" time="0.000" /><testcase classname="tests.test_preference_memory_benchmark" name="test_summary_keeps_infrastructure_failures_in_started_denominator" time="0.000" /></testsuite></testsuites>

@@ -1,0 +1,238 @@
+{
+  "protocol": {
+    "schema_version": 1,
+    "split": "synthetic_development",
+    "model": {
+      "name": "gpt-6-luna",
+      "timeout": 60.0,
+      "max_tokens": 8192,
+      "input_price": null,
+      "cached_input_price": null,
+      "output_price": null
+    },
+    "sampling": {
+      "temperature": 0,
+      "max_retries": 0,
+      "parallel_tool_calls": false,
+      "provider_seed": null
+    },
+    "scenario_sha256": "3390045bfb6dfe38ea3896ddef11f201ac2a336b8f657c78e7328cb17714ad09",
+    "source_files": {
+      "benchmarks/preference-memory/scenarios.json": "3390045bfb6dfe38ea3896ddef11f201ac2a336b8f657c78e7328cb17714ad09",
+      "pyproject.toml": "4affe4cd4c9fcbf7bdb5783b5a015205c2ba1e24972ed68341b3e3045e6ae7b3",
+      "scripts/benchmark_preference_memory.py": "03a7255030e44ea38b2e7235442cb03e56652332066490d3e6fcaf499b5da716",
+      "src/servicedesk_agent/__init__.py": "e78258d43721f3274a3a7a4ce270242841db76edea94213b087418e5a8f571ab",
+      "src/servicedesk_agent/agent.py": "227126d64f3cc37b858fa4720f259fdd8a811fdd610a6cbf42bc289fba012b1f",
+      "src/servicedesk_agent/assets/itsm_subset.json": "5a9735b1b6306cd59e6ceef0a76ccb0b11146280727ca9b595307cb50feffd07",
+      "src/servicedesk_agent/assets/policies.json": "ad3c1dd214290770336221a24d1ef4d68c9a421e520b33cdead4ebc8a17b8c95",
+      "src/servicedesk_agent/assets/skills/resume-ticket/SKILL.md": "ed7345024203b87b096aa6a01e62b47eb016f73e81b2463b32e0a3a96a550df6",
+      "src/servicedesk_agent/assets/skills/ticket-handling/SKILL.md": "80630194289ebe2622b9cac083e8b5c84ee32bd7c6f03ed57d4fc7a251f811d8",
+      "src/servicedesk_agent/benchmark.py": "abdb350bc0c0bb5e59234b75c83d808a58142ec97ee5be4afc7286250534c50a",
+      "src/servicedesk_agent/cli.py": "574b52baab49b090fcade9c19b603c93cf60970cc74fb0069d27b57596e1b864",
+      "src/servicedesk_agent/components.py": "a8d5a4e31acb93eb79c7499e58a6f2d2f6d209f3394c791d1b30594c6349e814",
+      "src/servicedesk_agent/config.py": "bf1c4212a10a35667d02dffbf7661c447328291bd194c21ee1b08b0be02fb34b",
+      "src/servicedesk_agent/demo.py": "05722de693170893c9ada5052c3605c64888cdd3b99ad1f33dee83adf50bdc04",
+      "src/servicedesk_agent/domain.py": "a42ee4051f03bb9ef267fe740ecc209e9086f0ec50b15c0f98efc56ca48cb40b",
+      "src/servicedesk_agent/evaluation.py": "562d28dbde3dd8b6550a0310c6ee1cdc063903de66c4f82abb3b235294fd7f02",
+      "src/servicedesk_agent/knowledge.py": "b2b0f70f2600746b1c820da9d82093d0b0072ea4428054b65ac76a660d6f91af",
+      "src/servicedesk_agent/mcp_server.py": "f140b61ed966e956bc58dd8b92e62f82c5d4772c9bb9e18605babaeceb81a128",
+      "src/servicedesk_agent/native.py": "f5076bb79f18e70799b4f140f50015cdef33f966251f3ba888979cf50843290e",
+      "src/servicedesk_agent/operations.py": "a33fd24c302f6a9aa2d460b5057b36afde5f964b34517d020f8fa97bc10f5c63",
+      "src/servicedesk_agent/protocol.py": "1c29e3244469d563ebde424cf1fefabd4cd5e0c9f5e32de6ed7347cb15dc5a2b",
+      "src/servicedesk_agent/provenance.py": "8645084833a449d37c030715685ed43ed6fa582bc08fc00b8bb5295ccd12a697",
+      "src/servicedesk_agent/redmine.py": "c8f7b6909106fe09141cc810d22e47a32cf5d9ae320de8e8ff5fb9b94b5b1c3b",
+      "src/servicedesk_agent/session.py": "ffe1f017dd65c3e97aeb7564a8e210aeb49cedbfa7c97de323fc7547a5b07da6",
+      "src/servicedesk_agent/testing.py": "1addf038f4116517f6a9ae4cfa326b16dbc83ac3113cc3a48a43b6c4e22ba029",
+      "src/servicedesk_agent/usage.py": "dae5bc711457fc450fe6cb0a160214fb190b082e473264b8bd5e6944a271c028",
+      "tests/conftest.py": "93fb8c7fa4cd3d3594684fb66cc81da8b3820f1de749211b88268ad07f20ee40",
+      "tests/test_preference_memory_benchmark.py": "5bf9a9c8f08b31de1450abbc169209a1d753baeab6d9eaf768e4eb45b1d3c404"
+    },
+    "implementation_sha256": "a697e3258f25c148256d5bd255fa4d03c1853cd9df6e873322efbca3a0e2e4e4",
+    "source_commit": "49850cd965ab19789abfa45fc654dc60acbcce45",
+    "python": "3.12.15",
+    "packages": {
+      "deepagents": "0.7.32",
+      "langchain": "1.4.9",
+      "langchain-core": "1.7.6",
+      "langchain-openai": "1.7.3",
+      "langgraph": "1.2.20",
+      "langgraph-checkpoint-sqlite": "3.1.3",
+      "langmem": "0.0.30",
+      "haystack-ai": "3.4.1",
+      "openai": "2.45.0",
+      "httpx": "0.28.1"
+    },
+    "conditions": {
+      "available": "Native LangMem confirmed preference search result.",
+      "empty": "Same native search and schema; return the agreed empty JSON list."
+    },
+    "pilot_schedule": [
+      {
+        "scenario": "note_reference",
+        "repeat": 1,
+        "condition": "available"
+      },
+      {
+        "scenario": "note_reference",
+        "repeat": 1,
+        "condition": "empty"
+      },
+      {
+        "scenario": "override_reference",
+        "repeat": 1,
+        "condition": "empty"
+      },
+      {
+        "scenario": "override_reference",
+        "repeat": 1,
+        "condition": "available"
+      }
+    ],
+    "formal_schedule": [
+      {
+        "scenario": "note_reference",
+        "repeat": 1,
+        "condition": "available"
+      },
+      {
+        "scenario": "note_reference",
+        "repeat": 1,
+        "condition": "empty"
+      },
+      {
+        "scenario": "log_summary",
+        "repeat": 1,
+        "condition": "empty"
+      },
+      {
+        "scenario": "log_summary",
+        "repeat": 1,
+        "condition": "available"
+      },
+      {
+        "scenario": "contact_route",
+        "repeat": 1,
+        "condition": "available"
+      },
+      {
+        "scenario": "contact_route",
+        "repeat": 1,
+        "condition": "empty"
+      },
+      {
+        "scenario": "audit_timestamp",
+        "repeat": 1,
+        "condition": "empty"
+      },
+      {
+        "scenario": "audit_timestamp",
+        "repeat": 1,
+        "condition": "available"
+      },
+      {
+        "scenario": "override_reference",
+        "repeat": 1,
+        "condition": "available"
+      },
+      {
+        "scenario": "override_reference",
+        "repeat": 1,
+        "condition": "empty"
+      },
+      {
+        "scenario": "override_contact",
+        "repeat": 1,
+        "condition": "empty"
+      },
+      {
+        "scenario": "override_contact",
+        "repeat": 1,
+        "condition": "available"
+      },
+      {
+        "scenario": "note_reference",
+        "repeat": 2,
+        "condition": "empty"
+      },
+      {
+        "scenario": "note_reference",
+        "repeat": 2,
+        "condition": "available"
+      },
+      {
+        "scenario": "log_summary",
+        "repeat": 2,
+        "condition": "available"
+      },
+      {
+        "scenario": "log_summary",
+        "repeat": 2,
+        "condition": "empty"
+      },
+      {
+        "scenario": "contact_route",
+        "repeat": 2,
+        "condition": "empty"
+      },
+      {
+        "scenario": "contact_route",
+        "repeat": 2,
+        "condition": "available"
+      },
+      {
+        "scenario": "audit_timestamp",
+        "repeat": 2,
+        "condition": "available"
+      },
+      {
+        "scenario": "audit_timestamp",
+        "repeat": 2,
+        "condition": "empty"
+      },
+      {
+        "scenario": "override_reference",
+        "repeat": 2,
+        "condition": "empty"
+      },
+      {
+        "scenario": "override_reference",
+        "repeat": 2,
+        "condition": "available"
+      },
+      {
+        "scenario": "override_contact",
+        "repeat": 2,
+        "condition": "available"
+      },
+      {
+        "scenario": "override_contact",
+        "repeat": 2,
+        "condition": "empty"
+      }
+    ],
+    "max_user_turns": 3,
+    "recursion_limit": 48,
+    "per_attempt_model_call_limit": 36,
+    "backend": "Synthetic RedmineFixture through an actual loopback HTTP server.",
+    "scope": "Same server URL/project=1/API principal=1/ticket=42 within a run.",
+    "reset": "New fixture and SQLite Store per condition/repeat. Store closed after explicit confirmation, reopened for a new thread with no previous conversation.",
+    "cache": "Application state reset; provider prompt cache uncontrolled and measured.",
+    "setup": "Production remember_confirmed_preference; explicit synthetic confirmation; zero setup model requests.",
+    "clarification": "Question classification by frozen terms, followed by the scenario's fixed answer. No correction after any business write.",
+    "grading": "Exactly one matching note, one verified journal receipt, no collateral business change. Empty recall is eligible for full task success.",
+    "failure_policy": "Retain every started execution, failed call and unknown usage. No automatic episode retry; planned/unstarted counts retained.",
+    "pilot_gate": "Four scored executions with complete usage, no initial preference leaks, actual nonempty/empty recall branches, and at least one verified note in each condition. Scored business failures are retained and do not by themselves block formal execution.",
+    "primary_metric": "Preference clarification turns over all started history-required runs.",
+    "secondary_metrics": [
+      "task_success",
+      "current_instruction_priority",
+      "model_calls",
+      "logical_input_tokens",
+      "output_tokens",
+      "cache_read_tokens"
+    ]
+  },
+  "freeze_id": "2d6bfe1468ba96527ea689c8ab564bd0a11a23e4d4faed68eeb7389a4a3b926a",
+  "created_at": "2026-11-06T06:37:54.949461+00:00",
+  "source_archive_sha256": "96ad989e5b1f94b6c8ee50174fed6a5dbcd2dfa3bf548b1ec316f9ea94c2759e"
+}

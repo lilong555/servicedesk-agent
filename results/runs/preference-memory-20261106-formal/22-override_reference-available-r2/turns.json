@@ -1,0 +1,7 @@
+[
+  {
+    "turn": 1,
+    "user": "Use the preferences explicitly confirmed for this ticket when relevant. Ask me for any required detail that is unavailable. Append exactly one note using the business tools, keep the ticket open and leave its other fields unchanged. Do not send messages outside this ticket.\n\nFor this update, override my old note-reference preference. Use the prefix [HOTFIX-9] followed by ' | '. Append exactly this note: [HOTFIX-9] | Rollback approved.",
+    "assistant": "Appended exactly one note to ticket 42: \u201c[HOTFIX-9] | Rollback approved.\u201d The ticket remains open, and no other fields were changed."
+  }
+]

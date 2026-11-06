@@ -1,0 +1,37 @@
+[
+  {
+    "arguments": {
+      "query": "ticket 42 note reference convention",
+      "limit": 10,
+      "offset": 0,
+      "filter": null
+    },
+    "stored_result": [
+      {
+        "namespace": [
+          "servicedesk",
+          "2574312930b2174e1c37f734fd91d84252605680463b78ff34bb82e21ea01365",
+          "confirmed_preferences"
+        ],
+        "key": "a99314c3-c07d-4383-8eb6-3fc636f1fc1f",
+        "value": {
+          "content": {
+            "source_uri": "user-confirmation://2574312930b2174e1c37f734fd91d84252605680463b78ff34bb82e21ea01365/d668905c25a2b96d52ca14b48d106122f474bdf618c8c0ef424f50452063f880",
+            "source_kind": "user",
+            "entity_scope": "http://127.0.0.1:43820/projects/1/principals/1/issues/42",
+            "source_version": "d668905c25a2b96d52ca14b48d106122f474bdf618c8c0ef424f50452063f880",
+            "observed_at": "2026-11-06T06:38:47.853537Z",
+            "valid_from": null,
+            "valid_to": null,
+            "status": "observed",
+            "content": "I explicitly confirm this preference for this ticket: every investigation note must use the prefix [OPS-27], followed by a space, a vertical bar, and a space, then the update text. Example structure: [OPS-27] | UPDATE."
+          }
+        },
+        "created_at": "2026-11-06T06:38:47",
+        "updated_at": "2026-11-06T06:38:47",
+        "score": null
+      }
+    ],
+    "returned_result": []
+  }
+]
