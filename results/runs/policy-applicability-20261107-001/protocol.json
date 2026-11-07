@@ -1,0 +1,67 @@
+{
+  "schema": "servicedesk.policy-applicability.v1",
+  "dataset": "synthetic-policy-applicability-20261107-v1",
+  "recorded_at_utc": "2026-11-07T04:38:26.479879+00:00",
+  "base_commit": "d02672075ae4e0b03ccce5178c8cf487a59660df",
+  "source_members": {
+    "src/servicedesk_agent/__init__.py": "e78258d43721f3274a3a7a4ce270242841db76edea94213b087418e5a8f571ab",
+    "src/servicedesk_agent/agent.py": "965730be913bbd50683340e8d2f00da7f181f95cb8a9c5600a9af33dbb8744d8",
+    "src/servicedesk_agent/benchmark.py": "abdb350bc0c0bb5e59234b75c83d808a58142ec97ee5be4afc7286250534c50a",
+    "src/servicedesk_agent/cli.py": "3e61afe7ef92cc9c74fcafa6af93f975405923279ebfd942a48935a063ddc786",
+    "src/servicedesk_agent/compliance.py": "e5beb2981915f3ed00e290982430d21cdcc4c22d4592187b509ba7c4c94ad67f",
+    "src/servicedesk_agent/components.py": "0c43094f9b5be80a6c5fa6fe9f31971ffc3550c6d8048b4b5ce7cce5a49a5c01",
+    "src/servicedesk_agent/config.py": "bf1c4212a10a35667d02dffbf7661c447328291bd194c21ee1b08b0be02fb34b",
+    "src/servicedesk_agent/control.py": "800dd4679a0d08a585a0e36ee807b53b4b84c6d2bed94a8641d215741c0251a9",
+    "src/servicedesk_agent/demo.py": "05722de693170893c9ada5052c3605c64888cdd3b99ad1f33dee83adf50bdc04",
+    "src/servicedesk_agent/domain.py": "a42ee4051f03bb9ef267fe740ecc209e9086f0ec50b15c0f98efc56ca48cb40b",
+    "src/servicedesk_agent/evaluation.py": "562d28dbde3dd8b6550a0310c6ee1cdc063903de66c4f82abb3b235294fd7f02",
+    "src/servicedesk_agent/knowledge.py": "2af17ffa546f86da0d1ef82c39374a4b27030c3798b1916ad9b399b187705055",
+    "src/servicedesk_agent/mcp_server.py": "f140b61ed966e956bc58dd8b92e62f82c5d4772c9bb9e18605babaeceb81a128",
+    "src/servicedesk_agent/native.py": "f5076bb79f18e70799b4f140f50015cdef33f966251f3ba888979cf50843290e",
+    "src/servicedesk_agent/operations.py": "a33fd24c302f6a9aa2d460b5057b36afde5f964b34517d020f8fa97bc10f5c63",
+    "src/servicedesk_agent/preference_cli.py": "6d2354d96c839369671ba1c0303146a645d6912d0683f82f81d9f38557d4525f",
+    "src/servicedesk_agent/preferences.py": "64607229fc845734c6084d3599c6789805fab45a26892faf159daebb5aeb1214",
+    "src/servicedesk_agent/protocol.py": "1c29e3244469d563ebde424cf1fefabd4cd5e0c9f5e32de6ed7347cb15dc5a2b",
+    "src/servicedesk_agent/provenance.py": "8645084833a449d37c030715685ed43ed6fa582bc08fc00b8bb5295ccd12a697",
+    "src/servicedesk_agent/redmine.py": "9a6b78db73a4213841f18278b1f35302f38dc9cefd134da0d06da706ae27d2a7",
+    "src/servicedesk_agent/session.py": "02ef953bbe2958d3e7402fedcf6b28dcfae6b663879382a39a808f7bc7da3063",
+    "src/servicedesk_agent/testing.py": "1addf038f4116517f6a9ae4cfa326b16dbc83ac3113cc3a48a43b6c4e22ba029",
+    "src/servicedesk_agent/usage.py": "dae5bc711457fc450fe6cb0a160214fb190b082e473264b8bd5e6944a271c028",
+    "scripts/benchmark_policy_lifecycle.py": "0fbf60f17de17fbfac82f82da16b43a2d093afe264df80b606e2bee5bcfb3fd0",
+    "scripts/benchmark_policy_applicability.py": "2daacb76f80efec160c6574be7107be12fd0bae240c350a50056a6506849d8ab",
+    "pyproject.toml": "4affe4cd4c9fcbf7bdb5783b5a015205c2ba1e24972ed68341b3e3045e6ae7b3",
+    "uv.lock": "c81eccc5031e6a579689caf83c0d285fe93e94d506d86c421ef37f532c1cd4d6",
+    "benchmarks/policy-applicability-20261107/cases.json": "c6dd1c07cf8c677a9b191b61db82dbd17edc6cb3b9670b155eea6c25d005b97c"
+  },
+  "source_archive_sha256": "1333ac3a0531d0b1ece6470754822284bde57b8b6120c9b679d88266470c2a76",
+  "documents": 48,
+  "policy_identities": 16,
+  "policy_families": 8,
+  "queries": 76,
+  "query_kinds": {
+    "answerable": 64,
+    "empty-eligible": 8,
+    "unrelated": 4
+  },
+  "conditions": [
+    "unfiltered_time",
+    "filtered_time"
+  ],
+  "top_k": 3,
+  "model_requests": 0,
+  "backend": "production PolicyCatalog and Haystack BM25",
+  "packages": {
+    "haystack-ai": "3.4.1",
+    "pydantic": "2.14.2",
+    "langgraph": "1.2.20",
+    "langmem": "0.0.30"
+  },
+  "primary_metrics": [
+    "hit_at_1",
+    "hit_at_3",
+    "time_inapplicable_returned",
+    "out_of_scope_returned"
+  ],
+  "unit": "synthetic query; date variants and scope variants share policy families",
+  "design": "Both conditions share corpus, scope, retrieval and top_k; time eligibility is varied."
+}

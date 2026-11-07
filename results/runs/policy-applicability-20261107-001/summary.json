@@ -1,0 +1,150 @@
+{
+  "dataset": "synthetic-policy-applicability-20261107-v1",
+  "documents": 48,
+  "queries_per_condition": 76,
+  "model_requests": 0,
+  "conditions": {
+    "unfiltered_time": {
+      "queries": 76,
+      "answerable_queries": 64,
+      "hit_at_1": 18,
+      "hit_at_3": 62,
+      "returned_documents": 207,
+      "time_inapplicable_returned": 142,
+      "out_of_scope_returned": 0,
+      "empty_eligible_cases": 8,
+      "correct_empty_results": 4,
+      "unrelated_query_returns": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "unrelated_queries": 4,
+      "unrelated_empty": 3,
+      "temporal_cases": {
+        "before-publication": {
+          "queries": 4,
+          "answerable": 0,
+          "hit_at_1": 0,
+          "hit_at_3": 0,
+          "empty": 0
+        },
+        "before-revision": {
+          "queries": 16,
+          "answerable": 16,
+          "hit_at_1": 12,
+          "hit_at_3": 16,
+          "empty": 0
+        },
+        "current": {
+          "queries": 16,
+          "answerable": 16,
+          "hit_at_1": 2,
+          "hit_at_3": 16,
+          "empty": 0
+        },
+        "next-boundary": {
+          "queries": 16,
+          "answerable": 16,
+          "hit_at_1": 4,
+          "hit_at_3": 14,
+          "empty": 0
+        },
+        "outside-scope": {
+          "queries": 4,
+          "answerable": 0,
+          "hit_at_1": 0,
+          "hit_at_3": 0,
+          "empty": 4
+        },
+        "revision-boundary": {
+          "queries": 16,
+          "answerable": 16,
+          "hit_at_1": 0,
+          "hit_at_3": 16,
+          "empty": 0
+        },
+        "unrelated": {
+          "queries": 4,
+          "answerable": 0,
+          "hit_at_1": 0,
+          "hit_at_3": 0,
+          "empty": 3
+        }
+      }
+    },
+    "filtered_time": {
+      "queries": 76,
+      "answerable_queries": 64,
+      "hit_at_1": 62,
+      "hit_at_3": 64,
+      "returned_documents": 135,
+      "time_inapplicable_returned": 0,
+      "out_of_scope_returned": 0,
+      "empty_eligible_cases": 8,
+      "correct_empty_results": 8,
+      "unrelated_query_returns": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "unrelated_queries": 4,
+      "unrelated_empty": 3,
+      "temporal_cases": {
+        "before-publication": {
+          "queries": 4,
+          "answerable": 0,
+          "hit_at_1": 0,
+          "hit_at_3": 0,
+          "empty": 4
+        },
+        "before-revision": {
+          "queries": 16,
+          "answerable": 16,
+          "hit_at_1": 16,
+          "hit_at_3": 16,
+          "empty": 0
+        },
+        "current": {
+          "queries": 16,
+          "answerable": 16,
+          "hit_at_1": 16,
+          "hit_at_3": 16,
+          "empty": 0
+        },
+        "next-boundary": {
+          "queries": 16,
+          "answerable": 16,
+          "hit_at_1": 16,
+          "hit_at_3": 16,
+          "empty": 0
+        },
+        "outside-scope": {
+          "queries": 4,
+          "answerable": 0,
+          "hit_at_1": 0,
+          "hit_at_3": 0,
+          "empty": 4
+        },
+        "revision-boundary": {
+          "queries": 16,
+          "answerable": 16,
+          "hit_at_1": 14,
+          "hit_at_3": 16,
+          "empty": 0
+        },
+        "unrelated": {
+          "queries": 4,
+          "answerable": 0,
+          "hit_at_1": 0,
+          "hit_at_3": 0,
+          "empty": 3
+        }
+      }
+    }
+  },
+  "protocol_sha256": "acb71151e9e705c92f4cb0271c5685af9d0957f27355aabea6d858924167973a",
+  "retrieval_sha256": "608ee58c30a48197bfe7b5e7dc2fbefd0842ec7d2e1ff7c9eb2d46353fc7f587"
+}

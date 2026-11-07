@@ -1,0 +1,35 @@
+{
+  "issues": [],
+  "verified_rows": 152,
+  "source_members": 28,
+  "conditions": {
+    "unfiltered_time": {
+      "queries": 76,
+      "answerable_queries": 64,
+      "hit_at_1": 18,
+      "hit_at_3": 62,
+      "returned_documents": 207,
+      "time_inapplicable_returned": 142,
+      "out_of_scope_returned": 0,
+      "empty_eligible_cases": 8,
+      "correct_empty_results": 4,
+      "unrelated_queries": 4,
+      "unrelated_empty": 3
+    },
+    "filtered_time": {
+      "queries": 76,
+      "answerable_queries": 64,
+      "hit_at_1": 62,
+      "hit_at_3": 64,
+      "returned_documents": 135,
+      "time_inapplicable_returned": 0,
+      "out_of_scope_returned": 0,
+      "empty_eligible_cases": 8,
+      "correct_empty_results": 8,
+      "unrelated_queries": 4,
+      "unrelated_empty": 3
+    }
+  },
+  "analyzer_sha256": "e825584a3fddbf0657e10c7da8beac1044278292a75860f73e8d08f8c0de894d",
+  "model_requests": 0
+}

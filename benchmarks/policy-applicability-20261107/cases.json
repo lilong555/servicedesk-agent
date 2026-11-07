@@ -1,0 +1,1350 @@
+{
+  "dataset_id": "synthetic-policy-applicability-20261107-v1",
+  "scope": "production-it",
+  "versions": [
+    {
+      "version": "1",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "valid_to": "2026-05-01T00:00:00Z"
+    },
+    {
+      "version": "2",
+      "valid_from": "2026-05-01T00:00:00Z",
+      "valid_to": "2026-12-01T00:00:00Z"
+    },
+    {
+      "version": "3",
+      "valid_from": "2026-12-01T00:00:00Z",
+      "valid_to": null
+    }
+  ],
+  "policies": [
+    {
+      "policy_id": "certificate-renewal",
+      "scope": "production-it",
+      "title": "TLS certificate renewal",
+      "topic": "expiring TLS certificate service identity renewal",
+      "actions": [
+        "CERT-OWNER",
+        "CERT-SECURITY",
+        "CERT-PLATFORM"
+      ],
+      "instructions": [
+        "The service owner authorizes certificate renewal.",
+        "Security Operations authorizes certificate renewal.",
+        "The platform identity team authorizes certificate renewal."
+      ]
+    },
+    {
+      "policy_id": "database-export",
+      "scope": "production-it",
+      "title": "Database export approval",
+      "topic": "database data export audit classification transfer",
+      "actions": [
+        "DATA-OWNER",
+        "DATA-PRIVACY",
+        "DATA-GOVERNANCE"
+      ],
+      "instructions": [
+        "The data owner approves classified database exports.",
+        "The privacy team approves classified database exports.",
+        "Data Governance approves classified database exports."
+      ]
+    },
+    {
+      "policy_id": "security-patch",
+      "scope": "production-it",
+      "title": "Critical operating system patching",
+      "topic": "critical operating system vulnerability CVE patch rollout",
+      "actions": [
+        "PATCH-72H",
+        "PATCH-24H",
+        "PATCH-8H"
+      ],
+      "instructions": [
+        "Critical operating system patches require action within 72 hours.",
+        "Critical operating system patches require action within 24 hours.",
+        "Critical operating system patches require action within 8 hours."
+      ]
+    },
+    {
+      "policy_id": "guest-wifi",
+      "scope": "production-it",
+      "title": "Guest wireless access",
+      "topic": "visitor guest WiFi wireless access expiration sponsor",
+      "actions": [
+        "WIFI-7D",
+        "WIFI-3D",
+        "WIFI-1D"
+      ],
+      "instructions": [
+        "Guest wireless credentials expire after seven days.",
+        "Guest wireless credentials expire after three days.",
+        "Guest wireless credentials expire after one day."
+      ]
+    },
+    {
+      "policy_id": "device-encryption",
+      "scope": "production-it",
+      "title": "Endpoint disk encryption",
+      "topic": "endpoint laptop device disk encryption recovery escrow",
+      "actions": [
+        "KEY-LOCAL",
+        "KEY-CENTRAL",
+        "KEY-HSM"
+      ],
+      "instructions": [
+        "The local security vault retains encryption recovery keys.",
+        "The central security vault retains encryption recovery keys.",
+        "The hardware security module retains encryption recovery keys."
+      ]
+    },
+    {
+      "policy_id": "deployment-rollback",
+      "scope": "production-it",
+      "title": "Application deployment rollback",
+      "topic": "application deployment rollback production release failure",
+      "actions": [
+        "ROLLBACK-OWNER",
+        "ROLLBACK-SRE",
+        "ROLLBACK-INCIDENT"
+      ],
+      "instructions": [
+        "The application owner approves a failed release rollback.",
+        "The on-call SRE approves a failed release rollback.",
+        "The incident commander approves a failed release rollback."
+      ]
+    },
+    {
+      "policy_id": "storage-expansion",
+      "scope": "production-it",
+      "title": "Storage volume capacity expansion",
+      "topic": "storage volume capacity disk space exhausted expansion quota",
+      "actions": [
+        "VOLUME-20",
+        "VOLUME-40",
+        "VOLUME-80"
+      ],
+      "instructions": [
+        "A volume expansion may add up to 20 percent capacity.",
+        "A volume expansion may add up to 40 percent capacity.",
+        "A volume expansion may add up to 80 percent capacity."
+      ]
+    },
+    {
+      "policy_id": "ssh-key-rotation",
+      "scope": "production-it",
+      "title": "SSH service key rotation",
+      "topic": "SSH service account key credential rotation expiry",
+      "actions": [
+        "SSH-180D",
+        "SSH-90D",
+        "SSH-30D"
+      ],
+      "instructions": [
+        "Service SSH keys rotate every 180 days.",
+        "Service SSH keys rotate every 90 days.",
+        "Service SSH keys rotate every 30 days."
+      ]
+    },
+    {
+      "policy_id": "certificate-renewal",
+      "scope": "research-it",
+      "title": "TLS certificate renewal",
+      "topic": "expiring TLS certificate service identity renewal",
+      "actions": [
+        "LAB-CERT-OWNER",
+        "LAB-CERT-SECURITY",
+        "LAB-CERT-PLATFORM"
+      ],
+      "instructions": [
+        "Within research IT only: The service owner authorizes certificate renewal.",
+        "Within research IT only: Security Operations authorizes certificate renewal.",
+        "Within research IT only: The platform identity team authorizes certificate renewal."
+      ]
+    },
+    {
+      "policy_id": "database-export",
+      "scope": "research-it",
+      "title": "Database export approval",
+      "topic": "database data export audit classification transfer",
+      "actions": [
+        "LAB-DATA-OWNER",
+        "LAB-DATA-PRIVACY",
+        "LAB-DATA-GOVERNANCE"
+      ],
+      "instructions": [
+        "Within research IT only: The data owner approves classified database exports.",
+        "Within research IT only: The privacy team approves classified database exports.",
+        "Within research IT only: Data Governance approves classified database exports."
+      ]
+    },
+    {
+      "policy_id": "security-patch",
+      "scope": "research-it",
+      "title": "Critical operating system patching",
+      "topic": "critical operating system vulnerability CVE patch rollout",
+      "actions": [
+        "LAB-PATCH-72H",
+        "LAB-PATCH-24H",
+        "LAB-PATCH-8H"
+      ],
+      "instructions": [
+        "Within research IT only: Critical operating system patches require action within 72 hours.",
+        "Within research IT only: Critical operating system patches require action within 24 hours.",
+        "Within research IT only: Critical operating system patches require action within 8 hours."
+      ]
+    },
+    {
+      "policy_id": "guest-wifi",
+      "scope": "research-it",
+      "title": "Guest wireless access",
+      "topic": "visitor guest WiFi wireless access expiration sponsor",
+      "actions": [
+        "LAB-WIFI-7D",
+        "LAB-WIFI-3D",
+        "LAB-WIFI-1D"
+      ],
+      "instructions": [
+        "Within research IT only: Guest wireless credentials expire after seven days.",
+        "Within research IT only: Guest wireless credentials expire after three days.",
+        "Within research IT only: Guest wireless credentials expire after one day."
+      ]
+    },
+    {
+      "policy_id": "device-encryption",
+      "scope": "research-it",
+      "title": "Endpoint disk encryption",
+      "topic": "endpoint laptop device disk encryption recovery escrow",
+      "actions": [
+        "LAB-KEY-LOCAL",
+        "LAB-KEY-CENTRAL",
+        "LAB-KEY-HSM"
+      ],
+      "instructions": [
+        "Within research IT only: The local security vault retains encryption recovery keys.",
+        "Within research IT only: The central security vault retains encryption recovery keys.",
+        "Within research IT only: The hardware security module retains encryption recovery keys."
+      ]
+    },
+    {
+      "policy_id": "deployment-rollback",
+      "scope": "research-it",
+      "title": "Application deployment rollback",
+      "topic": "application deployment rollback production release failure",
+      "actions": [
+        "LAB-ROLLBACK-OWNER",
+        "LAB-ROLLBACK-SRE",
+        "LAB-ROLLBACK-INCIDENT"
+      ],
+      "instructions": [
+        "Within research IT only: The application owner approves a failed release rollback.",
+        "Within research IT only: The on-call SRE approves a failed release rollback.",
+        "Within research IT only: The incident commander approves a failed release rollback."
+      ]
+    },
+    {
+      "policy_id": "storage-expansion",
+      "scope": "research-it",
+      "title": "Storage volume capacity expansion",
+      "topic": "storage volume capacity disk space exhausted expansion quota",
+      "actions": [
+        "LAB-VOLUME-20",
+        "LAB-VOLUME-40",
+        "LAB-VOLUME-80"
+      ],
+      "instructions": [
+        "Within research IT only: A volume expansion may add up to 20 percent capacity.",
+        "Within research IT only: A volume expansion may add up to 40 percent capacity.",
+        "Within research IT only: A volume expansion may add up to 80 percent capacity."
+      ]
+    },
+    {
+      "policy_id": "ssh-key-rotation",
+      "scope": "research-it",
+      "title": "SSH service key rotation",
+      "topic": "SSH service account key credential rotation expiry",
+      "actions": [
+        "LAB-SSH-180D",
+        "LAB-SSH-90D",
+        "LAB-SSH-30D"
+      ],
+      "instructions": [
+        "Within research IT only: Service SSH keys rotate every 180 days.",
+        "Within research IT only: Service SSH keys rotate every 90 days.",
+        "Within research IT only: Service SSH keys rotate every 30 days."
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "id": "production-it/certificate-renewal/before-revision",
+      "query": "renew an expiring TLS certificate",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "certificate-renewal",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "certificate-renewal",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "production-it/certificate-renewal/revision-boundary",
+      "query": "TLS service identity certificate expiration",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "certificate-renewal",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "certificate-renewal",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "production-it/certificate-renewal/current",
+      "query": "renew an expiring TLS certificate",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "certificate-renewal",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "certificate-renewal",
+      "temporal_case": "current"
+    },
+    {
+      "id": "production-it/certificate-renewal/next-boundary",
+      "query": "TLS service identity certificate expiration",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "certificate-renewal",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "certificate-renewal",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "production-it/database-export/before-revision",
+      "query": "database data export approval",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "database-export",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "database-export",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "production-it/database-export/revision-boundary",
+      "query": "authorize an audited database transfer",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "database-export",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "database-export",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "production-it/database-export/current",
+      "query": "database data export approval",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "database-export",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "database-export",
+      "temporal_case": "current"
+    },
+    {
+      "id": "production-it/database-export/next-boundary",
+      "query": "authorize an audited database transfer",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "database-export",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "database-export",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "production-it/security-patch/before-revision",
+      "query": "critical CVE operating system patch rollout",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "security-patch",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "security-patch",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "production-it/security-patch/revision-boundary",
+      "query": "approve urgent security patching",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "security-patch",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "security-patch",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "production-it/security-patch/current",
+      "query": "critical CVE operating system patch rollout",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "security-patch",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "security-patch",
+      "temporal_case": "current"
+    },
+    {
+      "id": "production-it/security-patch/next-boundary",
+      "query": "approve urgent security patching",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "security-patch",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "security-patch",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "production-it/guest-wifi/before-revision",
+      "query": "visitor guest wireless access expiration",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "guest-wifi",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "guest-wifi",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "production-it/guest-wifi/revision-boundary",
+      "query": "sponsor a temporary guest WiFi account",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "guest-wifi",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "guest-wifi",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "production-it/guest-wifi/current",
+      "query": "visitor guest wireless access expiration",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "guest-wifi",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "guest-wifi",
+      "temporal_case": "current"
+    },
+    {
+      "id": "production-it/guest-wifi/next-boundary",
+      "query": "sponsor a temporary guest WiFi account",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "guest-wifi",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "guest-wifi",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "production-it/device-encryption/before-revision",
+      "query": "endpoint disk encryption recovery key",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "device-encryption",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "device-encryption",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "production-it/device-encryption/revision-boundary",
+      "query": "escrow a laptop encryption recovery key",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "device-encryption",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "device-encryption",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "production-it/device-encryption/current",
+      "query": "endpoint disk encryption recovery key",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "device-encryption",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "device-encryption",
+      "temporal_case": "current"
+    },
+    {
+      "id": "production-it/device-encryption/next-boundary",
+      "query": "escrow a laptop encryption recovery key",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "device-encryption",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "device-encryption",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "production-it/deployment-rollback/before-revision",
+      "query": "failed application release rollback approval",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "deployment-rollback",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "deployment-rollback",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "production-it/deployment-rollback/revision-boundary",
+      "query": "production deployment rollback authority",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "deployment-rollback",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "deployment-rollback",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "production-it/deployment-rollback/current",
+      "query": "failed application release rollback approval",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "deployment-rollback",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "deployment-rollback",
+      "temporal_case": "current"
+    },
+    {
+      "id": "production-it/deployment-rollback/next-boundary",
+      "query": "production deployment rollback authority",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "deployment-rollback",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "deployment-rollback",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "production-it/storage-expansion/before-revision",
+      "query": "expand an exhausted storage volume",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "storage-expansion",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "storage-expansion",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "production-it/storage-expansion/revision-boundary",
+      "query": "disk capacity quota expansion",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "storage-expansion",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "storage-expansion",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "production-it/storage-expansion/current",
+      "query": "expand an exhausted storage volume",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "storage-expansion",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "storage-expansion",
+      "temporal_case": "current"
+    },
+    {
+      "id": "production-it/storage-expansion/next-boundary",
+      "query": "disk capacity quota expansion",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "storage-expansion",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "storage-expansion",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "production-it/ssh-key-rotation/before-revision",
+      "query": "rotate an expiring SSH service account key",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "ssh-key-rotation",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "ssh-key-rotation",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "production-it/ssh-key-rotation/revision-boundary",
+      "query": "service credential SSH key rotation period",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "ssh-key-rotation",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "ssh-key-rotation",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "production-it/ssh-key-rotation/current",
+      "query": "rotate an expiring SSH service account key",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "ssh-key-rotation",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "ssh-key-rotation",
+      "temporal_case": "current"
+    },
+    {
+      "id": "production-it/ssh-key-rotation/next-boundary",
+      "query": "service credential SSH key rotation period",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "production-it",
+      "gold": [
+        [
+          "ssh-key-rotation",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "ssh-key-rotation",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "research-it/certificate-renewal/before-revision",
+      "query": "renew an expiring TLS certificate",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "certificate-renewal",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "certificate-renewal",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "research-it/certificate-renewal/revision-boundary",
+      "query": "TLS service identity certificate expiration",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "certificate-renewal",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "certificate-renewal",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "research-it/certificate-renewal/current",
+      "query": "renew an expiring TLS certificate",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "certificate-renewal",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "certificate-renewal",
+      "temporal_case": "current"
+    },
+    {
+      "id": "research-it/certificate-renewal/next-boundary",
+      "query": "TLS service identity certificate expiration",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "certificate-renewal",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "certificate-renewal",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "research-it/database-export/before-revision",
+      "query": "database data export approval",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "database-export",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "database-export",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "research-it/database-export/revision-boundary",
+      "query": "authorize an audited database transfer",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "database-export",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "database-export",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "research-it/database-export/current",
+      "query": "database data export approval",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "database-export",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "database-export",
+      "temporal_case": "current"
+    },
+    {
+      "id": "research-it/database-export/next-boundary",
+      "query": "authorize an audited database transfer",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "database-export",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "database-export",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "research-it/security-patch/before-revision",
+      "query": "critical CVE operating system patch rollout",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "security-patch",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "security-patch",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "research-it/security-patch/revision-boundary",
+      "query": "approve urgent security patching",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "security-patch",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "security-patch",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "research-it/security-patch/current",
+      "query": "critical CVE operating system patch rollout",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "security-patch",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "security-patch",
+      "temporal_case": "current"
+    },
+    {
+      "id": "research-it/security-patch/next-boundary",
+      "query": "approve urgent security patching",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "security-patch",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "security-patch",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "research-it/guest-wifi/before-revision",
+      "query": "visitor guest wireless access expiration",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "guest-wifi",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "guest-wifi",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "research-it/guest-wifi/revision-boundary",
+      "query": "sponsor a temporary guest WiFi account",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "guest-wifi",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "guest-wifi",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "research-it/guest-wifi/current",
+      "query": "visitor guest wireless access expiration",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "guest-wifi",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "guest-wifi",
+      "temporal_case": "current"
+    },
+    {
+      "id": "research-it/guest-wifi/next-boundary",
+      "query": "sponsor a temporary guest WiFi account",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "guest-wifi",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "guest-wifi",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "research-it/device-encryption/before-revision",
+      "query": "endpoint disk encryption recovery key",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "device-encryption",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "device-encryption",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "research-it/device-encryption/revision-boundary",
+      "query": "escrow a laptop encryption recovery key",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "device-encryption",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "device-encryption",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "research-it/device-encryption/current",
+      "query": "endpoint disk encryption recovery key",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "device-encryption",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "device-encryption",
+      "temporal_case": "current"
+    },
+    {
+      "id": "research-it/device-encryption/next-boundary",
+      "query": "escrow a laptop encryption recovery key",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "device-encryption",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "device-encryption",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "research-it/deployment-rollback/before-revision",
+      "query": "failed application release rollback approval",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "deployment-rollback",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "deployment-rollback",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "research-it/deployment-rollback/revision-boundary",
+      "query": "production deployment rollback authority",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "deployment-rollback",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "deployment-rollback",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "research-it/deployment-rollback/current",
+      "query": "failed application release rollback approval",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "deployment-rollback",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "deployment-rollback",
+      "temporal_case": "current"
+    },
+    {
+      "id": "research-it/deployment-rollback/next-boundary",
+      "query": "production deployment rollback authority",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "deployment-rollback",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "deployment-rollback",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "research-it/storage-expansion/before-revision",
+      "query": "expand an exhausted storage volume",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "storage-expansion",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "storage-expansion",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "research-it/storage-expansion/revision-boundary",
+      "query": "disk capacity quota expansion",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "storage-expansion",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "storage-expansion",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "research-it/storage-expansion/current",
+      "query": "expand an exhausted storage volume",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "storage-expansion",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "storage-expansion",
+      "temporal_case": "current"
+    },
+    {
+      "id": "research-it/storage-expansion/next-boundary",
+      "query": "disk capacity quota expansion",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "storage-expansion",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "storage-expansion",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "research-it/ssh-key-rotation/before-revision",
+      "query": "rotate an expiring SSH service account key",
+      "time": "2026-04-30T23:59:59Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "ssh-key-rotation",
+          "1"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "ssh-key-rotation",
+      "temporal_case": "before-revision"
+    },
+    {
+      "id": "research-it/ssh-key-rotation/revision-boundary",
+      "query": "service credential SSH key rotation period",
+      "time": "2026-05-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "ssh-key-rotation",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "ssh-key-rotation",
+      "temporal_case": "revision-boundary"
+    },
+    {
+      "id": "research-it/ssh-key-rotation/current",
+      "query": "rotate an expiring SSH service account key",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "ssh-key-rotation",
+          "2"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "ssh-key-rotation",
+      "temporal_case": "current"
+    },
+    {
+      "id": "research-it/ssh-key-rotation/next-boundary",
+      "query": "service credential SSH key rotation period",
+      "time": "2026-12-01T00:00:00Z",
+      "scope": "research-it",
+      "gold": [
+        [
+          "ssh-key-rotation",
+          "3"
+        ]
+      ],
+      "kind": "answerable",
+      "policy_family": "ssh-key-rotation",
+      "temporal_case": "next-boundary"
+    },
+    {
+      "id": "before-publication-0",
+      "query": "renew an expiring TLS certificate",
+      "time": "2025-12-31T23:59:59Z",
+      "scope": "production-it",
+      "gold": [],
+      "kind": "empty-eligible",
+      "temporal_case": "before-publication"
+    },
+    {
+      "id": "outside-scope-0",
+      "query": "endpoint disk encryption recovery key",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "unregistered-it",
+      "gold": [],
+      "kind": "empty-eligible",
+      "temporal_case": "outside-scope"
+    },
+    {
+      "id": "unrelated-0",
+      "query": "cafeteria allergy dietary menu",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "production-it",
+      "gold": [],
+      "kind": "unrelated",
+      "temporal_case": "unrelated"
+    },
+    {
+      "id": "before-publication-1",
+      "query": "database data export approval",
+      "time": "2025-12-31T23:59:59Z",
+      "scope": "research-it",
+      "gold": [],
+      "kind": "empty-eligible",
+      "temporal_case": "before-publication"
+    },
+    {
+      "id": "outside-scope-1",
+      "query": "failed application release rollback approval",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "unregistered-it",
+      "gold": [],
+      "kind": "empty-eligible",
+      "temporal_case": "outside-scope"
+    },
+    {
+      "id": "unrelated-1",
+      "query": "employee holiday vacation balance",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "research-it",
+      "gold": [],
+      "kind": "unrelated",
+      "temporal_case": "unrelated"
+    },
+    {
+      "id": "before-publication-2",
+      "query": "critical CVE operating system patch rollout",
+      "time": "2025-12-31T23:59:59Z",
+      "scope": "production-it",
+      "gold": [],
+      "kind": "empty-eligible",
+      "temporal_case": "before-publication"
+    },
+    {
+      "id": "outside-scope-2",
+      "query": "expand an exhausted storage volume",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "unregistered-it",
+      "gold": [],
+      "kind": "empty-eligible",
+      "temporal_case": "outside-scope"
+    },
+    {
+      "id": "unrelated-2",
+      "query": "parking garage bicycle space",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "production-it",
+      "gold": [],
+      "kind": "unrelated",
+      "temporal_case": "unrelated"
+    },
+    {
+      "id": "before-publication-3",
+      "query": "visitor guest wireless access expiration",
+      "time": "2025-12-31T23:59:59Z",
+      "scope": "research-it",
+      "gold": [],
+      "kind": "empty-eligible",
+      "temporal_case": "before-publication"
+    },
+    {
+      "id": "outside-scope-3",
+      "query": "rotate an expiring SSH service account key",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "unregistered-it",
+      "gold": [],
+      "kind": "empty-eligible",
+      "temporal_case": "outside-scope"
+    },
+    {
+      "id": "unrelated-3",
+      "query": "conference hotel travel reimbursement",
+      "time": "2026-11-07T00:00:00Z",
+      "scope": "research-it",
+      "gold": [],
+      "kind": "unrelated",
+      "temporal_case": "unrelated"
+    }
+  ],
+  "agent_scenarios": []
+}
